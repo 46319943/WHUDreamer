@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/user/user"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "梦想珈",
+    "backgroundColor": "#aaa",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#aaa",
+    "selectedColor": "#00aa00",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "日程表",
+        "iconPath": "images/tabBar-1.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "状态",
+        "iconPath": "images/tabBar-2.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "应用",
+        "iconPath": "images/tabBar-3.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "个人中心",
+        "iconPath": "images/tabBar-4.png"
+      }
+    ]
+  },
+  "debug":true
+}
