@@ -9,17 +9,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-    background: [
-      { url: '../../images/tabBar-1.png' },
-      { url: '../../images/tabBar-2.png' },
-      { url: '../../images/tabBar-3.png' },
-      { url: '../../images/tabBar-4.png' }      
-    ],
-    indicatorDots: true,
-    vertical: false,
-    autoplay: true,
-    interval: 2000,
-    duration: 500
+    avatar:'../../images/user-avatar.jpg',
+    name:'尚金诚',
+    position:'常务副主席',
+    detail:[
+      {
+      key:'手机号',
+      value:'186****1234'
+      },
+      {
+        key: '电子邮箱',
+        value: 'example@qq.com'
+      },
+      {
+        key: '所在院系',
+        value: '资源与环境科学学院'
+      }
+    ]
   },
   changeName : function(e){
     this.setData({name:'HAHA'});

@@ -1,9 +1,59 @@
 /* pages/user/user.wxss */
-.swiper {
- height: 400rpx;
- width: 100%;
+view{
+  font-size: 30rpx;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
 }
-.swiper image {
- height: 100%;
- width: 100%;
+.picture-container{
+  height: 500rpx;
+}
+.background{
+  height: 400rpx;
+  background: url("http://i4.bvimg.com/578488/2ef836f9d7c84adc.jpg");
+  filter: blur(2px);
+}
+.avatar{
+  position: relative;
+}
+image{
+  height: 250rpx;
+  width: 250rpx;
+  padding: 10rpx;
+  background: white;
+  position: relative;
+  bottom: 200rpx;
+}
+
+.name-container{
+  /* margin-top: 50rpx; */
+  margin-bottom: 20rpx;
+}
+.name{
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.position{
+  color: #aaa;
+  margin-bottom: 30rpx;
+}
+.detail{
+  color: #aaa;
+  padding-left: 15%;
+}
+.key{
+  float: left;
+  width: 20%;
+  margin-right: 10%;
+  text-align: left;
+  margin-bottom: 10rpx;
+}
+.value{
+  float: left;
+  width: auto;
+  margin-bottom: 10rpx;
+}
+.clear{
+  clear: both;
 }

@@ -1,2 +1,12 @@
 <!--pages/status/status.wxml-->
-<text>pages/status/status.wxml</text>
+<view class="page-body">
+  <view class="page-section page-section-spacing swiper">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{background}}" wx:key="*this">
+        <swiper-item>
+          <image src='{{item.url}}' class='slide-image' mode='aspectFit'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>  

@@ -1,12 +1,22 @@
 <!--pages/user/user.wxml-->
-<view class="page-body">
-  <view class="page-section page-section-spacing swiper">
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{background}}" wx:key="*this">
-        <swiper-item>
-          <image src='{{item.url}}' class='slide-image' mode='aspectFill'></image>
-        </swiper-item>
-      </block>
-    </swiper>
+<view class='user-container'>
+  <view class='picture-container'>
+    <view class='background'></view>
+    <view class='avatar'>
+      <image src='{{avatar}}'></image>
+    </view>
   </view>
-</view>  
+  <view class='infomation-container'>
+    <view class='name-container'>
+      <view class='name'>{{name}}</view>
+      <view class='position'>{{position}}</view>
+    </view>
+    <view class='detail'>
+      <block wx:for="{{detail}}" wx:key="*this">
+        <view class='key'>{{item.key}}</view>
+        <view class='value'>{{item.value}}</view>
+        <view class='clear'></view>
+      </block>
+    </view>
+  </view>
+</view>

@@ -7,8 +7,9 @@
     "pages/app/app"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#000",
-    "navigationBarTextStyle": "white",
+    "navigationStyle": "default",
+    "navigationBarBackgroundColor": "#0a0",
+    "navigationBarTextStyle": "black",
     "navigationBarTitleText": "梦想珈",
     "backgroundColor": "#aaa",
     "backgroundTextStyle": "dark"
