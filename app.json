@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/status/status",
+    "pages/app/app"
   ],
   "window": {
     "navigationBarBackgroundColor": "#000",
@@ -21,12 +23,12 @@
         "iconPath": "images/tabBar-1.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/status/status",
         "text": "状态",
         "iconPath": "images/tabBar-2.png"
       },
       {
-        "pagePath": "pages/user/user",
+        "pagePath": "pages/app/app",
         "text": "应用",
         "iconPath": "images/tabBar-3.png"
       },
@@ -37,5 +39,5 @@
       }
     ]
   },
-  "debug":true
+  "debug": true
 }
