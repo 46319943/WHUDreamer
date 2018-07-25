@@ -1,13 +1,13 @@
 <!--pages/user/user.wxml-->
 <view class='user-container'>
-  <view class='picture-container'>
-    <view class='background'></view>
+  <view class='picture'>
+    <view class='background' style='background:url({{background}});'></view>
     <view class='avatar'>
       <image src='{{avatar}}'></image>
     </view>
   </view>
-  <view class='infomation-container'>
-    <view class='name-container'>
+  <view class='infomation'>
+    <view class='title'>
       <view class='name'>{{name}}</view>
       <view class='position'>{{position}}</view>
     </view>

@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    avatar:'../../images/user-avatar.jpg',
+    name:'尚金城',
+    position:'武汉大学学生会常务副主席'
   },
 
   /**

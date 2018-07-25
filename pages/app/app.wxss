@@ -1,1 +1,30 @@
 /* pages/app/app.wxss */
+
+.top{
+  height: 100rpx;
+}
+.avatar{
+  float: left;
+  width: 80rpx;
+  height: 80rpx;
+  margin: 10rpx;
+}
+.avatar > image{
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+.information{
+  float: left;
+  height: 80rpx;
+  width: auto;
+  margin: 10rpx;
+}
+.information > .name{
+  text-align: left;
+  height: 40rpx;
+}
+.information > .position{
+  text-align: left;
+  height: 40rpx;
+}

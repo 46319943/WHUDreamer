@@ -21,22 +21,26 @@
       {
         "pagePath": "pages/index/index",
         "text": "日程表",
-        "iconPath": "images/tabBar-1.png"
+        "iconPath": "images/tabBar-1-off.png",
+        "selectedIconPath": "images/tabBar-1-on.png"
       },
       {
         "pagePath": "pages/status/status",
         "text": "状态",
-        "iconPath": "images/tabBar-2.png"
+        "iconPath": "images/tabBar-2-off.png",
+        "selectedIconPath": "images/tabBar-2-on.png"
       },
       {
         "pagePath": "pages/app/app",
         "text": "应用",
-        "iconPath": "images/tabBar-3.png"
+        "iconPath": "images/tabBar-3-off.png",
+        "selectedIconPath": "images/tabBar-3-on.png"
       },
       {
         "pagePath": "pages/user/user",
         "text": "个人中心",
-        "iconPath": "images/tabBar-4.png"
+        "iconPath": "images/tabBar-4-off.png",
+        "selectedIconPath": "images/tabBar-4-on.png"
       }
     ]
   },

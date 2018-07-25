@@ -8,4 +8,11 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-} 
+}
+view{
+  display: block;
+  width: 100%;
+  font-size: 30rpx;
+  box-sizing: border-box;
+  text-align: center;
+}

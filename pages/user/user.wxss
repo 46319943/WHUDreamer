@@ -1,23 +1,17 @@
 /* pages/user/user.wxss */
-view{
-  font-size: 30rpx;
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
-  text-align: center;
-}
-.picture-container{
+.picture{
   height: 500rpx;
 }
-.background{
+.picture > .background{
   height: 400rpx;
-  background: url("http://i4.bvimg.com/578488/2ef836f9d7c84adc.jpg");
+  /* 在js中定义了背景，添加交互性 */
+  /* background: "http://i4.bvimg.com/578488/2ef836f9d7c84adc.jpg"; */
   filter: blur(2px);
 }
-.avatar{
+.picture > .avatar{
   position: relative;
 }
-image{
+.avatar > image{
   height: 250rpx;
   width: 250rpx;
   padding: 10rpx;
@@ -26,15 +20,15 @@ image{
   bottom: 200rpx;
 }
 
-.name-container{
+.title{
   /* margin-top: 50rpx; */
   margin-bottom: 20rpx;
 }
-.name{
+.title > .name{
   font-size: 1.5em;
   font-weight: bold;
 }
-.position{
+.title > .position{
   color: #aaa;
   margin-bottom: 30rpx;
 }
@@ -42,14 +36,14 @@ image{
   color: #aaa;
   padding-left: 15%;
 }
-.key{
+.detail > .key{
   float: left;
   width: 20%;
   margin-right: 10%;
   text-align: left;
   margin-bottom: 10rpx;
 }
-.value{
+.detail > .value{
   float: left;
   width: auto;
   margin-bottom: 10rpx;
