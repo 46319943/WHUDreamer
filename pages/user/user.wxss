@@ -14,8 +14,8 @@
 .avatar > image{
   height: 250rpx;
   width: 250rpx;
-  padding: 10rpx;
-  background: white;
+  padding: 5rpx;
+  background: rgba(204, 204, 204, 1);
   position: relative;
   bottom: 200rpx;
 }

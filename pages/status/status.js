@@ -6,16 +6,16 @@ Page({
    */
   data: {
     background: [{
-        url: '../../images/app-1.jpg'
+        url: '../../images/app-1.png'
       },
       {
-        url: '../../images/app-2.jpg'
+        url: '../../images/app-2.png'
       },
       {
-        url: '../../images/app-3.jpg'
+        url: '../../images/app-3.png'
       },
       {
-        url: '../../images/app-4.jpg'
+        url: '../../images/app-4.png'
       }
     ],
     indicatorDots: true,

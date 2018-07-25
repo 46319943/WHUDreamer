@@ -8,6 +8,18 @@
       <view class='name'>{{name}}</view>
       <view class='position'>{{position}}</view>
     </view>
+    <view class='code'>
+      <image src='../../images/code.png'></image>
+    </view>
+  </view>
+  <view class='main'>
+    <block wx:for='{{apps}}' wx:key="*this">
+      <view class='app'>
+        <view class='icon' style='background:{{item.color}};'>
+          <image src='{{item.icon}}'></image>
+        </view>
+        <view class='name'>{{item.name}}</view>
+      </view>
+    </block>
   </view>
 </view>
-

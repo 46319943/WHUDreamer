@@ -1,13 +1,13 @@
 /* pages/app/app.wxss */
 
 .top{
-  height: 100rpx;
+  height: 150rpx;
 }
 .avatar{
   float: left;
-  width: 80rpx;
-  height: 80rpx;
-  margin: 10rpx;
+  height: 100rpx;
+  width: 100rpx;
+  margin: 25rpx;
 }
 .avatar > image{
   border-radius: 50%;
@@ -16,15 +16,50 @@
 }
 .information{
   float: left;
-  height: 80rpx;
-  width: auto;
-  margin: 10rpx;
+  height: 100rpx;
+  width: 450rpx;
+  margin: 25rpx;
 }
 .information > .name{
   text-align: left;
-  height: 40rpx;
+  height: 50rpx;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 .information > .position{
   text-align: left;
-  height: 40rpx;
+  height: 50rpx;
+  color: #aaa;
+}
+.code{
+  height: 100rpx;
+  width: 100rpx;
+  margin: 25rpx 0;
+  padding: 25rpx;
+  float: right;
+}
+.code image{
+  height: 100%;
+  width: 100%;
+}
+.app{
+  width: 187.5rpx;
+  height: 220rpx;
+  padding: 20rpx;
+  border: #eee solid 1rpx;
+  float: left;
+}
+.app > .icon{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 20%;
+  margin: 25rpx auto;
+}
+.app > .icon > image{
+  width: 70%;
+  height: 70%;
+  margin: 15%;
+}
+.app > .name{
+  color: rgba(80, 80, 80, 1);
 }
