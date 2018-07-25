@@ -1,0 +1,14 @@
+<view class='page-body'>
+  <form catchsubmit="formSubmit">
+    <view class='line'>
+      <label class='label' for='verifyMeg'>验证码</label>
+      <input type='number' id='verifyMeg' name='verifyMeg' placeholder='请输入短信验证码'></input>
+    </view>
+    <view class='underline'></view>
+    <button type='primary' form-type='submit'>下一步</button>
+
+  </form>
+</view>
+
+<import src="../../../templates/footer" />
+<template is="join" data="{{text: 'forbar'}}" />

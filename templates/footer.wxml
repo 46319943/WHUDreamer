@@ -1,0 +1,6 @@
+<template name='join'>
+  <view class='footer-join'>
+    <view>武汉大学学生会</view>
+    <view>做同学们满意的学生会，向建设成为全国学生会标兵迈进更大一步!</view>
+  </view>
+</template>

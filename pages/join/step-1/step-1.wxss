@@ -1,0 +1,69 @@
+.page-body{
+
+}
+.line{
+  height: 120rpx;
+  padding: 30rpx 35rpx;
+  /* border-bottom: #aaa solid 2rpx; */
+  text-align: left;
+  overflow: visible;
+}
+.label{
+  width: 30%;
+  float: left;
+  text-align: left;
+  font-size: 1.5em;
+}
+.line > input{
+  height: 100%;
+  width: 70%;
+  float: left;
+  text-align: left;
+  font-size: 1.5em;
+}
+.underline{
+  width: 690rpx;
+  margin: 0 auto;
+  border-bottom: 2rpx solid #aaa;
+  clear: both;
+}
+radio-group{
+  display: block;
+  height: 100%;
+  float: left;
+}
+radio{
+  height: 100%;
+}
+.choose{
+  height: 100%;
+  font-size: 1.5em;
+  margin-right: 50rpx;
+}
+picker{
+  display: block;
+  height: 100%;
+  width: 70%;
+  float: left;
+}
+.picker{
+  height: 100%;
+  width: 100%;
+  font-size: 1.5em;
+  text-align: left;
+}
+.line > input#verify.verify{
+  width: 40%;
+}
+image.verify{
+  height: 150%;
+  width: 30%;
+  float: left;
+  position: relative;
+  bottom: 20%;
+}
+button{
+  margin-top: 60rpx;
+  margin-bottom: 30rpx;
+  width: 90%;
+}

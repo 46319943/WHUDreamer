@@ -1,12 +1,22 @@
 <!--pages/status/status.wxml-->
-<view class="page-body">
-  <view class="page-section page-section-spacing swiper">
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{background}}" wx:key="*this">
-        <swiper-item>
-          <image src='{{item.url}}' class='slide-image' mode='aspectFit'></image>
-        </swiper-item>
-      </block>
-    </swiper>
-  </view>
-</view>  
+<view class="swiper">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{background}}" wx:key="*this">
+      <swiper-item>
+        <image src='{{item.url}}' class='slide-image' mode='aspectFit'></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class='content'>
+  <block wx:for='content'>
+    <view class='message'>
+      <view wx:if='{{item.icon}}' class='icon'>
+        <image src='{{item.icon}}'></image>
+      </view>
+      <view class='main'>
+        
+      </view>
+    </view>
+  </block>
+</view>

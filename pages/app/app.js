@@ -12,7 +12,8 @@ Page({
       {
         name: '加入校会',
         color: 'rgba(67, 207, 124, 1)',
-        icon: '../../images/app-1.png'
+        icon: '../../images/app-1.png',
+        tapEvent: 'join'
       },
       {
         name: '面试官',
@@ -51,7 +52,11 @@ Page({
       },
     ]
   },
-
+  join: function(){
+    wx.navigateTo({
+      url: '../join/step-1/step-1'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

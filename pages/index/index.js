@@ -12,7 +12,8 @@ Page({
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
-      url: '../logs/logs'
+      // url: '../logs/logs'
+      url: '../join/step-1/step-1'
     })
   },
   onLoad: function () {

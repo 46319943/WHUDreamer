@@ -4,7 +4,11 @@
     "pages/logs/logs",
     "pages/user/user",
     "pages/status/status",
-    "pages/app/app"
+    "pages/app/app",
+    "pages/join/step-1/step-1",
+    "pages/join/step-2/step-2",
+    "pages/join/step-3/step-3",
+    "pages/join/step-4/step-4"
   ],
   "window": {
     "navigationStyle": "default",
