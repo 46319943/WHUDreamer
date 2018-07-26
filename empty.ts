@@ -1,0 +1,1 @@
+//防止tsconfig.json报错
