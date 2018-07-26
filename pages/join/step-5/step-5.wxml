@@ -1,0 +1,30 @@
+<view class='page-body'>
+  <form catchsubmit="formSubmit">
+    <view class='line'>
+      <label class='label' for='hobby'>兴趣爱好</label>
+      <view class="hobby"></view>
+      <block wx:for="{{hobby}}" wx:key="*this">
+        <view class="box" data-name="{{item}}" bindtap="hobbyTap">{{item}}</view>
+      </block>
+    </view>
+    <view class='underline'></view>
+    <view class='line' id="option">
+      <block wx:for="{{option}}" wx:key="*this">
+        <view class='option' data-name="{{item}}" bindtap="optionTap">{{item}}</view>
+      </block>
+    </view>
+    <view class="title">
+      <view class="left-line"></view>
+      <view class="content">自我评价</view>
+      <view class="right-line"></view>
+    </view>
+    <textarea class="text" placeholder="请输入你对自我的理解" bindinput="textInput" maxlength="-1"></textarea>
+    <view class="count">{{count}}/{{limit}}</view>
+    <view class='underline'></view>
+    <button type='default' form-type='submit'>下一步</button>
+
+  </form>
+</view>
+
+<import src="../../../templates/footer" />
+<template is="join" data="{{text: 'forbar'}}" />

@@ -8,7 +8,10 @@
     "pages/join/step-1/step-1",
     "pages/join/step-2/step-2",
     "pages/join/step-3/step-3",
-    "pages/join/step-4/step-4"
+    "pages/join/step-4/step-4",
+    "pages/join/step-5/step-5",
+    "pages/join/step-0/step-0",
+    "pages/code/code"
   ],
   "window": {
     "navigationStyle": "default",

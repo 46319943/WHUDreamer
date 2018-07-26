@@ -1,0 +1,9 @@
+<view class='page-body'>
+  <form catchsubmit="formSubmit">
+    <image class="avatar" src="{{avatar}}" />
+    <view class="tip">您需要先上传证件照才能继续填写</view>
+    <button type='default' form-type='submit'>开始填写</button>
+  </form>
+</view>
+<import src="../../../templates/footer" />
+<template is="join" data="{{text: 'forbar'}}" />

@@ -1,0 +1,63 @@
+.page-body{
+    /* height: 100%; */
+    background: rgb(52, 52, 52);
+}
+page{
+    background: rgb(52, 52, 52);
+    
+}
+.main{
+    width: 80%;
+    height: 900rpx;
+    margin: 150rpx auto;
+    border-radius: 30rpx;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.infomation{
+    height: 150rpx;
+    padding: 0 10%;
+}
+.avatar{
+    height: 100rpx;
+    width: 100rpx;
+    border-radius: 50%;
+    margin-left: 60rpx;
+    margin-right: 30rpx;
+    overflow: hidden;
+    float: left;
+}
+.avatar image{
+    height: 100%;
+    width: 100%;
+}
+.detail{
+    height: 100%;
+    width: fit-content;
+    float: left;
+}
+.detail .name{
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: left;
+}
+.detail .position{
+    color: rgba(128, 128, 128, 1);
+    text-align: left;
+    font-size: 0.8em;
+}
+.code{
+    height: 500rpx;
+    width: 500rpx;
+}
+.code image{
+    height: 100%;
+    width: 100%;
+}
+.tip{
+    font-size: 0.8;
+    color: rgba(80, 80, 80, 1);
+}

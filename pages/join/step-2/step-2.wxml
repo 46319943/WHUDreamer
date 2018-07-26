@@ -5,7 +5,7 @@
       <input type='number' id='verifyMeg' name='verifyMeg' placeholder='请输入短信验证码'></input>
     </view>
     <view class='underline'></view>
-    <button type='primary' form-type='submit'>下一步</button>
+    <button type='default' form-type='submit'>下一步</button>
 
   </form>
 </view>

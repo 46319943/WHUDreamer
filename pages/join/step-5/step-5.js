@@ -1,44 +1,46 @@
-// pages/join/step-4/step-4.js
+// pages/join/step-5/step-5.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    indexOfSection:0,
-    section:[
-      '新闻宣传部'
-    ],
-    obey:true,
     count:0,
-    limit:200
-  },
-  sectionPickerChange: function(e){
-    this.setData({
-      indexOfSection: e.detail.value
-    });
-  },
-  switchChange: function(e){
-    this.setData({
-      obey:Boolean(e.detail.value)
-    })
+    limit:200,
+    hobby:['HTML','CSS','JS'],
+    option:['HTML','CSS','JS','JAVA','TS','学习','睡觉','找女友？']
   },
   textInput: function(e){
     this.setData({
       count:e.detail.value.length
     });
   },
-  formSubmit: function(e){
-
-    wx.navigateTo({
-      url: '../step-5/step-5',
-    })
+  optionTap: function(e){
+    let hobby = this.data.hobby;
+    let option = e.target.dataset.name;
+    if(hobby.indexOf(option)===-1){
+      hobby.push(option);
+      this.setData({
+        hobby:hobby
+      });
+    }
+    console.log(this);
+    console.log(e);
+  },
+  hobbyTap: function(e){
+    let hobby = this.data.hobby;
+    let option = e.target.dataset.name;
+    hobby.splice(hobby.indexOf(option),1);
+    this.setData({
+      hobby:hobby
+    });
+    console.log(this);
+    console.log(e);
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+  
   },
 
   /**

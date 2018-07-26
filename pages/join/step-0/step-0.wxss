@@ -1,0 +1,15 @@
+@import "../step-1/step-1.wxss";
+.footer-join{
+  position: absolute;
+  bottom: 0;
+}
+.tip{
+  color:rgba(80, 80, 80, 1);
+  font-size: 0.8em;
+}
+.avatar{
+    width: 80%;
+    height: 700rpx;
+    margin: 50rpx auto;
+    border: #aaa solid 5rpx;
+}

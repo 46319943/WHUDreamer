@@ -54,7 +54,7 @@ Page({
   },
   join: function(){
     wx.navigateTo({
-      url: '../join/step-1/step-1'
+      url: '../join/step-0/step-0'
     })
   },
   /**

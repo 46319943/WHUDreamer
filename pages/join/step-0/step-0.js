@@ -1,44 +1,22 @@
-// pages/join/step-4/step-4.js
+// pages/join/step-0/step-0.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    indexOfSection:0,
-    section:[
-      '新闻宣传部'
-    ],
-    obey:true,
-    count:0,
-    limit:200
+    avatar:'../../../images/user-avatar.jpg'
   },
-  sectionPickerChange: function(e){
-    this.setData({
-      indexOfSection: e.detail.value
-    });
-  },
-  switchChange: function(e){
-    this.setData({
-      obey:Boolean(e.detail.value)
-    })
-  },
-  textInput: function(e){
-    this.setData({
-      count:e.detail.value.length
-    });
-  },
-  formSubmit: function(e){
-
+  formSubmit: function(e) {
     wx.navigateTo({
-      url: '../step-5/step-5',
+      url: '../step-1/step-1',
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+  
   },
 
   /**

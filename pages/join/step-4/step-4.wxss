@@ -1,9 +1,58 @@
 @import "../step-1/step-1.wxss";
 .footer-join{
   position: absolute;
-  bottom: 30rpx;
+  bottom: 0;
 }
 switch{
   height: 100%;
   float: right;
+}
+
+/* 定义文本框上面的标题样式 */
+
+/* 容器 */
+.title{
+  height: 30rpx;
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
+}
+/* 左边的线 */
+.left-line{
+  height: 100%;
+  width: 25%;
+  margin-left: 10%;
+  border-bottom: #aaa 2rpx solid;
+  float: left;
+  position: relative;
+  bottom: 25%;
+}
+/* 右边的线 */
+.right-line{
+  height: 100%;
+  width: 25%;
+  margin-right: 10%;
+  border-bottom: #aaa 2rpx solid;
+  float: left;
+  position: relative;
+  bottom: 25%;
+}
+/* 标题内容 */
+.content{
+  height: 100%;
+  width: 30%;
+  line-height: 1;
+  color: #aaa;
+  float: left;
+}
+.text{
+  width: 90%;
+  height: 400rpx;
+  margin: 0 auto;
+  text-align: left;
+}
+.count{
+  color: #aaa;
+  text-align: right;
+  padding-right: 5%;
+  margin-bottom: 15rpx;
 }

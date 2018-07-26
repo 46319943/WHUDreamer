@@ -16,7 +16,15 @@
       <switch checked bindchange="switchChange"/>
     </view>
     <view class='underline'></view>
-    <button type='primary' form-type='submit'>下一步</button>
+    <view class="title">
+      <view class="left-line"></view>
+      <view class="content">对部门的理解</view>
+      <view class="right-line"></view>
+    </view>
+    <textarea class="text" placeholder="请输入你对部门的理解" bindinput="textInput" maxlength="-1"></textarea>
+    <view class="count">{{count}}/{{limit}}</view>
+    <view class='underline'></view>
+    <button type='default' form-type='submit'>下一步</button>
 
   </form>
 </view>

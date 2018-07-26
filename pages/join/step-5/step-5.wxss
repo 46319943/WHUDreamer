@@ -1,0 +1,32 @@
+@import "../step-1/step-1.wxss";
+@import "../step-4/step-4.wxss";
+.line{
+    height: fit-content;
+}
+.box{
+    height: auto;
+    width: fit-content;
+    border-radius: 30rpx;
+    background: rgba(191, 191, 191, 1);
+    color: white;
+    margin-right: 20rpx;
+    margin-top: 10rpx;
+    padding: 5rpx 20rpx;
+    /* float: left; */
+    display: inline-block;
+}
+#option{
+    height: fit-content;
+}
+.option{
+    height: auto;
+    width: fit-content;
+    padding: 10rpx 20rpx;
+    border: rgba(236, 238, 241, 1) 2rpx solid;
+    border-radius: 25rpx;
+    color: rgba(128, 128, 128, 1);
+    margin-right: 20rpx;
+    margin-bottom: 10rpx;
+    font-size: 0.8em;
+    display: inline-block;
+}
