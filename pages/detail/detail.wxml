@@ -1,0 +1,45 @@
+<view class="top">
+    <view class="avatar">
+        <image src="{{avatar}}" />
+    </view>
+    <view class="name">{{name}}</view>
+</view>
+<view class="detail">
+    <view class="title line">{{title}}</view>
+    <view class="date line">
+        <image src="{{start}}" />
+        {{startDate}}
+    </view>
+    <view class="date line">
+        <image src="{{end}}" />
+        {{endDate}}
+    </view>
+    <view class='underline'></view>
+    <view class="introduce line">
+        <image src="{{introduce}}" />
+        <view class="content">
+            <view wx:for="{{line}}" wx:key="*this">{{item}}</view>
+        </view>
+    </view>
+</view>
+<view class='underline'></view>
+<view class="join">
+    <view class="invite">
+        <image src="{{invite}}" />
+        邀请好友
+    </view>
+    <view class="apply">
+        <image src="{{apply}}" />
+        现在报名
+    </view>
+</view>
+<view class='underline'></view>
+<view class="friend">
+    <image class="img" src="{{friend}}" />
+    {{count}}人参与
+    <image class="arrow" src="{{arrow}}" />
+    <view class='underline'></view>
+</view>
+
+<import src="../../templates/footer" />
+<template is="join" data="{{text: 'forbar'}}" />

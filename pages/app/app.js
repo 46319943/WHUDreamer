@@ -57,6 +57,11 @@ Page({
       url: '../join/step-0/step-0'
     })
   },
+  codeTap: function(e){
+    wx.navigateTo({
+      url: '../code/code'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,0 +1,119 @@
+.top{
+    height: 300rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.avatar{
+    height: 150rpx;
+    width: 150rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.avatar image{
+    height: 100%;
+    width: 100%;
+}
+.name{
+
+}
+.detail{
+    height: 500rpx;
+    
+}
+.line{
+    height: 50rpx;
+    padding: 10rpx 30rpx;
+    text-align: left;
+    font-size: 0.8em;
+    vertical-align: top;
+}
+.detail .title{
+    vertical-align: top;
+    color: rgba(80, 80, 80, 1);
+    font-weight: bold;
+    font-size: 1.2em;
+    line-height: 1;
+    margin-bottom: 30rpx;
+    margin-top: 20rpx;
+}
+.detail image{
+    vertical-align: top;
+    height: 30rpx;
+    width: 30rpx;
+    margin-right: 30rpx;
+}
+.detail .date{
+    vertical-align: top;
+    color: rgba(25, 25, 25, 1);
+    line-height: 30rpx;
+}
+.introduce{
+    height: fit-content;
+}
+.introduce .content{
+    display: inline-block;
+    width: 80%;
+    font-size: 24rpx;
+    text-align: left;
+}
+.content view{
+    font-size: 24rpx;
+    text-align: left;
+    color: rgba(25, 25, 25, 1);
+    margin-bottom: 5rpx;
+    
+}
+.join{
+    height: 60rpx;
+}
+.invite , .apply{
+    width: 50%;
+    padding: 10rpx 0;
+    text-align: center;
+    /* vertical-align: middle; */
+    display: inline-block;
+}
+.invite{
+    border-right: #aaa solid 2rpx;
+}
+.join image{
+    vertical-align: middle;
+    height: 40rpx;
+    width: 40rpx;
+    margin-right: 20rpx;
+}
+.friend{
+    height: 60rpx;
+    padding: 15rpx 35rpx;
+    text-align: left;
+    font-size: 24rpx;
+    color: rgba(25, 25, 25, 1);
+}
+.friend .img{
+    height: 30rpx;
+    width: 30rpx;
+    margin-right: 30rpx;
+    vertical-align: sub;
+}
+.friend .arrow{
+    height: 30rpx;
+    width: 30rpx;
+    margin-left: 70%;
+    vertical-align: sub;
+}
+
+
+
+.underline{
+    width: 690rpx;
+    margin: 15rpx auto;
+    border-bottom: 2rpx solid #aaa;
+    clear: both;
+    color: rgba(80, 80, 80, 1);
+}
+  .footer-join{
+    position: absolute;
+    bottom: 0;
+}
