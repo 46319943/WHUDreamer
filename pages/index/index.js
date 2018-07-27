@@ -10,10 +10,10 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
-  bindViewTap: function() {
+  bindViewTap: function () {
     wx.navigateTo({
       // url: '../logs/logs'
-      url: '../detail/detail'
+      url: '../test/test'
     })
   },
   onLoad: function () {
@@ -22,7 +22,7 @@ Page({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-    } else if (this.data.canIUse){
+    } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
@@ -44,21 +44,49 @@ Page({
       })
     }
   },
-  getUserInfo: function(e) {
+  getUserInfo: function (e) {
     console.log(e)
-    if (e.detail.userInfo){
+    if (e.detail.userInfo) {
       app.globalData.userInfo = e.detail.userInfo
       this.setData({
         userInfo: e.detail.userInfo,
         hasUserInfo: true
       })
-    }else{
+    } else {
       // 用户拒绝微信授权
-      
-    }
-    
-  },
-  onReady: function(){
 
+    }
+
+  },
+  onReady: function () {
+
+  },
+  testFunction: function () {
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          console.log('获取code成功，正在发送请求');          
+          console.log(res.code);
+          //发起网络请求
+          wx.request({
+            url: 'https://think.whusu.org/user/login',
+            data: {
+              code: res.code
+            },
+            method:'POST',
+            success:function(res){
+              console.log('请求解析成功！');
+              console.log(res.data);
+            },
+            fail:function(res){
+              console.log('请求失败失败');
+              console.log(res)
+            }
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    });
   }
 })

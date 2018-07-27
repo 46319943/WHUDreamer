@@ -1,13 +1,136 @@
-/* pages/status/status.wxss */
-
-.swiper {
-  height: 400rpx;
+view{
+  display: inline-block;
   width: 100%;
+  vertical-align: top;
 }
 
+image{
+  display: inline-block;
+  vertical-align: sub;
+}
+/* 轮播图 */
+.swiper {
+  height: 300rpx;
+  width: 100%;
+}
 .swiper image {
   height: 100%;
   width: 100%;
   background: black;
 }
 
+/* 轮播图下面的内容 */
+.content{
+  display: flex;
+  flex-direction: column;
+}
+
+/* 每一条内容 */
+.message{
+  height: fit-content;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 3rpx solid rgba(166, 166, 166, 1);
+}
+
+/* 内容中的左边部分 */
+.icon{
+  width: 100rpx;
+  height: fit-content;
+  margin-right: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* 左边部分的图片 */
+.icon image{
+  height: 80rpx;
+  width: 80rpx;
+  padding: 10rpx;
+  border-radius: 50%;
+  background: rgba(77, 169, 227, 1);
+}
+/* 左边的计数 */
+.count{
+  font-size: 20rpx;
+  color: #aaa;
+}
+
+
+/* 内容中的主体部分 */
+.main{
+  flex: 1;
+}
+/* 主题部分的头部 */
+.top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* 标题和作者的容器 */
+.top .left{
+  width: fit-content;
+  text-align: left;
+  flex: 2;
+  /* 将字体大小改为0可以去掉诡异的间距 */
+  /* font-size: 0; */
+}
+/* 标题 */
+.top .left .title{
+  text-align: left;
+  font-size: 30rpx;
+}
+/* 作者 */
+.top .left .author{
+  width: fit-content;
+  text-align: left;
+  font-size: 25rpx;
+  color: #aaa;
+}
+/* 日期 */
+.top .date{
+  text-align: right;
+  padding-right: 10rpx;
+  font-size: 20rpx;
+  color: #aaa;
+  flex: 1;
+}
+/* 描述 */
+.description{
+  text-align: left;
+  font-size: 25rpx;
+  color: #aaa;
+}
+/* 内容和按钮之间的分割线 */
+.separate{
+  border-bottom: #aaa solid 4rpx;
+}
+.bottom{
+  margin-top: 20rpx;
+}
+/* 按钮容器 */
+.wrapper{
+  padding: 20rpx 0;
+  padding-bottom: 0;
+  border-top: #aaa solid 3rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.wrapper .detail{
+  text-align: left;
+}
+/* 按钮中的图片 */
+.wrapper image{
+  height: 40rpx;
+  width: 40rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+/* 按钮 */
+.detail , .join{
+  vertical-align: middle;
+  font-size: 25rpx;
+  color: rgba(0, 0, 0, 0.54)
+}

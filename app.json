@@ -12,7 +12,8 @@
     "pages/join/step-5/step-5",
     "pages/join/step-0/step-0",
     "pages/code/code",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/test/test"
   ],
   "window": {
     "navigationStyle": "default",

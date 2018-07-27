@@ -16,6 +16,11 @@ view{
   box-sizing: border-box;
   text-align: center;
 }
+view.new{
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+}
 
 .footer-join{
   /* position: absolute;

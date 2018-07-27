@@ -1,0 +1,7 @@
+<view>测试页面</view>
+<button bindtap="testFunction">点击按钮测试功能</button>
+<button bindtap="clean">清空消息</button>
+<block wx:for="{{message}}" wx:key="*this">
+    <view>{{item}}</view>
+
+</block>
