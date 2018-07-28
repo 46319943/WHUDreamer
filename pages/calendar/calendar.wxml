@@ -1,0 +1,8 @@
+<view class="page-body">
+    <block wx:for="123456789" wx:for-item='row'>
+        <block wx:for="12345678" wx:for-item="coloum">
+            <view class="cell">{{row}}/{{coloum}}</view>
+        </block>
+    </block>
+
+</view>

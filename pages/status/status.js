@@ -33,7 +33,8 @@ Page({
         join:true,
         total:200,
         count:198,
-        icon:'../../images/icon-join.png'
+        icon:'../../images/icon-join.png',
+        detail:'xxx'//detail相关信息
       },
       {
         title:'金秋艺术节志愿者同学报名',
@@ -58,12 +59,14 @@ Page({
         description:'金秋服饰大赛是金秋艺术节比赛中的一个项目，需要招募工作人员200名，点击报名！',
         date:'07/18 19:20',
         join:false,
-        icon:'../../images/icon-join.png'
+        icon:'../../images/icon-join.png',
+        image:'../../images/status-image.jpg'
       },
       {
         title:'金秋艺术节志愿者同学报名',
         description:'金秋服饰大赛是金秋艺术节比赛中的一个项目，需要招募工作人员200名，点击报名！',
         date:'07/18 19:20',
+        image:'../../images/status-image.jpg'
       },
       {
         title:'金秋艺术节志愿者同学报名',
@@ -78,7 +81,15 @@ Page({
       },
     ]
   },
+  detailTap: function(e){
+    //设置全局变量来传递detail信息
 
+    
+    //或者在链接后面直接传参，在detail页面中的option来接收
+    wx.navigateTo({
+      url:'../detail/detail'
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */

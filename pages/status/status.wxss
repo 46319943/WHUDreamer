@@ -61,8 +61,13 @@ image{
 /* 内容中的主体部分 */
 .main{
   flex: 1;
+  display: flex;
 }
-/* 主题部分的头部 */
+/* 主体部分的非图片部分 */
+.main .no-image{
+  flex: 2;
+}
+/* 主体部分的头部 */
 .top{
   display: flex;
   align-items: center;
@@ -88,6 +93,7 @@ image{
   font-size: 25rpx;
   color: #aaa;
 }
+/* 如果有图片，就不显示日期了 */
 /* 日期 */
 .top .date{
   text-align: right;
@@ -95,6 +101,11 @@ image{
   font-size: 20rpx;
   color: #aaa;
   flex: 1;
+}
+/* 右部图片 */
+.top .image image{
+  width: 100%;
+  height: 100%;
 }
 /* 描述 */
 .description{
@@ -133,4 +144,17 @@ image{
   vertical-align: middle;
   font-size: 25rpx;
   color: rgba(0, 0, 0, 0.54)
+}
+/* 主体部分的图片部分 */
+/* 图片容器 */
+.main .image{
+  /* flex: 1; */
+  width: 200rpx;
+  height: 200rpx;
+
+}
+/* 图片主体 */
+.main .image image{
+  height: 100%;
+  width: 100%;
 }

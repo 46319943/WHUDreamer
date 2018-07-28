@@ -1,10 +1,11 @@
 .page-body{
     /* height: 100%; */
-    background: rgb(52, 52, 52);
+    /* background: rgb(52, 52, 52); */
 }
 page{
     background: rgb(52, 52, 52);
-    
+    height: 100%;
+    overflow: hidden;
 }
 .main{
     width: 80%;

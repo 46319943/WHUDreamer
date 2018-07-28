@@ -13,7 +13,8 @@
     "pages/join/step-0/step-0",
     "pages/code/code",
     "pages/detail/detail",
-    "pages/test/test"
+    "pages/test/test",
+    "pages/calendar/calendar"
   ],
   "window": {
     "navigationStyle": "default",
