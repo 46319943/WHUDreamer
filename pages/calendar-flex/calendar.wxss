@@ -1,0 +1,39 @@
+page{
+    height: 100%;
+}
+.rowFlex{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.coloumFlex{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.cell{
+    border: 0.5rpx #eee solid;
+    flex: 1;
+}
+/* 注意line-height是自动继承的 */
+.firstRow{
+    color: white;
+    background: rgb(107, 227, 160);
+    line-height: 1;
+    height: 80rpx;
+}
+.firstRow .up{
+    /* line-height: 1; */
+}
+.firstRow .dowm{
+    margin-top: 10rpx;
+    /* line-height: 1.4; */
+}
+.firstColoum{
+    color: black;
+    background: rgb(229, 229, 229);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}

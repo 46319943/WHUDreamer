@@ -14,7 +14,8 @@
     "pages/code/code",
     "pages/detail/detail",
     "pages/test/test",
-    "pages/calendar/calendar"
+    "pages/calendar/calendar",
+    "pages/calendar-flex/calendar"
   ],
   "window": {
     "navigationStyle": "default",
@@ -29,7 +30,7 @@
     "selectedColor": "#00aa00",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/calendar-flex/calendar",
         "text": "日程表",
         "iconPath": "images/tabBar-1-off.png",
         "selectedIconPath": "images/tabBar-1-on.png"

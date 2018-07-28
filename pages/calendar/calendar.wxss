@@ -8,5 +8,15 @@ page{
     grid-auto-rows: 1fr;
 }
 .cell{
-    border: 1rpx solid #aaa;
+    border: 0.5rpx solid #eee;
+}
+
+.first-row{
+    line-height: 1;
+    color: white;
+    background: rgb(107, 227, 160);
+}
+.first-coloum{
+    color: black;
+    background: rgb(229, 229, 229);
 }

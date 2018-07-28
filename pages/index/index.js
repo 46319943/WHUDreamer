@@ -62,9 +62,13 @@ Page({
 
   },
   testFunction: function () {
-    wx.navigateTo({
-      url:'../calendar/calendar'
-    })
+
+    wx.switchTab({
+      url:'../calendar-flex/calendar'
+    });
+    // wx.navigateTo({
+    //   url:'../calendar/calendar'
+    // });
     // wx.login({
     //   success: function (res) {
     //     if (res.code) {

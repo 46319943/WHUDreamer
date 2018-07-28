@@ -10,5 +10,5 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
-  <button bindtap="testFunction">点击原型头像打开测试页面</button>
+  <button bindtap="testFunction">点击圆形头像打开测试页面，点击此按钮进入程序</button>
 </view>

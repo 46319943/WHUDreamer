@@ -1,7 +1,9 @@
 <view class="page-body">
-    <block wx:for="123456789" wx:for-item='row'>
-        <block wx:for="12345678" wx:for-item="coloum">
-            <view class="cell">{{row}}/{{coloum}}</view>
+    <block wx:for="00000000000000" wx:for-index="row">
+        <block wx:for="00000000" wx:for-index="coloum">
+            <view wx:if="{{row===0}}" class="first-row cell">{{firstRow[coloum]}}</view>
+            <view wx:elif="{{coloum===0}}" class="first-coloum cell">{{firstColoum[row]}}</view>
+            <view wx:else class="cell">{{row+1}}/{{coloum+1}}</view>
         </block>
     </block>
 

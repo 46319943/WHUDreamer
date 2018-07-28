@@ -1,0 +1,26 @@
+<!-- 
+横向容器，放了8列
+<view class="rowFlex" wx:for="{{firstRow}}" wx:for-index="coloum">
+    纵向容器，定义了一列
+    <view class="coloumFlex" wx:for="{{firstColoum}}" wx:for-index="row">
+        <view wx:if="{{row===0}}" class="firstRow">{{firstRow[coloum]}}</view>
+        <view wx:elif="{{coloum===0}}"></view>
+    </view>
+</view> 
+错误的师范
+-->
+
+<!-- 横向弹性盒子，里面有8个纵向的弹性盒子 -->
+<view class="rowFlex">
+    <!-- 纵向弹性盒子，里面有14项 -->
+    <view class="coloumFlex" wx:for="{{firstRow}}" wx:for-index="coloum">
+        <block wx:for="{{firstColoum}}" wx:for-index="row">
+            <view wx:if="{{row===0}}" class="firstRow cell">
+                <view class="up">{{firstRowUp[coloum]}}</view>
+                <view class="dowm">{{firstRowDown[coloum]}}</view>
+            </view>
+            <view wx:elif="{{coloum===0}}" class="firstColoum cell">{{firstColoum[row]}}</view>
+            <view wx:else class="cell">{{row}}/{{coloum}}</view>
+        </block>
+    </view>
+</view>
