@@ -1,7 +1,15 @@
 <view>测试页面</view>
-<button bindtap="testFunction">点击按钮测试功能</button>
+<button bindtap="loginFunction">点击登录</button>
 <button bindtap="clean">清空消息</button>
+<form bindsubmit="submitFunction">
+    <input name='url'/>
+    <input class="key" name='key1'/>
+    <input class='value' name='value1'/>
+    <input class="key" name='key2'/>
+    <input class='value' name='value2'/>
+    <input class="key" name='key3'/>
+    <input class='value' name='value3'/>
+</form>
 <block wx:for="{{message}}" wx:key="*this">
     <view>{{item}}</view>
-
 </block>
