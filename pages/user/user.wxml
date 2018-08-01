@@ -19,4 +19,7 @@
       </block>
     </view>
   </view>
+
+  <button bind:tap="test">测试~~</button>
+
 </view>

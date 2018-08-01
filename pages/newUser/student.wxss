@@ -1,0 +1,5 @@
+input{
+    width: 80%;
+    height: 60rpx;
+    margin-bottom: 30rpx;
+}

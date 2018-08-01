@@ -7,8 +7,4 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view class="usermotto">
-    <!-- <text class="user-motto">{{motto}}</text> -->
-  </view>
-  <button bindtap="testFunction">点击圆形头像打开测试页面，点击此按钮进入程序</button>
 </view>

@@ -1,6 +1,6 @@
-var app = getApp();
-var globalData = app.globalData;
-var handler = globalData.handler;
+let app = getApp();
+let globalData = app.globalData;
+let handler = globalData.handler;
 
 Page({
   data: {
@@ -12,6 +12,10 @@ Page({
       url: '../test/test'
     })
   },
+  /**
+   * 如果用户之前已经同意了获取用户信息，那么在app.js中就在全局变量中设置了userInfo
+   * 否则，就要通过在这个页面中的按钮获取
+   */
   onLoad: function () {
     if (app.globalData.userInfo) {
       // 如果有用户信息，就直接跳转到界面
@@ -61,12 +65,5 @@ Page({
     }
 
   },
-  onReady: function () {
 
-  },
-  testFunction: function () {
-    wx.switchTab({
-      url: '../calendar-flex/calendar'
-    });
-  }
 })

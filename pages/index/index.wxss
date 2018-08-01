@@ -1,9 +1,18 @@
-/**index.wxss**/
+page{
+  height: 100%;
+}
+.container{
+  height: 100%;
+}
 .userinfo {
+  height: fit-content;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  justify-content: center;
+}
+.userinfo button{
 
 }
 
@@ -12,14 +21,8 @@
   height: 128rpx;
   margin: 20rpx;
   border-radius: 50%;
-  top:0;
-  left: 0;
 }
 
 .userinfo-nickname {
   color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
 }

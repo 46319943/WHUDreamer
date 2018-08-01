@@ -20,7 +20,7 @@ function ajax(config) {
     // 判断是否存在cookie
     if (handler.cookie) {
         defaultConfig.header = {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'content-type': 'application/x-www-form-urlencoded',
             'cookie': 'PHPSESSID=' + handler.cookie
         };
     }

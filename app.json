@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/test/test",
     "pages/logs/logs",
     "pages/user/user",
     "pages/status/status",
@@ -13,9 +14,9 @@
     "pages/join/step-0/step-0",
     "pages/code/code",
     "pages/detail/detail",
-    "pages/test/test",
     "pages/calendar/calendar",
-    "pages/calendar-flex/calendar"
+    "pages/calendar-flex/calendar",
+    "pages/newUser/student"
   ],
   "window": {
     "navigationStyle": "default",

@@ -1,0 +1,7 @@
+<form bind:submit="formSubmit">
+    <input name='id' placeholder="教务系统帐号"/>
+    <input name='pass' placeholder="教务系统密码"/>
+    <input name='phone' placeholder="手机号"/>
+    <input name='email' placeholder="邮箱"/>
+    <button form-type="submit">提交</button>
+</form>
