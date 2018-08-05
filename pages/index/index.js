@@ -35,11 +35,11 @@ Page({
       // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
         success: res => {
-          // 设置全局加密信息
-          handler.encryptedData = res.encryptedData;
-          handler.iv = res.iv;
           // 设置全局用户信息
           app.globalData.userInfo = res.userInfo
+          // 设置全局加密信息
+          this.globalData.userInfo.encryptedData = res.encryptedData;
+          this.globalData.userInfo.iv = res.iv;
           // 获取到用户信息之后跳转
           wx.switchTab({
             url: '../calendar-flex/calendar'
@@ -50,11 +50,11 @@ Page({
   },
   getUserInfo: function (e) {
     if (e.detail.userInfo) {
-      // 设置全局加密信息
-      handler.encryptedData = e.detail.encryptedData;
-      handler.iv = e.detail.iv;
       // 设置全局用户信息
       app.globalData.userInfo = e.detail.userInfo
+      // 设置全局加密信息
+      this.globalData.userInfo.encryptedData = res.encryptedData;
+      this.globalData.userInfo.iv = res.iv;
       // 点击允许之后跳转页面
       wx.switchTab({
         url: '../calendar-flex/calendar'

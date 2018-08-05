@@ -1,5 +1,31 @@
+form{
+    display: block;
+}
+view{
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+}
 input{
-    width: 80%;
+    display: inline-block;
     height: 60rpx;
-    margin-bottom: 30rpx;
+    min-height: none;
+    vertical-align: top;
+    width: 70%;
+    font-size: 42rpx;
+    line-height: 60rpx;
+}
+.line{
+    height: 100rpx;
+    padding: 20rpx 30rpx;
+    border-bottom: 1rpx #aaa solid;
+}
+.lable{
+    height: 60rpx;
+    width: 30%;
+    font-size: 42rpx;
+    line-height: 60rpx;
+}
+form{
+    font-size: 0;
 }

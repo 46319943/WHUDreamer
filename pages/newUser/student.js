@@ -1,7 +1,7 @@
 let app = getApp();
 let globalData = app.globalData;
 let handler = globalData.handler;
-let login = globalData.login;
+let ajax = globalData.ajax;
 Page({
 
   /**
@@ -17,13 +17,15 @@ Page({
     let pass = res.pass;
     let phone = res.phone;
     let email = res.email;
-    login.request({
+    ajax({
       url:'user/info/add/bkjw',
       data:{
         phone:phone,
         email:email,
         student_num:id,
-        password:pass
+        password:pass,
+        encryptedData: globalData.userInfo.encryptedData,
+        iv: globalData.userInfo.iv,
       },
       success: res => {
         console.log(res);

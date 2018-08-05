@@ -20,7 +20,9 @@ view.new{
   width: 100%;
   vertical-align: top;
 }
-
+form{
+  font-size: 0;
+}
 .footer-join{
   /* position: absolute;
   bottom: 20rpx; */

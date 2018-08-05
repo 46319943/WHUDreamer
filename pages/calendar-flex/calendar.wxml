@@ -11,16 +11,17 @@
 -->
 
 <!-- 横向弹性盒子，里面有8个纵向的弹性盒子 -->
-<view class="rowFlex">
+<view class="rowFlex" bind:touchstart="cellMove">
     <!-- 纵向弹性盒子，里面有14项 -->
     <view class="coloumFlex" wx:for="{{firstRow}}" wx:for-index="coloum">
         <block wx:for="{{firstColoum}}" wx:for-index="row">
-            <view wx:if="{{row===0}}" class="firstRow cell">
+            <view wx:if="{{row===0}}" class="firstRow cell" style="background:{{setNavigationBarColor}};">
                 <view class="up">{{firstRowUp[coloum]}}</view>
                 <view class="dowm">{{firstRowDown[coloum]}}</view>
             </view>
             <view wx:elif="{{coloum===0}}" class="firstColoum cell">{{firstColoum[row]}}</view>
-            <view wx:else class="cell">{{row}}/{{coloum}}</view>
+            <view wx:else class="cell" id="{{row}}-{{coloum}}" 
+            style="background:{{cellColor[row][coloum]}};color:{{cellColor[row][coloum]}}">{{row}}/{{coloum}}</view>
         </block>
     </view>
 </view>

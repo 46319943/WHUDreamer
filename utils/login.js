@@ -47,15 +47,7 @@ function login() {
     })
 
 }
-function request(config){
-    if(config.data){
-        config.data.encryptedData = handler.encryptedData;
-        config.data.iv = handler.iv;
-    }
-    ajax(config);
 
-}
 module.exports = {
     login: login,
-    request: request
   }
