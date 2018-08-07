@@ -1,6 +1,12 @@
 let handler = require("handler.js");
 let ajax = require("ajax.js");
 
+let app;
+let globalData;
+function init(_app){
+    app = _app;
+    globalData = app.globalData;
+}
 /**
  * 后端登录
  * 实际上就是提交code到后端，并从相应头中获取到cookie中的PHPSESSID，存入变量中，以后每次请求都带上它
@@ -37,6 +43,9 @@ function login() {
                             console.log(cookie);
                             console.log('获取cookie成功！');
                             handler.cookie = cookie;
+
+                            getAccount();
+
                         }
                     }
                 })
@@ -47,7 +56,23 @@ function login() {
     })
 
 }
-
+/**
+ * 获取账户信息
+ */
+function getAccount(){
+    ajax({
+        method:'GET',
+        url:'user/info/get',
+        success: (res)=>{
+          if(res.data.errcode === 0){
+              let result = res.data;
+              globalData.account = res.data;
+          }
+        }
+      });
+}
 module.exports = {
-    login: login,
+    login,
+    init,
+    getAccount,
   }

@@ -5,6 +5,7 @@ let handler = globalData.handler;
 Page({
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    // 不能这样子设置data，因为页面在一开始的时候就会被注册，而请求在之后才完成
     // hasUserInfo: globalData.hasUserInfo,
   },
   /**
@@ -33,8 +34,8 @@ Page({
           // 设置全局用户信息
           app.globalData.userInfo = res.userInfo
           // 设置全局加密信息
-          this.globalData.userInfo.encryptedData = res.encryptedData;
-          this.globalData.userInfo.iv = res.iv;
+          app.globalData.userInfo.encryptedData = res.encryptedData;
+          app.globalData.userInfo.iv = res.iv;
           // 获取到用户信息之后跳转
           wx.switchTab({
             url: '../calendar-flex/calendar'
@@ -48,8 +49,8 @@ Page({
       // 设置全局用户信息
       app.globalData.userInfo = e.detail.userInfo
       // 设置全局加密信息
-      this.globalData.userInfo.encryptedData = res.encryptedData;
-      this.globalData.userInfo.iv = res.iv;
+      app.globalData.userInfo.encryptedData = res.encryptedData;
+      app.globalData.userInfo.iv = res.iv;
       // 点击允许之后跳转页面
       wx.switchTab({
         url: '../calendar-flex/calendar'

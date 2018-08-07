@@ -3,6 +3,8 @@ let ajax = require("./utils/ajax.js");
 let login = require("./utils/login.js");
 App({
   onLaunch: function () {
+    // 初始化
+    login.init(this);
     // 登录
     login.login();
     // 获取用户信息

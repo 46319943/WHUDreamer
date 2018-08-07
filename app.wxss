@@ -43,8 +43,14 @@ label{
   margin-top: 30rpx;
   margin-bottom: 20rpx;
   color: #aaa;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
 }
 .footer-join view{
   line-height: 1.5;
   font-size: 24rpx;
+  text-align: center;
 }

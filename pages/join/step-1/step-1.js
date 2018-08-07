@@ -1,11 +1,14 @@
-var app = getApp();
+let app = getApp();
+let globalData = app.globalData;
+let handler = globalData.handler;
+let ajax = globalData.ajax;
 
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    verify: '../../../images/verify.png',
+    verify: handler.common + 'verify/get/',
     indexOfPolicy: 0,
     policy: [
       '团员',
@@ -20,7 +23,7 @@ Page({
     profession: [
       '地理信息科学',
       '自然地理'
-    ]
+    ],
   },
   formSubmit: function(e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)

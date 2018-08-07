@@ -1,4 +1,8 @@
-// pages/code/code.js
+let app = getApp();
+let globalData = app.globalData;
+let handler = globalData.handler;
+let ajax = globalData.ajax;
+let login = globalData.login;
 Page({
 
   /**
@@ -16,7 +20,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    ajax({
+      url:'user/qrcode/get',
+      method:'GET',
+      success:(res)=>{
+        console.log(res);
+        if(res.data.errcode===0){
+          let result = res.data;
+          let uid = result.uid;
+          let time = result.out_time;
+          let date = new Date(time);
+          this.setData({
+            date:date.getFullYear() + '/' + date.getMonth()+1 + '/' + date.getDay()
+             + ' ' +date.getHours() + ':' + date.getMinutes(),
+             code: 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + uid,
+          })
+        }
+      }
+    });
   },
 
   /**

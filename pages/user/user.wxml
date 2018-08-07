@@ -1,4 +1,4 @@
-<!--pages/user/user.wxml-->
+<!-- pages/user/user.wxml -->
 <view class='user-container'>
   <view class='picture'>
     <view class='background' style='background:url({{background}});'></view>
@@ -8,17 +8,17 @@
   </view>
   <view class='infomation'>
     <view class='title'>
-      <view class='name'>{{name}}</view>
-      <view class='position'>{{position}}</view>
+      <view class='name'>{{account ? name : '未绑定'}}</view>
+      <view class='position'>{{account ? position : '绑定之后查看更多信息'}}</view>
     </view>
-    <view class='detail'>
-      <block wx:for="{{detail}}" wx:key="*this">
-        <view class='key'>{{item.key}}</view>
-        <view class='value'>{{item.value}}</view>
-      </block>
-    </view>
+    <block wx:if="{{account}}">
+      <view class='detail'>
+        <block wx:for="{{detail}}" wx:key="*this">
+          <view class='key'>{{item.key}}</view>
+          <view class='value'>{{item.value}}</view>
+        </block>
+      </view>
+    </block>
   </view>
-
-  <button bind:tap="test">测试~~</button>
-
+  <button bind:tap="bind">绑定账户/更新账户</button>
 </view>

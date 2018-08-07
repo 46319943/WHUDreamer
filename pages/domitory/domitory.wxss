@@ -30,3 +30,9 @@ input{
 form{
     font-size: 0;
 }
+
+button{
+    width: 85%;
+    margin: 20rpx auto;
+}
+

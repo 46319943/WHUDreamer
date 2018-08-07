@@ -1,4 +1,4 @@
-.line{
+      q   .line{
   height: 120rpx;
   padding: 30rpx 35rpx;
   text-align: left;
@@ -61,4 +61,8 @@ button{
   margin-top: 60rpx;
   margin-bottom: 30rpx;
   width: 90%;
+}
+
+.footer-join{
+  position: static;
 }

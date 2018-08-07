@@ -47,3 +47,8 @@
   text-align: left;
   margin-bottom: 10rpx;
 }
+
+button{
+  width: 90%;
+  margin: 20rpx auto;
+}

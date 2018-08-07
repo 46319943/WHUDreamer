@@ -1,11 +1,4 @@
 let handler = require('handler.js');
-let defaultConfig = {
-    method: "POST",
-    fail: function (res) {
-        console('Ajax请求失败');
-        console(res);
-    },
-};
 /**
  * 发送后端请求
  * @param {*} 参数 
@@ -19,16 +12,24 @@ function ajax(config) {
     config.url = handler.common + config.url;
     // 判断是否存在cookie
     if (handler.cookie) {
-        defaultConfig.header = {
+        config.header = {
             'content-type': 'application/x-www-form-urlencoded',
             'cookie': 'PHPSESSID=' + handler.cookie
         };
     }
     // 添加默认配置
-    let _config = Object.assign(defaultConfig, config);
-    console.log(_config);
+    if(!config.method){
+        config.method = 'POST'
+    }
+    if(!config.fail){
+        config.fail = (res) => {
+            console('Ajax请求失败');
+            console(res);
+        }
+    }
+    console.log(config);
     // 发起请求
-    wx.request(_config);
+    wx.request(config);
 }
 // 暴露ajax方法
 module.exports = ajax;
