@@ -9,10 +9,9 @@
                 <view class="position">{{position}}</view>
             </view>
         </view>
-        <view class="code">
+        <view class="code" bind:tap="test">
             <image src="{{code}}" />
         </view>
         <view class="data">{{date}}前有效</view>
     </view>
-
 </view>

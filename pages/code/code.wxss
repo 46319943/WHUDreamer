@@ -62,3 +62,8 @@ page{
     font-size: 0.8;
     color: rgba(80, 80, 80, 1);
 }
+canvas{
+    position: absolute;
+    top:0;
+    left: 0;
+}

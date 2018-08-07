@@ -3,6 +3,10 @@ let globalData = app.globalData;
 let handler = globalData.handler;
 let ajax = globalData.ajax;
 let login = globalData.login;
+
+
+let qrcode = require('../../utils/qrcode.js');
+
 Page({
 
   /**
@@ -32,16 +36,29 @@ Page({
           // 返回的是秒，换成毫秒
           let time = result.out_time * 1000;
           let date = new Date(time);
+          
+          console.log(uid);
+
+          // 调用模块生成base64数据
+          let data = qrcode.createQrCodeImg(uid,{'size':300});
+          
           this.setData({
+            uid,
             date:date.getFullYear() + '/' + (date.getMonth()+1) + '/' + date.getDate()
-             + ' ' +date.getHours() + ':' + date.getMinutes(),
-             code: 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + uid,
+            + ' ' +date.getHours() + ':' + date.getMinutes(),
+            // code: 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + uid,
+            code: data,
           })
         }
       }
     });
   },
-
+  test: function(){
+    console.log(this.data.uid);
+    let data = qrcode.createQrCodeImg(this.data.uid,{'size':300});
+    console.log(data);
+  },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
