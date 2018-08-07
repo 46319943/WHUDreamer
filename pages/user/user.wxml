@@ -15,7 +15,6 @@
       <block wx:for="{{detail}}" wx:key="*this">
         <view class='key'>{{item.key}}</view>
         <view class='value'>{{item.value}}</view>
-        <view class='clear'></view>
       </block>
     </view>
   </view>

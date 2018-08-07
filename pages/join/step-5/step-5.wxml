@@ -2,7 +2,7 @@
   <form catchsubmit="formSubmit">
     <view class='line'>
       <label class='label' for='hobby'>兴趣爱好</label>
-      <view class="hobby"></view>
+      <!-- <view class="hobby"></view> -->
       <block wx:for="{{hobby}}" wx:key="*this">
         <view class="box" data-name="{{item}}" bindtap="hobbyTap">{{item}}</view>
       </block>

@@ -1,5 +1,4 @@
 @import 'weui.wxss';
-/**app.wxss**/
 .container {
   height: 100%;
   display: flex;
@@ -8,29 +7,44 @@
   justify-content: space-between;
   box-sizing: border-box;
 }
-view{
+
+page{
   display: block;
+  min-height: 100%;
+  position: relative;
+}
+view{
+  display: inline-block;
+  box-sizing: border-box;
   width: 100%;
   font-size: 30rpx;
-  box-sizing: border-box;
   text-align: center;
-}
-view.new{
-  display: inline-block;
-  width: 100%;
   vertical-align: top;
 }
 form{
+  display: block;
   font-size: 0;
 }
+input{
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  height: unset;
+  min-height: unset;
+  vertical-align: top;
+}
+label{
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+
 .footer-join{
-  /* position: absolute;
-  bottom: 20rpx; */
   margin-top: 30rpx;
   margin-bottom: 20rpx;
   color: #aaa;
 }
 .footer-join view{
   line-height: 1.5;
-  font-size: 0.8em;
+  font-size: 24rpx;
 }

@@ -1,0 +1,16 @@
+<form bind:submit="formSubmit">
+    <view class="line">
+        <view class="lable">学号</view>
+        <input name='id' placeholder="学号" />
+    </view>
+    <view class="test"></view>
+    <view class="line">
+        <view class="lable">姓名</view>
+        <input name='name' placeholder="姓名" />
+    </view>
+    <button form-type="submit">查询宿舍</button>
+    <view wx:if="{{hasResult}}">
+        <view class="line">{{campusName}} - {{domitoryBuildingName}} - {{domitoryName}} - {{bunkCode}}号床</view>
+        <view class="line">住宿费 ：{{fee}}元/学年</view>
+    </view>
+</form>

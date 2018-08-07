@@ -11,9 +11,9 @@
     <view class='underline'></view>
     <view class='line'>
       <label class='label' for='obey'>调剂</label>
-      <label class='label' wx:if='{{obey}}'>同意</label>
-      <label class='label' wx:else>不同意</label>
-      <switch checked bindchange="switchChange"/>
+      <label class='label' for='obey' wx:if='{{obey}}'>同意</label>
+      <label class='label' for='obey' wx:else>不同意</label>
+      <switch checked bindchange="switchChange" id="obey"/>
     </view>
     <view class='underline'></view>
     <view class="title">

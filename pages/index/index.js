@@ -4,13 +4,8 @@ let handler = globalData.handler;
 
 Page({
   data: {
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../test/test'
-    })
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    // hasUserInfo: globalData.hasUserInfo,
   },
   /**
    * 如果用户之前已经同意了获取用户信息，那么在app.js中就在全局变量中设置了userInfo

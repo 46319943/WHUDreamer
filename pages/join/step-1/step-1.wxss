@@ -1,38 +1,34 @@
-.page-body{
-
-}
 .line{
   height: 120rpx;
   padding: 30rpx 35rpx;
-  /* border-bottom: #aaa solid 2rpx; */
   text-align: left;
   overflow: visible;
 }
 .label{
+  height: 100%;
   width: 30%;
-  float: left;
   text-align: left;
-  font-size: 1.5em;
+  font-size: 45rpx;
 }
 .line > input{
   height: 100%;
   width: 70%;
-  float: left;
   text-align: left;
-  font-size: 1.5em;
+  font-size: 45rpx;
 }
 .underline{
   width: 690rpx;
   margin: 0 auto;
   border-bottom: 2rpx solid #aaa;
-  clear: both;
 }
 radio-group{
-  display: block;
+  display: inline-block;
+  vertical-align: top;
   height: 100%;
-  float: left;
 }
 radio{
+  display: inline-block;
+  vertical-align: sub;
   height: 100%;
 }
 .choose{
@@ -41,10 +37,10 @@ radio{
   margin-right: 50rpx;
 }
 picker{
-  display: block;
+  display: inline-block;
+  vertical-align: top;
   height: 100%;
   width: 70%;
-  float: left;
 }
 .picker{
   height: 100%;
@@ -58,7 +54,6 @@ picker{
 image.verify{
   height: 150%;
   width: 30%;
-  float: left;
   position: relative;
   bottom: 20%;
 }

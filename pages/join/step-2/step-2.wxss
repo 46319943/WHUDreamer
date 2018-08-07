@@ -1,5 +1,9 @@
 @import "../step-1/step-1.wxss";
+page{
+  height: 100%;
+}
 .footer-join{
   position: absolute;
   bottom: 0;
+  left: 0;
 }

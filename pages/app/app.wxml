@@ -14,7 +14,7 @@
   </view>
   <view class='main'>
     <block wx:for='{{apps}}' wx:key="*this">
-      <view class='app' bindtap='{{item.tapEvent}}'>
+      <view class='app' bindtap='{{item.tapEvent ? item.tapEvent : "tapEvent"}}' data-url='{{item.url}}'>
         <view class='icon' style='background:{{item.color}};'>
           <image src='{{item.icon}}'></image>
         </view>

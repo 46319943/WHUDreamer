@@ -2,6 +2,7 @@
 .footer-join{
   position: absolute;
   bottom: 0;
+  left: 0;
 }
 .tip{
   color:rgba(80, 80, 80, 1);

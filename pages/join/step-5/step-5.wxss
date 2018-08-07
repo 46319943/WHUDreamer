@@ -1,7 +1,7 @@
 @import "../step-1/step-1.wxss";
 @import "../step-4/step-4.wxss";
 .line{
-    height: fit-content;
+    height: auto;
 }
 .box{
     height: auto;
@@ -12,11 +12,11 @@
     margin-right: 20rpx;
     margin-top: 10rpx;
     padding: 5rpx 20rpx;
-    /* float: left; */
     display: inline-block;
 }
 #option{
-    height: fit-content;
+    height: auto;
+    padding-bottom: 0;
 }
 .option{
     height: auto;

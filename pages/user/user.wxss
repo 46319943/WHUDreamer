@@ -33,21 +33,17 @@
   margin-bottom: 30rpx;
 }
 .detail{
+  text-align: left;
   color: #aaa;
   padding-left: 15%;
 }
 .detail > .key{
-  float: left;
-  width: 20%;
-  margin-right: 10%;
+  width: 30%;
   text-align: left;
   margin-bottom: 10rpx;
 }
 .detail > .value{
-  float: left;
-  width: auto;
+  width: 70%;
+  text-align: left;
   margin-bottom: 10rpx;
-}
-.clear{
-  clear: both;
 }

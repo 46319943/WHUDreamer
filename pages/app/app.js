@@ -13,7 +13,7 @@ Page({
         name: '加入校会',
         color: 'rgba(67, 207, 124, 1)',
         icon: '../../images/app-1.png',
-        tapEvent: 'join'
+        url: '../join/step-0/step-0'
       },
       {
         name: '面试官',
@@ -50,11 +50,18 @@ Page({
         color: 'rgba(64, 174, 252, 1)',
         icon: '../../images/app-8.png'
       },
+      {
+        name: '查询宿舍',
+        color: 'rgba(64, 174, 252, 1)',
+        icon: '../../images/app-8.png',
+        url:'../domitory/domitory'
+      },
     ]
   },
-  join: function(){
+  tapEvent: function(e){
+    let url = e.currentTarget.dataset.url;
     wx.navigateTo({
-      url: '../join/step-0/step-0'
+      url: url,
     })
   },
   codeTap: function(e){
