@@ -6,38 +6,35 @@ let login = globalData.login;
 
 Page({
   data: {
-    background: '"http://i4.bvimg.com/578488/2ef836f9d7c84adc.jpg"',
+    // background: '"http://i4.bvimg.com/578488/2ef836f9d7c84adc.jpg"',
+    background: '"../../images/user-avatar.jpg"',
     avatar: '../../images/user-avatar.jpg',
     name: '尚金诚',
     position: '常务副主席',
     detail: [{
-        key: '手机号',
-        value: '186****1234'
-      },
-      {
-        key: '电子邮箱',
-        value: 'example@qq.com'
-      },
-      {
-        key: '所在院系',
-        value: '资源与环境科学学院'
-      }
+      key: '手机号',
+      value: '186****1234'
+    },
+    {
+      key: '电子邮箱',
+      value: 'example@qq.com'
+    },
+    {
+      key: '所在院系',
+      value: '资源与环境科学学院'
+    }
     ]
   },
-  bind: function(){
+  bind: function () {
     wx.navigateTo({
-      url:'../newUser/student'
+      url: '../newUser/student'
     })
   },
-  onLoad: function(){
-    if(globalData.account){
-      let account = globalData.account
+  onLoad: function () {
+    let account;
+    if ((account = login.setAccount(this))) {
       this.setData({
-        account,
-      },()=>console.log(this.data.account))
-      this.setData({
-        name: account.name,
-        position: account.department + ' - ' +  account.duties,
+        background: account.avatar,
         detail: [{
           key: '手机号',
           value: account.phone
@@ -54,10 +51,9 @@ Page({
           key: '专业',
           value: account.major
         }
-      ]
+        ]
       });
-    }
-    
-  },
 
+    }
+  }
 })

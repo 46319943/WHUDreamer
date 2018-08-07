@@ -20,6 +20,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    login.setAccount(this);
     ajax({
       url:'user/qrcode/get',
       method:'GET',
@@ -28,10 +29,11 @@ Page({
         if(res.data.errcode===0){
           let result = res.data;
           let uid = result.uid;
-          let time = result.out_time;
+          // 返回的是秒，换成毫秒
+          let time = result.out_time * 1000;
           let date = new Date(time);
           this.setData({
-            date:date.getFullYear() + '/' + date.getMonth()+1 + '/' + date.getDay()
+            date:date.getFullYear() + '/' + (date.getMonth()+1) + '/' + date.getDate()
              + ' ' +date.getHours() + ':' + date.getMinutes(),
              code: 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + uid,
           })

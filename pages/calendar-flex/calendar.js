@@ -63,12 +63,14 @@ Page({
         {
           cellColor: cellColor,
           setNavigationBarColor:`rgb(${R},${G},${B})`
-        }
+        },
+        // 由于将数据发送到渲染层是一个异步事件且较慢，导致导航栏颜色先变化
+        // 所以在回调函数中改变导航栏的颜色
+        () => wx.setNavigationBarColor({
+          backgroundColor:`#${RS}${GS}${BS}`,
+          frontColor:'#000000'
+        })
       );
-      wx.setNavigationBarColor({
-        backgroundColor:`#${RS}${GS}${BS}`,
-        frontColor:'#000000'
-      });
       
     }
   },

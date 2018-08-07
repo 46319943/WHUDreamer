@@ -21,7 +21,7 @@
     <textarea class="text" placeholder="请输入你对自我的理解" bindinput="textInput" maxlength="-1"></textarea>
     <view class="count">{{count}}/{{limit}}</view>
     <view class='underline'></view>
-    <button type='default' form-type='submit'>下一步</button>
+    <button type="primary" form-type='submit'>提交</button>
 
   </form>
 </view>

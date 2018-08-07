@@ -7,6 +7,9 @@
   /* 在js中定义了背景，添加交互性 */
   /* background: "http://i4.bvimg.com/578488/2ef836f9d7c84adc.jpg"; */
   filter: blur(2px);
+
+  background-size: cover;
+  background-position: center;
 }
 .picture > .avatar{
   position: relative;

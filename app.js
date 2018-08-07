@@ -3,16 +3,15 @@ let ajax = require("./utils/ajax.js");
 let login = require("./utils/login.js");
 App({
   onLaunch: function () {
-    // 初始化
+    // 初始化，将app提供给login
     login.init(this);
     // 登录
     login.login();
     // 获取用户信息
     wx.getSetting({
       success: res => {
+        // 判断用户是否同意获取userInfo
         if (res.authSetting['scope.userInfo']) {
-          // 已经有用户信息，添加标记，来使在初始页面一开始显示正在获取
-          // this.globalData.hasUserInfo = true;
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
@@ -28,6 +27,12 @@ App({
               }
             }
           })
+        }
+        else {
+          // 如果用户没有授权过获取用户信息
+          if(this.userInfoNoAuthCallback){
+            this.userInfoNoAuthCallback();
+          }
         }
       }
     })

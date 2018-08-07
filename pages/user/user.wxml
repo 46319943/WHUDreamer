@@ -1,7 +1,7 @@
 <!-- pages/user/user.wxml -->
 <view class='user-container'>
   <view class='picture'>
-    <view class='background' style='background:url({{background}});'></view>
+    <view class='background' style='background-image:url({{background}});'></view>
     <view class='avatar'>
       <image src='{{avatar}}'></image>
     </view>

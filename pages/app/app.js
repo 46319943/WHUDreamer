@@ -1,13 +1,13 @@
-// pages/app/app.js
+let app = getApp();
+let globalData = app.globalData;
+let handler = globalData.handler;
+let ajax = globalData.ajax;
+let login = globalData.login;
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     avatar:'../../images/user-avatar.jpg',
-    name:'尚金城',
-    position:'武汉大学学生会常务副主席',
+    name:'未绑定',
+    position:'绑定以获取更多信息',
     apps:[
       {
         name: '加入校会',
@@ -58,7 +58,12 @@ Page({
       },
     ]
   },
-  // 默认的点击事件
+  onLoad: function(e){
+    login.setAccount(this);
+  },
+  /**
+   * 默认的点击事件
+   */
   tapEvent: function(e){
     let url = e.currentTarget.dataset.url;
     if(!url){
@@ -73,6 +78,9 @@ Page({
       url: url,
     })
   },
+  /**
+   * 显示二维码
+   */
   codeTap: function(e){
     wx.navigateTo({
       url: '../code/code'

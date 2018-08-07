@@ -1,4 +1,4 @@
-      q   .line{
+.line{
   height: 120rpx;
   padding: 30rpx 35rpx;
   text-align: left;
