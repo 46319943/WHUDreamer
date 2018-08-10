@@ -25,12 +25,12 @@ Page({
     }
     ]
   },
-  bind: function () {
-    wx.navigateTo({
-      url: '../newUser/student'
-    })
-  },
-  onLoad: function () {
+
+
+  onShow: function () {
+
+    login.flush();
+
     let account;
     if ((account = login.setAccount(this))) {
       this.setData({
@@ -55,5 +55,62 @@ Page({
       });
 
     }
+  },
+
+  
+  // 跳转绑定页面
+  bind: function () {
+    wx.navigateTo({
+      url: '../newUser/student'
+    })
+  },
+
+  // 删除绑定按钮
+  bindDelete: function () {
+    // 展示提示框
+    wx.showModal({
+      title:'确定解绑嘛？',
+      content:'解绑之后将不能使用部分功能',
+      success: res => {
+        // 如果点击了去顶
+        if(res.confirm){
+          // 发送请求删除绑定
+          ajax({
+            url:'user/info/del',
+            method:'DELETE',
+            success: res => {
+              console.log(res);
+              if(res.data && res.data.errcode === 0){
+                // 首先重新获取账户信息
+                login.getAccount(()=>{
+                  // 获取完账户信息之后的回调函数
+                  // 重新设置账户相关信息
+                  login.setAccount(this);
+                });
+                login.show('解绑成功');
+              }
+              else{
+                login.show('解绑失败');
+              }
+            }
+          });
+        }
+        else{
+
+        }
+      }
+    });
+  },
+
+  // 
+  formId: function(e){
+    
+    ajax({
+      url:'',
+      data:e.detail.formId,
+    })
+
   }
+
+
 })

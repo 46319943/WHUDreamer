@@ -5,13 +5,13 @@
                 <image src="{{avatar}}" />
             </view>
             <view class="detail">
-                <view class="name">{{name}}</view>
-                <view class="position">{{position}}</view>
+                <view class="name">{{account ? name : '未绑定'}}</view>
+                <view class="position">{{account ? position : '绑定以获取更多信息'}}</view>
             </view>
         </view>
-        <view class="code" bind:tap="test">
+        <view class="code">
             <image src="{{code}}" />
         </view>
-        <view class="data">{{date}}前有效</view>
+        <view class="data">{{date ? data + '前有效' : '获取中'}}</view>
     </view>
 </view>

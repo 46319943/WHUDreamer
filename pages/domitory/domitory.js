@@ -16,11 +16,14 @@ Page({
     let id = res.id;
     let name = res.name;
 
+    let formId = res.formId;
+
     ajax({
       url: 'user/home/newget',
       data: {
         "studentnum": id,
-        "name": name
+        "name": name,
+        formId,
       },
       success:(res)=>{
         if(res.data.errcode === 0){

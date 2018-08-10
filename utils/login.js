@@ -3,6 +3,10 @@ let ajax = require("ajax.js");
 
 let app;
 let globalData;
+/**
+ * 
+ * @param {WeApp.AppParam} _app 
+ */
 function init(_app) {
     app = _app;
     globalData = app.globalData;
@@ -59,31 +63,46 @@ function login() {
 }
 /**
  * 获取账户信息
+ * @param {function} callback 回调函数
  */
-function getAccount() {
+function getAccount(callback) {
     ajax({
         method: 'GET',
         url: 'user/info/get',
         success: (res) => {
-            if (res.data.errcode === 0) {
-                let result = res.data;
+            console.log(res);
+            let result = res.data;
+            if (result.errcode === 0) {
                 delete result.errcode;
                 delete result.errMsg;
                 globalData.account = result;
+            }
+            else if (result.errcode === 10001) {
+                globalData.account = null;
+            }
+
+
+            // 回调函数，判断它是不是一个函数
+            if (callback instanceof Function) {
+                callback();
             }
         }
     });
 }
 /**
  * 快捷设置account相关信息到当前page
- * @param {*} that 
+ * 包括name posion
+ * 还有avatar
+ * @param {WeApp.PageParam} that 传入this
  */
-function setAccount(that,accountObj) {
-    if(!that){
-        throw new DOMException('未传入this','this异常');
+function setAccount(that, accountObj) {
+    // 判断是否传入了this
+    if (!that) {
+        throw new DOMException('未传入this', 'this异常');
     }
-    let flag = true;
-    let account = {};
+    // 在外部声明account用于返回
+    let account;
+    // 判断account
     if (globalData.account) {
         account = globalData.account
         that.setData({
@@ -92,20 +111,81 @@ function setAccount(that,accountObj) {
             position: account.department + ' - ' + account.duties,
         });
     }
-    else flag = false;
+    else 
+    {
+        // 如果全局变量中没有account，那么就把这个this页面的account值设为null。相当于刷新
+        that.setData({
+            account:null,
+        });
+    }
+
+    // 判断avatar
     if (globalData.userInfo && globalData.userInfo.avatarUrl) {
         that.setData({
             avatar: globalData.userInfo.avatarUrl,
         });
-        account.avatar = globalData.userInfo.avatarUrl;
+        if(account){
+            account.avatar = globalData.userInfo.avatarUrl;
+        }
     }
-    else flag = false;
+    else{
+        if(account){
+            account.avatar = null;
+        }
+    }
     // 如果绑定了并且可以使用头像的话，就顺便返回account，减少判断
-    return flag?account:false;
+    return account ? account : false;
+}
+
+
+function getAvatar(){
+    return globalData.userInfo.avatarUrl ? globalData.userInfo.avatarUrl : null;
+}
+
+/**
+ * 显示消息提示框
+ * @param {string} message 提示的消息
+ * @param {number} type 1为正确，2为错误，3为等待，4为无。默认为无
+ * @param {number} duration 显示时间，默认为2000毫秒
+ */
+function show(message, type, duration) {
+    if (!message) {
+        throw new DOMException('未传入消息', '空消息错误');
+    }
+    if (!duration) {
+        duration = 2000;
+    }
+    // 定义显示的图标，还没写好
+    switch (type) {
+        // case 1:
+        // break;
+        default:
+            type = 'none'
+            break;
+    }
+    wx.showToast({
+        title: message,
+        icon: 'none',
+        duration,
+    })
+}
+/**
+ * 刷新页面，在每次的onShow中调用
+ */
+function flush() {
+    let color;
+    if ((color = globalData.navigationColor)) {
+        wx.setNavigationBarColor({
+            backgroundColor: color,
+            frontColor: '#000000'
+        })
+    }
 }
 module.exports = {
     login,
     init,
     getAccount,
     setAccount,
+    show,
+    flush,
 }

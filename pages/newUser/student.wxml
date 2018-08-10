@@ -1,20 +1,27 @@
-<form bind:submit="formSubmit">
+<form bind:submit="formSubmit" report-submit="{{true}}">
     <view class="line">
-        <view class="lable">学号</view>
+        <view class="label">学号</view>
         <input name='id' placeholder="教务系统帐号" />
     </view>
     <view class="test"></view>
     <view class="line">
-        <view class="lable">密码</view>
-        <input name='pass' placeholder="教务系统密码" />
+        <view class="label">密码</view>
+        <input name='pass' placeholder="教务系统密码" password="{{true}}" />
     </view>
     <view class="line">
-        <view class="lable">手机号</view>
-        <input name='phone' placeholder="手机号" />
+        <view class="label">手机号</view>
+        <input name='phone' placeholder="手机号" disabled="{{phone}}" value="{{phone}}" bindinput='inputPhone'/>
+        <button type="primary" class="getPhone" open-type="getPhoneNumber" bind:getphonenumber="getPhone">自动</button>
+    </view>
+    <view class="line" wx:if="{{!code}}">
+        <view class="label">验证码</view>
+        <input name='verify' placeholder="短信验证码" />
+        <button type="primary" class="getCode" bind:tap='getCode'>获取验证码</button>
+        <!-- <image src="{{verify}}" bind:tap="verify"/> -->
     </view>
     <view class="line">
-        <view class="lable">邮箱</view>
+        <view class="label">邮箱</view>
         <input name='email' placeholder="邮箱" />
     </view>
-    <button form-type="submit">提交</button>
+    <button form-type="submit" type="primary">提交</button>
 </form>

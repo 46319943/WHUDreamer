@@ -6,8 +6,8 @@ let login = globalData.login;
 Page({
   data: {
     avatar:'../../images/user-avatar.jpg',
-    name:'未绑定',
-    position:'绑定以获取更多信息',
+    name:'罗运',
+    position:'珞珈创意工作室',
     apps:[
       {
         name: '加入校会',
@@ -58,11 +58,18 @@ Page({
       },
     ]
   },
-  onLoad: function(e){
+  
+  onShow: function(e){
+
+    login.flush();
+
+
+    // 刷新用户信息
     login.setAccount(this);
   },
+
   /**
-   * 默认的点击事件
+   * 如果没有指定点击时间，就触发默认的点击事件
    */
   tapEvent: function(e){
     let url = e.currentTarget.dataset.url;
@@ -78,6 +85,7 @@ Page({
       url: url,
     })
   },
+
   /**
    * 显示二维码
    */
@@ -86,4 +94,5 @@ Page({
       url: '../code/code'
     })
   },
+
 })

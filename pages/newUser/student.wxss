@@ -20,7 +20,7 @@ input{
     padding: 20rpx 30rpx;
     border-bottom: 1rpx #aaa solid;
 }
-.lable{
+.label{
     height: 60rpx;
     width: 30%;
     font-size: 42rpx;
@@ -28,4 +28,45 @@ input{
 }
 form{
     font-size: 0;
+}
+
+
+input[name='phone']{
+    width: 50%
+}
+input[disabled]{
+    color: #aaa;
+}
+
+button.getPhone{
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    width: 20%;
+    line-height: 60rpx;
+}
+
+input[name='verify']{
+    width: 35%;
+}
+button.getCode{
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    width: 35%;
+    line-height: 60rpx;
+}
+
+/* image{
+    display: inline-block;
+    vertical-align: top;
+    height: 80rpx;
+    width: 35%;
+    position: relative;
+    top: -10rpx;
+} */
+
+button[form-type='submit']{
+    width: 90%;
+    margin: 20rpx auto;
 }

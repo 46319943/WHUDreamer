@@ -1,4 +1,8 @@
-// pages/calendar-flex/calendar.js
+let app = getApp();
+let globalData = app.globalData;
+let handler = globalData.handler;
+let ajax = globalData.ajax;
+let login = globalData.login;
 Page({
 
   /**
@@ -35,7 +39,7 @@ Page({
       }
     );
   },
-  // 在单元格上面点击时
+  // 在单元格上面点击时，改变颜色
   cellMove: function(e){
     if(e.target.id){
       let id = e.target.id;
@@ -71,7 +75,9 @@ Page({
           frontColor:'#000000'
         })
       );
-      
+      // 设置全局的颜色
+      let navigationColor = `#${RS}${GS}${BS}`;
+      globalData.navigationColor = navigationColor;
     }
   },
   /**

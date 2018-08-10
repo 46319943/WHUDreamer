@@ -22,7 +22,9 @@ view{
   vertical-align: top;
 }
 form{
-  display: block;
+  width: 100%;
+  height: auto;
+  display: inline-block;
   font-size: 0;
 }
 input{

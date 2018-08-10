@@ -1,7 +1,7 @@
 let handler = require('handler.js');
 /**
  * 发送后端请求
- * @param {*} 参数 
+ * @param {WeApp.RequestParam} 参数 
  */
 function ajax(config) {
     // 判断是否传入了相对路径
@@ -23,8 +23,8 @@ function ajax(config) {
     }
     if(!config.fail){
         config.fail = (res) => {
-            console('Ajax请求失败');
-            console(res);
+            console.log('Ajax请求失败');
+            console.log(res);
         }
     }
     console.log(config);

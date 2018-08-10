@@ -5,8 +5,8 @@
       <image src='{{avatar}}' mode=''></image>
     </view>
     <view class='information'>
-      <view class='name'>{{name}}</view>
-      <view class='position'>{{position}}</view>
+      <view class='name'>{{account ? name  : '未绑定'}}</view>
+      <view class='position'>{{account ? position : '绑定以获取更多信息'}}</view>
     </view>
     <view class='code' bindtap='codeTap'>
       <image src='../../images/code.png'></image>
@@ -14,7 +14,8 @@
   </view>
   <view class='main'>
     <block wx:for='{{apps}}' wx:key="*this">
-      <view class='app' bindtap='{{item.tapEvent ? item.tapEvent : "tapEvent"}}' data-url='{{item.url}}'>
+      <view class='app' bindtap='{{item.tapEvent ? item.tapEvent : "tapEvent"}}' 
+      data-url='{{item.url}}' style='background:{{item.url ? "transparent" : "#aaa"}};'>
         <view class='icon' style='background:{{item.color}};'>
           <image src='{{item.icon}}'></image>
         </view>

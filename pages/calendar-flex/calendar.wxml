@@ -21,7 +21,8 @@
             </view>
             <view wx:elif="{{coloum===0}}" class="firstColoum cell">{{firstColoum[row]}}</view>
             <view wx:else class="cell" id="{{row}}-{{coloum}}" 
-            style="background:{{cellColor[row][coloum]}};color:{{cellColor[row][coloum]}}">{{row}}/{{coloum}}</view>
+            style="background:{{cellColor[row][coloum]}};color:{{cellColor[row][coloum]}}">
+            <!--{{row}}/{{coloum}}--></view>
         </block>
     </view>
 </view>
