@@ -21,9 +21,9 @@
     </block>
   </view>
   <form bind:submit="formId" report-submit="{{true}}">
-    <button bind:tap="bind">绑定账户/更新账户</button>
+    <button bind:tap="bind" form-type="submit">绑定账户/更新账户</button>
   </form>
   <form bind:submit="formId" report-submit="{{true}}">
-    <button bind:tap="bindDelete" type="warn" wx:if="{{account}}">解除绑定</button>
+    <button bind:tap="bindDelete" type="warn" wx:if="{{account}}" form-type="submit">解除绑定</button>
   </form>
 </view>

@@ -1,5 +1,5 @@
 let handler = require("handler.js");
-let ajax = require("ajax.js");
+let ajax;// = require("ajax.js");
 
 let app;
 let globalData;
@@ -10,13 +10,15 @@ let globalData;
 function init(_app) {
     app = _app;
     globalData = app.globalData;
+    ajax = globalData.ajax;
 }
 /**
  * 后端登录
  * 实际上就是提交code到后端，并从相应头中获取到cookie中的PHPSESSID，存入变量中，以后每次请求都带上它
  * 获取cookie后，将调用getAccount方法获取账户信息
+ * @param {Function} callback 回调函数
  */
-function login() {
+function login(callback) {
     // 调用微信登录获取登录码
     wx.login({
         success: res => {
@@ -24,6 +26,7 @@ function login() {
             if (res.code) {
                 console.log('wx.login获取code成功，正在发送请求');
                 console.log(res.code);
+
                 //发起网络请求
                 ajax({
                     url: 'user/login',
@@ -48,8 +51,12 @@ function login() {
                             console.log(cookie);
                             console.log('获取cookie成功！');
                             handler.cookie = cookie;
+                            wx.setStorage({
+                                key:'cookie',
+                                data:cookie,
+                            });
 
-                            getAccount();
+                            getAccount(callback);
 
                         }
                     }

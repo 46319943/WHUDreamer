@@ -2,12 +2,12 @@
   <form catchsubmit="formSubmit">
     <view class='line'>
       <label class='label' for='name'>姓名</label>
-      <input type='text' id='name' name='name' placeholder='请输入姓名'></input>
+      <input type='text' id='name' name='name' placeholder='请输入姓名' value="{{name}}"></input>
     </view>
     <view class='underline'></view>
     <view class='line'>
       <label class='label' for='id'>学号</label>
-      <input type='number' id='id' name='id' placeholder='请输入学号'></input>
+      <input type='number' id='id' name='id' placeholder='请输入学号' value="{{id}}"></input>
     </view>
     <view class='underline'></view>
     <view class='line'>
@@ -49,7 +49,7 @@
     <view class='underline'></view>
     <view class='line'>
       <label class='label' for='phone'>手机号</label>
-      <input type='number' id='phone' name='phone' placeholder='请输入手机号'></input>
+      <input type='number' id='phone' name='phone' placeholder='请输入手机号' value="{{phone}}"></input>
     </view>
     <view class='underline'></view>
     <view class='line'>
@@ -59,15 +59,15 @@
     <view class='underline'></view>
     <view class='line'>
       <label class='label' for='email'>电子邮箱</label>
-      <input type='text' id='email' name='email' placeholder='请输入电子邮箱'></input>
+      <input type='text' id='email' name='email' placeholder='请输入电子邮箱' value="{{email}}"></input>
     </view>
     <view class='underline'></view>
-    <view class='line'>
+    <!-- <view class='line'>
       <label class='label' for='verify'>验证码</label>
       <input type='text' id='verify' name='verify' placeholder='请输入验证码' class='verify'></input>
       <image class='verify' src='{{verify}}' bindtap='changeVerify'></image>
     </view>
-    <view class='underline'></view>
+    <view class='underline'></view> -->
     <button type='default' form-type='submit'>下一步</button>
 
   </form>

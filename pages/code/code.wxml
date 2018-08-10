@@ -12,6 +12,6 @@
         <view class="code">
             <image src="{{code}}" />
         </view>
-        <view class="data">{{date ? data + '前有效' : '获取中'}}</view>
+        <view class="data">{{date ? date + '前有效' : '获取中'}}</view>
     </view>
 </view>

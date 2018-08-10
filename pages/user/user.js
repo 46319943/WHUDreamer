@@ -106,7 +106,7 @@ Page({
   formId: function(e){
     
     ajax({
-      url:'',
+      url:'user/formid/record',
       data:e.detail.formId,
     })
 

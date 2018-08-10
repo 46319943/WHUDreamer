@@ -3,10 +3,14 @@ let ajax = require("./utils/ajax.js");
 let login = require("./utils/login.js");
 App({
   onLaunch: function () {
+    // 初始化，获取本地cookie
+    handler.init();
     // 初始化，将app提供给login
     login.init(this);
-    // 登录
-    login.login();
+    if(!handler.cookie){
+      // 如果没有本地储存的cookie才需要登录
+      login.login();
+    }
     // 获取用户信息
     wx.getSetting({
       success: res => {
