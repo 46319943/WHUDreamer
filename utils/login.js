@@ -110,11 +110,14 @@ function setAccount(that, accountObj) {
     // 判断account
     if (globalData.account) {
         account = globalData.account
+        //兼容驼峰命名规范
+        account.studentNum = account.studentnum;
         that.setData({
             account,
             name: account.name,
             position: account.department + ' - ' + account.duties,
             studentnum: account.studentnum,
+            studentNum: account.studentnum,
         });
     }
     else 

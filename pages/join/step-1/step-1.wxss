@@ -66,3 +66,8 @@ button{
 .footer-join{
   position: static;
 }
+
+
+[disabled]{
+  color: #aaa;
+}

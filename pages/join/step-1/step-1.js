@@ -2,6 +2,7 @@ let app = getApp();
 let globalData = app.globalData;
 let handler = globalData.handler;
 let ajax = globalData.ajax;
+let login = globalData.login;
 
 Page({
   /**
@@ -75,7 +76,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    ajax({
+      url:'map/get/type/political',
+      method:'GET',
+    })
 
+
+    login.setAccount(this);
+    ajax({
+      url:'whusu/base/info/get',
+      method:'GET',
+      success: res => {
+        if(res.data && res.data.errcode === 0){
+          this.setData({
+            account:res.data,
+          })
+        }
+      }
+    })
   },
 
   /**

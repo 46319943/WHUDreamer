@@ -4,52 +4,77 @@ let handler = globalData.handler;
 let ajax = globalData.ajax;
 let login = globalData.login;
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    avatar: '../../../images/user-avatar.jpg'
+    defaultPhoto: '../../../images/user-avatar.jpg'
   },
   formSubmit: function (e) {
-    // wx.navigateTo({
-    //   url: '../step-1/step-1',
-    // })
-
-    ajax({
-      url: 'sign/oss/get',
-      success: res => {
-        if (res.data && res.data.errcode === 0) {
-          let sign = res.data;
-          delete sign.errcode;
-          delete sign.errmsg;
-
-          handler.sign = sign;
-
-          let file = handler.file;
-          wx.uploadFile({
-            // url:sign.host + '/' + sign.dir,
-            url: 'https://whusu.oss-cn-shanghai.aliyuncs.com',
-            filePath: file.path,
-            name: 'file',//指定上传内容为file类型（即表单中的key->name属性是file）name='file'
-            formData: {
-              key: sign.dir + 'background',//上传文件的文件名。如果名称包含路径，则OSS会自动创建相应的文件夹
-              name: file.path,
-              policy: sign.policy,
-              Signature: sign.signature,
-              OSSAccessKeyId: sign.accessid,
-              success_action_status: '200',
-            },
-            success: res => {
-              console.log(res);
-              login.show('上传成功！');
-            }
-          });
-
-
-        }
+    // 如果已经上传了文件，就跳转下一步
+    if (this.data.uploaded) {
+      wx.navigateTo({
+        url: '../step-1/step-1',
+      })
+    }
+    // 如果没有选择，就要它选择
+    else if (!this.data.photo) {
+      login.show('先选择图片!');
+      return;
+    }
+    // 如果已经选择了但没有上传，开始上传
+    else {
+      if(!this.data.account){
+        login.show('获取账户信息失败，请稍后再试！');
+        login.setAccount(this);
       }
-    });
+
+      ajax({
+        url: 'sign/oss/get',
+        success: res => {
+          if (res.data && res.data.errcode === 0) {
+            let sign = res.data;
+            delete sign.errcode;
+            delete sign.errmsg;
+
+            handler.sign = sign;
+
+            let file = handler.file;
+            wx.uploadFile({
+              // url:sign.host + '/' + sign.dir,
+              url: 'https://whusu.oss-cn-shanghai.aliyuncs.com',
+              filePath: file.path,
+              name: 'file',//指定上传内容为file类型（即表单中的key->name属性是file）name='file'
+              formData: {
+                key: sign.dir + this.data.studentNum,//上传文件的文件名。如果名称包含路径，则OSS会自动创建相应的文件夹
+                name: file.path,
+                policy: sign.policy,
+                Signature: sign.signature,
+                OSSAccessKeyId: sign.accessid,
+                success_action_status: '200',
+              },
+              success: res => {
+                console.log(res);
+                if(res.statusCode === 200){
+                  login.show('上传成功！');
+                  this.setData({
+                    uploaded:true,
+                  })
+                }
+                else{
+                  login.show('上传失败qwq');
+                }
+              }
+            });
+
+
+          }
+        }
+      });
+    }
+
+
+
+
+
+
 
   },
   // 选择图片
@@ -71,7 +96,7 @@ Page({
         }
         handler.file = file;
         this.setData({
-          avatar: file.path,
+          photo: file.path,
         })
 
       }
@@ -81,7 +106,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    login.setAccount(this);
   },
 
   /**

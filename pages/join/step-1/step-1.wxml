@@ -2,55 +2,62 @@
   <form catchsubmit="formSubmit">
     <view class='line'>
       <label class='label' for='name'>姓名</label>
-      <input type='text' id='name' name='name' placeholder='请输入姓名' value="{{name}}"></input>
+      <input type='text' id='name' name='name' placeholder='请输入姓名' disabled="{{true}}"
+      value="{{account ? account.name : '正在获取姓名'}}"  ></input>
     </view>
     <view class='underline'></view>
     <view class='line'>
       <label class='label' for='id'>学号</label>
-      <input type='number' id='id' name='id' placeholder='请输入学号' value="{{id}}"></input>
+      <input type='number' id='id' name='id' placeholder='请输入学号' 
+      value="{{account ? account.studentNum : '正在获取学号'}}" disabled="{{true}}"></input>
     </view>
     <view class='underline'></view>
     <view class='line'>
       <label class='label' for='gender'>性别</label>
       <radio-group name='gender'>
-        <radio id='male' name='gender' value='male' checked></radio>
+        <radio id='male' name='gender' value='male' disabled="{{true}}"
+        checked="{{(account && account.sex) ? account.sex==='男' : false}}"
+        ></radio>
         <label class='choose' for='male'>男</label>
-        <radio id='female' name='gender' value='female'></radio>
+        <radio id='female' name='gender' value='female' disabled="{{true}}"
+        checked="{{(account && account.sex) ? account.sex==='女' : false}}"></radio>
         <label class='choose' for='female'>女</label>
       </radio-group>
     </view>
     <view class='underline'></view>
     <view class='line'>
-      <label class='label' for='policy'>政治面貌</label>
-      <picker bindchange="policyPickerChange" id='policy' name='policy' value="{{indexOfPolicy}}" range="{{policy}}">
-        <view class="picker" style="color:{{indexOfPolicy ? 'black' : '#aaa'}};">
-          {{indexOfPolicy ? policy[indexOfPolicy] : '请选择政治面貌'}}
-        </view>
-      </picker>
-    </view>
-    <view class='underline'></view>
-    <view class='line'>
       <label class='label' for='institute'>学院</label>
-      <picker bindchange="institutePickerChange" id='institute' name='institute' value="{{indexOfInstitute}}" range="{{institute}}">
+      <picker bindchange="institutePickerChange" id='institute' name='institute' 
+      value="{{indexOfInstitute}}" range="{{institute}}" disabled="{{true}}">
         <view class="picker" style="color:{{indexOfInstitute ? 'black' : '#aaa'}};">
-          {{indexOfInstitute ? institute[indexOfInstitute] : '请选择学院'}}
+          <!-- {{indexOfInstitute ? institute[indexOfInstitute] : '请选择学院'}} -->
+          {{account ? account.college : '正在获取学院'}}
         </view>
       </picker>
     </view>
     <view class='underline'></view>
     <view class='line'>
       <label class='label' for='profession'>专业</label>
-      <picker bindchange="professionPickerChange" id='profession' name='profession' value="{{indexOfProfession}}"  
-      range="{{profession}}" disabled="{{!indexOfInstitute}}"> 
+      <picker bindchange="professionPickerChange" id='profession' name='profession' 
+      value="{{indexOfProfession}}" range="{{profession}}" 
+      disabled="{{!indexOfInstitute}}" disabled="{{true}}">
         <view class="picker" style="color:{{indexOfProfession ? 'black' : '#aaa'}};">
-          {{indexOfInstitute ? (indexOfProfession ? profession[indexOfProfession] : '请选择专业') : '请先选择学院'}}
+          <!-- {{indexOfInstitute ? (indexOfProfession ? profession[indexOfProfession] : '请选择专业') : '请先选择学院'}} -->
+          {{account ? account.major : '正在获取专业'}}
         </view>
       </picker>
     </view>
     <view class='underline'></view>
     <view class='line'>
       <label class='label' for='phone'>手机号</label>
-      <input type='number' id='phone' name='phone' placeholder='请输入手机号' value="{{phone}}"></input>
+      <input type='number' id='phone' name='phone' placeholder='请输入手机号' disabled='{{true}}'
+      value="{{account ? account.phone : '正在获取手机号'}}"></input>
+    </view>
+    <view class='underline'></view>
+    <view class='line'>
+      <label class='label' for='email'>电子邮箱</label>
+      <input type='text' id='email' name='email' placeholder='请输入电子邮箱' disabled='{{true}}'
+      value="{{account ? account.email : '正在获取邮箱'}}"></input>
     </view>
     <view class='underline'></view>
     <view class='line'>
@@ -59,8 +66,12 @@
     </view>
     <view class='underline'></view>
     <view class='line'>
-      <label class='label' for='email'>电子邮箱</label>
-      <input type='text' id='email' name='email' placeholder='请输入电子邮箱' value="{{email}}"></input>
+      <label class='label' for='policy'>政治面貌</label>
+      <picker bindchange="policyPickerChange" id='policy' name='policy' value="{{indexOfPolicy}}" range="{{policy}}">
+        <view class="picker" style="color:{{indexOfPolicy ? 'black' : '#808080'}};">
+          {{indexOfPolicy ? policy[indexOfPolicy] : '请选择政治面貌'}}
+        </view>
+      </picker>
     </view>
     <view class='underline'></view>
     <!-- <view class='line'>
@@ -70,9 +81,7 @@
     </view>
     <view class='underline'></view> -->
     <button type='default' form-type='submit'>下一步</button>
-
   </form>
 </view>
-
 <import src="../../../templates/footer" />
 <template is="join" data="{{text: 'forbar'}}" />

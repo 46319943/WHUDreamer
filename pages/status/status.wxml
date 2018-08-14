@@ -1,9 +1,9 @@
 <view class="page" style="background:{{color}};">
   <view class="swiper">
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{background}}" wx:key="*this">
+      <block wx:for="{{imageSwiper}}" wx:key="*this">
         <swiper-item>
-          <image src='{{item.url}}' class='slide-image' mode='aspectFit'></image>
+          <image src='{{item}}' style="background:{{color}}" class='slide-image' mode='aspectFit'></image>
         </swiper-item>
       </block>
     </swiper>
