@@ -9,15 +9,7 @@ function ajax(config) {
     if (!config.url) {
         throw "必须传入请求的接口 url!";
     }
-    // 设置请求的链接
-    config.url = handler.common + config.url;
-    // 判断是否存在cookie
-    if (handler.cookie) {
-        config.header = {
-            'content-type': 'application/x-www-form-urlencoded',
-            'cookie': 'PHPSESSID=' + handler.cookie
-        };
-    }
+
     // 添加默认配置
     if (!config.method) {
         config.method = 'POST'
@@ -28,19 +20,36 @@ function ajax(config) {
             console.log(res);
         }
     }
+
+    // 还要保存url，在cookie过期时的逻辑使用
+    let url = config.url;
+    // 设置绝对的请求链接
+    config.url = handler.common + config.url;
+
+    // 判断是否存在cookie
+    if (handler.cookie) {
+        config.header = {
+            'content-type': 'application/x-www-form-urlencoded',
+            'cookie': 'PHPSESSID=' + handler.cookie
+        };
+    }
+
     // 用一个变量来保存传入的回调方法。因为对象引用的原因，否则会递归调用。闭包
     let success = config.success;
+
     config.success = (res) => {
         console.log(res);
         // 判断是否返回cookie过期
-        if (res.data && res.data.errcode === handler.COOKIE_OUTOFDATE) {
+        if (res.data && (res.data.errcode === handler.COOKIE_OUTOFDATE || 
+            res.data.errcode === 10001 ) ) {
             // 如果过期了，首先清除cookie
             handler.cookie = null;
             // 然后重新调用login.login
-            login.login(()=>{
+            login.login(() => {
                 // 重新登录之后，重新发送请求
-                // 将success设置回去
+                // 将success和url设置回去
                 config.success = success;
+                config.url = url;
                 ajax(config);
             });
 
@@ -54,6 +63,9 @@ function ajax(config) {
         }
 
     }
+
+
+
 
     console.log(config);
     // 发起请求

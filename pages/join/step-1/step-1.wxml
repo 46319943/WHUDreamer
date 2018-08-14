@@ -23,8 +23,8 @@
     <view class='line'>
       <label class='label' for='policy'>政治面貌</label>
       <picker bindchange="policyPickerChange" id='policy' name='policy' value="{{indexOfPolicy}}" range="{{policy}}">
-        <view class="picker">
-          {{policy[indexOfPolicy]}}
+        <view class="picker" style="color:{{indexOfPolicy ? 'black' : '#aaa'}};">
+          {{indexOfPolicy ? policy[indexOfPolicy] : '请选择政治面貌'}}
         </view>
       </picker>
     </view>
@@ -32,17 +32,18 @@
     <view class='line'>
       <label class='label' for='institute'>学院</label>
       <picker bindchange="institutePickerChange" id='institute' name='institute' value="{{indexOfInstitute}}" range="{{institute}}">
-        <view class="picker">
-          {{institute[indexOfInstitute]}}
+        <view class="picker" style="color:{{indexOfInstitute ? 'black' : '#aaa'}};">
+          {{indexOfInstitute ? institute[indexOfInstitute] : '请选择学院'}}
         </view>
       </picker>
     </view>
     <view class='underline'></view>
     <view class='line'>
       <label class='label' for='profession'>专业</label>
-      <picker bindchange="professionPickerChange" id='profession' name='profession' value="{{indexOfProfession}}" range="{{profession}}">
-        <view class="picker">
-          {{profession[indexOfProfession]}}
+      <picker bindchange="professionPickerChange" id='profession' name='profession' value="{{indexOfProfession}}"  
+      range="{{profession}}" disabled="{{!indexOfInstitute}}"> 
+        <view class="picker" style="color:{{indexOfProfession ? 'black' : '#aaa'}};">
+          {{indexOfInstitute ? (indexOfProfession ? profession[indexOfProfession] : '请选择专业') : '请先选择学院'}}
         </view>
       </picker>
     </view>

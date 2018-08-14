@@ -13,7 +13,8 @@ Page({
         name: '加入校会',
         color: 'rgba(67, 207, 124, 1)',
         icon: '../../images/app-1.png',
-        url: '../join/step-0/step-0'
+        url: '../join/step-0/step-0',
+        loginRequire: true,
       },
       {
         name: '面试官',
@@ -62,8 +63,6 @@ Page({
   onShow: function(e){
 
     login.flush();
-
-
     // 刷新用户信息
     login.setAccount(this);
   },
@@ -72,8 +71,14 @@ Page({
    * 如果没有指定点击时间，就触发默认的点击事件
    */
   tapEvent: function(e){
-    let url = e.currentTarget.dataset.url;
-    if(!url){
+    // 注意data-之后的所有-后面的一个字面转为大写。本身不支持大写
+    let dataset = e.currentTarget.dataset;
+
+    if(dataset.loginRequire && !this.data.account){
+      login.show('这个功能需要绑定才能使用哟~');
+      return;
+    }
+    if(!dataset.url){
       wx.showToast({
         title: '功能尚未开放',
         icon: 'none',
@@ -82,7 +87,7 @@ Page({
       return;
     }
     wx.navigateTo({
-      url: url,
+      url: dataset.url,
     })
   },
 

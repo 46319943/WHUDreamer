@@ -35,7 +35,6 @@ function login(callback) {
                     },
                     success: res => {
                         console.log('登录请求解析成功！');
-                        console.log(res);
                         // 从相应头中获取cookie
                         if (res.header['Set-Cookie']) {
                             let cookie = res.header['Set-Cookie'];
@@ -77,20 +76,19 @@ function getAccount(callback) {
         method: 'GET',
         url: 'user/info/get',
         success: (res) => {
-            console.log(res);
             let result = res.data;
             if (result.errcode === 0) {
                 delete result.errcode;
                 delete result.errMsg;
                 globalData.account = result;
             }
-            else if (result.errcode === 10001) {
+            else if (result.errcode === 10004) {
                 globalData.account = null;
             }
 
 
             // 回调函数，判断它是不是一个函数
-            if (callback instanceof Function) {
+            if (callback && (callback instanceof Function)) {
                 callback();
             }
         }
@@ -116,6 +114,7 @@ function setAccount(that, accountObj) {
             account,
             name: account.name,
             position: account.department + ' - ' + account.duties,
+            studentnum: account.studentnum,
         });
     }
     else 
@@ -178,14 +177,21 @@ function show(message, type, duration) {
 }
 /**
  * 刷新页面，在每次的onShow中调用
+ * @param {WeApp.PageParam} that 调用的页面引用
  */
-function flush() {
+function flush(that) {
     let color;
     if ((color = globalData.navigationColor)) {
         wx.setNavigationBarColor({
             backgroundColor: color,
             frontColor: '#000000'
         })
+        if(that){
+            that.setData({
+                color,
+            });
+        }
+
     }
 }
 module.exports = {

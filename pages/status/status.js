@@ -98,7 +98,7 @@ Page({
 
 
   onShow: function () {
-    login.flush();
+    login.flush(this);
   },
 
 })

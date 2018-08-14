@@ -43,7 +43,7 @@ Page({
         formId,
       },
       success: res => {
-        console.log(res);
+
         if(res.data && res.data.errcode === 0){
           login.show('绑定成功');
           // 绑定成功之后，重新获取用户信息。这一步是刷新权限
@@ -70,7 +70,7 @@ Page({
   },
   // 用户点击自动获取手机号
   getPhone: function (e) {
-    console.log(e);
+
     // 如果获取成功
     if (e.detail.iv) {
       let result = e.detail;
@@ -82,8 +82,8 @@ Page({
           iv:result.iv,
         },
         success:res=>{
+
           // 获取成功就设置手机号以及code验证码
-          console.log(res);
           if(res.data && res.data.errcode === 0){
             let result = res.data;
             let phone = result.phone;

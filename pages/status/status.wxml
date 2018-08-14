@@ -1,51 +1,52 @@
-<!-- pages/status/status.wxml -->
-<view class="swiper">
-  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{background}}" wx:key="*this">
-      <swiper-item>
-        <image src='{{item.url}}' class='slide-image' mode='aspectFit'></image>
-      </swiper-item>
+<view class="page" style="background:{{color}};">
+  <view class="swiper">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{background}}" wx:key="*this">
+        <swiper-item>
+          <image src='{{item.url}}' class='slide-image' mode='aspectFit'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='content'>
+    <block wx:for='{{content}}' wx:key="title">
+      <view class='message'>
+        <view wx:if='{{item.icon}}' class='icon'>
+          <image src='{{item.icon}}' style="background:{{item.color}};"></image>
+          <block wx:if="{{item.count}}">
+            <view class="count">剩余人数</view>
+            <view class="count">{{item.count}}/{{item.total}}</view>
+          </block>
+        </view>
+        <view class='main'>
+          <view class="no-image">
+            <view class='top'>
+              <view class="left">
+                <view class="title">{{item.title}}</view>
+                <view class="author">{{item.author}}</view>
+              </view>
+              <view class="date" wx:if='{{item.date && !item.image}}'>{{item.date}}</view>
+            </view>
+            <view class="description">{{item.description}}</view>
+            <!-- <view class="separate"></view> -->
+            <view class="bottom" wx:if="{{item.join}}">
+              <view class="wrapper">
+                <view class="detail" bindtap='detailTap'>
+                  <image src="../../images/menu.png" />
+                  查看详情
+                </view>
+                <view class='join'>
+                  <image src="../../images/join.png" />
+                  现在报名
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="image" wx:if="{{item.image}}">
+            <image src="{{item.image}}" />
+          </view>
+        </view>
+      </view>
     </block>
-  </swiper>
-</view>
-<view class='content'>
-  <block wx:for='{{content}}' wx:key="title">
-    <view class='message'>
-      <view wx:if='{{item.icon}}' class='icon'>
-        <image src='{{item.icon}}' style="background:{{item.color}};"></image>
-        <block wx:if="{{item.count}}">
-          <view class="count">剩余人数</view>
-          <view class="count">{{item.count}}/{{item.total}}</view>
-        </block>
-      </view>
-      <view class='main'>
-        <view class="no-image">
-          <view class='top'>
-            <view class="left">
-              <view class="title">{{item.title}}</view>
-              <view class="author">{{item.author}}</view>
-            </view>
-            <view class="date" wx:if='{{item.date && !item.image}}'>{{item.date}}</view>
-          </view>
-          <view class="description">{{item.description}}</view>
-          <!-- <view class="separate"></view> -->
-          <view class="bottom" wx:if="{{item.join}}">
-            <view class="wrapper">
-              <view class="detail" bindtap='detailTap'>
-                <image src="../../images/menu.png" />
-                查看详情
-              </view>
-              <view class='join'>
-                <image src="../../images/join.png" />
-                现在报名
-              </view>
-            </view>
-          </view>
-        </view>
-        <view class="image" wx:if="{{item.image}}">
-          <image src="{{item.image}}" />
-        </view>
-      </view>
-    </view>
-  </block>
+  </view>
 </view>

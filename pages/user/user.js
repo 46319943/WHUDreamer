@@ -7,6 +7,7 @@ let login = globalData.login;
 Page({
   data: {
     // background: '"http://i4.bvimg.com/578488/2ef836f9d7c84adc.jpg"',
+    // 注意样式背景不支持本地图片
     background: '"../../images/user-avatar.jpg"',
     avatar: '../../images/user-avatar.jpg',
     name: '尚金诚',
@@ -55,6 +56,11 @@ Page({
       });
 
     }
+    else{
+      this.setData({
+        background: globalData.userInfo.avatarUrl,
+      });
+    }
   },
 
   
@@ -79,7 +85,7 @@ Page({
             url:'user/info/del',
             method:'DELETE',
             success: res => {
-              console.log(res);
+
               if(res.data && res.data.errcode === 0){
                 // 首先重新获取账户信息
                 login.getAccount(()=>{
@@ -107,8 +113,10 @@ Page({
     
     ajax({
       url:'user/formid/record',
-      data:e.detail.formId,
-    })
+      data:{
+        formId:e.detail.formId,
+      },
+    });
 
   }
 

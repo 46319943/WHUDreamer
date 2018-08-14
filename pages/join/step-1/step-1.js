@@ -9,17 +9,17 @@ Page({
    */
   data: {
     verify: handler.common + 'verify/get/',
-    indexOfPolicy: 0,
+    indexOfPolicy: null,
     policy: [
       '团员',
       '党员'
     ],
-    indexOfInstitute: 0,
+    indexOfInstitute: null,
     institute: [
       '资源与环境科学学院',
       '生命科学学院'
     ],
-    indexOfProfession: 0,
+    indexOfProfession: null,
     profession: [
       '地理信息科学',
       '自然地理'
@@ -36,8 +36,9 @@ Page({
   institutePickerChange: function(e) {
     this.setData({
       indexOfInstitute: e.detail.value,
-      indexOfProfession: 0
+      indexOfProfession: null,
     });
+    // 特别注意value中对应的index返回的是String类型！
     switch (e.detail.value) {
       case '0':
         this.setData({
@@ -57,6 +58,7 @@ Page({
     }
   },
   policyPickerChange: function(e) {
+    console.log(e);
     this.setData({
       indexOfPolicy: e.detail.value
     })

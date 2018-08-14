@@ -14,8 +14,13 @@
   </view>
   <view class='main'>
     <block wx:for='{{apps}}' wx:key="*this">
+    <!-- 
+    这里如果写data-loginRequire会变成loginrequire   
+    必须写data-login-require才是loginRequire 
+    -->
       <view class='app' bindtap='{{item.tapEvent ? item.tapEvent : "tapEvent"}}' 
-      data-url='{{item.url}}' style='background:{{item.url ? "transparent" : "#aaa"}};'>
+      data-url='{{item.url}}' data-login-require='{{item.loginRequire}}'
+      style='background:{{item.url ? "transparent" : "#aaa"}};'>
         <view class='icon' style='background:{{item.color}};'>
           <image src='{{item.icon}}'></image>
         </view>

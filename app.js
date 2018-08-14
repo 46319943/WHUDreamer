@@ -11,6 +11,9 @@ App({
       // 如果没有本地储存的cookie才需要登录
       login.login();
     }
+    else{
+      login.getAccount();
+    }
     // 获取用户信息
     wx.getSetting({
       success: res => {
