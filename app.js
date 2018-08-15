@@ -1,6 +1,7 @@
 let handler = require("./utils/handler.js");
 let ajax = require("./utils/ajax.js");
 let login = require("./utils/login.js");
+let util = require("./utils/util.js");
 App({
   onLaunch: function () {
     // 初始化，获取本地cookie
@@ -49,6 +50,7 @@ App({
     userInfo: null,
     ajax: ajax,
     login: login,
-    handler: handler
+    handler: handler,
+    util: util,
   }
 })

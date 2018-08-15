@@ -14,6 +14,22 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+/**
+ * 获取映射表中对应text的value
+ * @param {Array} map 
+ * @param {string} key 
+ */
+function getValueInObjectArray(map,key){
+  for(let obj of map){
+    if(obj['text'] === key){
+      return obj['value'];
+    }
+  }
+  return null;
+}
+
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  getValueInObjectArray
 }

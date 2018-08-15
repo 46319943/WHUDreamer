@@ -67,7 +67,11 @@ Page({
 
     wx.onUserCaptureScreen(
       () => {
-        
+        let pages = getCurrentPages();
+        let page = pages[pages.length-1];
+        if(page.route.indexOf('code') === -1){
+          return;
+        }
         ajax({
           url:'user/qrcode/del',
           method:'GET',

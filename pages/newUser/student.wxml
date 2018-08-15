@@ -6,7 +6,7 @@
     <view class="test"></view>
     <view class="line">
         <view class="label">密码</view>
-        <input name='pass' placeholder="教务系统密码" type="number" password="{{true}}" />
+        <input name='pass' placeholder="教务系统密码" password="{{true}}" />
     </view>
     <view class="line">
         <view class="label">手机号</view>

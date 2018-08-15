@@ -3,8 +3,8 @@
     <view class='line'>
       <label class='label' for='section'>申请部门</label>
       <picker bindchange="sectionPickerChange" id='section' name='section' value="{{indexOfSection}}" range="{{section}}">
-        <view class="picker">
-          {{section[indexOfSection]}}
+        <view class="picker" style="color:{{indexOfSection ? 'black' : '#808080'}};">
+          {{indexOfSection ? section[indexOfSection] : '请选择部门'}}
         </view>
       </picker>
     </view>
@@ -13,21 +13,30 @@
       <label class='label' for='obey'>调剂</label>
       <label class='label' for='obey' wx:if='{{obey}}'>同意</label>
       <label class='label' for='obey' wx:else>不同意</label>
-      <switch checked bindchange="switchChange" id="obey"/>
+      <switch checked bindchange="switchChange" id="obey" />
     </view>
     <view class='underline'></view>
+    <block wx:if='{{obey}}'>
+      <view class='line'>
+        <label class='label' for='sectionT'>调剂部门</label>
+        <picker bindchange="sectionTPickerChange" id='sectionT' name='sectionT' value="{{indexOfSectionT}}" range="{{sectionT}}">
+          <view class="picker" style="color:{{indexOfSectionT ? 'black' : '#808080'}};">
+            {{indexOfSectionT ? sectionT[indexOfSectionT] : '请选择调剂部门'}}
+          </view>
+        </picker>
+      </view>
+      <view class='underline'></view>
+    </block>
     <view class="title">
       <view class="left-line"></view>
       <view class="content">对部门的理解</view>
       <view class="right-line"></view>
     </view>
-    <textarea class="text" placeholder="请输入你对部门的理解" bindinput="textInput" maxlength="-1"></textarea>
+    <textarea class="text" name='text' placeholder="请输入你对部门的理解" bindinput="textInput" maxlength="-1"></textarea>
     <view class="count">{{count}}/{{limit}}</view>
     <view class='underline'></view>
     <button type='default' form-type='submit'>下一步</button>
-
   </form>
 </view>
-
 <import src="../../../templates/footer" />
 <template is="join" data="{{text: 'forbar'}}" />

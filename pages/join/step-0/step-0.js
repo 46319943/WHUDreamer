@@ -7,10 +7,12 @@ Page({
   data: {
     defaultPhoto: '../../../images/user-avatar.jpg'
   },
+
+  // 点击按钮时的相应，三种情况
   formSubmit: function (e) {
     // 如果已经上传了文件，就跳转下一步
     if (this.data.uploaded) {
-      wx.navigateTo({
+      wx.redirectTo({
         url: '../step-1/step-1',
       })
     }
@@ -21,25 +23,26 @@ Page({
     }
     // 如果已经选择了但没有上传，开始上传
     else {
-      if(!this.data.account){
+      if (!this.data.account) {
         login.show('获取账户信息失败，请稍后再试！');
         login.setAccount(this);
       }
-
+      // 发送图片到OSS
       ajax({
         url: 'sign/oss/get',
         success: res => {
           if (res.data && res.data.errcode === 0) {
+            // 获取服务器传回的OSS信息
             let sign = res.data;
             delete sign.errcode;
             delete sign.errmsg;
-
+            // 将OSS信息保存到全局
             handler.sign = sign;
-
+            // 通过全局获取选择的文件
             let file = handler.file;
+            // 上传文件到OSS
             wx.uploadFile({
-              // url:sign.host + '/' + sign.dir,
-              url: 'https://whusu.oss-cn-shanghai.aliyuncs.com',
+              url: sign.host,
               filePath: file.path,
               name: 'file',//指定上传内容为file类型（即表单中的key->name属性是file）name='file'
               formData: {
@@ -52,13 +55,20 @@ Page({
               },
               success: res => {
                 console.log(res);
-                if(res.statusCode === 200){
+                if (res.statusCode === 200) {
                   login.show('上传成功！');
                   this.setData({
-                    uploaded:true,
+                    uploaded: true,
                   })
+                  // 将上传的路径返回给后端，进行存储
+                  ajax({
+                    url: 'whusu/head/img/add',
+                    data: {
+                      headimgurl: sign.dir + this.data.studentNum
+                    }
+                  });
                 }
-                else{
+                else {
                   login.show('上传失败qwq');
                 }
               }
@@ -72,28 +82,32 @@ Page({
 
 
 
-
-
-
-
   },
+
+
   // 选择图片
   chooseImage: function (e) {
     wx.chooseImage({
       count: 1,
       success: res => {
         console.log(res);
-
+        // 如果文件已经上传过，更换图片之后重新上传
+        this.setData({
+          uploaded:false,
+        })
+        // 临时文件数组
         let tempFiles = res.tempFiles;
         if (tempFiles.lenth === 0) {
           return;
         }
+        // 获取当前文件
         let file = tempFiles[0];
-        // 2MB = 2*1024KB = 2*1024*1024B
-        if (file.size > 1024 * 1024 * 2) {
-          login.show("图片过大，请选择2MB以下的文件");
+        // 5MB = 2*1024KB = 2*1024*1024B
+        if (file.size > 1024 * 1024 * 5) {
+          login.show("图片过大，请选择5MB以下的文件");
           return;
         }
+        // 将文件传入全局变量，上传时调用
         handler.file = file;
         this.setData({
           photo: file.path,
@@ -102,59 +116,23 @@ Page({
       }
     });
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
+
+  // 初始时，获取用户的基本信息，包括是否已经上传头像
   onLoad: function (options) {
+    ajax({
+      url: 'whusu/base/info/get',
+      method: 'GET',
+      success: res => {
+        if (res.data && res.data.errcode === 0 && res.data.headimgurl) {
+          let avatar = res.data.headimgurl;
+          this.setData({
+            photo: avatar,
+            uploaded: true,
+          })
+        }
+      }
+    })
     login.setAccount(this);
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

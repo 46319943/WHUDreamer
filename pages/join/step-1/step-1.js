@@ -3,11 +3,9 @@ let globalData = app.globalData;
 let handler = globalData.handler;
 let ajax = globalData.ajax;
 let login = globalData.login;
+let util = globalData.util;
 
 Page({
-  /**
-   * 页面的初始数据
-   */
   data: {
     verify: handler.common + 'verify/get/',
     indexOfPolicy: null,
@@ -26,15 +24,98 @@ Page({
       '自然地理'
     ],
   },
-  formSubmit: function(e) {
+  // 提交表单
+  formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
-    app.globalData.formInformation = e.detail.value;
-    console.log(app.globalData);
-    wx.navigateTo({
-      url: '../step-2/step-2',
+    // app.globalData.formInformation = e.detail.value;
+    // console.log(app.globalData);
+
+    let res = e.detail.value;
+    let qq = res.QQ;
+
+    // 获取选择政治面貌的索引
+    let indexOfPolicy = res.policy;
+    // 根据索引获取选择项的名称
+    let policyName = this.data.policy[indexOfPolicy];
+    // 通过选择项的名称，在映射表中查找value，从而将policy转换为political
+    let policy = util.getValueInObjectArray(this.data.keyValueOfPolicy, policyName);
+
+
+    if(qq === ''){
+      login.show('请填写QQ号');
+      return;
+    }
+    else if(qq.lenth > 11){
+      login.show('非法QQ号');
+      return;
+      
+    }
+    if(policy == null){
+      login.show('请选择政治面貌');
+      return;
+    }
+
+
+    ajax({
+      url: 'whusu/base/info/add',
+      method: 'POST',
+      data: {
+        qq,
+        political: policy
+      },
+      success: res => {
+        if (res.data && res.data.errcode === 0) {
+          wx.redirectTo({
+            url: '../step-3/step-3',
+          });
+
+        }
+      }
+    })
+
+  },
+  // 页面加载时，首先获取映射表，然后获取其他的基础信息
+  onLoad: function (options) {
+    ajax({
+      url: 'map/get/type/political',
+      method: 'GET',
+      success: res => {
+        if (res.data && res.data.errcode === 0) {
+          // 首先获取到包含映射对象的数组
+          let arr = res.data.data;
+          // 将所有的文本提出出来
+          let textArr = new Array();
+          for (let keyValue of arr) {
+            textArr.push(keyValue['text']);
+          }
+          // 将文本数组设置到列表，同时将获取到的映射表添加到当前页面存储
+          this.setData({
+            policy: textArr,
+            keyValueOfPolicy: arr,
+          });
+
+        }
+      },
+    })
+
+
+    login.setAccount(this);
+    // 获取基础信息
+    ajax({
+      url: 'whusu/base/info/get',
+      method: 'GET',
+      success: res => {
+        if (res.data && res.data.errcode === 0) {
+          this.setData({
+            account: res.data,
+          })
+        }
+      }
     })
   },
-  institutePickerChange: function(e) {
+
+
+  institutePickerChange: function (e) {
     this.setData({
       indexOfInstitute: e.detail.value,
       indexOfProfession: null,
@@ -58,90 +139,20 @@ Page({
         break;
     }
   },
-  policyPickerChange: function(e) {
+  policyPickerChange: function (e) {
     console.log(e);
     this.setData({
       indexOfPolicy: e.detail.value
     })
   },
-  professionPickerChange: function(e) {
+  professionPickerChange: function (e) {
     this.setData({
       indexOfProfession: e.detail.value
     })
   },
-  changeVerify: function(){
+  changeVerify: function () {
     //设置verify即可改变图片
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
-    ajax({
-      url:'map/get/type/political',
-      method:'GET',
-    })
 
 
-    login.setAccount(this);
-    ajax({
-      url:'whusu/base/info/get',
-      method:'GET',
-      success: res => {
-        if(res.data && res.data.errcode === 0){
-          this.setData({
-            account:res.data,
-          })
-        }
-      }
-    })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  }
 })

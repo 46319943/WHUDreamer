@@ -67,7 +67,8 @@
     <view class='underline'></view>
     <view class='line'>
       <label class='label' for='policy'>政治面貌</label>
-      <picker bindchange="policyPickerChange" id='policy' name='policy' value="{{indexOfPolicy}}" range="{{policy}}">
+      <picker bindchange="policyPickerChange" id='policy' name='policy' value="{{indexOfPolicy}}"
+       range="{{policy}}">
         <view class="picker" style="color:{{indexOfPolicy ? 'black' : '#808080'}};">
           {{indexOfPolicy ? policy[indexOfPolicy] : '请选择政治面貌'}}
         </view>

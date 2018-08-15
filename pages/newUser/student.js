@@ -28,6 +28,12 @@ Page({
       phone = this.data.phone;
       code = this.data.code;
     }
+
+    if(id.length !== 13){
+      login.show('请填入13位学号');
+      return;
+    }
+
     // 发送请求
     ajax({
       url: 'user/info/add/bkjw',
