@@ -19,7 +19,8 @@ Page({
   },
   // 提交表单时
   formSubmit: function (e) {
-    // 如果不先判断这个，keyValueOfBuilding就为undefined
+    // 如果不先判断这个，keyValueOfBuilding（映射表）就为undefined。
+    // 因为只有先选择区域之后，才会从服务器查表获取映射表
     if(this.data.areaForForm == null){
       login.show('请选择区域');
       return;

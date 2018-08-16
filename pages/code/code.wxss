@@ -25,7 +25,7 @@ page{
 .avatar{
     height: 100rpx;
     width: 100rpx;
-    border-radius: 50%;
+    border-radius: 10rpx;
     margin-left: 60rpx;
     margin-right: 30rpx;
     overflow: hidden;
@@ -66,4 +66,9 @@ canvas{
     position: absolute;
     top:0;
     left: 0;
+}
+
+.data{
+    font-size: 25rpx;
+    color: #aaa;
 }

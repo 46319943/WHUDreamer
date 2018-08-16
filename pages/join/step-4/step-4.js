@@ -48,26 +48,23 @@ Page({
 
 
   formSubmit: function (e) {
-    // 避免keyValueOfSection为undefined
-    if (section == null) {
-      login.show('请选择部门');
-      return;
-    }
     let res = e.detail.value;
     console.log(res);
-
+    // 获取文本域的文本
     let text = res.text;
 
+    // 根据选择的index设置对应的section值
     let indexOfSection = res.section;
     let sectionName = this.data.section[indexOfSection];
     let section = util.getValueInObjectArray(this.data.keyValueOfSection, sectionName);
 
-
+    // 预先生成data
     let data = {
       firstDepartment: section,
       departmentUnder: text,
     }
 
+    // 如果服从调剂，就把第二个部门添加到data中
     if (this.data.obey) {
       let indexOfSectionT = res.sectionT;
       let sectionTName = this.data.sectionT[indexOfSectionT];
@@ -75,16 +72,22 @@ Page({
       data.secondDepartment = sectionT;
     }
 
+    // 表单验证
 
+    // 如果没有选择部门，那么对应的index就是null，那么section的值就是null
+    if (section == null) {
+      login.show('请选择部门');
+      return;
+    }
+    if (data.secondDepartment == null) {
+      login.show('请选择调剂部门');
+      return;
+    }
     if (text === '') {
       login.show('请填写对部门的理解');
       return;
     }
 
-    if (data.secondDepartment == null) {
-      login.show('请选择调剂部门');
-      return;
-    }
 
     ajax({
       url: 'whusu/department/info/add',
@@ -105,6 +108,8 @@ Page({
       indexOfSection: e.detail.value
     });
 
+
+    // 去掉调剂部门中对应的部门
     Array.prototype.remove = function (dx) {
       if (isNaN(dx) || dx > this.length) { return false; }
       for (var i = 0, n = 0; i < this.length; i++) {
@@ -120,7 +125,7 @@ Page({
     let index = arr.indexOf(sectionName);
     arr.remove(index);
     this.setData({
-      sectionT:arr,
+      sectionT: arr,
     })
   },
   sectionTPickerChange: function (e) {

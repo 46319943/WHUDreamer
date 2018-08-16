@@ -1,0 +1,12 @@
+<view class="page">
+    <view class="photo">
+        <image src="{{photo}}" mode="aspectFit" />
+    </view>
+    <view class="line">
+        <view class="message">第一部门：{{section}}</view>
+    </view>
+    <view class="line" wx:if="{{sectionT}}">
+        <view class="message">第二部门：{{sectionT}}</view>
+    </view>
+    <button type="primary" bind:tap="tap">知道了</button>
+</view>

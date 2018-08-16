@@ -1,5 +1,14 @@
-<!--pages/app/app.wxml-->
+<!-- pages/app/app.wxml -->
 <view class='app-container'>
+  <view class="swiper">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imageSwiper}}" wx:key="*this">
+        <swiper-item>
+          <image src='{{item}}' class='slide-image' mode='aspectFit'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
   <view class='top'>
     <view class='avatar'>
       <image src='{{avatar}}' mode=''></image>
@@ -14,13 +23,9 @@
   </view>
   <view class='main'>
     <block wx:for='{{apps}}' wx:key="*this">
-    <!-- 
-    这里如果写data-loginRequire会变成loginrequire   
-    必须写data-login-require才是loginRequire 
-    -->
-      <view class='app' bindtap='{{item.tapEvent ? item.tapEvent : "tapEvent"}}' 
-      data-url='{{item.url}}' data-login-require='{{item.loginRequire}}'
-      style='background:{{item.url ? "transparent" : "#aaa"}};'>
+      <!-- 这里如果写data-loginRequire会变成loginrequire   
+    必须写data-login-require才是loginRequire -->
+      <view class='app' bindtap='{{item.tapEvent ? item.tapEvent : "tapEvent"}}' data-url='{{item.url}}' data-login-require='{{item.loginRequire}}' style='background:{{item.url ? "transparent" : "#aaa"}}; {{!item.url ? "display:none;" : ""}};'>
         <view class='icon' style='background:{{item.color}};'>
           <image src='{{item.icon}}'></image>
         </view>

@@ -9,8 +9,8 @@ Page({
   data: {
     count: 0,
     limit: 200,
-    hobby: ['HTML', 'CSS', 'JS'],
-    option: ['HTML', 'CSS', 'JS', 'JAVA', 'TS', '学习', '睡觉', '找女友？']
+    hobby: ['学习'],
+    option: ['学习', '社交', '电影', '王者荣耀', '看剧', '绝地求生', '睡觉', '谈朋友']
   },
   onLoad: function (options) {
 
@@ -19,6 +19,8 @@ Page({
   },
 
   formSubmit: function (e) {
+    login.formIdUpload(e);
+
     let hobby = this.data.hobby.join(',');
     let text = e.detail.value.text;
 

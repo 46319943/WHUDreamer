@@ -197,6 +197,18 @@ function flush(that) {
 
     }
 }
+
+function formIdUpload(e){
+    if(e && e.detail && e.detail.value && e.detail.value.formId){
+        ajax({
+            url:'user/formid/record',
+            data:{
+                formId:e.detail.value.formId,
+            }
+        })
+
+    }
+}
 module.exports = {
     login,
     init,
@@ -204,4 +216,5 @@ module.exports = {
     setAccount,
     show,
     flush,
+    formIdUpload,
 }

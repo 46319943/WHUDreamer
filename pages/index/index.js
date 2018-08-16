@@ -27,7 +27,7 @@ Page({
       app.userInfoReadyCallback = res => {
         // 回调延迟跳转
         wx.switchTab({
-          url: '../calendar-flex/calendar'
+          url: '../user/user'
         });
       }
       // 得知用户没有授权获取用户信息

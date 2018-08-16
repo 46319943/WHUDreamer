@@ -1,0 +1,28 @@
+.line{
+    height: 100rpx;
+    padding: 20rpx 0;
+    text-align: center;
+    font-size: 0;
+}
+.line .message{
+    
+    font-size: 45rpx;
+    line-height: 60rpx;
+    color: #999;
+}
+
+.photo{
+    border: 5rpx solid #aaa;
+
+    margin-top: 50rpx;
+    margin-bottom: 50rpx;
+    height: 800rpx;
+    width: 650rpx;
+}
+image{
+    height: 100%;
+}
+
+button{
+    width: 80%;
+}

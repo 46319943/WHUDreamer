@@ -1,3 +1,7 @@
+page{
+    text-align: center;
+    font-size: 0;
+}
 .top{
     height: 300rpx;
     display: flex;

@@ -55,6 +55,9 @@ function ajax(config) {
 
         }
         else {
+            if(res.data && res.data.errcode === 20011){
+                login.show('有未填写的必填数据');
+            }
             // config.success(res);
             if (success) {
                 success(res);

@@ -17,7 +17,8 @@
     "pages/detail/detail",
     "pages/calendar/calendar",
     "pages/calendar-flex/calendar",
-    "pages/newUser/student"
+    "pages/newUser/student",
+    "pages/join/complete/complete"
   ],
   "window": {
     "navigationStyle": "default",
@@ -31,18 +32,6 @@
     "color": "#aaa",
     "selectedColor": "#00aa00",
     "list": [
-      {
-        "pagePath": "pages/calendar-flex/calendar",
-        "text": "日程表",
-        "iconPath": "images/tabBar-1-off.png",
-        "selectedIconPath": "images/tabBar-1-on.png"
-      },
-      {
-        "pagePath": "pages/status/status",
-        "text": "状态",
-        "iconPath": "images/tabBar-2-off.png",
-        "selectedIconPath": "images/tabBar-2-on.png"
-      },
       {
         "pagePath": "pages/app/app",
         "text": "应用",

@@ -5,16 +5,22 @@ let ajax = globalData.ajax;
 let login = globalData.login;
 Page({
   data: {
-    avatar:'../../images/user-avatar.jpg',
-    name:'罗运',
-    position:'珞珈创意工作室',
-    apps:[
+    indicatorDots: true,
+    vertical: false,
+    autoplay: true,
+    interval: 2000,
+    duration: 500,
+    avatar: '../../images/user-avatar.jpg',
+    name: '罗运',
+    position: '珞珈创意工作室',
+    apps: [
       {
         name: '加入校会',
         color: 'rgba(67, 207, 124, 1)',
         icon: '../../images/app-1.png',
         url: '../join/step-0/step-0',
         loginRequire: true,
+        tapEvent: 'join',
       },
       {
         name: '面试官',
@@ -55,12 +61,12 @@ Page({
         name: '查询宿舍',
         color: 'rgba(64, 174, 252, 1)',
         icon: '../../images/app-8.png',
-        url:'../domitory/domitory'
+        url: '../domitory/domitory'
       },
     ]
   },
-  
-  onShow: function(e){
+
+  onShow: function (e) {
 
     login.flush();
     // 刷新用户信息
@@ -70,15 +76,15 @@ Page({
   /**
    * 如果没有指定点击时间，就触发默认的点击事件
    */
-  tapEvent: function(e){
+  tapEvent: function (e) {
     // 注意data-之后的所有-后面的一个字面转为大写。本身不支持大写
     let dataset = e.currentTarget.dataset;
 
-    if(dataset.loginRequire && !this.data.account){
+    if (dataset.loginRequire && !this.data.account) {
       login.show('这个功能需要绑定才能使用哟~');
       return;
     }
-    if(!dataset.url){
+    if (!dataset.url) {
       wx.showToast({
         title: '功能尚未开放',
         icon: 'none',
@@ -94,10 +100,55 @@ Page({
   /**
    * 显示二维码
    */
-  codeTap: function(e){
+  codeTap: function (e) {
     wx.navigateTo({
       url: '../code/code'
     })
   },
+
+  join: function (e) {
+    let dataset = e.currentTarget.dataset;
+
+    ajax({
+      url: 'whusu/base/info/get',
+      method: 'GET',
+      success: res => {
+        if (res.data && res.data.errcode === 0) {
+
+
+          let join = res.data;
+          if (join.complete) {
+            globalData.join = join;
+            wx.navigateTo({
+              url: '../join/complete/complete',
+            });
+            return;
+          }
+
+          wx.navigateTo({
+            url: dataset.url,
+          })
+          return;
+
+
+        }
+      }
+    })
+  },
+  onLoad: function (e) {
+    ajax({
+      method: 'GET',
+      url: 'base/banner/get',
+      success: res => {
+        if (res.data && res.data.errcode === 0) {
+          let list = res.data.list;
+          this.setData({
+            imageSwiper: list,
+          });
+        }
+      },
+    });
+  }
+
 
 })
