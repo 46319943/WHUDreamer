@@ -14,15 +14,9 @@
     <view class='underline'></view>
     <view class='line'>
       <label class='label' for='gender'>性别</label>
-      <radio-group name='gender'>
-        <radio id='male' name='gender' value='male' disabled="{{true}}"
-        checked="{{(account && account.sex) ? account.sex==='男' : false}}"
-        ></radio>
-        <label class='choose' for='male'>男</label>
-        <radio id='female' name='gender' value='female' disabled="{{true}}"
-        checked="{{(account && account.sex) ? account.sex==='女' : false}}"></radio>
-        <label class='choose' for='female'>女</label>
-      </radio-group>
+      <input type='text' id='sex' name='sex' placeholder='请输入学号' 
+      value="{{account.sex}}" disabled="{{true}}"></input>
+      
     </view>
     <view class='underline'></view>
     <view class='line'>

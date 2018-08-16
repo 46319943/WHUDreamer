@@ -1,33 +1,34 @@
 /* pages/app/app.wxss */
 
 page{
-  background: white;
+  background: #F2F2F2;
+  
 }
 .top{
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
   height: 150rpx;
-  border-radius: 10rpx;
+  
   margin: 10rpx;
-  width: calc(100% - 20rpx);
-
+  width: calc(100% - 50rpx);
+  margin-bottom: 10rpx;
   background: white;
   overflow: hidden;
-
-  border: 1rpx solid #aaa;
-  filter: drop-shadow(0px 0px 3rpx rgba(0,0,0,0.3));
-  -webkit-filter: drop-shadow(0px 0px 3rpx rgba(0,0,0,0.3));
+  box-shadow: 0 0 20rpx #D8D8D8;
+  
+  
 }
 .main{
-  border-radius: 10rpx;
-  margin: 10rpx;
-  width: calc(100% - 20rpx);
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  width: calc(100% - 50rpx);
   background: white;
-
+  margin-top: 20rpx;
   height: auto;
   overflow: hidden;
   
-  border: 1rpx solid #aaa;
-  filter: drop-shadow(0px 0px 3rpx rgba(0,0,0,0.3));
-  -webkit-filter: drop-shadow(0px 0px 3rpx rgba(0,0,0,0.3));
+  box-shadow: 0 0 20rpx #D8D8D8;
+  
 
 
 }
@@ -42,7 +43,8 @@ page{
 
 }
 .avatar > image{
-  border-radius: 10rpx;
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
   width: 100%;
   height: 100%;
 }
@@ -81,7 +83,7 @@ page{
   width: 187.5rpx;
   height: 220rpx;
   padding: 20rpx;
-  border: #eee solid 1rpx;
+  
   float: left;
 }
 .app > .icon{
@@ -106,14 +108,12 @@ page{
 
 .swiper {
   height: 300rpx;
-  width: calc(100% - 20rpx);
-  margin: 10rpx;
+  width: calc(100% - 50rpx);
+  margin-top: 30rpx;
   border-radius: 10rpx;
-  overflow: hidden;
-
-  border: 1rpx solid #aaa;
-  filter: drop-shadow(0px 0px 3rpx rgba(0,0,0,0.3));
-  -webkit-filter: drop-shadow(0px 0px 3rpx rgba(0,0,0,0.3));
+  overflow: visible;
+  
+  
 
 
 }
@@ -122,4 +122,5 @@ page{
   width: 100%;
   border-radius: 10rpx;
   background: white;
+  box-shadow: 0 0 20rpx #D8D8D8;
 }
