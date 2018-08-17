@@ -1,6 +1,6 @@
 <!-- pages/app/app.wxml -->
 <view class='app-container'>
-  <view class="swiper">
+  <view class="swiper box">
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{imageSwiper}}" wx:key="*this">
         <swiper-item>
@@ -9,7 +9,7 @@
       </block>
     </swiper>
   </view>
-  <view class='top'>
+  <view class='top box'>
     <view class='avatar'>
       <image src='{{avatar}}' mode=''></image>
     </view>
@@ -21,7 +21,7 @@
       <image src='../../images/code.png'></image>
     </view>
   </view>
-  <view class='main'>
+  <view class='main box'>
     <block wx:for='{{apps}}' wx:key="*this">
       <!-- 这里如果写data-loginRequire会变成loginrequire   
     必须写data-login-require才是loginRequire -->
