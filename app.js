@@ -7,17 +7,36 @@ App({
     // 初始化，获取本地cookie
     handler.init();
     // 初始化，将app提供给login
-    
     login.init(this);
- 
-    if(!handler.cookie){
+
+
+    if (!handler.cookie) {
       // 如果没有本地储存的cookie才需要登录
-      login.login();
+      login.login(() => {
+
+        this.globalData.loginFinish = true;
+        if (this.loginFinishCallback && this.loginFinishCallback instanceof Function) {
+          this.loginFinishCallback();
+        }
+
+      });
     }
-    else{
-      login.getAccount();
+    else {
+      login.getAccount(() => {
+
+        this.globalData.loginFinish = true;
+        if (this.loginFinishCallback && this.loginFinishCallback instanceof Function) {
+          this.loginFinishCallback();
+        }
+
+      });
     }
+
     // 获取用户信息
+    /*
+      如果用户授权了，那么获取授权信息
+      如果没有授权，就直接跳过，算这个步骤已经完成
+    */
     wx.getSetting({
       success: res => {
         // 判断用户是否同意获取userInfo
@@ -30,19 +49,22 @@ App({
               // 设置全局加密信息
               this.globalData.userInfo.encryptedData = res.encryptedData;
               this.globalData.userInfo.iv = res.iv;
+
+              this.globalData.userInfoFinish = true;
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {
                 this.userInfoReadyCallback(res)
               }
-              
+
             }
           })
         }
         else {
+          this.globalData.userInfoFinish = true;
           // 如果用户没有授权过获取用户信息
-          if(this.userInfoNoAuthCallback){
-            this.userInfoNoAuthCallback();
+          if (this.userInfoReadyCallback) {
+            this.userInfoReadyCallback(res)
           }
         }
       }

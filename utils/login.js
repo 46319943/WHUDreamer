@@ -128,6 +128,7 @@ function setAccount(that, accountObj) {
         });
     }
 
+
     // 判断avatar
     if (globalData.userInfo && globalData.userInfo.avatarUrl) {
         that.setData({

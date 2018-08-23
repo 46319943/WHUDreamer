@@ -1,4 +1,3 @@
-<!-- pages/user/user.wxml -->
 <view class='user-container'>
   <view class='picture'>
     <view class='background' style='background-image:url({{background}});'></view>
@@ -21,10 +20,12 @@
     </block>
   </view>
   <form bind:submit="formId" report-submit="{{true}}">
-    <button bind:tap="bind" form-type="submit" open-type="{{userinfo ? '' : 'getUserInfo'}}">{{account ? '更新账户' : '绑定账户'}}</button>
+    <button form-type="submit" 
+    open-type="{{userInfo ? 'getUserInfo' : 'getUserInfo'}}" bindgetuserinfo='getUserInfo'>
+    {{account ? '更新账户' : '绑定账户'}}</button>
   </form>
-  <!--
+  
   <form bind:submit="formId" report-submit="{{true}}">
     <button bind:tap="bindDelete" type="warn" wx:if="{{account}}" form-type="submit">解除绑定</button>
-  </form>-->
+  </form>
 </view>

@@ -19,6 +19,8 @@ Page({
   },
 
   formSubmit: function (e) {
+    console.log(e);
+
     login.formIdUpload(e);
 
     //let hobby = this.data.hobby.join(',');
@@ -27,8 +29,13 @@ Page({
 
     if(text === ''){
       login.show('请填写自我评价');
-      return;
+      // return;
     }
+
+    login.show('正在提交数据');
+    this.setData({
+      submitting:true,
+    })
 
     ajax({
       url:'whusu/self/info/add',
@@ -37,11 +44,19 @@ Page({
         selfEvaluation:text,
       },
       success: res => {
+
+        this.setData({
+          submitting:false,
+        })
+
         if(res.data && res.data.errcode === 0){
           login.show('报名成功！2秒后返回');
-          setInterval(res=>{
+          setTimeout(res=>{
             wx.navigateBack();
           },2000);
+        }
+        else{
+          login.show('提交发生错误！');
         }
       }
     })

@@ -28,8 +28,7 @@
     </view>
     <textarea class="text" name='text' placeholder="请输入你对自我的理解" bindinput="textInput" maxlength="-1"></textarea>
     <view class="count">{{count}}/{{limit}}</view>
-    <view class='underline'></view>
-    <button type="primary" form-type='submit'>提交</button>
+    <button type="primary" form-type='submit'>{{submitting ? '正在提交' : '提交' }}</button>
   </form>
 </view>
 <import src="../../../templates/footer" />

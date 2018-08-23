@@ -1,4 +1,4 @@
-let app = getApp();
+              let app = getApp();
 let globalData = app.globalData;
 let handler = globalData.handler;
 let ajax = globalData.ajax;
@@ -12,7 +12,7 @@ Page({
     return {
       title: '快与我一起加入武汉大学学生会',
       path: '/pages/user/user',
-      imageUrl:'https://files.whusu.org/media/img/tuiguang.png'
+      imageUrl: 'https://files.whusu.org/media/img/tuiguang.png'
     }
   },
   data: {
@@ -103,6 +103,8 @@ Page({
       });
       return;
     }
+
+
     wx.navigateTo({
       url: dataset.url,
     })
@@ -118,31 +120,40 @@ Page({
   },
 
   join: function (e) {
+    // 获取跳转数据
     let dataset = e.currentTarget.dataset;
-    wx.navigateTo({
-      url: '../join/step-0/step-0',
-    });
+    // 判断是否绑定
+    if (dataset.loginRequire && !this.data.account) {
+      login.show('这个功能需要绑定才能使用哟~');
+      return;
+    }
+    // 获取是否已经完成填写
     ajax({
       url: 'whusu/base/info/get',
       method: 'GET',
       success: res => {
         if (res.data && res.data.errcode === 0) {
-          
 
           let join = res.data;
+
+          // 测试用
+          join.complete = false;
+
           if (join.complete) {
+            // 如果已经完成就跳转到完成页面
             globalData.join = join;
             wx.navigateTo({
               url: '../join/complete/complete',
             });
             return;
           }
+          else {
+            // 没有完成就跳转到相应的url
+            wx.navigateTo({
+              url: dataset.url,
+            })
 
-          wx.navigateTo({
-            url: dataset.url,
-          })
-          return;
-
+          }
 
         }
       }

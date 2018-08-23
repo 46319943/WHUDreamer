@@ -172,5 +172,8 @@ Page({
     })
     login.setAccount(this);
   },
+  onReady: function(e){
+
+  },
 
 })

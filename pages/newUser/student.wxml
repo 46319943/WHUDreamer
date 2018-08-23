@@ -26,6 +26,6 @@
         <!-- <image src="{{verify}}" bind:tap="verify"/> -->
     </view>
     <button  bind:tap="bindflag" class="getPhone" open-type="getPhoneNumber" bind:getphonenumber="getPhone">点击自动填写手机号</button>
-    <button form-type="submit" disabled='{{flag}}'>{{text}}</button>
+    <button form-type="submit" >{{submitting ? '正在提交' : '提交'}}</button>
 </form>
 <image src='https://files.whusu.org/media/img/signup.png' class='img'></image>

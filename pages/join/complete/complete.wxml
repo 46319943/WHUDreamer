@@ -7,7 +7,7 @@
       <input type='number' id='id' name='id' placeholder="{{section}}" disabled="{{true}}"></input>
     </view>
     
-    <view class='line'>
+    <view class='line' wx:if="{{sectionT}}">
       <label class='label' for='sex'>第二部门</label>
       <input type='text' id='sex' name='sex' placeholder="{{sectionT}}" disabled="{{true}}"></input>
       
