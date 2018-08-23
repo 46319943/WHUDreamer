@@ -147,7 +147,11 @@ Page({
       count: e.detail.value.length
     });
   },
-
+  introduce: function(e){
+    wx.navigateTo({
+      url:'../../html/html',
+    });
+  }
 
 
 

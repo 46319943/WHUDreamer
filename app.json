@@ -18,7 +18,8 @@
     "pages/calendar/calendar",
     "pages/calendar-flex/calendar",
     "pages/newUser/student",
-    "pages/join/complete/complete"
+    "pages/join/complete/complete",
+    "pages/html/html"
   ],
   "window": {
     "navigationStyle": "default",

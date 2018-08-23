@@ -57,3 +57,13 @@ switch{
   padding-right: 5%;
   margin-bottom: 15rpx;
 }
+button::after{ border: none; }
+button.introduce{
+  display: inline-block;
+  color: #0066CC;
+  font-size: 25rpx;
+  border-radius: 0;
+  border: none;
+
+  margin: 10rpx auto;
+}

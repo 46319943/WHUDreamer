@@ -24,8 +24,9 @@
     open-type="{{userInfo ? 'getUserInfo' : 'getUserInfo'}}" bindgetuserinfo='getUserInfo'>
     {{account ? '更新账户' : '绑定账户'}}</button>
   </form>
-  
+<!--   
   <form bind:submit="formId" report-submit="{{true}}">
     <button bind:tap="bindDelete" type="warn" wx:if="{{account}}" form-type="submit">解除绑定</button>
   </form>
+   -->
 </view>

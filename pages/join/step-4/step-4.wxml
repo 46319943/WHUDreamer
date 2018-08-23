@@ -27,6 +27,9 @@
       </view>
       <view class='underline'></view>
     </block>
+    <view >
+      <button class='introduce' bind:tap="introduce">查看部门简介</button>
+    </view>
     <view class="title">
       <view class="left-line"></view>
       <view class="content">对部门的理解</view>
