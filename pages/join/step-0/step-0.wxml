@@ -2,9 +2,9 @@
   <form catchsubmit="formSubmit">
     <image class="avatar" src="{{photo ? photo : defaultPhoto}}" 
     mode="aspectFit" bind:tap="chooseImage" />
-    <view class="tip">您需要先上传证件照才能继续填写</view>
-    <button type='default' form-type='submit'>
-    {{photo ? (uploaded ? '开始填写' : '上传图片') : '请点击上面的框框来选择图片'}}</button>
+    <button class="tip" bindtap='skip'>跳过该步骤</button>
+    <button type='default' form-type='submit' class='submit'>
+    {{photo ? (uploaded ? '开始填写' : '上传图片') : '请先选择照片'}}</button>
   </form>
 </view>
 <import src="../../../templates/footer" />

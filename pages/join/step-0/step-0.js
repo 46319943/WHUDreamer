@@ -4,8 +4,19 @@ let handler = globalData.handler;
 let ajax = globalData.ajax;
 let login = globalData.login;
 Page({
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '快与我一起加入武汉大学学生会',
+      path: '/pages/user/user',
+      imageUrl: 'https://files.whusu.org/media/img/tuiguang.png'
+    }
+  },
   data: {
-    defaultPhoto: '../../../images/user-avatar.jpg'
+    defaultPhoto: '../../../images/face.png'
   },
 
   // 点击按钮时的相应，三种情况
@@ -58,14 +69,25 @@ Page({
                 if (res.statusCode === 200) {
                   login.show('上传成功！');
                   this.setData({
-                    uploaded: true,
+                    uploaded: false,
                   })
                   // 将上传的路径返回给后端，进行存储
                   ajax({
                     url: 'whusu/head/img/add',
                     data: {
                       headimgurl: sign.dir + this.data.studentNum
+                    },
+                    success: res => {
+                      if (res.data && res.data.errcode === 0) {
+                        this.setData({
+                          uploaded: true,
+                        })
+                      }
+                      if (res.data && res.data.errcode === 200111) {
+                        login.show(res.data.tip);
+                      }
                     }
+                    
                   });
                 }
                 else {
@@ -83,7 +105,23 @@ Page({
 
 
   },
-
+  skip: function(e){
+    
+    ajax({
+      url: 'whusu/head/img/add',
+      data: {
+        headimgurl: "notheadimg"
+      },
+      success: function(data) {
+        
+          wx.redirectTo({
+            url: '../step-1/step-1',
+          })
+        
+      }
+    });
+    
+  },
 
   // 选择图片
   chooseImage: function (e) {

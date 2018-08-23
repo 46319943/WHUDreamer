@@ -1,3 +1,4 @@
 {
-    "backgroundColor":"#343434"
+    "backgroundColor":"#343434",
+    "disableScroll": true
 }

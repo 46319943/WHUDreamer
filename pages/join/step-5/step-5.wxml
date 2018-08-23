@@ -1,5 +1,6 @@
 <view class='page-body'>
   <form catchsubmit="formSubmit" report-submit="{{true}}">
+  <!--
     <view class='line'>
       <label class='label' for='hobby'>兴趣爱好</label>
       <block wx:for="{{hobby}}" wx:key="*this">
@@ -11,7 +12,15 @@
       <block wx:for="{{option}}" wx:key="*this">
         <view class='option' data-name="{{item}}" bindtap="optionTap">{{item}}</view>
       </block>
+    </view>-->
+    <view class="title">
+      <view class="left-line"></view>
+      <view class="content">兴趣爱好</view>
+      <view class="right-line"></view>
     </view>
+    <textarea class="text" name='hobby' placeholder="请输入你的兴趣爱好" bindinput="textInput" maxlength="-1" style='height: 200rpx'></textarea>
+    <view class='underline'></view>
+  
     <view class="title">
       <view class="left-line"></view>
       <view class="content">自我评价</view>

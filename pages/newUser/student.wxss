@@ -1,63 +1,65 @@
 form{
-    width: calc(100% - 50rpx);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    width: 90%
 }
-view{
-    display: inline-block;
-    vertical-align: top;
-    text-align: left;
-}
+
 input{
-    display: inline-block;
+    
     height: 60rpx;
-    min-height: none;
-    vertical-align: top;
-    width: 70%;
-    font-size: 37rpx;
+    font-size: 30rpx;
     line-height: 60rpx;
+    flex-grow: 1;
+    text-align: left
     
 }
 .line{
-    height: 100rpx;
-    padding: 20rpx 30rpx;
-    border-bottom: 1rpx #aaa solid;
+    height: 90rpx;
+    border-bottom: 1rpx #CCCCCC solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center
+    
 }
 .label{
     height: 60rpx;
-    width: 30%;
-    font-size: 37rpx;
+    width: 170rpx;
+    font-size: 32rpx;
     line-height: 60rpx;
-    font-weight: 550
-}
-form{
-    font-size: 0;
+    font-weight: 550;
+    text-align: left
 }
 
 
-input[name='phone']{
-    width: 45%
-}
+
+
 input[disabled]{
     color: #aaa;
 }
 
 button.getPhone{
     display: inline-block;
-    vertical-align: top;
+    
     height: 100%;
-    width: 25%;
-    line-height: 60rpx;
+    flex-grow: 1;
+    
 }
 
-input[name='verify']{
-    width: 35%;
-    overflow: visible
-}
+
 button.getCode{
-    display: inline-block;
-    vertical-align: top;
+    display: flex;
+    font-size: 30rpx;
+    width: 60%;
     height: 100%;
-    width: 35%;
-    line-height: 60rpx;
+    flex-grow: 1;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    border-left: 1rpx #CCCCCC solid
+    
 }
 
 /* image{
@@ -70,23 +72,46 @@ button.getCode{
 } */
 
 button[form-type='submit']{
-    width: 90%;
+    
     margin: 20rpx auto;
 }
 
-page {
 
+
+button {
+  background-color: white;
+  color: green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid #CCCCCC 1rpx;
+  border-radius: 0
+        
+}
+button.getPhone{
+    background: white;
+    border: none !important;
+    color: #0066CC;
+    font-size: 25rpx;
+    border-radius: 0;
+    margin: 20rpx auto;
+    margin-right: 0
+
+    
+}
+button::after{ border: none; }
+page {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center
 }
 
-button {
-  background-color: #428bca;
-  border-color: #357ebd;
-  color: white;
-  border: 1px solid transparent;  
-        font-weight: 900;  
-        
+.img {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  
 }

@@ -1,4 +1,5 @@
 {
   "navigationBarTitleText": "梦想珈",
-  "navigationBarBackgroundColor": "#fffff"
+  "disableScroll": true
+  
 }

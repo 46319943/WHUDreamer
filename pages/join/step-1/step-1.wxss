@@ -1,25 +1,41 @@
+form {
+  display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    width: 90%
+}
+.page-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center
+}
 .line{
-  height: 120rpx;
-  padding: 30rpx 35rpx;
-  text-align: left;
-  overflow: visible;
+  height: 90rpx;
+    border-bottom: 1rpx #CCCCCC solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center
 }
 .label{
-  height: 100%;
-  width: 30%;
-  text-align: left;
-  font-size: 45rpx;
+  height: 60rpx;
+    width: 200rpx;
+    font-size: 32rpx;
+    line-height: 60rpx;
+    font-weight: 550;
+    text-align: left
 }
 .line > input{
-  height: 100%;
-  width: 70%;
-  text-align: left;
-  font-size: 45rpx;
+  height: 60rpx;
+    font-size: 30rpx;
+    line-height: 60rpx;
+    flex-grow: 1;
+    text-align: left
 }
 .underline{
-  width: 690rpx;
-  margin: 0 auto;
-  border-bottom: 2rpx solid #aaa;
+  
 }
 radio-group{
   display: inline-block;
@@ -38,15 +54,21 @@ radio{
 }
 picker{
   display: inline-block;
-  vertical-align: top;
-  height: 100%;
-  width: 70%;
+  
+  
+  margin-left: 0;
+  height: 60rpx;
+    font-size: 30rpx;
+    line-height: 60rpx;
+    flex-grow: 1;
+    text-align: left
 }
 .picker{
-  height: 100%;
-  width: 100%;
-  font-size: 1.5em;
-  text-align: left;
+  height: 60rpx;
+    font-size: 30rpx;
+    line-height: 60rpx;
+    width: 100%;
+    text-align: left
 }
 .line > input#verify.verify{
   width: 40%;

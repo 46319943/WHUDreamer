@@ -4,13 +4,24 @@ let handler = globalData.handler;
 let ajax = globalData.ajax;
 let login = globalData.login;
 Page({
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '快与我一起加入武汉大学学生会',
+      path: '/pages/user/user',
+      imageUrl:'https://files.whusu.org/media/img/tuiguang.png'
+    }
+  },
   data: {
     indicatorDots: true,
     vertical: false,
     autoplay: true,
     interval: 2000,
     duration: 500,
-    avatar: '../../images/user-avatar.jpg',
+    avatar: 'https://files.whusu.org/media/img/icon.png',
     name: '罗运',
     position: '珞珈创意工作室',
     apps: [
@@ -108,13 +119,15 @@ Page({
 
   join: function (e) {
     let dataset = e.currentTarget.dataset;
-
+    wx.navigateTo({
+      url: '../join/step-0/step-0',
+    });
     ajax({
       url: 'whusu/base/info/get',
       method: 'GET',
       success: res => {
         if (res.data && res.data.errcode === 0) {
-
+          
 
           let join = res.data;
           if (join.complete) {

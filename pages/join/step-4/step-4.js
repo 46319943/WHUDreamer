@@ -9,14 +9,14 @@ Page({
     indexOfSection: null,
     indexOfSectionT: null,
     section: [
-      '新闻宣传部'
+      '-正在加载-'
     ],
     sectionT: [
-      '新闻宣传部'
+      '-正在加载-'
     ],
-    obey: true,
+    obey: false,
     count: 0,
-    limit: 200
+    limit: 500
   },
 
   onLoad: function (options) {
@@ -48,6 +48,7 @@ Page({
 
 
   formSubmit: function (e) {
+    
     let res = e.detail.value;
     console.log(res);
     // 获取文本域的文本
@@ -79,10 +80,10 @@ Page({
       login.show('请选择部门');
       return;
     }
-    if (data.secondDepartment == null) {
-      login.show('请选择调剂部门');
-      return;
-    }
+    // if (data.secondDepartment == null && this.data.obey == true) {
+    //   login.show('请选择调剂部门');
+    //   return;
+    // }
     if (text === '') {
       login.show('请填写对部门的理解');
       return;

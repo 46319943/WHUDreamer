@@ -13,15 +13,15 @@
       <label class='label' for='obey'>调剂</label>
       <label class='label' for='obey' wx:if='{{obey}}'>同意</label>
       <label class='label' for='obey' wx:else>不同意</label>
-      <switch checked bindchange="switchChange" id="obey" />
+      <switch bindchange="switchChange" id="obey" style='margin-top:30rpx;margin-left:10rpx'/>
     </view>
     <view class='underline'></view>
     <block wx:if='{{obey}}'>
       <view class='line'>
-        <label class='label' for='sectionT'>调剂部门</label>
+        <label class='label' for='sectionT'>第二部门</label>
         <picker bindchange="sectionTPickerChange" id='sectionT' name='sectionT' value="{{indexOfSectionT}}" range="{{sectionT}}">
           <view class="picker" style="color:{{indexOfSectionT ? 'black' : '#808080'}};">
-            {{indexOfSectionT ? sectionT[indexOfSectionT] : '请选择调剂部门'}}
+            {{indexOfSectionT ? sectionT[indexOfSectionT] : '请选择第二部门'}}
           </view>
         </picker>
       </view>

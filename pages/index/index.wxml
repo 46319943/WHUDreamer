@@ -1,13 +1,14 @@
 <!--index.wxml-->
 <view class="container">
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">{{message}}</button>
+  <!--
+    <button wx:if="{{flag}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">{{message}}</button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+    </block>-->
   </view>
   <view class="icon">
-    <image src="../../images/index.png" mode="aspectFit" />
+    <image src="../../images/index.png" mode="aspectFit" class='img'/>
   </view>
 </view>

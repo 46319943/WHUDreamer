@@ -8,17 +8,16 @@ Page({
   data: {
     indexOfArea: null,
     area: [
-      '信息学部',
-      '文理学部桂圆区域'
+      '-正在加载-'
     ],
     indexOfBuilding: null,
     building: [
-      '信息13舍',
-      '信息14舍'
+      '-正在加载-'
     ],
   },
   // 提交表单时
   formSubmit: function (e) {
+    
     // 如果不先判断这个，keyValueOfBuilding（映射表）就为undefined。
     // 因为只有先选择区域之后，才会从服务器查表获取映射表
     if(this.data.areaForForm == null){

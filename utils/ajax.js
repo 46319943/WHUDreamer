@@ -58,6 +58,9 @@ function ajax(config) {
             if(res.data && res.data.errcode === 20011){
                 login.show('有未填写的必填数据');
             }
+            if (res.data && res.data.errcode === 10002) {
+              login.show('您没有操作权限');
+            }
             // config.success(res);
             if (success) {
                 success(res);

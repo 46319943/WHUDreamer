@@ -8,7 +8,7 @@ Page({
 
   data: {
     count: 0,
-    limit: 200,
+    limit: 500,
     hobby: ['学习'],
     option: ['学习', '社交', '电影', '王者荣耀', '看剧', '绝地求生', '睡觉', '谈朋友']
   },
@@ -21,9 +21,9 @@ Page({
   formSubmit: function (e) {
     login.formIdUpload(e);
 
-    let hobby = this.data.hobby.join(',');
+    //let hobby = this.data.hobby.join(',');
     let text = e.detail.value.text;
-
+    let hobby = e.detail.value.hobby;
 
     if(text === ''){
       login.show('请填写自我评价');

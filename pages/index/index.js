@@ -8,16 +8,23 @@ Page({
     // 不能这样子设置data，因为页面在一开始的时候就会被注册，而请求在之后才完成
     // hasUserInfo: globalData.hasUserInfo,
     message: '加载用户信息中',
+    flag: false
   },
   /**
    * 如果用户之前已经同意了获取用户信息，那么在app.js中就在全局变量中设置了userInfo
    * 否则，就要通过在这个页面中的按钮获取
    */
   onLoad: function () {
+    setTimeout(function(){
+      wx.switchTab({
+        url: '../user/user'
+      });
+    },2000);
+    
     if (app.globalData.userInfo) {
       // 如果有用户信息，就直接跳转到界面
       wx.switchTab({
-        url: '../calendar-flex/calendar'
+        url: '../app/app'
       });
     }
     else if (this.data.canIUse) {
@@ -34,6 +41,7 @@ Page({
       app.userInfoNoAuthCallback = res => {
         this.setData({
           message: '点击按钮授权用户信息以进入主界面',
+          flag: true
         })
       }
 
@@ -49,12 +57,13 @@ Page({
           app.globalData.userInfo.iv = res.iv;
           // 获取到用户信息之后跳转
           wx.switchTab({
-            url: '../calendar-flex/calendar'
+            url: '../app/app'
           });
         }
       })
     }
   },
+   
   getUserInfo: function (e) {
     if (e.detail.userInfo) {
       // 设置全局用户信息
@@ -64,7 +73,7 @@ Page({
       app.globalData.userInfo.iv = e.detail.iv;
       // 点击允许之后跳转页面
       wx.switchTab({
-        url: '../calendar-flex/calendar'
+        url: '../app/app'
       });
     } else {
       // 用户拒绝微信授权
@@ -72,5 +81,5 @@ Page({
     }
 
   },
-
+  
 })

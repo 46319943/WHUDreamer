@@ -1,28 +1,28 @@
 <view class='page-body'>
   <form catchsubmit="formSubmit">
     <view class='line'>
-      <label class='label' for='area'>区域</label>
+      <label class='label' for='area' style='width: 100rpx'>学部</label>
       <picker bindchange="areaPickerChange" id='area' name='area' value="{{indexOfArea}}"
-       range="{{area}}">
+       range="{{area}}"  style='margin-left:50rpx'>
         <view class="picker" style="color:{{indexOfArea ? 'black' : '#808080'}};">
-          {{indexOfArea ? area[indexOfArea] : '请选择区域'}}
+          {{indexOfArea ? area[indexOfArea] : '请选择学部'}}
         </view>
       </picker>
     </view>
     <view class='underline'></view>
     <view class='line'>
-      <label class='label' for='building'>宿舍楼</label>
+      <label class='label' for='building' style='width: 100rpx'>宿舍楼</label>
       <picker bindchange="buildingPickerChange" id='building' name='building' 
-      value="{{indexOfBuilding}}" range="{{building}}" disabled='{{!indexOfArea}}'>
+      value="{{indexOfBuilding}}" range="{{building}}" disabled='{{!indexOfArea}}' style='margin-left:50rpx'>
         <view class="picker" style="color:{{indexOfBuilding ? 'black' : '#808080'}};">
-          {{indexOfArea ? (indexOfBuilding ? building[indexOfBuilding] : '请选择宿舍楼') : '请先选择区域'}}
+          {{indexOfArea ? (indexOfBuilding ? building[indexOfBuilding] : '请选择宿舍楼') : '请先选择学部'}}
         </view>
       </picker>
     </view>
     <view class='underline'></view>
     <view class='line'>
       <label class='label' for='room'>门牌号</label>
-      <input type='number' id='room' name='room' placeholder='请输入门牌号'></input>
+      <input type='number' id='room' name='room' placeholder='请输入门牌号' ></input>
     </view>
     <view class='underline'></view>
     <button type='default' form-type='submit'>下一步</button>

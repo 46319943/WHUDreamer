@@ -7,7 +7,9 @@ App({
     // 初始化，获取本地cookie
     handler.init();
     // 初始化，将app提供给login
+    
     login.init(this);
+ 
     if(!handler.cookie){
       // 如果没有本地储存的cookie才需要登录
       login.login();
@@ -23,7 +25,6 @@ App({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
-              console.log(res);
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo;
               // 设置全局加密信息
@@ -34,6 +35,7 @@ App({
               if (this.userInfoReadyCallback) {
                 this.userInfoReadyCallback(res)
               }
+              
             }
           })
         }
@@ -52,5 +54,6 @@ App({
     login: login,
     handler: handler,
     util: util,
+    flag: false
   }
 })

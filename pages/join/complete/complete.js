@@ -4,6 +4,17 @@ let handler = globalData.handler;
 let ajax = globalData.ajax;
 let login = globalData.login;
 Page({
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '快与我一起加入武汉大学学生会',
+      path: '/pages/user/user',
+      imageUrl: 'https://files.whusu.org/media/img/tuiguang.png'
+    }
+  },
 
   /**
    * 页面的初始数据

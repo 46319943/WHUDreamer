@@ -2,11 +2,22 @@
     <view class="photo">
         <image src="{{photo}}" mode="aspectFit" />
     </view>
+    <view class='line'>
+      <label class='label' for='id'>第一部门</label>
+      <input type='number' id='id' name='id' placeholder="{{section}}" disabled="{{true}}"></input>
+    </view>
+    
+    <view class='line'>
+      <label class='label' for='sex'>第二部门</label>
+      <input type='text' id='sex' name='sex' placeholder="{{sectionT}}" disabled="{{true}}"></input>
+      
+    </view>
+    <!--
     <view class="line">
         <view class="message">第一部门：{{section}}</view>
     </view>
     <view class="line" wx:if="{{sectionT}}">
         <view class="message">第二部门：{{sectionT}}</view>
-    </view>
+    </view>-->
     <button type="primary" bind:tap="tap">知道了</button>
 </view>

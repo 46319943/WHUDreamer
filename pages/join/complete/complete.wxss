@@ -1,28 +1,138 @@
 .line{
-    height: 100rpx;
-    padding: 20rpx 0;
-    text-align: center;
-    font-size: 0;
+  height: 90rpx;
+    border-bottom: 1rpx #CCCCCC solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center
 }
-.line .message{
-    
-    font-size: 45rpx;
+.label{
+  height: 60rpx;
+    width: 200rpx;
+    font-size: 32rpx;
     line-height: 60rpx;
-    color: #999;
+    font-weight: 550;
+    text-align: left
 }
 
 .photo{
-    border: 5rpx solid #aaa;
-
-    margin-top: 50rpx;
-    margin-bottom: 50rpx;
-    height: 800rpx;
-    width: 650rpx;
+    width: 500rpx;
+    height: 700rpx;
+    margin: 50rpx auto;
+    border: #aaa solid 1rpx;
+    overflow: hidden
 }
 image{
     height: 100%;
+    display: unset
 }
 
 button{
     width: 80%;
+}
+
+page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: center;
+  
+}
+
+form {
+  display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    width: 90%
+}
+.page{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 40rpx;
+  padding-right: 40rpx
+}
+.line{
+  height: 90rpx;
+    border-bottom: 1rpx #CCCCCC solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center
+}
+.label{
+  height: 60rpx;
+    width: 200rpx;
+    font-size: 32rpx;
+    line-height: 60rpx;
+    font-weight: 550;
+    text-align: left
+}
+.line > input{
+  height: 60rpx;
+    font-size: 30rpx;
+    line-height: 60rpx;
+    flex-grow: 1;
+    text-align: left
+}
+.underline{
+  
+}
+radio-group{
+  display: inline-block;
+  vertical-align: top;
+  height: 100%;
+}
+radio{
+  display: inline-block;
+  vertical-align: sub;
+  height: 100%;
+}
+.choose{
+  height: 100%;
+  font-size: 1.5em;
+  margin-right: 50rpx;
+}
+picker{
+  display: inline-block;
+  
+  
+  margin-left: 0;
+  height: 60rpx;
+    font-size: 30rpx;
+    line-height: 60rpx;
+    flex-grow: 1;
+    text-align: left
+}
+.picker{
+  height: 60rpx;
+    font-size: 30rpx;
+    line-height: 60rpx;
+    width: 100%;
+    text-align: left
+}
+.line > input#verify.verify{
+  width: 40%;
+}
+image.verify{
+  height: 150%;
+  width: 30%;
+  position: relative;
+  bottom: 20%;
+}
+button{
+  margin-top: 60rpx;
+  margin-bottom: 30rpx;
+  width: 90%;
+}
+
+.footer-join{
+  position: static;
+}
+
+
+[disabled]{
+  color: #aaa;
 }

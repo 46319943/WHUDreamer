@@ -10,8 +10,7 @@ Page({
     verify: handler.common + 'verify/get/',
     indexOfPolicy: null,
     policy: [
-      '团员',
-      '党员'
+      '-正在加载-'
     ],
     indexOfInstitute: null,
     institute: [
@@ -26,6 +25,7 @@ Page({
   },
   // 提交表单
   formSubmit: function (e) {
+    
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     // app.globalData.formInformation = e.detail.value;
     // console.log(app.globalData);

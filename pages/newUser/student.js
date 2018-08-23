@@ -9,10 +9,14 @@ Page({
     phone:null,
     // verify: handler.common + 'verify/get/',
     phoneForCode:null,
+    text: "提交",
+    flag: false,
+    flag2: false,
+    flag3: "发送验证码"
   },
 
   formSubmit: function (e) {
-    console.log(e);
+    
     // 获取formId用于发送模版信息
     let formId = e.detail.formId;
 
@@ -33,7 +37,29 @@ Page({
       login.show('请填入13位学号');
       return;
     }
-
+    
+    if (!globalData.userInfo) {
+      wx.showModal({
+        title: '未授权',
+        content: '需要授权后才可使用小程序功能',
+        success: function (res) {
+          if (res.confirm) {
+            wx.switchTab({
+              url: '../user/user'
+            });
+          } else if (res.cancel) {
+            wx.switchTab({
+              url: '../user/user'
+            });
+          }
+        }
+      })
+      return;
+    }
+    this.setData({
+      text: "正在提交",
+      flag: true
+    })
     // 发送请求
     ajax({
       url: 'user/info/add/bkjw',
@@ -49,7 +75,10 @@ Page({
         formId,
       },
       success: res => {
-
+        this.setData({
+          text: "提交",
+          flag: false
+        })
         if(res.data && res.data.errcode === 0){
           login.show('绑定成功');
           // 绑定成功之后，重新获取用户信息。这一步是刷新权限
@@ -63,7 +92,7 @@ Page({
                 // 获取成功之后就跳转到个人中心页面
                 login.show('获取用户信息成功');
                 wx.switchTab({
-                  url:'../user/user',
+                  url:'../app/app',
                 })
               });
 
@@ -74,9 +103,23 @@ Page({
       }
     })
   },
+  bindflag:function(){
+    login.login();
+  }
+  ,
   // 用户点击自动获取手机号
   getPhone: function (e) {
+    wx.getUserInfo({
+      success: res => {
+        // 设置全局用户信息
+        app.globalData.userInfo = res.userInfo
+        // 设置全局加密信息
+        app.globalData.userInfo.encryptedData = res.encryptedData;
+        app.globalData.userInfo.iv = res.iv;
+        // 获取到用户信息之后跳转
 
+      }
+    })
     // 如果获取成功
     if (e.detail.iv) {
       let result = e.detail;
@@ -117,6 +160,18 @@ Page({
 
   // 发送短信获取验证码
   getCode: function(e){
+    login.login();
+    wx.getUserInfo({
+      success: res => {
+        // 设置全局用户信息
+        app.globalData.userInfo = res.userInfo
+        // 设置全局加密信息
+        app.globalData.userInfo.encryptedData = res.encryptedData;
+        app.globalData.userInfo.iv = res.iv;
+        // 获取到用户信息之后跳转
+
+      }
+    })
     // 如果填写了手机号码
     if(this.data.phoneForCode){
       // let _phone = this.data.phoneForCode;
@@ -134,8 +189,16 @@ Page({
           phone,
         },
         success: res => {
-
-          console.log(res);
+          this.setData({
+              flag2: true,
+              flag3:"已发送"
+            })
+          setTimeout(function () {
+            this.setData({
+              flag2: false,
+              flag3: "发送验证码"
+            })
+          }, 60000)
           if(res.data && res.data.errcode===0){
             login.show('发送成功');
           }
@@ -150,6 +213,10 @@ Page({
 
   // 当号码输入框输入的时候，改变对应的变量
   inputPhone: function(e){
+    
+    if (e.detail.value == null) {
+      
+    }
     this.setData({
       phoneForCode: e.detail.value,
     });

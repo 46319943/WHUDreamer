@@ -36,3 +36,7 @@ page{
 .userinfo-nickname {
   color: #aaa;
 }
+
+.img {
+  width: 100%
+}
