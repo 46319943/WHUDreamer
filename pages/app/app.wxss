@@ -4,33 +4,32 @@ page{
   background: #F2F2F2;
   
 }
+/* 块部分的样式 */
+.box{
+  box-shadow: 0 0 20rpx #D8D8D8;
+  width: calc(100% - 50rpx);
+  background: white;
+}
+/* 显示用户信息 */
 .top{
   border-bottom-left-radius: 10rpx;
   border-bottom-right-radius: 10rpx;
   height: 150rpx;
   
   margin: 10rpx;
-  width: calc(100% - 50rpx);
   margin-bottom: 10rpx;
-  background: white;
   overflow: hidden;
-  box-shadow: 0 0 20rpx #D8D8D8;
   
   
 }
+/* 显示应用 */
 .main{
   border-top-left-radius: 10rpx;
   border-top-right-radius: 10rpx;
-  width: calc(100% - 50rpx);
-  background: white;
   margin-top: 20rpx;
   height: auto;
   overflow: hidden;
   
-  box-shadow: 0 0 20rpx #D8D8D8;
-  
-
-
 }
 
 
@@ -39,8 +38,6 @@ page{
   height: 100rpx;
   width: 100rpx;
   margin: 25rpx;
-
-
 }
 .avatar > image{
   border-bottom-left-radius: 10rpx;
@@ -79,6 +76,8 @@ page{
   height: 100%;
   width: 100%;
 }
+
+
 .app{
   width: 187.5rpx;
   height: 220rpx;
@@ -104,23 +103,15 @@ page{
 
 
 /* 轮播图 */
-
-
 .swiper {
   height: 300rpx;
-  width: calc(100% - 50rpx);
   margin-top: 30rpx;
   border-radius: 10rpx;
   overflow: visible;
-  
-  
-
-
 }
 .swiper image {
   height: 100%;
   width: 100%;
   border-radius: 10rpx;
   background: white;
-  box-shadow: 0 0 20rpx #D8D8D8;
 }
