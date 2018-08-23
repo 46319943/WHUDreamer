@@ -9,9 +9,7 @@ Page({
   data: {
     verify: handler.common + 'verify/get/',
     indexOfPolicy: null,
-    policy: [
-      '-正在加载-'
-    ],
+    policy: null,
     indexOfInstitute: null,
     institute: [
       '资源与环境科学学院',

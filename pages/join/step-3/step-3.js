@@ -7,12 +7,10 @@ let util = globalData.util;
 Page({
   data: {
     indexOfArea: null,
-    area: [
-      '-正在加载-'
-    ],
+    area: null,
     indexOfBuilding: null,
     building: [
-      '-正在加载-'
+      'XX舍'
     ],
   },
   // 提交表单时

@@ -46,6 +46,9 @@ button{
   border: solid #CCCCCC 1rpx;
   border-radius: 0;
 }
+button::after{
+  border: none;
+}
 
 .footer-join{
   margin-top: 30rpx;

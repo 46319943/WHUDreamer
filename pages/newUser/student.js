@@ -33,6 +33,29 @@ Page({
       login.show('请填入13位学号');
       return;
     }
+    if(pass.length === 0){
+      login.show('请填写密码');
+      return;
+    }
+    if(email.length === 0){
+      login.show('请填写邮箱');
+      return;
+    }
+    if(phone.length === 0){
+      login.show('请填写手机号');
+      return;
+    }
+    if(code.length === 0){
+      login.show('请填写验证码');
+      return;
+    }
+
+    let regex = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+    if(! (regex.test(email))){
+      login.show('邮箱格式错误');
+      return;
+    }
+
     this.setData({
       submitting: true,
     })
@@ -52,11 +75,11 @@ Page({
       },
 
       success: res => {
+        this.setData({
+          submitting: false,
+        })
 
         if (res.data && res.data.errcode === 0) {
-          this.setData({
-            submitting: false,
-          })
           login.show('绑定成功');
           // 绑定成功之后，重新获取用户信息。这一步是刷新权限
           ajax({
@@ -76,6 +99,15 @@ Page({
             }
           });
 
+        }
+        else if(res.data && res.data.errcode === 20011){
+          login.show(res.data.tip);
+        }
+        else if(res.data && res.data.errcode === 10003){
+          login.show('验证码错误');
+        }
+        else if(res.data && res.data.errcode === undefined){
+          login.show(res.data);
         }
       }
     })
@@ -146,6 +178,9 @@ Page({
           }
         }
       });
+    }
+    else{
+      login.show('请填写手机号');
     }
   },
 

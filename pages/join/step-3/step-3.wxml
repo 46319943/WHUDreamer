@@ -3,9 +3,9 @@
     <view class='line'>
       <label class='label' for='area' style='width: 100rpx'>学部</label>
       <picker bindchange="areaPickerChange" id='area' name='area' value="{{indexOfArea}}"
-       range="{{area}}"  style='margin-left:50rpx'>
+       range="{{area}}" disabled='{{area === null}}'  style='margin-left:50rpx'>
         <view class="picker" style="color:{{indexOfArea ? 'black' : '#808080'}};">
-          {{indexOfArea ? area[indexOfArea] : '请选择学部'}}
+          {{area ? (indexOfArea ? area[indexOfArea] : '请选择学部') : '正在加载'}}
         </view>
       </picker>
     </view>
