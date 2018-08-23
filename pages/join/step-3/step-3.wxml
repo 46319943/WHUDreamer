@@ -25,7 +25,7 @@
       <input type='number' id='room' name='room' placeholder='请输入门牌号' ></input>
     </view>
     <view class='underline'></view>
-    <button type='default' form-type='submit'>下一步</button>
+    <button form-type='submit'>下一步</button>
 
   </form>
 </view>

@@ -81,17 +81,13 @@ button[form-type='submit']{
 button {
   background-color: white;
   color: green;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   border: solid #CCCCCC 1rpx;
   border-radius: 0
         
 }
 button.getPhone{
     background: white;
-    border: none !important;
+    border: none;
     color: #0066CC;
     font-size: 25rpx;
     border-radius: 0;

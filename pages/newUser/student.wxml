@@ -22,7 +22,7 @@
         <view class="label" style='width: 220rpx'>验证码</view>
         <input name='verify' placeholder="短信验证码" type="number" style='margin-left: 30rpx'/>
         
-        <button  class="getCode" bind:tap='getCode' disabled='{{flag2}}'>{{flag3}}</button>
+        <button  class="getCode" bind:tap='getCode'>获取验证码</button>
         <!-- <image src="{{verify}}" bind:tap="verify"/> -->
     </view>
     <button  bind:tap="bindflag" class="getPhone" open-type="getPhoneNumber" bind:getphonenumber="getPhone">点击自动填写手机号</button>

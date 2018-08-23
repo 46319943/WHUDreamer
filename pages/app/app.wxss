@@ -17,6 +17,7 @@ page{
   height: 150rpx;
   
   margin: 10rpx;
+  margin-top: 0;
   margin-bottom: 10rpx;
   overflow: hidden;
   
@@ -106,8 +107,8 @@ page{
 .swiper {
   height: 300rpx;
   margin-top: 30rpx;
-  border-radius: 10rpx;
-  overflow: visible;
+  border-radius: 0;
+  overflow: hidden;
 }
 .swiper image {
   height: 100%;

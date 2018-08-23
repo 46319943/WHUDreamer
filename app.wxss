@@ -40,6 +40,12 @@ label{
   box-sizing: border-box;
   vertical-align: top;
 }
+button{
+  background-color: white;
+  color: green;
+  border: solid #CCCCCC 1rpx;
+  border-radius: 0;
+}
 
 .footer-join{
   margin-top: 30rpx;

@@ -1,5 +1,5 @@
 <view class='page-body'>
-  <form catchsubmit="formSubmit" report-submit="{{true}}">
+  <form bind:submit="formSubmit" report-submit="{{true}}">
   <!--
     <view class='line'>
       <label class='label' for='hobby'>兴趣爱好</label>
@@ -28,7 +28,7 @@
     </view>
     <textarea class="text" name='text' placeholder="请输入你对自我的理解" bindinput="textInput" maxlength="-1"></textarea>
     <view class="count">{{count}}/{{limit}}</view>
-    <button type="primary" form-type='submit'>{{submitting ? '正在提交' : '提交' }}</button>
+    <button form-type='submit'>{{submitting ? '正在提交' : '提交' }}</button>
   </form>
 </view>
 <import src="../../../templates/footer" />

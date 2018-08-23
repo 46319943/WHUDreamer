@@ -29,7 +29,7 @@ Page({
 
     if(text === ''){
       login.show('请填写自我评价');
-      // return;
+      return;
     }
 
     login.show('正在提交数据');

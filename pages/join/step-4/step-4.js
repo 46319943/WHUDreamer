@@ -87,7 +87,7 @@ Page({
 
     if (text === '') {
       login.show('请填写对部门的理解');
-      // return;
+      return;
     }
 
 
@@ -95,17 +95,13 @@ Page({
       url: 'whusu/department/info/add',
       data,
       success: res => {
-        wx.redirectTo({
-          url: '../step-5/step-5',
-        })
 
-        return;
         
         if (res.data && res.data.errcode === 0) {
           wx.redirectTo({
             url: '../step-5/step-5',
           })
-
+          return;
         }
       }
     })

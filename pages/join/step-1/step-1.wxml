@@ -73,7 +73,7 @@
       <image class='verify' src='{{verify}}' bindtap='changeVerify'></image>
     </view>
     <view class='underline'></view> -->
-    <button type='default' form-type='submit'>下一步</button>
+    <button form-type='submit'>下一步</button>
   </form>
 </view>
 <import src="../../../templates/footer" />

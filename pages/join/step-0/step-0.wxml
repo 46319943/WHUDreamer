@@ -3,7 +3,7 @@
     <image class="avatar" src="{{photo ? photo : defaultPhoto}}" 
     mode="aspectFit" bind:tap="chooseImage" />
     <button class="tip" bindtap='skip'>跳过该步骤</button>
-    <button type='default' form-type='submit' class='submit'>
+    <button form-type='submit' class='submit'>
     {{photo ? (uploaded ? '开始填写' : '上传图片') : '请先选择照片'}}</button>
   </form>
 </view>
