@@ -23,6 +23,7 @@ Page({
   },
   // 提交表单
   formSubmit: function (e) {
+    login.formIdUpload(e);
     
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     // app.globalData.formInformation = e.detail.value;

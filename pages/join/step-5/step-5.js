@@ -10,6 +10,7 @@ Page({
     count: 0,
     limit: 500,
     hobby: ['学习'],
+    hobbyValue: null,
     option: ['学习', '社交', '电影', '王者荣耀', '看剧', '绝地求生', '睡觉', '谈朋友']
   },
   onLoad: function (options) {
@@ -23,48 +24,61 @@ Page({
 
     login.formIdUpload(e);
 
-    //let hobby = this.data.hobby.join(',');
+    let hobby = this.data.hobby.join(',');
     let text = e.detail.value.text;
-    let hobby = e.detail.value.hobby;
+    // let hobby = e.detail.value.hobby;
 
-    if(text === ''){
+    if (text === '') {
       login.show('请填写自我评价');
       return;
     }
 
     login.show('正在提交数据');
     this.setData({
-      submitting:true,
+      submitting: true,
     })
 
     ajax({
-      url:'whusu/self/info/add',
-      data:{
-        interest:hobby,
-        selfEvaluation:text,
+      url: 'whusu/self/info/add',
+      data: {
+        interest: hobby,
+        selfEvaluation: text,
       },
       success: res => {
 
         this.setData({
-          submitting:false,
+          submitting: false,
         })
 
-        if(res.data && res.data.errcode === 0){
+        if (res.data && res.data.errcode === 0) {
           login.show('报名成功！2秒后返回');
-          setTimeout(res=>{
+          setTimeout(res => {
             wx.navigateBack();
-          },2000);
+          }, 2000);
         }
-        else{
+        else {
           login.show('提交发生错误！');
         }
       }
     })
 
 
-    
-  }
-  ,
+
+  },
+  inputBlur: function (e) {
+    if(e.detail.value === ''){
+      return;
+    }
+    // 将爱好添加到列表中
+    let hobby = this.data.hobby;
+    hobby.push(e.detail.value);
+    this.setData({
+      hobby: hobby
+    });
+    // 清空输入框中的内容
+    this.setData({hobbyValue:''});
+  },
+
   textInput: function (e) {
     this.setData({
       count: e.detail.value.length
@@ -94,8 +108,5 @@ Page({
     console.log(this);
     console.log(e);
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
 
 })

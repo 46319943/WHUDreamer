@@ -21,6 +21,8 @@ Page({
 
   // 点击按钮时的相应，三种情况
   formSubmit: function (e) {
+    login.formIdUpload(e);
+
     // 如果已经上传了文件，就跳转下一步
     if (this.data.uploaded) {
       wx.redirectTo({

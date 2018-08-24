@@ -136,8 +136,6 @@ Page({
 
           let join = res.data;
 
-          join.complete = false;
-
           if (join.complete) {
             // 如果已经完成就跳转到完成页面
             globalData.join = join;

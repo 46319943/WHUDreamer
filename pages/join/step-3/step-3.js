@@ -15,6 +15,7 @@ Page({
   },
   // 提交表单时
   formSubmit: function (e) {
+    login.formIdUpload(e);
     
     // 如果不先判断这个，keyValueOfBuilding（映射表）就为undefined。
     // 因为只有先选择区域之后，才会从服务器查表获取映射表

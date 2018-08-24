@@ -1,5 +1,5 @@
 <view class='page-body'>
-  <form catchsubmit="formSubmit">
+  <form catchsubmit="formSubmit" report-submit="{{true}}">
     <view class='line'>
       <label class='label' for='area' style='width: 100rpx'>学部</label>
       <picker bindchange="areaPickerChange" id='area' name='area' value="{{indexOfArea}}"

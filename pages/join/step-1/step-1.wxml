@@ -1,5 +1,5 @@
 <view class='page-body'>
-  <form catchsubmit="formSubmit">
+  <form catchsubmit="formSubmit" report-submit="{{true}}">
     <view class='line'>
       <label class='label' for='name'>姓名</label>
       <input type='text' id='name' name='name' placeholder="{{account ? account.name : '正在获取姓名'}}" disabled="{{true}}" value="{{account ? account.name : ''}}"  ></input>

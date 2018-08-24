@@ -1,8 +1,9 @@
 <view class='page-body'>
-  <form catchsubmit="formSubmit">
+  <form catchsubmit="formSubmit" report-submit="{{true}}">
     <view class='line'>
       <label class='label' for='section'>申请部门</label>
-      <picker bindchange="sectionPickerChange" id='section' name='section' value="{{indexOfSection}}" range="{{section}}">
+      <picker bindchange="sectionPickerChange" id='section' name='section'
+       value="{{indexOfSection}}" range="{{section}}" disabled='{{section === null}}' >
         <view class="picker" style="color:{{indexOfSection ? 'black' : '#808080'}};">
           {{indexOfSection ? section[indexOfSection] : '请选择部门'}}
         </view>

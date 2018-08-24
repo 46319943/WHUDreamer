@@ -1,5 +1,5 @@
 <view class='page-body'>
-  <form catchsubmit="formSubmit">
+  <form catchsubmit="formSubmit" report-submit="{{true}}">
     <image class="avatar" src="{{photo ? photo : defaultPhoto}}" 
     mode="aspectFit" bind:tap="chooseImage" />
     <button class="tip" bindtap='skip'>跳过该步骤</button>

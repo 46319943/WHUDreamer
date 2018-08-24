@@ -1,32 +1,36 @@
 <view class='page-body'>
   <form bind:submit="formSubmit" report-submit="{{true}}">
-  <!--
+    <view class="title">
+      <view class="left-line"></view>
+      <view class="content">兴趣爱好</view>
+      <view class="right-line"></view>
+    </view>
     <view class='line'>
-      <label class='label' for='hobby'>兴趣爱好</label>
+      <!-- <label class='label' for='hobby'>兴趣爱好</label> -->
       <block wx:for="{{hobby}}" wx:key="*this">
         <view class="box" data-name="{{item}}" bindtap="hobbyTap">{{item}}</view>
       </block>
     </view>
     <view class='underline'></view>
     <view class='line' id="option">
-      <block wx:for="{{option}}" wx:key="*this">
+      <input type="text" id="hobby" name='hobby' bind:blur="inputBlur" maxlength="8" value="{{hobbyValue}}" placeholder="此处输入单个兴趣爱好，回车结束" />
+      <!-- <block wx:for="{{option}}" wx:key="*this">
         <view class='option' data-name="{{item}}" bindtap="optionTap">{{item}}</view>
-      </block>
-    </view>-->
-    <view class="title">
+      </block> -->
+    </view>
+    <!-- <view class="title">
       <view class="left-line"></view>
       <view class="content">兴趣爱好</view>
       <view class="right-line"></view>
-    </view>
-    <textarea class="text" name='hobby' placeholder="请输入你的兴趣爱好" bindinput="textInput" maxlength="-1" style='height: 200rpx'></textarea>
+    </view> -->
+    <!-- <textarea class="text" name='hobby' placeholder="请输入你的兴趣爱好" maxlength="200" style='height: 200rpx'></textarea> -->
     <view class='underline'></view>
-  
     <view class="title">
       <view class="left-line"></view>
       <view class="content">自我评价</view>
       <view class="right-line"></view>
     </view>
-    <textarea class="text" name='text' placeholder="请输入你对自我的理解" bindinput="textInput" maxlength="-1"></textarea>
+    <textarea class="text" name='text' placeholder="请输入你对自我的理解" bindinput="textInput" maxlength="505"></textarea>
     <view class="count">{{count}}/{{limit}}</view>
     <button form-type='submit'>{{submitting ? '正在提交' : '提交' }}</button>
   </form>

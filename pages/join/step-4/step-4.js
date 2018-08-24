@@ -48,6 +48,7 @@ Page({
 
 
   formSubmit: function (e) {
+    login.formIdUpload(e);
     
     let res = e.detail.value;
     console.log(res);
