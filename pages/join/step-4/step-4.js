@@ -150,7 +150,7 @@ Page({
   },
   introduce: function(e){
     wx.navigateTo({
-      url:'../../html/html',
+      url:'../../html/html?url=https://www.whusu.org/department/info.html',
     });
   }
 

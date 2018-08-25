@@ -1,12 +1,12 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/domitory/domitory",
     "pages/test/test",
     "pages/logs/logs",
     "pages/user/user",
     "pages/status/status",
     "pages/app/app",
+    "pages/app/domitory/domitory",
     "pages/join/step-1/step-1",
     "pages/join/step-2/step-2",
     "pages/join/step-3/step-3",
@@ -19,7 +19,9 @@
     "pages/calendar-flex/calendar",
     "pages/newUser/student",
     "pages/join/complete/complete",
-    "pages/html/html"
+    "pages/html/html",
+    "pages/pdf/pdf",
+    "pages/app/manager/manager"
   ],
   "window": {
     "navigationStyle": "default",

@@ -1,6 +1,5 @@
 let app = getApp();
 let globalData = app.globalData;
-let handler = globalData.handler;
 let ajax = globalData.ajax;
 let login = globalData.login;
 Page({
@@ -49,10 +48,8 @@ Page({
             let sign = res.data;
             delete sign.errcode;
             delete sign.errmsg;
-            // 将OSS信息保存到全局
-            handler.sign = sign;
             // 通过全局获取选择的文件
-            let file = handler.file;
+            let file = this.data.file;
             // 上传文件到OSS
             wx.uploadFile({
               url: sign.host,
@@ -89,7 +86,7 @@ Page({
                         login.show(res.data.tip);
                       }
                     }
-                    
+
                   });
                 }
                 else {
@@ -107,22 +104,19 @@ Page({
 
 
   },
-  skip: function(e){
-    
+  skip: function (e) {
     ajax({
       url: 'whusu/head/img/add',
       data: {
         headimgurl: "notheadimg"
       },
-      success: function(data) {
-        
-          wx.redirectTo({
-            url: '../step-1/step-1',
-          })
-        
+      success: res => {
+        wx.redirectTo({
+          url: '../step-1/step-1',
+        })
       }
     });
-    
+
   },
 
   // 选择图片
@@ -133,7 +127,7 @@ Page({
         console.log(res);
         // 如果文件已经上传过，更换图片之后重新上传
         this.setData({
-          uploaded:false,
+          uploaded: false,
         })
         // 临时文件数组
         let tempFiles = res.tempFiles;
@@ -148,7 +142,7 @@ Page({
           return;
         }
         // 将文件传入全局变量，上传时调用
-        handler.file = file;
+        this.data.file = file;
         this.setData({
           photo: file.path,
         })
@@ -174,7 +168,7 @@ Page({
     })
     login.setAccount(this);
   },
-  onReady: function(e){
+  onReady: function (e) {
 
   },
 

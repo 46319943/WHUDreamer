@@ -11,7 +11,6 @@
   border: none;
   font: 35rpx
 }
-button::after{ border: none; }
 .avatar{
     width: 500rpx;
     height: 700rpx;

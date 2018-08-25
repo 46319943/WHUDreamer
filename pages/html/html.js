@@ -1,11 +1,12 @@
 Page({
   data: {
-    url:'https://www.whusu.org/department/info.html'
+    url:null
   },
 
 
-  onShow: function () {
-  
+  onLoad: function(options){
+    console.log(options);
+    this.setData({url:options.url});
   },
 
 })

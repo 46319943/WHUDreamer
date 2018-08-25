@@ -1,0 +1,19 @@
+<form report-submit="{{true}}" bind:submit="download">
+    <button form-type="submit" disabled="{{complete}}">{{complete ? '已下载' : '点击下载pdf'}}</button>
+</form>
+<form report-submit="{{true}}" bind:submit="open" wx:if="{{complete}}">
+    <button form-type="submit">打开pdf</button>
+</form>
+<form report-submit="{{true}}" bind:submit="copy" wx:if="{{complete}}">
+    <button form-type="submit">复制下载链接到剪贴板</button>
+    <view >可以通过链接将PDF下载到电脑上来打印！</view>
+</form>
+<!-- <button bind:tap="delete">删除(测试用)</button> -->
+<form report-submit="{{true}}" bind:submit="back">
+    <button form-type="submit">返回小程序</button>
+</form>
+<!-- 
+<view >{{progress}}</view>
+<view >{{totalBytesWritten}}</view>
+<view >{{totalBytesExpectedToWrite}}</view> 
+-->

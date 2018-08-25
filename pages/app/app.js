@@ -72,7 +72,7 @@ Page({
         name: '查询宿舍',
         color: 'rgba(64, 174, 252, 1)',
         icon: '../../images/app-8.png',
-        url: '../domitory/domitory'
+        url: 'domitory/domitory'
       },
     ]
   },
