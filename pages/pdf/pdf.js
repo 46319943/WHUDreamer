@@ -89,7 +89,8 @@ Page({
                   let sign = res.data;
                   delete sign.errcode;
                   delete sign.errmsg;
-                  OSSPath = sign.dir + this.data.num + '.pdf';
+                  let randomString = Math.random().toString();
+                  OSSPath = sign.dir + this.data.num + randomString +'.pdf';
                   OSSUrl = sign.host + '/' + OSSPath;
                   // 需要后端改，但后端不改
                   OSSUrl = 'https://files.whusu.org/' + OSSPath;
@@ -99,7 +100,7 @@ Page({
                     url: sign.host,
                     name: 'file',
                     formData: {
-                      key: sign.dir + this.data.num + '.pdf',//上传文件的文件名。如果名称包含路径，则OSS会自动创建相应的文件夹
+                      key: OSSPath,//上传文件的文件名。如果名称包含路径，则OSS会自动创建相应的文件夹
                       name: filePath,
                       policy: sign.policy,
                       Signature: sign.signature,
