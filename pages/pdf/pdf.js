@@ -64,6 +64,7 @@ Page({
     let downloadTask = wx.downloadFile({
       url,
       success: res => {
+        login.show('下载原始PDF成功');
         // 获取临时文件路径
         let tempFilePath = res.tempFilePath;
         console.log(tempFilePath);
@@ -71,6 +72,7 @@ Page({
         wx.saveFile({
           tempFilePath,
           success: res => {
+            login.show('保存PDF成功');
             // 获取永久保存的路径，并保存在全局路径
             let filePath = res.savedFilePath;
             this.data.filePath = filePath;
@@ -81,6 +83,7 @@ Page({
             ajax({
               url: 'sign/oss/get/signuppdf',
               success: res => {
+                login.show('获取PDF签名成功');
                 if (res.data && res.data.errcode === 0) {
                   // 获取上传所需签名
                   let sign = res.data;
@@ -104,6 +107,7 @@ Page({
                       success_action_status: '200',
                     },
                     success: res => {
+                      login.show('生成PDF链接成功');
                       // 如果上传成功了的话
                       if (res.statusCode === 200) {
                         // 2.在本地存储学号对应pdf文件的路径
@@ -114,7 +118,7 @@ Page({
                         // 3.设置为已完成下载状态
                         this.setData({ complete: true });
                         this.data.OSSUrl = OSSUrl;
-                        login.show('获取PDF成功');
+                        login.show('获取PDF完成');
                       }
                       else {
                         login.show('获取PDF失败，请检查网络');
@@ -190,6 +194,6 @@ Page({
   },
   delete: function (e) {
     this.setData({ complete: false });
-    
+
   },
 })
