@@ -184,6 +184,9 @@ Page({
     // 跳转到用户中心
     wx.switchTab({ url: '../user/user' });
   },
+  re: function (e) {
+    
+  },
   copy: function (e) {
     wx.setClipboardData({
       data: this.data.OSSUrl,

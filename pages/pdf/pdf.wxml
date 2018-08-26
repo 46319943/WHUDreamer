@@ -1,3 +1,53 @@
+<view class='body'>
+  <view class='head'>电子简历获取说明</view>
+  <view class='box'>
+    <view style='font-size: 30rpx;text-align: left;font-weight: 700'>下载</view>
+    <view style='font-size: 25rpx;text-align: left;'>点击下方下载简历按钮，下载您的电子简历，电子简历下载完成后，       系统会将pdf文件转存到微信中。</view>
+  </view>
+  <view class='box'>
+    <view style='font-size: 30rpx;text-align: left;font-weight: 700'>转发（不推荐）</view>
+    <view style='font-size: 25rpx;text-align: left;'>部分机型支持转发，您可以打开简历后通过系统自带的转发功能将简历转发至您的微信，但可能导致文件乱码。</view>
+  </view>
+  <view class='box'>
+    <view style='font-size: 30rpx;text-align: left;font-weight: 700'>复制链接</view>
+    <view style='font-size: 25rpx;text-align: left;'>下载后您也可以直接点击下方的复制链接按钮复制您的简历地址，将地址发送至打印店电脑即可打印。</view>
+  </view>
+  <view class='box'>
+    <view style='font-size: 30rpx;text-align: left;font-weight: 700'>递交简历</view>
+    <view style='font-size: 25rpx;text-align: left;'>面试时，您需要递交你已经打印好的纸质版简历，若您选择了两个部门则需要递交两份。</view>
+  </view>
+  <view class='box'>
+    <view style='font-size: 30rpx;text-align: left;font-weight: 700'>问题解答</view>
+    <view style='font-size: 25rpx;text-align: left;'>由于简历为系统自动生成，若出现格式有误等情况，无需担心，正常打印并递交即可。</view>
+  </view>
+</view>
+<view class='bottom'>
+<view class='bottombut'>
+<form report-submit="{{true}}" bind:submit="download" wx:if="{{!complete}}">
+    <button form-type="submit">下载简历</button>
+</form>
+<form report-submit="{{true}}" bind:submit="open" wx:if="{{complete}}">
+    <button form-type="submit">打开报名表</button>
+</form>
+</view>
+<view class='divd'></view>
+<view class='bottombut'>
+<form report-submit="{{true}}" bind:submit="open" wx:if="{{!complete}}">
+    <button form-type="submit" disabled="{{!complete}}">请先下载</button>
+</form>
+<form report-submit="{{true}}" bind:submit="copy" wx:if="{{complete}}">
+    <button form-type="submit">复制链接</button>
+</form>
+</view>
+<view class='divd'></view>
+<view class='bottombut'>
+<button bindtap='back'>返回小程序</button>
+</view>
+</view>
+
+
+
+<!--
 <form report-submit="{{true}}" bind:submit="download">
     <button form-type="submit" disabled="{{complete}}">{{complete ? '已下载' : '点击下载pdf'}}</button>
 </form>
@@ -8,10 +58,10 @@
     <button form-type="submit">复制下载链接到剪贴板</button>
     <view >可以通过链接将PDF下载到电脑上来打印！</view>
 </form>
-<!-- <button bind:tap="delete">删除(测试用)</button> -->
+ <button bind:tap="delete">删除(测试用)</button> 
 <form report-submit="{{true}}" bind:submit="back">
     <button form-type="submit">返回小程序</button>
-</form>
+</form>-->
 <!-- 
 <view >{{progress}}</view>
 <view >{{totalBytesWritten}}</view>
