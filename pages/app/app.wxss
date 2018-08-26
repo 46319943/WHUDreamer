@@ -80,7 +80,7 @@ page{
 
 
 .app{
-  width: 187.5rpx;
+  width: 25%;
   height: 220rpx;
   padding: 20rpx;
   

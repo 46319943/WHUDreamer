@@ -1,2 +1,14 @@
-<!--pages/app/manager/manager.wxml-->
-<text>pages/app/manager/manager.wxml</text>
+<picker mode="selector" bind:change="sectionPickerChange" range="{{sectionArr}}">
+    <view>{{sectionArr ? (indexOfSection ? sectionArr[indexOfSection] : '请选择查看部门') : '正在加载'}}</view>
+</picker>
+<block wx:if="{{count}}">
+    <view>{{count ? count : ''}}</view>
+    <view>{{page ? page : ''}} / {{pageMax ? pageMax : ''}}</view>
+    <view wx:for="{{list}}">
+        <view>
+            {{item.name}} - {{item.college}} - {{item.major}} - {{item.first}}{{item.second ? ' - '+item.second : ''}}
+        </view>
+    </view>
+    <button bind:tap="next" disabled="{{page*25 >= count}}">下一页</button>
+    <button bind:tap="previous" disabled="{{page <= 1}}">上一页</button>
+</block>

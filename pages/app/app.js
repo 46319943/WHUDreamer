@@ -51,7 +51,9 @@ Page({
       {
         name: '审批',
         color: 'rgba(253, 178, 70, 1)',
-        icon: '../../images/app-5.png'
+        icon: '../../images/app-5.png',
+        url:'approve/approve',
+        loginRequire: true,
       },
       {
         name: '订邮',
@@ -66,7 +68,9 @@ Page({
       {
         name: '智能报表',
         color: 'rgba(64, 174, 252, 1)',
-        icon: '../../images/app-8.png'
+        icon: '../../images/app-8.png',
+        url:'manager/manager',
+        loginRequire: true,
       },
       {
         name: '查询宿舍',
@@ -133,7 +137,7 @@ Page({
       method: 'GET',
       success: res => {
         if (res.data && res.data.errcode === 0) {
-
+          // 获取返回的报名信息
           let join = res.data;
 
           if (join.complete) {

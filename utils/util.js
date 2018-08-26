@@ -15,21 +15,33 @@ const formatNumber = n => {
 }
 
 /**
- * 获取映射表中对应text的value
- * @param {Array} map 
+ * 获取对象数组中text对应对象的value
+ * @param {Array} arr 
  * @param {string} key 
  */
-function getValueInObjectArray(map,key){
-  for(let obj of map){
+function getValueInObjectArray(arr,key){
+  for(let obj of arr){
     if(obj['text'] === key){
       return obj['value'];
     }
   }
   return null;
 }
+/**
+ * 通过对象数组获取每个对象的text名称属性
+ * @param {Array} arr 
+ */
+function getAllKeyInObjectArray(arr){
+  let newArr = [];
+  for(let obj of arr){
+    newArr.unshift(obj['text']);
+  }
+  return newArr;
+}
 
 
 module.exports = {
   formatTime: formatTime,
-  getValueInObjectArray
+  getValueInObjectArray,
+  getAllKeyInObjectArray
 }

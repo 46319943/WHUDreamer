@@ -8,9 +8,7 @@ Page({
   data: {
     indexOfSection: null,
     indexOfSectionT: null,
-    section: [
-      '-正在加载-'
-    ],
+    section: null,
     sectionT: [
       '-正在加载-'
     ],

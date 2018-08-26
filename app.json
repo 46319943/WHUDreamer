@@ -21,7 +21,8 @@
     "pages/join/complete/complete",
     "pages/html/html",
     "pages/pdf/pdf",
-    "pages/app/manager/manager"
+    "pages/app/manager/manager",
+    "pages/app/approve/approve"
   ],
   "window": {
     "navigationStyle": "default",

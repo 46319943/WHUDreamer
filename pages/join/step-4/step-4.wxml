@@ -5,7 +5,7 @@
       <picker bindchange="sectionPickerChange" id='section' name='section'
        value="{{indexOfSection}}" range="{{section}}" disabled='{{section === null}}' >
         <view class="picker" style="color:{{indexOfSection ? 'black' : '#808080'}};">
-          {{indexOfSection ? section[indexOfSection] : '请选择部门'}}
+          {{section ? (indexOfSection ? section[indexOfSection] : '请选择部门') : '正在加载'}}
         </view>
       </picker>
     </view>

@@ -1,0 +1,17 @@
+<picker mode="selector" bind:change="institutePickerChange" range="{{instituteArr}}">
+    <view>
+        {{instituteArr ? (indexOfInstitute ? instituteArr[indexOfInstitute] : '请选择查看院系') : '正在加载'}}
+    </view>
+</picker>
+<view wx:if="{{count != null}}">
+    已直推：{{count}} / {{countMax}}
+</view>
+<view wx:for="{{list}}">
+    <view>
+        {{item.name}} - {{item.studentNum}} - {{item.first}}{{item.second ? ' - ' + item.second : ''}}
+    </view>
+    <form bind:submit="approve">
+        <button form-type="submit" disabled="{{item.exempt || (count >= countMax)}}" data-id='{{item.id}}' data-name='{{item.name}}'>
+        {{item.exempt ? '已直推' : (count < countMax ? '点击直推' : '名额已满')}}</button>
+    </form>
+</view>
