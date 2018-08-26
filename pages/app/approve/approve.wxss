@@ -1,1 +1,91 @@
 /* pages/app/approve/approve.wxss */
+.head {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300rpx;
+  background-color: white;
+  border-bottom: solid #CCCCCC 1rpx;
+}
+
+.headimg {
+  width: 120rpx !important;
+  height: 120rpx !important;
+}
+
+.headtext {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.itembox {
+  display: flex;
+  height: 150rpx;
+  border-bottom: solid #CCCCCC 1rpx;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 20rpx;
+  padding-right: 20rpx
+}
+
+.itemimg {
+  height: 120rpx;
+  width: 120rpx !important
+}
+
+.iteminfo {
+  height: 120rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 20rpx
+}
+
+.itemtext {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center
+}
+
+.bt1 {
+  background-color: white !important;
+  width: 120rpx;
+  height: 70rpx;
+  font-size: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  border-radius: 40rpx;
+  border: #00baad solid 1rpx;
+  color: #00baad
+}
+
+.bt2 {
+  background-color: white !important;
+  width: 120rpx;
+  height: 70rpx;
+  font-size: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  border-radius: 40rpx;
+  border: #ff5733 solid 1rpx;
+  color: #ff5733 !important
+}
+
+form {
+  width: 120rpx;
+  height: 70rpx;
+  align-self: flex-end;
+  margin-bottom: 40rpx;
+  margin-right: 40rpx
+}

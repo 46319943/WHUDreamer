@@ -11,25 +11,30 @@ Page({
     // 部门的名称数组
     sectionArr: null,
     // 当前指向部门名称数组的索引，注意这个是字符串类型！
-    indexOfSection: null,
+    indexOfSection: '0',
     // 当前选择项的数量
     count: null,
     // 当前选择项列表的页数
     page: null,
+    // 总报名人数
+    total: 0,
+    //当前选择的部门
+    section: null
   },
 
 
   onLoad: function (options) {
     // 获取所有的部门名称和对应的值
-
+    wx.showNavigationBarLoading();
     // 对象数组
     let arrObj;
     // 名称数组
-    let arr;
+    var arr;
     ajax({
       url: 'map/get/type/department',
       method: 'GET',
       success: res => {
+        wx.hideNavigationBarLoading()
         if (res.data && res.data.data) {
           arrObj = res.data.data;
           this.data.arrObj = arrObj;
@@ -43,10 +48,37 @@ Page({
         }
       }
     });
-
-
-
+    ajax({
+      // 如果设置了sectionValue就把它添加上
+      url: 'signup/count/get',
+      method: 'GET',
+      success: res => {
+        if (res.data && res.data.count) {
+          this.setData({ total: res.data.count });
+        }
+      }
+    });
+    this.data.sectionValue = "";
+    // 保存最终返回的数量
+    let count;
+    // 最大页数，count/每页数量
+    let pageMax;
+    ajax({
+      // 如果设置了sectionValue就把它添加上
+      url: 'signup/count/get/' + this.data.sectionValue,
+      method: 'GET',
+      success: res => {
+        if (res.data && res.data.errcode === 0) {
+          count = res.data.count;
+          pageMax = Math.ceil(count / COUNT_PER_PAGE);
+          this.setData({ count, pageMax });
+        }
+      }
+    });
+    this.changePage(0);
   },
+
+  
 
 
   sectionPickerChange: function (e) {
@@ -89,9 +121,15 @@ Page({
   },
   next: function (e) {
     this.changePage(1);
+    wx.pageScrollTo({
+      scrollTop: 0
+    })
   },
   previous: function (e) {
     this.changePage(-1);
+    wx.pageScrollTo({
+      scrollTop: 0
+    })
   },
   changePage,
   onShareAppMessage: function () {

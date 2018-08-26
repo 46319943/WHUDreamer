@@ -1,1 +1,116 @@
 /* pages/app/manager/manager.wxss */
+
+page{
+  background-color: white
+}
+
+.itembox {
+  display: flex;
+  height: 150rpx;
+  border-bottom: solid #CCCCCC 1rpx;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 20rpx;
+  padding-right: 20rpx
+}
+
+.itemimg {
+  height: 120rpx;
+  width: 120rpx !important
+}
+
+.iteminfo {
+  height: 120rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 20rpx
+}
+
+.itemtext {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center
+}
+
+.headbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #117fd0;
+  width: 100%;
+  height: 330rpx
+}
+
+.headtotal {
+  color: white;
+  font-size: 80rpx;
+  font-weight: 800
+}
+
+.headtext {
+  color: white;
+  font-size: 25rpx;
+  margin-top: 20rpx
+}
+
+.headselect {
+  color: white;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+
+}
+
+picker {
+  display: inline
+}
+
+.headunderline {
+  border-bottom: dashed white 1rpx
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  height: 120rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-top: solid #CCCCCC 3rpx;
+  background-color: white
+  
+}
+
+.divd {
+  width: 3rpx ;
+  height: 80rpx;
+  background-color: #CCCCCC;
+  
+}
+
+.bottombut {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1
+}
+
+page {
+  padding-bottom: 120rpx
+}
+
+button{
+  border: none;
+  background: transparent !important;
+  color: black;
+  font-size: 30rpx;
+  
+  
+  
+}

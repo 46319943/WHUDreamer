@@ -49,7 +49,7 @@ Page({
         icon: '../../images/app-4.png'
       },
       {
-        name: '审批',
+        name: '院系直推',
         color: 'rgba(253, 178, 70, 1)',
         icon: '../../images/app-5.png',
         url:'approve/approve',
@@ -66,18 +66,19 @@ Page({
         icon: '../../images/app-7.png'
       },
       {
-        name: '智能报表',
+        name: '报名查询',
         color: 'rgba(64, 174, 252, 1)',
         icon: '../../images/app-8.png',
         url:'manager/manager',
         loginRequire: true,
       },
+      /** 
       {
         name: '查询宿舍',
         color: 'rgba(64, 174, 252, 1)',
         icon: '../../images/app-8.png',
         url: 'domitory/domitory'
-      },
+      },*/
     ]
   },
 

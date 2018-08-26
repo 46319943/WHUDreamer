@@ -8,8 +8,15 @@ Page({
   data: {
     instituteArr: null,
     indexOfInstitute: null,
+    avatar: 'https://files.whusu.org/media/img/icon.png',
+    name: '罗运',
+    college: ""
   },
-
+  onShow: function(e) {
+    login.flush();
+    // 刷新用户信息
+    login.setAccount(this);
+  },
 
   onLoad: function (options) {
     let arrObj;
@@ -18,6 +25,7 @@ Page({
       url: 'map/get/type/college',
       method: 'GET',
       success: res => {
+        
         if (res.data && res.data.data) {
           arrObj = res.data.data;
           this.data.arrObj = arrObj;
@@ -29,7 +37,26 @@ Page({
         }
       }
     });
-
+    let list;
+    let count;
+    let countMax;
+    ajax({
+      // 如果设置了sectionValue就把它添加上
+      url: 'signup/college/get/',
+      method: 'GET',
+      success: res => {
+        if (res.data && res.data.list) {
+          list = res.data.list;
+          count = res.data.exempt_count;
+          countMax = res.data.max;
+          this.setData({ list, count, countMax });
+          this.setData({ college: res.data.college });
+        }
+        else {
+          this.setData({ list: null });
+        }
+      }
+    });
 
 
   },
@@ -79,7 +106,7 @@ Page({
     // 显示选择弹窗
     wx.showModal({
       title: '设置直推',
-      content: `确定要直推 ${name} 嘛？直推后无法取消`,
+      content: `确定要直推 ${name} 吗？直推后无法取消`,
       success: res => {
         console.log(res);
         // 如果没有点击确认，就直接返回
@@ -90,7 +117,28 @@ Page({
           url: 'signup/college/exempt/set',
           data: { id },
           success: res => {
+            
             if (res.data && res.data.errcode === 0) {
+              let list;
+              let count;
+              let countMax;
+              ajax({
+                // 如果设置了sectionValue就把它添加上
+                url: 'signup/college/get/',
+                method: 'GET',
+                success: res => {
+                  if (res.data && res.data.list) {
+                    list = res.data.list;
+                    count = res.data.exempt_count;
+                    countMax = res.data.max;
+                    this.setData({ list, count, countMax });
+                    this.setData({ college: res.data.college });
+                  }
+                  else {
+                    this.setData({ list: null });
+                  }
+                }
+              });
               login.show('直推成功');
               this.setData({ count: (this.data.count + 1) });
             }
