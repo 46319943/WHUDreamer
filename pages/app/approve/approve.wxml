@@ -1,37 +1,32 @@
 <view class='head'>
-<image src='{{avatar}}' class='headimg'></image>
-<text style='font-size: 40rpx'>{{name}}</text>
-<text style='font-size: 20rpx;color: #999999'>{{college}}</text>
-<view class='headtext'>
-<view>{{countMax}}</view>
-<view>{{count}}</view>
-</view>
-<view class='headtext' style='color: #999999'>
-<view>可直推</view>
-<view>已直推</view>
-</view>
+    <image src='{{avatar}}' class='headimg'></image>
+    <text style='font-size: 40rpx'>{{name}}</text>
+    <text style='font-size: 20rpx;color: #999999'>{{college}}</text>
+    <view class='headtext'>
+        <view>{{countMax}}</view>
+        <view>{{count}}</view>
+    </view>
+    <view class='headtext' style='color: #999999'>
+        <view>可直推</view>
+        <view>已直推</view>
+    </view>
 </view>
 <view wx:for="{{list}}">
-<view class='itembox'>
+    <view class='itembox'>
         <image src='{{item.headimg}}' class='itemimg'></image>
         <view class='iteminfo'>
-        
-        <view class='itemtext'>
-        <view style='text-align: left;font-size: 33rpx'>{{item.name}}</view>
-        </view>
-        <view class='itemtext'>
-        <view style='text-align: left;color: #999999'>{{item.first}}{{item.second ? '/'+item.second : ''}}
-        </view>
-        </view>
-
+            <view class='itemtext'>
+                <view style='text-align: left;font-size: 33rpx'>{{item.name}}</view>
+            </view>
+            <view class='itemtext'>
+                <view style='text-align: left;color: #999999'>
+                    {{item.first}}{{item.second ? '/'+item.second : ''}}
+                </view>
+            </view>
         </view>
         <form bind:submit="approve">
-        <button form-type="submit" disabled="{{item.exempt || (count >= countMax)}}" data-id='{{item.id}}' data-name='{{item.name}}' wx:if='{{!item.exempt}}' class='bt1'>
-        {{item.exempt ? '已直推' : (count < countMax ? '直推' : '名额已满')}}</button>
-        <button form-type="submit" disabled="{{item.exempt || (count >= countMax)}}" data-id='{{item.id}}' data-name='{{item.name}}' wx:if='{{item.exempt}}' class='bt2'>
-        {{item.exempt ? '已直推' : (count < countMax ? '直推' : '名额已满')}}</button>
-    </form>
-        </view>
-    
-    
+            <button form-type="submit" disabled="{{item.exempt || (count >= countMax)}}" data-id='{{item.id}}' data-name='{{item.name}}' wx:if='{{!item.exempt}}' class='bt1'>{{item.exempt ? '已直推' : (count < countMax ? '直推' : '名额已满')}}</button>
+            <button form-type="submit" disabled="{{item.exempt || (count >= countMax)}}" data-id='{{item.id}}' data-name='{{item.name}}' wx:if='{{item.exempt}}' class='bt2'>{{item.exempt ? '已直推' : (count < countMax ? '直推' : '名额已满')}}</button>
+        </form>
+    </view>
 </view>

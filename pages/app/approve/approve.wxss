@@ -58,11 +58,16 @@
   width: 120rpx;
   height: 70rpx;
   font-size: 30rpx;
-  display: flex;
+  line-height: 70rpx;
+  padding: 0;
+  text-align: center;
+  /* display: flex;
   justify-content: center;
   align-items: center;
+
   padding-left: 0 !important;
-  padding-right: 0 !important;
+  padding-right: 0 !important; */
+
   border-radius: 40rpx;
   border: #00baad solid 1rpx;
   color: #00baad
