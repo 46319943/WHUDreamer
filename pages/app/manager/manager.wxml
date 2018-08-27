@@ -6,7 +6,7 @@
 <view class='headselect'>
 
 <picker mode="selector" bind:change="sectionPickerChange" range="{{sectionArr}}">
-    其中有{{count ? count : ''}}个报名了<text class='headunderline'>{{sectionArr[indexOfSection]}}</text>
+    其中有{{count ? count : ''}}个报名了<view class='headunderline'>{{sectionArr[indexOfSection]}}</view>
     </picker>
    </view> 
 
