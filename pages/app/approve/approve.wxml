@@ -1,7 +1,7 @@
 <view class='head'>
     <image src='{{avatar}}' class='headimg'></image>
-    <text style='font-size: 40rpx'>{{name}}</text>
-    <text style='font-size: 20rpx;color: #999999'>{{college}}</text>
+    <text style='font-size: 40rpx'>{{name ? name : ''}}</text>
+    <text style='font-size: 20rpx;color: #999999'>{{college ? college : ''}}</text>
     <view class='headtext'>
         <view>{{countMax}}</view>
         <view>{{count}}</view>

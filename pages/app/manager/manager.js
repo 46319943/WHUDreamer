@@ -134,6 +134,10 @@ Page({
   changePage,
   onShareAppMessage: function () {
 
+  },
+  detail: function(e){
+    let stuNum =  e.currentTarget.dataset.stuNum;
+    wx.navigateTo({url:'detail/detail?stuNum=' + stuNum})
   }
 })
 /**

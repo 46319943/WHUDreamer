@@ -9,12 +9,10 @@ Page({
     instituteArr: null,
     indexOfInstitute: null,
     avatar: 'https://files.whusu.org/media/img/icon.png',
-    name: '罗运',
-    college: ""
+    name: null,
+    college: null,
   },
   onShow: function(e) {
-    login.flush();
-    // 刷新用户信息
     login.setAccount(this);
   },
 
@@ -77,7 +75,6 @@ Page({
     let count;
     let countMax;
     ajax({
-      // 如果设置了sectionValue就把它添加上
       url: 'signup/college/get/' + instituteValue,
       method: 'GET',
       success: res => {
@@ -123,7 +120,6 @@ Page({
               let count;
               let countMax;
               ajax({
-                // 如果设置了sectionValue就把它添加上
                 url: 'signup/college/get/',
                 method: 'GET',
                 success: res => {

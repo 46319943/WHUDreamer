@@ -1,47 +1,43 @@
-
-
 <view class='headbox'>
-<view class='headtotal'>{{total}}</view>
-<view class='headtext'>当前报名总人数</view>
-<view class='headselect'>
-
-<picker mode="selector" bind:change="sectionPickerChange" range="{{sectionArr}}">
-    其中有{{count ? count : ''}}个报名了<view class='headunderline'>{{sectionArr[indexOfSection]}}</view>
-    </picker>
-   </view> 
-
+    <view class='headtotal'>{{total ? total : ''}}</view>
+    <view class='headtext'>当前报名总人数</view>
+    <view class='headselect'>
+        <picker mode="selector" bind:change="sectionPickerChange" range="{{sectionArr}}">
+            其中有{{count ? count : ''}}个报名了
+            <view class='headunderline'>{{sectionArr[indexOfSection]}}</view>
+        </picker>
+    </view>
 </view>
 <block wx:if="{{count}}">
-    
-    <view wx:for="{{list}}">
+    <view wx:for="{{list}}" data-stu-num='{{item.student_num}}' bind:tap="detail">
         <view class='itembox'>
-        <image src='{{item.headimg}}' class='itemimg'></image>
-        <view class='iteminfo'>
-        <view class='itemtext'>
-        <view style='text-align: left;font-size: 33rpx'>{{item.name}}</view>
-        <view style='text-align: right;color: #CCCCCC;font-size: 24rpx'>{{item.college}}</view>
-        </view>
-        
-        <view class='itemtext'>
-        <view style='text-align: left;color: #CCCCCC'>{{item.first}}{{item.second ? '/'+item.second : ''}}</view>
-        </view>
-        
-        </view>
+            <image src='{{item.headimg}}' class='itemimg'></image>
+            <view class='iteminfo'>
+                <view class='itemtext'>
+                    <view style='text-align: left;font-size: 33rpx'>{{item.name}}</view>
+                    <view style='text-align: right;color: #CCCCCC;font-size: 24rpx'>
+                        {{item.college}}
+                    </view>
+                </view>
+                <view class='itemtext'>
+                    <view style='text-align: left;color: #CCCCCC'>
+                        {{item.first}}{{item.second ? '/'+item.second : ''}}
+                    </view>
+                </view>
+            </view>
         </view>
     </view>
     <view class='bottom'>
-<view class='bottombut'>
-<button bind:tap="previous" disabled="{{page <= 1}}">上一页</button>
-</view>
-<view class='divd'></view>
-<view class='bottombut'>
-<view>{{page ? page : ''}} / {{pageMax ? pageMax : ''}}</view>
-</view>
-<view class='divd'></view>
-<view class='bottombut'>
-<button bind:tap="next" disabled="{{page*25 >= count}}">下一页</button>
-</view>
-</view>
-    
-    
+        <view class='bottombut'>
+            <button bind:tap="previous" disabled="{{page <= 1}}">上一页</button>
+        </view>
+        <view class='divd'></view>
+        <view class='bottombut'>
+            <view>{{page ? page : ''}} / {{pageMax ? pageMax : ''}}</view>
+        </view>
+        <view class='divd'></view>
+        <view class='bottombut'>
+            <button bind:tap="next" disabled="{{page*25 >= count}}">下一页</button>
+        </view>
+    </view>
 </block>

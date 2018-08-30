@@ -1,0 +1,3 @@
+<view>
+    {{name}} / {{college}}} / {{major}} / {{headimgurl}} / {{departmentUnder}} / {{selfEvaluation}} / {{exempt}} / {{first}} / {{second}}
+</view>

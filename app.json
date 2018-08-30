@@ -22,7 +22,8 @@
     "pages/html/html",
     "pages/pdf/pdf",
     "pages/app/manager/manager",
-    "pages/app/approve/approve"
+    "pages/app/approve/approve",
+    "pages/app/manager/detail/detail"
   ],
   "window": {
     "navigationStyle": "default",
