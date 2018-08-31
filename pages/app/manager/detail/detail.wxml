@@ -1,3 +1,33 @@
-<view>
-    {{name}} / {{college}}} / {{major}} / {{headimgurl}} / {{departmentUnder}} / {{selfEvaluation}} / {{exempt}} / {{first}} / {{second}}
+<view class='body'>
+
+<view class='headimg' style="background-image: url('{{headimgurl}}')"></view>
+<view class='infobox'>
+<label>姓名：</label>
+<text style='text-align: left'>{{name}}</text>
+</view>
+<view class='infobox'>
+<label>学院：</label>
+<text style='text-align: left'>{{college}}</text>
+</view>
+<view class='infobox'>
+<label>专业：</label>
+<text style='text-align: left'>{{major}}</text>
+</view>
+<view class='infobox'>
+<label>志愿：</label>
+<text style='text-align: left'>{{first}}{{second?"/"+second:""}}</text>
+</view>
+<view class='infobox2'>
+<label style='width: 240rpx;'>对部门的理解：</label>
+<text style='text-align: left'>{{departmentUnder}}</text>
+</view>
+<view class='infobox2'>
+<label>自我评价：</label>
+<text style='text-align: left'>{{selfEvaluation}}</text>
+</view>
+<view class='infobox'>
+<label>是否直推：</label>
+<text style='text-align: left'>{{exempt?"已直推":"非直推"}}</text>
+</view>
+
 </view>
