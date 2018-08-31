@@ -90,7 +90,7 @@ Page({
                   delete sign.errcode;
                   delete sign.errmsg;
                   let randomString = Math.random().toString();
-                  OSSPath = sign.dir + this.data.num + randomString +'.pdf';
+                  OSSPath = sign.dir + this.data.num + randomString + '.pdf';
                   OSSUrl = sign.host + '/' + OSSPath;
                   // 需要后端改，但后端不改
                   OSSUrl = 'https://files.whusu.org/' + OSSPath;
@@ -133,10 +133,39 @@ Page({
 
             });
 
-
-
-
-
+          },
+          // 存储文件过多会导致存储失败，因此进行空间清理
+          fail: res => {
+            login.show('保存文件失败，正在清理存储空间');
+            wx.getSavedFileList({
+              success: res => {
+                console.log(res.fileList);
+                let list = res.fileList;
+                let count = 1;
+                let length = list.length;
+                for (const file of list) {
+                  console.log(file);
+                  let filePath = file.filePath;
+                  wx.removeSavedFile({
+                    filePath,
+                    success: res => {
+                      login.show('删除成功 : ' + count);
+                      if (count === length) {
+                        login.show('删除完成，请重试！');
+                      }
+                      count++;
+                    },
+                    fail: res => {
+                      login.show('删除失败 : ' + count);
+                      if (count === length) {
+                        login.show('删除完成，请重试！');
+                      }
+                      count++;
+                    }
+                  });
+                }
+              }
+            });
           }
         });
 
@@ -185,7 +214,7 @@ Page({
     wx.switchTab({ url: '../user/user' });
   },
   re: function (e) {
-    
+
   },
   copy: function (e) {
     wx.setClipboardData({

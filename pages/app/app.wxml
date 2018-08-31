@@ -17,20 +17,24 @@
       <view class='name'>{{account ? name  : '未绑定'}}</view>
       <view class='position'>{{account ? position : '绑定以获取更多信息'}}</view>
     </view>
-    <view class='code' bindtap='codeTap'>
-      <image src='../../images/code.png'></image>
-    </view>
+    <form class="code" bind:submit="codeTap" report-submit="{{true}}">
+      <button form-type="submit">
+        <image src='../../images/code.png'></image>
+      </button>
+    </form>
   </view>
   <view class='main box'>
     <block wx:for='{{apps}}' wx:key="name">
       <!-- 这里如果写data-loginRequire会变成loginrequire   
     必须写data-login-require才是loginRequire -->
-      <view class='app' bindtap='{{item.tapEvent ? item.tapEvent : "tapEvent"}}' data-url='{{item.url}}' data-login-require='{{item.loginRequire}}' style='background:{{item.url ? "transparent" : "#aaa"}}; {{!item.url ? "display:none;" : ""}};'>
-        <view class='icon' style='background:{{item.color}};'>
-          <image src='{{item.icon}}'></image>
-        </view>
-        <view class='name'>{{item.name}}</view>
-      </view>
+      <form class='app' report-submit="{{true}}" bind:submit='{{item.tapEvent ? item.tapEvent : "tapEvent"}}' data-url='{{item.url}}' data-login-require='{{item.loginRequire}}' style='background:{{item.url ? "transparent" : "#aaa"}}; {{!item.url ? "display:none;" : ""}};'>
+        <button form-type="submit">
+          <view class='icon' style='background:{{item.color}};'>
+            <image src='{{item.icon}}'></image>
+          </view>
+          <view class='name'>{{item.name}}</view>
+        </button>
+      </form>
     </block>
   </view>
 </view>

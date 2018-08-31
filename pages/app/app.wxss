@@ -49,7 +49,7 @@ page{
 .information{
   float: left;
   height: 100rpx;
-  width: auto;
+  width: 360rpx;
   margin: 25rpx;
 }
 .information > .name{
@@ -73,6 +73,14 @@ page{
   padding: 25rpx;
   float: right;
 }
+.code button{
+  height: 100%;
+  width: 100%;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0;
+}
 .code image{
   height: 100%;
   width: 100%;
@@ -86,18 +94,25 @@ page{
   
   float: left;
 }
-.app > .icon{
+.app button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.app .icon{
   width: 80rpx;
   height: 80rpx;
   border-radius: 20%;
   margin: 25rpx auto;
 }
-.app > .icon > image{
+.app .icon image{
   width: 70%;
   height: 70%;
   margin: 15%;
 }
-.app > .name{
+.app .name{
   color: rgba(80, 80, 80, 1);
 }
 

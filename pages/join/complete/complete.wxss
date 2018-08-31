@@ -123,8 +123,7 @@ image.verify{
   bottom: 20%;
 }
 button{
-  margin-top: 60rpx;
-  margin-bottom: 30rpx;
+  margin-top: 30rpx;
   width: 90%;
 }
 

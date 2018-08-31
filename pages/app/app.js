@@ -1,4 +1,16 @@
-              let app = getApp();
+/*
+
+需要优化
+
+模块化点击APP事件，减少重复代码
+
+*/
+
+
+
+
+
+let app = getApp();
 let globalData = app.globalData;
 let handler = globalData.handler;
 let ajax = globalData.ajax;
@@ -52,7 +64,7 @@ Page({
         name: '院系直推',
         color: 'rgba(253, 178, 70, 1)',
         icon: '../../images/app-5.png',
-        url:'approve/approve',
+        url: 'approve/approve',
         loginRequire: true,
       },
       {
@@ -69,8 +81,16 @@ Page({
         name: '报名查询',
         color: 'rgba(64, 174, 252, 1)',
         icon: '../../images/app-8.png',
-        url:'manager/manager',
+        url: 'manager/manager',
         loginRequire: true,
+      },
+      {
+        name: '电子简历',
+        color: 'rgba(64, 174, 252, 1)',
+        icon: '../../images/app-8.png',
+        url: `../pdf/pdf`,
+        loginRequire: true,
+        tapEvent: 'pdf',
       },
       /** 
       {
@@ -83,7 +103,6 @@ Page({
   },
 
   onShow: function (e) {
-
     login.flush();
     // 刷新用户信息
     login.setAccount(this);
@@ -93,6 +112,7 @@ Page({
    * 如果没有指定点击时间，就触发默认的点击事件
    */
   tapEvent: function (e) {
+    login.formIdUpload(e);
     // 注意data-之后的所有-后面的一个字面转为大写。本身不支持大写
     let dataset = e.currentTarget.dataset;
 
@@ -119,12 +139,14 @@ Page({
    * 显示二维码
    */
   codeTap: function (e) {
+    login.formIdUpload(e);
     wx.navigateTo({
       url: '../code/code'
     })
   },
 
   join: function (e) {
+    login.formIdUpload(e);
     // 获取跳转数据
     let dataset = e.currentTarget.dataset;
     // 判断是否绑定
@@ -160,6 +182,17 @@ Page({
         }
       }
     })
+  },
+  pdf: function (e) {
+    login.formIdUpload(e);
+    // 获取跳转数据
+    let dataset = e.currentTarget.dataset;
+    // 判断是否绑定
+    if (dataset.loginRequire && !this.data.account) {
+      login.show('这个功能需要绑定才能使用哟~');
+      return;
+    }
+    wx.navigateTo({ url: `../pdf/pdf?num=${this.data.account.studentnum}&code=${new Date().getTime()}` });
   },
   onLoad: function (e) {
     ajax({

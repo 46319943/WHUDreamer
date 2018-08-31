@@ -18,7 +18,8 @@ Page({
   },
 
   onLoad: function (options) {
-
+    this.data.edit = options.edit;
+    this.setData({edit:this.options.edit});
     ajax({
       url: 'map/get/type/department',
       method: 'GET',
@@ -90,13 +91,16 @@ Page({
     }
 
 
+
     ajax({
-      url: 'whusu/department/info/add',
+      url: 'whusu/department/info/add' + (this.data.edit ? '/z' : ''),
       data,
       success: res => {
-
-        
         if (res.data && res.data.errcode === 0) {
+          if(this.data.edit){
+            wx.navigateBack();
+            return;
+          }
           wx.redirectTo({
             url: '../step-5/step-5',
           })

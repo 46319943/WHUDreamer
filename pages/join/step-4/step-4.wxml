@@ -39,7 +39,7 @@
     <textarea class="text" name='text' placeholder="请输入你对部门的理解" bindinput="textInput" maxlength="-1"></textarea>
     <view class="count">{{count}}/{{limit}}</view>
     <view class='underline'></view>
-    <button form-type='submit'>下一步</button>
+    <button form-type='submit'>{{edit ? '完成修改' : '下一步'}}</button>
   </form>
 </view>
 <import src="../../../templates/footer" />

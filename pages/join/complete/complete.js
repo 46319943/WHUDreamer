@@ -31,6 +31,7 @@ Page({
     let data = {
       section:join.first,
       photo:join.headimgurl,
+      edit:join.edit,
     }
     if(join.second){
       data['sectionT'] = join.second;
@@ -41,6 +42,10 @@ Page({
 
   tap: function(e){
     wx.navigateBack();
+  },
+  edit: function(e){
+    wx.redirectTo({url:'../step-4/step-4?edit=true'});
+
   }
 
 })

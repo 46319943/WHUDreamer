@@ -123,14 +123,7 @@ Page({
   },
 
   formId: function (e) {
-
-    ajax({
-      url: 'user/formid/record',
-      data: {
-        formId: e.detail.formId,
-      },
-    });
-
+    login.formIdUpload(e);
   },
   getUserInfo: function (e) {
     if (e.detail.userInfo) {

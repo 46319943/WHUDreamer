@@ -26,6 +26,7 @@ form{
   height: auto;
   display: inline-block;
   font-size: 0;
+  box-sizing: border-box;
 }
 input{
   display: inline-block;

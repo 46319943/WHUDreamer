@@ -19,5 +19,6 @@
     <view class="line" wx:if="{{sectionT}}">
         <view class="message">第二部门：{{sectionT}}</view>
     </view>-->
-    <button type="primary" bind:tap="tap">知道了</button>
+    <button bind:tap="tap">知道了</button>
+    <button wx:if="{{edit}}" bind:tap="edit">修改报名部门信息</button>
 </view>

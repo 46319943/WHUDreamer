@@ -9,6 +9,8 @@ Page({
     phone: null,
     // verify: handler.common + 'verify/get/',
     phoneForCode: null,
+    // 是否能够获取短信验证码
+    codeAble:true,
   },
 
   formSubmit: function (e) {
@@ -171,7 +173,11 @@ Page({
         },
         success: res => {
           if (res.data && res.data.errcode === 0) {
-            login.show('发送成功');
+            login.show('发送成功，一分钟之后才能再次发送');
+            this.setData({codeAble:false});
+            setTimeout(()=>{
+              this.setData({codeAble:true});
+            },1000*60);
           }
           else {
             login.show('发送失败，一分钟只能发送一条短信');
