@@ -87,7 +87,7 @@ Page({
       {
         name: '电子简历',
         color: 'rgba(64, 174, 252, 1)',
-        icon: '../../images/app-8.png',
+        icon: '../../images/app-3.png',
         url: `../pdf/pdf`,
         loginRequire: true,
         tapEvent: 'pdf',

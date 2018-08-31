@@ -116,6 +116,11 @@ page{
   color: rgba(80, 80, 80, 1);
 }
 
+button.app{
+  border: none;
+  font-size: 0;
+}
+
 
 
 /* 轮播图 */

@@ -36,5 +36,11 @@
         </button>
       </form>
     </block>
+    <button class='app' open-type="contact">
+        <view class='icon' style='background:rgba(229, 79, 79, 1);'>
+          <image src='../../images/app-6.png'></image>
+        </view>
+        <view class='name'>联系我们</view>
+    </button>
   </view>
 </view>
