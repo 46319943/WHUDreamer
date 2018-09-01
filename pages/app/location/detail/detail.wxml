@@ -1,0 +1,56 @@
+<form class="warpper" bind:submit="upload">
+    <!-- <view class="line">
+        <picker name='section' mode="selector" bind:change="sectionPickerChange" range="{{sectionArr}}">
+            {{indexOfSection ? sectionArr[indexOfSection] : '请选择部门'}}
+        </picker>
+    </view> -->
+    <view class="line">
+        <input type="text" name='waitRoom' value="{{id ? item.waitRoom : ''}}" disabled="{{!editting}}" placeholder="等待教室" />
+    </view>
+    <view class="line">
+        <input type="text" name='interviewRoom' value="{{id ? item.interviewRoom : ''}}" disabled="{{!editting}}" placeholder="面试教室" />
+    </view>
+    <view class="line">
+        <input type="text" name='addName' value="{{id ? item.addName : ''}}" disabled="{{!editting}}" placeholder="教室描述" />
+    </view>
+    <view class="line">
+        <input type="text" name='addInfo' value="{{id ? item.addInfo : ''}}" disabled="{{!editting}}" placeholder="面试描述" />
+    </view>
+    <view class="line">
+        <input type="number" name='type' value="{{id ? item.type : ''}}" disabled="{{!editting}}" placeholder="选择一面还是二面" />
+    </view>
+    <view class="line">
+        <view class="section__title">开始日期</view>
+        <picker mode="date" value="{{startDate}}" start="2018-09-01" end="2018-09-30" disabled="{{!editting}}" bindchange="bindStartDateChange">
+            <view class="picker">{{startDate ? startDate : '请选择开始日期'}}</view>
+        </picker>
+    </view>
+    <view class="line">
+        <view class="section__title">开始时间</view>
+        <picker mode="time" value="{{startTime}}" start="00:00" end="23:59" disabled="{{!editting}}" bindchange="bindStartTimeChange">
+            <view class="picker">{{startTime ? startTime : '请选择开始时间'}}</view>
+        </picker>
+    </view>
+    <view class="line">
+        <view class="section__title">结束日期</view>
+        <picker mode="date" value="{{endDate}}" start="2018-09-01" end="2018-09-30" disabled="{{!editting}}" bindchange="bindEndDateChange">
+            <view class="picker">{{endDate ? endDate : '请选择结束日期'}}</view>
+        </picker>
+    </view>
+    <view class="line">
+        <view class="section__title">结束时间</view>
+        <picker mode="time" value="{{endTime}}" start="00:00" end="23:59" disabled="{{!editting}}" bindchange="bindEndTimeChange">
+            <view class="picker">{{endTime ? endTime : '请选择结束时间'}}</view>
+        </picker>
+    </view>
+    <view class="line">
+        <button bind:tap="chooseLoc">选择位置</button>
+    </view>
+    <view class="line">
+        <button bind:tap="currentLoc">查看位置</button>
+    </view>
+    <button wx:if="{{id && !editting}}" bind:tap="edit">修改</button>
+    <button wx:if="{{id && editting}}" bind:tap="finish">退出修改</button>
+    <button form-type="submit">提交保存</button>
+    <button wx:if="{{id}}" bind:tap="delete">删除</button>
+</form>

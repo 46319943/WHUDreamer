@@ -1,0 +1,11 @@
+<view class="warpper" wx:for="{{list}}">
+    {{item.id}} - {{item.departmentName}} - {{item.start}} - {{item.end}} - {{item.waitRoom}} - {{item.interviewRoom}} - {{item.addName}} - {{item.addInfo}} - {{item.type}} -
+    <button bind:tap="map" data-id='{{item.id}}' data-longitude='{{item.longitude}}' data-latitude='{{item.latitude}}' data-name='{{item.addName}}' data-location-detail='{{item.locationDetail}}'>
+        查看地图
+    </button>
+    <button bind:tap="detail" data-id='{{item.id}}'>修改</button>
+    <map wx:if="{{item.map}}" longitude="{{item.longitude}}" latitude="{{item.latitude}}" />
+    <!-- <button bind:tap="edit" wx:if="{{item.edit}}" data-id='{{item.id}}'>修改</button>
+    <button bind:tap="edit" wx:if="{{item.edit}}" data-id='{{item.id}}'>删除</button> -->
+</view>
+<button bind:tap="add">新增</button>

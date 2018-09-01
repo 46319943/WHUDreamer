@@ -31,7 +31,7 @@ Page({
     indicatorDots: true,
     vertical: false,
     autoplay: true,
-    interval: 2000,
+    interval: 5000,
     duration: 500,
     avatar: 'https://files.whusu.org/media/img/icon.png',
     name: '罗运',
@@ -46,36 +46,11 @@ Page({
         tapEvent: 'join',
       },
       {
-        name: '面试官',
-        color: 'rgba(64, 174, 252, 1)',
-        icon: '../../images/app-2.png'
-      },
-      {
-        name: '日志',
-        color: 'rgba(64, 174, 252, 1)',
-        icon: '../../images/app-3.png'
-      },
-      {
-        name: '动态发布',
-        color: 'rgba(64, 174, 252, 1)',
-        icon: '../../images/app-4.png'
-      },
-      {
         name: '院系直推',
         color: 'rgba(253, 178, 70, 1)',
         icon: '../../images/app-5.png',
         url: 'approve/approve',
         loginRequire: true,
-      },
-      {
-        name: '订邮',
-        color: 'rgba(229, 79, 79, 1)',
-        icon: '../../images/app-6.png'
-      },
-      {
-        name: '文件中心',
-        color: 'rgba(64, 174, 252, 1)',
-        icon: '../../images/app-7.png'
       },
       {
         name: '报名查询',
@@ -92,6 +67,39 @@ Page({
         loginRequire: true,
         tapEvent: 'pdf',
       },
+      {
+        name: '面试管理',
+        url:'location/location',
+        color: 'rgba(64, 174, 252, 1)',
+        icon: '../../images/app-2.png'
+      },
+      {
+        name: '面试官',
+        color: 'rgba(64, 174, 252, 1)',
+        icon: '../../images/app-2.png'
+      },
+      {
+        name: '日志',
+        color: 'rgba(64, 174, 252, 1)',
+        icon: '../../images/app-3.png'
+      },
+      {
+        name: '动态发布',
+        color: 'rgba(64, 174, 252, 1)',
+        icon: '../../images/app-4.png'
+      },
+
+      {
+        name: '订邮',
+        color: 'rgba(229, 79, 79, 1)',
+        icon: '../../images/app-6.png'
+      },
+      {
+        name: '文件中心',
+        color: 'rgba(64, 174, 252, 1)',
+        icon: '../../images/app-7.png'
+      },
+
       /** 
       {
         name: '查询宿舍',

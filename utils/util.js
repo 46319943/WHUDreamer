@@ -38,10 +38,28 @@ function getAllKeyInObjectArray(arr){
   }
   return newArr;
 }
+/**
+ * 获取对象数组中value对应对象的text
+ * @param {Array} arr 
+ * @param {string} value 
+ */
+function getKeyInObjectArr(arr,value){
+  for(let obj of arr){
+    if(obj['value'] == value){
+      return obj['text'];
+    }
+  }
+  return null;
+}
 
+function formatDate(date){
+
+}
 
 module.exports = {
   formatTime: formatTime,
+  formatNumber,
   getValueInObjectArray,
-  getAllKeyInObjectArray
+  getAllKeyInObjectArray,
+  getKeyInObjectArr,
 }

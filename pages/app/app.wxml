@@ -1,10 +1,9 @@
-<!-- pages/app/app.wxml -->
 <view class='app-container'>
   <view class="swiper box">
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{imageSwiper}}" wx:key="*this">
         <swiper-item>
-          <image src='{{item}}' class='slide-image' mode='aspectFit'></image>
+          <image src='{{item}}' class='slide-image' mode="aspectFill"></image>
         </swiper-item>
       </block>
     </swiper>
