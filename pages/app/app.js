@@ -69,7 +69,7 @@ Page({
       },
       {
         name: '面试管理',
-        url:'location/location',
+        url: 'location/location',
         color: 'rgba(64, 174, 252, 1)',
         icon: '../../images/app-2.png'
       },
@@ -205,7 +205,7 @@ Page({
   onLoad: function (e) {
     ajax({
       method: 'GET',
-      url: 'base/banner/get',
+      url: 'base/banner/get/2',
       success: res => {
         if (res.data && res.data.errcode === 0) {
           let list = res.data.list;
@@ -215,6 +215,12 @@ Page({
         }
       },
     });
+  },
+  click: function (e) {
+    let url = e.currentTarget.dataset.url;
+    if(url){
+      wx.navigateTo({ url: '../html/html?url=' + url });
+    }
   }
 
 
