@@ -218,7 +218,7 @@ Page({
   },
   click: function (e) {
     let url = e.currentTarget.dataset.url;
-    if(url){
+    if (url && url.indexOf('http') === 0) {
       wx.navigateTo({ url: '../html/html?url=' + url });
     }
   }
