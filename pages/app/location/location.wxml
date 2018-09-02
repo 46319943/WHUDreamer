@@ -1,3 +1,4 @@
+<!--
 <view class="warpper" wx:for="{{list}}">
     {{item.id}} - {{item.departmentName}} - {{item.start}} - {{item.end}} - {{item.waitRoom}} - {{item.interviewRoom}} - {{item.addName}} - {{item.addInfo}} - {{item.type}} -
     <button bind:tap="map" data-id='{{item.id}}' data-longitude='{{item.longitude}}' data-latitude='{{item.latitude}}' data-name='{{item.addName}}' data-location-detail='{{item.locationDetail}}'>
@@ -5,7 +6,25 @@
     </button>
     <button bind:tap="detail" data-id='{{item.id}}'>修改</button>
     <map wx:if="{{item.map}}" longitude="{{item.longitude}}" latitude="{{item.latitude}}" />
-    <!-- <button bind:tap="edit" wx:if="{{item.edit}}" data-id='{{item.id}}'>修改</button>
-    <button bind:tap="edit" wx:if="{{item.edit}}" data-id='{{item.id}}'>删除</button> -->
+
+
+     <button bind:tap="edit" wx:if="{{item.edit}}" data-id='{{item.id}}'>修改</button>
+    <button bind:tap="edit" wx:if="{{item.edit}}" data-id='{{item.id}}'>删除</button> 
 </view>
 <button bind:tap="add">新增</button>
+-->
+<view class='body'>
+<view class='box'  wx:for="{{list}}">
+<view style="{{item.txtStyle}}" data-index="{{item.num}}" data-id='{{item.id}}' data-longitude='{{item.longitude}}' data-latitude='{{item.latitude}}' data-name='{{item.addName}}' data-edit='{{item.edit}}' data-location-detail='{{item.locationDetail}}' class="address-item-top" bind:tap="toast" >
+
+<view class='infoup'>{{item.data}} {{item.start}}/{{item.end}}</view>
+<view class='infocenter'>{{item.departmentName}} {{item.type}}</view>
+<view class='infobottom'>{{item.addName}} {{item.addInfo}}</view>
+
+</view>
+
+</view>
+<view class='add' bind:tap="add">
+<image src='../../../images/plus.svg' class='plus'></image>
+</view>
+</view>

@@ -1,1 +1,77 @@
 /* pages/app/location/detail/detail.wxss */
+.infobox {
+  height: auto;
+  border-bottom: solid #CCCCCC 1rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  width: 100%
+}
+label {
+  color: #CCCCCC;
+  font-family: '黑体';
+  width: 200rpx;
+  text-align: left
+}
+
+text {
+  text-align: left
+}
+
+.warpper {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 20rpx;
+  padding-right: 20rpx
+}
+
+input {
+  width: 80%;
+  text-align: left
+}
+
+picker {
+  width: 80%;
+  text-align: left
+}
+
+.picker {
+  text-align: left
+}
+
+
+.table {
+  border: none !important;
+  font-size: 30rpx !important;
+  width: 200rpx !important;
+  height: 100rpx !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important
+}
+
+.bt1 {
+  border: none;
+  border-radius: 10rpx;
+  background-color: #1aad19;
+  color: white;
+  margin-top: 10rpx;
+  height: 80rpx !important;
+  line-height: 80rpx !important
+}
+
+.bt2 {
+  border: none;
+  border-radius: 10rpx;
+  background-color: #e64340;
+  color: white;
+  margin-top: 10rpx;
+  height: 80rpx !important;
+  line-height: 80rpx !important
+}

@@ -4,53 +4,69 @@
             {{indexOfSection ? sectionArr[indexOfSection] : '请选择部门'}}
         </picker>
     </view> -->
-    <view class="line">
-        <input type="text" name='waitRoom' value="{{id ? item.waitRoom : ''}}" disabled="{{!editting}}" placeholder="等待教室" />
+    <view class="infobox">
+    <label>等待教室：</label>
+        <input type="text" name='waitRoom' value="{{id ? item.waitRoom : ''}}" disabled="{{!editting}}" placeholder="请输入等待教室编号" />
     </view>
-    <view class="line">
-        <input type="text" name='interviewRoom' value="{{id ? item.interviewRoom : ''}}" disabled="{{!editting}}" placeholder="面试教室" />
+    <view class="infobox">
+    <label>面试教室：</label>
+        <input type="text" name='interviewRoom' value="{{id ? item.interviewRoom : ''}}" disabled="{{!editting}}" placeholder="请输入面试教室编号" />
     </view>
-    <view class="line">
-        <input type="text" name='addName' value="{{id ? item.addName : ''}}" disabled="{{!editting}}" placeholder="教室描述" />
+    <view class="infobox">
+    <label>面试位置：</label>
+        <input type="text" name='addName' value="{{id ? item.addName : ''}}" disabled="{{!editting}}" placeholder="教学楼位置描述" />
     </view>
-    <view class="line">
-        <input type="text" name='addInfo' value="{{id ? item.addInfo : ''}}" disabled="{{!editting}}" placeholder="面试描述" />
+    <view class="infobox">
+    <label>教室位置：</label>
+        <input type="text" name='addInfo' value="{{id ? item.addInfo : ''}}" disabled="{{!editting}}" placeholder="面试教室描述" />
     </view>
-    <view class="line">
-        <input type="number" name='type' value="{{id ? item.type : ''}}" disabled="{{!editting}}" placeholder="选择一面还是二面" />
-    </view>
-    <view class="line">
-        <view class="section__title">开始日期</view>
-        <picker mode="date" value="{{startDate}}" start="2018-09-01" end="2018-09-30" disabled="{{!editting}}" bindchange="bindStartDateChange">
-            <view class="picker">{{startDate ? startDate : '请选择开始日期'}}</view>
+    <view class="infobox">
+    <label>面试类型：</label>
+        
+        <picker value="{{type}}" disabled="{{!editting}}" bindchange="bindStartTypeChange" range="{{typeRange}}" mode='selector'>
+            <view class="picker">{{type ==  0 ? '一面' : type == 1 ? '二面' : type == 2 ? '补面' : '请选择面试类型'}}</view>
         </picker>
     </view>
-    <view class="line">
-        <view class="section__title">开始时间</view>
+    <view class="infobox">
+    <label>面试日期：</label>
+        
+        <picker mode="date" value="{{startDate}}" start="2018-09-01" end="2018-09-30" disabled="{{!editting}}" bindchange="bindStartDateChange">
+            <view class="picker">{{startDate ? startDate : '请选择一个日期'}}</view>
+        </picker>
+    </view>
+    <view class="infobox">
+    <label>开始时间：</label>
+        
         <picker mode="time" value="{{startTime}}" start="00:00" end="23:59" disabled="{{!editting}}" bindchange="bindStartTimeChange">
             <view class="picker">{{startTime ? startTime : '请选择开始时间'}}</view>
         </picker>
     </view>
-    <view class="line">
-        <view class="section__title">结束日期</view>
+    <!--
+    <view class="infobox">
+    <label>结束日期：</label>
+        
         <picker mode="date" value="{{endDate}}" start="2018-09-01" end="2018-09-30" disabled="{{!editting}}" bindchange="bindEndDateChange">
             <view class="picker">{{endDate ? endDate : '请选择结束日期'}}</view>
         </picker>
-    </view>
-    <view class="line">
-        <view class="section__title">结束时间</view>
+    </view>-->
+    <view class="infobox">
+    <label>结束时间：</label>
+        
         <picker mode="time" value="{{endTime}}" start="00:00" end="23:59" disabled="{{!editting}}" bindchange="bindEndTimeChange">
             <view class="picker">{{endTime ? endTime : '请选择结束时间'}}</view>
         </picker>
     </view>
-    <view class="line">
-        <button bind:tap="chooseLoc">选择位置</button>
+    <view class="infobox">
+    <label>面试地点：</label>
+    <button bind:tap="chooseLoc" class='table'>{{locationDetail? '修改位置':'选择位置'}}</button>
+    <button bind:tap="currentLoc" class='table' wx:if='{{locationDetail}}'>查看位置</button>
     </view>
-    <view class="line">
-        <button bind:tap="currentLoc">查看位置</button>
-    </view>
+    
+    
+        
+    
     <button wx:if="{{id && !editting}}" bind:tap="edit">修改</button>
-    <button wx:if="{{id && editting}}" bind:tap="finish">退出修改</button>
-    <button form-type="submit">提交保存</button>
-    <button wx:if="{{id}}" bind:tap="delete">删除</button>
+    <button wx:if="{{id && !editting}}" bind:tap="finish">退出修改</button>
+    <button form-type="submit" class='bt1'>提交保存</button>
+    <button wx:if="{{id}}" bind:tap="delete" class='bt2'>删除</button>
 </form>

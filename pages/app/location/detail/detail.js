@@ -11,7 +11,8 @@ Page({
    */
   data: {
     indexOfSection: null,
-
+    typeRange: ['一面', '二面', '补面'],
+    
   },
 
   onLoad: function (options) {
@@ -42,6 +43,7 @@ Page({
     // 2.如果传入了id说明是编辑信息
     let id = options.id;
     if (id) {
+      this.setData({ editting: true });
       this.setData({ id });
       let list = globalData.location.list;
       let item;
@@ -56,7 +58,8 @@ Page({
             endTime: item.endTimeStr,
             longitude: item.longitude,
             latitude: item.latitude,
-            locationDetail: item.locationDetail
+            locationDetail: item.locationDetail,
+            type: item.type
           });
           break;
         }
@@ -86,19 +89,30 @@ Page({
     this.setData({ editting: true });
   },
   finish: function () {
-    this.setData({ editting: false });
+    this.setData({ editting: true });
   },
   delete: function () {
-    ajax({
-      url: 'interview/admin/department/del',
-      data: { id: this.data.id },
-      success: res => {
-        if (res.data && res.data.errcode === 0) {
-          login.show('删除成功');
-          wx.navigateBack();
+    wx.showModal({
+      
+      content: '确定要删除吗',
+      success: function (res) {
+        if (res.confirm) {
+          ajax({
+            url: 'interview/admin/department/del',
+            data: { id: this.data.id },
+            success: res => {
+              if (res.data && res.data.errcode === 0) {
+                login.show('删除成功');
+                wx.navigateBack();
+              }
+            }
+          })
+        } else if (res.cancel) {
+          
         }
       }
     })
+    
   },
 
   upload: function (e) {
@@ -110,7 +124,7 @@ Page({
     let addName = res.addName;
     let interviewRoom = res.interviewRoom;
     let waitRoom = res.waitRoom;
-    let type = res.type;
+    
 
     let longitude = this.data.longitude;
     let latitude = this.data.latitude;
@@ -118,8 +132,9 @@ Page({
 
     let startDate = this.data.startDate;
     let startTime = this.data.startTime;
-    let endDate = this.data.endDate;
+    let endDate = this.data.startDate;
     let endTime = this.data.endTime;
+    let type = this.data.type;
 
     if (!addInfo || !addName || !interviewRoom || !waitRoom || !type) {
       login.show('有未填写数据！');
@@ -199,7 +214,12 @@ Page({
       startTime: e.detail.value
     })
   },
-
+  bindStartTypeChange: function (e) {
+    
+    this.setData({
+      type: e.detail.value
+    })
+  },
   bindEndDateChange: function (e) {
     this.setData({
       endDate: e.detail.value
@@ -229,6 +249,7 @@ Page({
         this.data.latitude = res.latitude;
         this.data.locationDetail = res.name + ' - ' + res.address;
         this.data.name = res.name;
+        this.setData({ locationDetail: this.data.locationDetail });
         login.show('设置位置成功！');
       }
     })
