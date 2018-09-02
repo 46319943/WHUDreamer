@@ -19,7 +19,8 @@ Page({
     // 总报名人数
     total: 0,
     //当前选择的部门
-    section: null
+    section: null,
+    pageArr: []
   },
 
 
@@ -63,6 +64,7 @@ Page({
     let count;
     // 最大页数，count/每页数量
     let pageMax;
+    let pageArr = [];
     ajax({
       // 如果设置了sectionValue就把它添加上
       url: 'signup/count/get/' + this.data.sectionValue,
@@ -71,16 +73,74 @@ Page({
         if (res.data && res.data.errcode === 0) {
           count = res.data.count;
           pageMax = Math.ceil(count / COUNT_PER_PAGE);
-          this.setData({ count, pageMax });
+          for (let i = 1; i <= pageMax; i++) {
+            pageArr.push(i);
+          }
+          console.log(pageArr);
+          this.setData({ count, pageMax, pageArr });
         }
       }
     });
     this.changePage(0);
   },
+  onPullDownRefresh() {
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    let index = this.data.indexOfSection;
+    let sectionValue;
+    // 如果选择的是全部的话
+    if (index === '0') {
+      // 什么也不干
+    }
+    // 选择了特定的部门
+    else {
+      sectionValue = util.getValueInObjectArray(this.data.arrObj, this.data.arr[index]);
+    }
+    // 如果sectionValue没有设置，就设置为空字符串
+    sectionValue = sectionValue ? sectionValue : '';
+    this.data.sectionValue = sectionValue;
+
+    // 保存最终返回的数量
+    let count;
+    // 最大页数，count/每页数量
+    let pageMax;
+    let pageArr = [];
+    ajax({
+      // 如果设置了sectionValue就把它添加上
+      url: 'signup/count/get',
+      method: 'GET',
+      success: res => {
+        if (res.data && res.data.count) {
+          this.setData({ total: res.data.count });
+        }
+      }
+    });
+    ajax({
+      // 如果设置了sectionValue就把它添加上
+      url: 'signup/count/get/' + sectionValue,
+      method: 'GET',
+      success: res => {
+        if (res.data && res.data.errcode === 0) {
+          count = res.data.count;
+          pageMax = Math.ceil(count / COUNT_PER_PAGE);
+          for (let i = 1; i <= pageMax; i++) {
+            pageArr.push(i);
+          }
+          this.setData({ count, pageMax, pageArr });
+          wx.hideNavigationBarLoading() //完成停止加载
+          wx.stopPullDownRefresh() //停止下拉刷新
+        }
+      }
+    });
+
+    this.changePage(0);
+  },
 
   
 
-
+  sectionPageChange: function(e) {
+    let pages = e.detail.value - this.data.page + 1;
+    this.changePage(pages);
+  },
   sectionPickerChange: function (e) {
     this.setData({ indexOfSection: e.detail.value });
     // 注意获得到的index是字符串类型
@@ -104,6 +164,7 @@ Page({
     let count;
     // 最大页数，count/每页数量
     let pageMax;
+    let pageArr= [];
     ajax({
       // 如果设置了sectionValue就把它添加上
       url: 'signup/count/get/' + sectionValue,
@@ -112,7 +173,10 @@ Page({
         if (res.data && res.data.errcode === 0) {
           count = res.data.count;
           pageMax = Math.ceil(count / COUNT_PER_PAGE);
-          this.setData({ count , pageMax});
+          for (let i = 1; i <= pageMax; i++) {
+            pageArr.push(i);
+          }
+          this.setData({ count , pageMax, pageArr});
         }
       }
     });

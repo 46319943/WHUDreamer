@@ -32,11 +32,11 @@
             <button bind:tap="previous" disabled="{{page <= 1}}">上一页</button>
         </view>
         <view class='divd'></view>
-        <view class='bottombut'>
+        <picker class='bottombut' mode='selector' range='{{pageArr}}' bind:change="sectionPageChange">
             <view>{{page ? page : ''}} / {{pageMax ? pageMax : ''}}</view>
-        </view>
+        </picker>
         <view class='divd'></view>
-        <view class='bottombut'>
+        <view class='bottombut' >
             <button bind:tap="next" disabled="{{page*25 >= count}}">下一页</button>
         </view>
     </view>
