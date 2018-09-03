@@ -52,7 +52,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  z-index: 99999;
+  z-index: 9999;
   background-color: white;
   border-bottom: solid #CCCCCC 1rpx;
 }
@@ -94,6 +94,7 @@
     bottom: 30rpx;
     right: 30rpx;
     box-shadow: 0 0 20rpx #D8D8D8;
+    z-index: 999999999
   } 
 
   .plus {

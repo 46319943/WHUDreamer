@@ -90,7 +90,26 @@ Page({
       return;
     }
 
+    if (this.data.edit) {
 
+      if (!globalData.join) {
+        login.show('数据错误！');
+        wx.navigateBack();
+      }
+      let join = globalData.join;
+      let res = wx.getStorageSync(join.studentNum);
+      console.log(res);
+      let filePath = res.filePath;
+      wx.removeSavedFile({
+        filePath,
+        success: res => {
+          wx.removeStorageSync(join.studentNum);
+        },
+        fail: res => {
+          login.show('pdf更新失败');
+        }
+      });
+    }
 
     ajax({
       url: 'whusu/department/info/add' + (this.data.edit ? '/z' : ''),
