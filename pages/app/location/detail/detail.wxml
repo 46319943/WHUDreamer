@@ -32,7 +32,7 @@
         
         <picker mode="date" value="{{startDate}}" start="2018-09-01" end="2018-09-30" disabled="{{!editting}}" bindchange="bindStartDateChange">
             <view class="picker">{{startDate ? startDate : '请选择一个日期'}}</view>
-        </picker>
+        </picker>                                                               
     </view>
     <view class="infobox">
     <label>开始时间：</label>

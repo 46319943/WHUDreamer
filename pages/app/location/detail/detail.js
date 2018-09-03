@@ -15,7 +15,7 @@ Page({
     
   },
 
-  onLoad: function (options) {
+  onLoad: function (options) { 
     // 1.首先获取部门映射
 
     // 对象数组
@@ -135,7 +135,7 @@ Page({
     let endDate = this.data.startDate;
     let endTime = this.data.endTime;
     let type = this.data.type;
-
+    
     if (!addInfo || !addName || !interviewRoom || !waitRoom || !type) {
       login.show('有未填写数据！');
       return;
@@ -149,22 +149,11 @@ Page({
       return;
     }
 
-    function parse(_date, time) {
-      let arr;
-      let date = new Date();
-      arr = _date.split('-');
-      date.setFullYear(parseInt(arr[0]));
-      date.setMonth(parseInt(arr[1]));
-      date.setDate(parseInt(arr[2]));
-      arr = time.split(':');
-      date.setHours(parseInt(arr[0]));
-      date.setMinutes(parseInt(arr[1]));
-      return (date.getTime() / 1000).toFixed(0);
-    }
+    
 
-    let start = parse(startDate, startTime);
-    let end = parse(endDate, endTime);
-
+    let start = this.parse(startDate, startTime);
+    let end = this.parse(endDate, endTime);
+    console.log(startDate + ",,," + start);
     if(end <= start){
       login.show('时间设置错误！');
       return;
@@ -267,5 +256,23 @@ Page({
     else {
       login.show('位置还未选择');
     }
-  }
+  },
+  parse: function(_date, time) {
+    let arr;
+    let date = new Date("1999-09-09");
+    arr = _date.split('-');
+    date.setDate(parseInt(arr[2]));
+    date.setFullYear(parseInt(arr[0]));
+    date.setMonth(parseInt(arr[1], 10)-1);
+    
+    console.log("999999999999");
+    console.log(parseInt(arr[1], 10));
+    arr = time.split(':');
+    date.setHours(parseInt(arr[0]));
+    date.setMinutes(parseInt(arr[1]));
+    
+    
+
+    return(date.getTime() / 1000).toFixed(0);
+    }
 })
