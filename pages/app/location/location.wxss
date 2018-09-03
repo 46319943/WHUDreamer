@@ -99,5 +99,5 @@
   .plus {
     width: 80rpx;
     height: 80rpx;
-    z-index: 9999
+    z-index: 999999999
   }
