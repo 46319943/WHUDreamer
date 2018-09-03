@@ -12,7 +12,7 @@ Page({
   data: {
     indexOfSection: null,
     typeRange: ['一面', '二面', '补面'],
-    
+    type: -1
   },
 
   onLoad: function (options) { 
@@ -126,7 +126,8 @@ Page({
     let endTime = this.data.endTime;
     let type = this.data.type;
     
-    if (!addInfo || !addName || !interviewRoom || !waitRoom || !type) {
+    if (!addInfo || !addName || !interviewRoom || !waitRoom || type < 0) {
+      console.log(addInfo + "-" + addName + "-" + interviewRoom + "-" + waitRoom + "-" + type)
       login.show('有未填写数据！');
       return;
     }
