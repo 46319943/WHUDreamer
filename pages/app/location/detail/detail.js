@@ -72,18 +72,7 @@ Page({
 
   },
 
-  delete: function (e) {
-    ajax({
-      url: 'interview/admin/department/del',
-      data: { id: this.data.id },
-      success: res => {
-        if (res.data && res.data.errcode === 0) {
-          login.show('删除成功！');
-          setTimeout(() => { wx.navigateBack() }, 2000);
-        }
-      }
-    })
-  },
+  
 
   edit: function () {
     this.setData({ editting: true });
@@ -92,6 +81,7 @@ Page({
     this.setData({ editting: true });
   },
   delete: function () {
+    var that = this;
     wx.showModal({
       
       content: '确定要删除吗',
@@ -99,7 +89,7 @@ Page({
         if (res.confirm) {
           ajax({
             url: 'interview/admin/department/del',
-            data: { id: this.data.id },
+            data: { id: that.data.id },
             success: res => {
               if (res.data && res.data.errcode === 0) {
                 login.show('删除成功');
