@@ -10,7 +10,6 @@
     <view class='line' wx:if="{{sectionT}}">
       <label class='label' for='sex'>第二部门</label>
       <input type='text' id='sex' name='sex' placeholder="{{sectionT}}" disabled="{{true}}"></input>
-      
     </view>
     <!--
     <view class="line">
@@ -20,5 +19,6 @@
         <view class="message">第二部门：{{sectionT}}</view>
     </view>-->
     <button bind:tap="tap">知道了</button>
+    <button bindtap='info' wx:if="{{info}}">查看面试信息</button>
     <button wx:if="{{edit}}" bind:tap="edit">修改报名部门信息</button>
 </view>

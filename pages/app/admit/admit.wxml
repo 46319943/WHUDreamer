@@ -1,13 +1,9 @@
-<!-- 头部 -->
-<view class="header"></view>
-<!-- 导航 -->
-<view class="nav"></view>
-<!-- 主体 -->
+
 <view class="main">
     <!-- 扫描/输入二维码部分 -->
     <view class="scanner">
         <view class="firstLine">
-            <input class="code" value='{{code}}' bindinput="codeChange" type="number" maxlength="13" placeholder="输入或扫描学号" />
+            <input class="code" value='{{code}}' bindinput="codeChange" type="number" maxlength="13" placeholder="输入或扫描学号" bindfocus='clear'/>
             <image class="code" src="../../../images/scanner.png" bind:tap="scanCode" />
         </view>
         <view class="secondLine">
@@ -37,7 +33,7 @@
         <block wx:if="{{!exist}}"></block>
         <!-- 如果已经被第一部门录取了就不显示按钮 -->
         <block wx:elif="{{firstDepartment === enroll}}">
-            <view class="text">该同学已被其他部门录取了！</view>
+            <view class="text">该同学已被第一志愿部门录取了！</view>
         </block>
         <!-- 没有被录取就显示按钮 -->
         <block wx:else>
@@ -50,3 +46,7 @@
 <view class="aside"></view>
 <!-- 脚部 -->
 <view class="footer"></view>
+<view class='navisbox'>
+<view class='navi' bindtap='navi'><image src='../../../images/mianshigrey.png' class='naviimg'></image><view class='navitext' style='color: #8A8A8A'>时间</view></view>
+<view class='navi'><image src='../../../images/passblack.png' class='naviimg'></image><view class='navitext'>录取</view></view>
+</view>

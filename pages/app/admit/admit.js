@@ -37,7 +37,14 @@ Page({
   onShow: function () {
 
   },
+  navi: function (e) {
+    wx.redirectTo({
+      url: '/pages/app/location/location'
+    })
 
+
+  },
+  
   scanCode: function (e) {
     wx.scanCode({
       success: res => {
@@ -50,24 +57,46 @@ Page({
     })
   },
   success: function (e) {
+    var that = this;
     ajax({
       url: 'interview/enroll/first/pass',
       data: {
         studentNum: this.data.code,
       },
       success: res => {
+        if (res.data.errcode === 50004) {
+          login.show('无法录取');
+        }
         if (res.data.errcode === 0) {
-          login.show('录取成功！' + this.data.consistant ? '1秒之后进入扫描界面' : '');
+          this.setData({
+            code: '',
+          });
+          login.show('录取成功！');
+          console.log("是否一秒钟进入扫码" + that.data.consistant);
           // 一秒之后进入扫码界面
-          if (this.data.consistant) {
-            setTimeout(() => { this.scanCode }, 1000);
+          if (that.data.consistant) {
+            setTimeout(() => { that.scanCode() }, 1000);
           }
         }
       }
     })
   },
   fail: function (e) {
-    this.scanCode(e);
+    login.show('操作成功！');
+    this.setData({
+      code: '',
+    });
+    if (this.data.consistant) {
+      setTimeout(() => { this.scanCode() }, 1000);
+    }
+  },
+  clear: function(e) {
+    let code = e.detail.value;
+    if (code.length === 13) {
+      this.setData({
+        code: '',
+      });
+    }
   },
   codeChange: function (e) {
     let code = e.detail.value;

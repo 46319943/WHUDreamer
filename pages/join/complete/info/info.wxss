@@ -1,0 +1,45 @@
+/* pages/app/location/detail/detail.wxss */
+.infobox {
+  height: auto;
+  border-bottom: solid #CCCCCC 1rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  width: 100%
+}
+label {
+  color: #CCCCCC;
+  font-family: '黑体';
+  width: 200rpx;
+  text-align: left
+}
+
+text {
+  text-align: left
+}
+
+
+
+input {
+  width: 80%;
+  text-align: left
+}
+
+
+.table {
+  font-size: 30rpx !important;
+  width: 80%;
+  text-align: left;
+  color: #009966
+}
+
+.body {
+  width: 100%;
+  height: auto;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  margin-bottom: 30rpx
+}

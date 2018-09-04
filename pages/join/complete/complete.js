@@ -3,6 +3,7 @@ let globalData = app.globalData;
 let handler = globalData.handler;
 let ajax = globalData.ajax;
 let login = globalData.login;
+let interviewlist = globalData.interviewlist;
 Page({
   onShareAppMessage: function (res) {
     if (res.from === 'button') {
@@ -20,9 +21,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    info: false
   },
   onLoad: function (options) {
+    var that = this;
     if(!globalData.join){
       login.show('数据错误！');
       wx.navigateBack();
@@ -37,6 +39,21 @@ Page({
       data['sectionT'] = join.second;
     }
     this.setData(data);
+    ajax({
+      url: 'interview/time/get',
+      method: 'GET',
+      success: (res) => {
+        console.log("获取用户面试时间地点信息");
+        console.log(res);
+        if(res.data.errcode === 0) {
+          getApp().globalData.interviewlist = res.data.list;
+          that.setData({
+            info: true,
+            edit: false
+          })
+        }
+      }
+    });
   },
 
 
@@ -46,6 +63,11 @@ Page({
   edit: function(e){
     wx.redirectTo({url:'../step-4/step-4?edit=true'});
 
+  },
+  info: function(e) {
+    wx.navigateTo({
+      url: "/pages/join/complete/info/info"
+    })
   }
 
 })

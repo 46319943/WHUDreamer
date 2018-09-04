@@ -1,0 +1,35 @@
+<view class='body' wx:for='{{interviewlist}}' wx:for-item='item'>
+    <view class="infobox">
+    <label>面试部门：</label>
+        <input type="text" name='waitRoom' value="{{item.department}}" disabled="{{true}}"/>
+    </view>
+    <view class="infobox">
+    <label>开始时间：</label>
+        <input type="text" name='interviewRoom' value="{{item.startTime}}" disabled="{{true}}"/>
+    </view>
+    <view class="infobox">
+    <label>预计结束：</label>
+        <input type="text" name='interviewRoom' value="{{item.endTime}}" disabled="{{true}}"/>
+    </view>
+    <view class="infobox">
+    <label>面试位置：</label>
+        <input type="text" name='interviewRoom' value="{{item.addName}}" disabled="{{true}}"/>
+    </view>
+    <view class="infobox">
+    <label>候场教室：</label>
+        <input type="text" name='interviewRoom' value="{{item.waitRoom}}" disabled="{{true}}"/>
+    </view>
+    <view class="infobox">
+    <label>面试教室：</label>
+        <input type="text" name='interviewRoom' value="{{item.interviewRoom}}" disabled="{{true}}"/>
+    </view>
+    <view class="infobox">
+    <label>面试地点：</label>
+    <view bind:tap="map" class='table' data-latitude='{{item.latitude}}' data-longitude='{{item.longitude}}' data-addName='{{item.addName}}' data-addInfo='{{item.addInfo}}'>查看位置</view>
+    </view>
+    <view class="infobox" style='border-bottom: solid #CCCCCC 2rpx;'>
+    <label>面试情况：</label>
+        <input type="text" name='interviewRoom' value="{{item.ernoll}}" disabled="{{true}}"/>
+    </view>
+    
+</view>

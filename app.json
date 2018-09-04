@@ -27,7 +27,8 @@
     "pages/app/location/location",
     "pages/app/location/add/add",
     "pages/app/location/detail/detail",
-    "pages/app/admit/admit"
+    "pages/app/admit/admit",
+    "pages/join/complete/info/info"
   ],
   "window": {
     "navigationStyle": "default",

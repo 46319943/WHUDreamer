@@ -3,6 +3,7 @@ page{
     font-size: 0;
     /* 不知道为什么，非要设置height，而不能设置min-height？ */
     height: 100%;
+    padding-top: 150rpx
 }
 view{
     /* 如果view中没有子节点，那么它就不会占据空间 */
@@ -12,7 +13,7 @@ view.text{
     /* 为显示文字的view覆盖view中的属性 */
     font-size: 30rpx;
     /* 设置文字高度 */
-    line-height: 1.5;
+    line-height: 2;
     text-align: left;
     /* 设置宽度为包裹文字的宽度 */
     width: auto;
@@ -29,7 +30,7 @@ view.main{
     /* 设置交叉轴对齐 */
     align-items: center;
     /* 设置空格填满主轴 */
-    justify-content: space-around;
+    justify-content: flex-start;
     /* 占据整个页面 */
     height: 100%;
 }
@@ -43,42 +44,46 @@ view.scanner{
 }
 
 view.scanner > .firstLine{
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* 设置主轴对齐 */
-    /* justify-content: center; */
-
+     display: flex; 
+     flex-direction: row; 
+    width: calc(100% - 200rpx);
+     justify-content: center; 
+    margin-left: 100rpx;
+    
     /* 把上下隔开一点点 */
     margin-bottom: 15rpx;
+    flex-grow: 1
 }
 
 input.code{
-    height: 100rpx;
-    width: 500rpx;
-    font-size: 60rpx;
+    height: 70rpx;
+    font-size: 36rpx;
+    width: calc(100% - 70rpx);
     line-height: 100rpx;
     text-align: center;
     border: #aaa 2rpx solid;
     border-radius: 5rpx;
+    
 }
 image.code{
-    height: 90rpx;
-    width: 90rpx;
+    height: 70rpx !important;
+    width: 70rpx !important;
     /* 果然又改了，还是应该用弹性盒子的 */
-    margin-top: 5rpx;
+    
 }
 
 view.scanner > .secondLine{
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* justify-content: center; */
+     display: flex; 
+     flex-direction: row; 
+     justify-content: flex-start;
+     margin-left: 100rpx;
+     margin-right: 100rpx;
 }
-.secondLine > checkbox{
-    vertical-align: sub;
-}
+
 
 /* 显示信息部分 */
 view.information{
+  margin-top: 50rpx !important;
     display: flex;
     flex-direction: row;
     /* 交叉轴居中，不知道用不用得上 */
@@ -86,7 +91,7 @@ view.information{
     /* 容器高度与照片高度相同 */
     height: calc(350rpx * 0.9);
     width: 90%;
-    box-shadow: 3rpx 3rpx 3rpx 3rpx #aaa ;
+    box-shadow: 6rpx 6rpx 6rpx 6rpx #CCCCCC ;
     border-radius: 5rpx;
     /* 保持圆角 */
     overflow: hidden;
@@ -105,7 +110,7 @@ image.avatar{
 }
 
 view.information > .rightPart{
-    height: calc(300rpx * 0.9);
+    height: calc(300rpx * 0.95);
     display: flex;
     flex-direction: column;
 }
@@ -137,11 +142,56 @@ view.secondDepartment{
 
 /* 按钮部分 */
 button.success{
+  border: none;
+  border-radius: 10rpx;
     width: 80%;
     /* 将两个按钮隔开一点点 */
     margin-bottom: 15rpx;
+    color: white;
+    background-color: #1aad19
 }
 button.fail{
+  border: none;
+  border-radius: 10rpx;
     width: 80%;
-    color: red;
+    color: white;
+    background-color: #e64340
 }
+
+.navisbox {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 130rpx;
+    box-shadow: 0 0 20rpx #D8D8D8;
+    background-color: white;
+    z-index: 999999;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 25rpx
+  }
+
+  .navi {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+  }
+
+  .naviimg {
+    width: 60rpx;
+    height: 60rpx
+  }
+
+  .navitext {
+    font-size: 25rpx
+  }
+
+  .action {
+    margin-top: 50rpx
+  }
+
+  

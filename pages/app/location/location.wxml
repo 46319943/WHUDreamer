@@ -27,4 +27,8 @@
 <view class='add' bind:tap="add">
 <image src='../../../images/plus.svg' class='plus'></image>
 </view>
+<view class='navisbox'>
+<view class='navi'><image src='../../../images/mianshiblack.png' class='naviimg'></image><view class='navitext'>时间</view></view>
+<view class='navi' bindtap='navi'><image src='../../../images/passgrey.png' class='naviimg'></image><view class='navitext' style='color: #8A8A8A'>录取</view></view>
+</view>
 </view>

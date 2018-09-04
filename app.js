@@ -76,6 +76,7 @@ App({
     login: login,
     handler: handler,
     util: util,
-    flag: false
+    flag: false,
+    interviewlist: []
   }
 })

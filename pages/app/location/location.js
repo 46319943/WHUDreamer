@@ -249,5 +249,12 @@ Page({
         }
       })
     }
+  },
+  navi:  function(e)  {
+    wx.redirectTo({
+      url: '/pages/app/admit/admit'
+    })
+    
+    
   }
 })
