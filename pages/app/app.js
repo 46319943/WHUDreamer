@@ -76,7 +76,9 @@ Page({
       {
         name: '面试官',
         color: 'rgba(64, 174, 252, 1)',
-        icon: '../../images/app-2.png'
+        icon: '../../images/app-2.png',
+        url:'admit/admit',
+        loginRequire:true,
       },
       {
         name: '日志',

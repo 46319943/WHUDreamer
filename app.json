@@ -26,7 +26,8 @@
     "pages/app/manager/detail/detail",
     "pages/app/location/location",
     "pages/app/location/add/add",
-    "pages/app/location/detail/detail"
+    "pages/app/location/detail/detail",
+    "pages/app/admit/admit"
   ],
   "window": {
     "navigationStyle": "default",

@@ -1,0 +1,52 @@
+<!-- 头部 -->
+<view class="header"></view>
+<!-- 导航 -->
+<view class="nav"></view>
+<!-- 主体 -->
+<view class="main">
+    <!-- 扫描/输入二维码部分 -->
+    <view class="scanner">
+        <view class="firstLine">
+            <input class="code" value='{{code}}' bindinput="codeChange" type="number" maxlength="13" placeholder="输入或扫描学号" />
+            <image class="code" src="../../../images/scanner.png" bind:tap="scanCode" />
+        </view>
+        <view class="secondLine">
+            <checkbox checked="{{consistant}}" bind:tap="checkBox" />
+            <view class="text">持续扫描二维码</view>
+            <view class="text">{{department}}</view>
+        </view>
+    </view>
+    <!-- 显示用户信息部分 -->
+    <view class="information">
+        <!-- 显示用户头像信息 -->
+        <view class="leftPart">
+            <image class="avatar" src="{{exist ? headimgurl : ''}}" />
+        </view>
+        <!-- 显示用户文字信息 -->
+        <view class="rightPart">
+            <view class="text name">{{exist ? name : '姓名'}}</view>
+            <view class="text college">{{exist ? college : '所在学院'}}</view>
+            <view class="seperateLine"></view>
+            <view class="text firstDepartment">{{exist ? firstDepartment : '第一志愿'}}</view>
+            <view wx:if="{{!exist || (exist && secondDepartment)}}" class="text secondDepartment">{{exist ? (secondDepartment ? secondDepartment : '') : '第二志愿'}}</view>
+        </view>
+    </view>
+    <!-- 按钮操作部分 -->
+    <view class="action">
+        <!-- 如果用户不存在就什么都不现实 -->
+        <block wx:if="{{!exist}}"></block>
+        <!-- 如果已经被第一部门录取了就不显示按钮 -->
+        <block wx:elif="{{firstDepartment === enroll}}">
+            <view class="text">该同学已被其他部门录取了！</view>
+        </block>
+        <!-- 没有被录取就显示按钮 -->
+        <block wx:else>
+            <button class="success" bind:tap="success">录取</button>
+            <button class="fail" bind:tap="fail">不录取</button>
+        </block>
+    </view>
+</view>
+<!-- 侧边 -->
+<view class="aside"></view>
+<!-- 脚部 -->
+<view class="footer"></view>
