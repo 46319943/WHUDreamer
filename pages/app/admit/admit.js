@@ -59,13 +59,22 @@ Page({
   success: function (e) {
     var that = this;
     ajax({
-      url: 'interview/enroll/first/pass',
+      url: 'interview/enroll/second/pass',
       data: {
         studentNum: this.data.code,
       },
       success: res => {
         if (res.data.errcode === 50004) {
           login.show('无法录取');
+        }
+        if(res.data.errcode === 50013){
+          login.show('已经存在录取数据，非第一志愿无法替换当前录取态');
+        }
+        if(res.data.errcode === 50012){
+          login.show('已被第一志愿录取，无法被其他志愿录取');
+        }
+        if(res.data.errcode === 50014){
+          login.show('一面未通过，无法录取二面');
         }
         if (res.data.errcode === 0) {
           this.setData({

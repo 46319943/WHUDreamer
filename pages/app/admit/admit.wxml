@@ -1,9 +1,8 @@
-
 <view class="main">
     <!-- 扫描/输入二维码部分 -->
     <view class="scanner">
         <view class="firstLine">
-            <input class="code" value='{{code}}' bindinput="codeChange" type="number" maxlength="13" placeholder="输入或扫描学号" bindfocus='clear'/>
+            <input class="code" value='{{code}}' bindinput="codeChange" type="number" maxlength="13" placeholder="输入或扫描学号" bindfocus='clear' />
             <image class="code" src="../../../images/scanner.png" bind:tap="scanCode" />
         </view>
         <view class="secondLine">
@@ -24,21 +23,25 @@
             <view class="text college">{{exist ? college : '所在学院'}}</view>
             <view class="seperateLine"></view>
             <view class="text firstDepartment">{{exist ? firstDepartment : '第一志愿'}}</view>
-            <view wx:if="{{!exist || (exist && secondDepartment)}}" class="text secondDepartment">{{exist ? (secondDepartment ? secondDepartment : '') : '第二志愿'}}</view>
+            <view wx:if="{{!exist || (exist && secondDepartment)}}" class="text secondDepartment">
+                {{exist ? (secondDepartment ? secondDepartment : '') : '第二志愿'}}
+            </view>
         </view>
     </view>
     <!-- 按钮操作部分 -->
     <view class="action">
-        <!-- 如果用户不存在就什么都不现实 -->
+        <!-- 如果用户不存在就什么都不显示 -->
         <block wx:if="{{!exist}}"></block>
-        <!-- 如果已经被第一部门录取了就不显示按钮 -->
-        <block wx:elif="{{firstDepartment === enroll}}">
-            <view class="text">该同学已被第一志愿部门录取了！</view>
-        </block>
-        <!-- 没有被录取就显示按钮 -->
+        <!-- 没有用户存在就显示按钮 -->
         <block wx:else>
             <button class="success" bind:tap="success">录取</button>
             <button class="fail" bind:tap="fail">不录取</button>
+        </block>
+        <block wx:if="{{firstDepartment === enroll}}">
+            <view class="text">该同学已被第一志愿部门录取了！</view>
+        </block>
+        <block wx:if="{{secondDepartment === enroll}}">
+            <view class="text">第二部门同意对该同学的录取</view>
         </block>
     </view>
 </view>
@@ -47,6 +50,12 @@
 <!-- 脚部 -->
 <view class="footer"></view>
 <view class='navisbox'>
-<view class='navi' bindtap='navi'><image src='../../../images/mianshigrey.png' class='naviimg'></image><view class='navitext' style='color: #8A8A8A'>时间</view></view>
-<view class='navi'><image src='../../../images/passblack.png' class='naviimg'></image><view class='navitext'>录取</view></view>
+    <view class='navi' bindtap='navi'>
+        <image src='../../../images/mianshigrey.png' class='naviimg'></image>
+        <view class='navitext' style='color: #8A8A8A'>时间</view>
+    </view>
+    <view class='navi'>
+        <image src='../../../images/passblack.png' class='naviimg'></image>
+        <view class='navitext'>录取</view>
+    </view>
 </view>
