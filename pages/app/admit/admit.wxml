@@ -37,10 +37,10 @@
             <button class="success" bind:tap="success">录取</button>
             <button class="fail" bind:tap="fail">不录取</button>
         </block>
-        <block wx:if="{{firstDepartment === enroll}}">
+        <block wx:if="{{exist && firstDepartment === enroll}}">
             <view class="text">该同学已被第一志愿部门录取了！</view>
         </block>
-        <block wx:if="{{secondDepartment === enroll}}">
+        <block wx:if="{{exist && secondDepartment === enroll}}">
             <view class="text">第二部门同意对该同学的录取</view>
         </block>
     </view>
