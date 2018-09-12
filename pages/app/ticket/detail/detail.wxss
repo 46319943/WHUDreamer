@@ -1,0 +1,32 @@
+/* pages/app/ticket/detail/detail.wxss */
+Page {
+    height: 100%;
+}
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.robbox {
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 200rpx;
+    box-shadow: 0 0 20rpx #D8D8D8;
+    background-color: #FF6666;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 !important;
+}
+
+.text {
+    font-size: 100rpx;
+    color: white;
+    width: 100rpx;
+    text-align: center;
+    height: auto;
+}

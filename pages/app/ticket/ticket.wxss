@@ -1,0 +1,58 @@
+/* pages/app/ticket/ticket.wxss */
+  page {
+    padding-bottom: 130rpx
+  }
+  
+  .body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;top: 0;left: 0;right: 0;bottom: 0;
+    background-color: transparent;
+    padding-top: 0;
+   }
+  
+  .box {
+    height: 170rpx;
+    padding: 20rpx;
+    background-color: white;
+  }
+  
+  .infoup {
+    color: #777777;
+    float: left;
+    text-align: left
+  }
+  
+  .infocenter {
+    color: black;
+    float: left;
+    text-align: left;
+    font-size: 30rpx;
+    font-weight: 700
+  }
+  .infobottom {
+    color: #777777;
+    float: left;
+    text-align: left;
+  }
+  
+  
+  .address-item-top {
+    position: relative;
+    width: 100%;
+    height: 170rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 9999;
+    background-color: white;
+    border-bottom: solid #CCCCCC 1rpx;
+  }
+  
+  
+  
