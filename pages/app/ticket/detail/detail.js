@@ -52,6 +52,8 @@ Page({
           console.log(res);
         }else if (res.data.errcode === 50022) {
           login.show('您已经抢过票了');
+        }else if (res.data.errcode === 50023) {
+          login.show('抢票失败');
         }
       }
     })
