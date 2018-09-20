@@ -109,6 +109,12 @@ Page({
         icon: '../../images/app-9.png',
         url: 'ticket/ticket'
       },
+      {
+        name: '签到',
+        color: 'rgba(64, 174, 252, 1)',
+        icon: '../../images/sign.png',
+        url: 'signin/signin'
+      },
     ]
   },
 

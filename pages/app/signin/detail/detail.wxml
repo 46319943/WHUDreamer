@@ -1,0 +1,21 @@
+<form class="warpper" bind:submit="upload">
+    <view class="infobox">
+    <label>签到标题：</label>
+        <input type='text'placeholder="请输入签到标题" auto-focus bindchange="bindTextChange"/>
+    </view>
+    <view class="infobox">
+    <label>签到类型：</label>
+        <picker value="{{type}}" bindchange="bindTypeChange" range="{{typeRange}}" mode='selector'>
+            <view class="picker">{{type == 1 ? '常代会签到' : type ==  0 ? '任务考勤' : '请选择签到到类型'}}</view>
+        </picker>
+    </view>
+    <view class="infobox">
+    <label>签到日期：</label>
+        <picker mode="date" value="{{pickerdate}}" bindchange="bindDateChange" start="{{nowdate}}">{{pickerdate ? pickerdate : '请选择签到日期'}}</picker>                                                             
+    </view>
+    <view class="infobox">
+    <label>签到时间：</label>
+        <picker mode="time" value="{{pickertime}}" bindchange="bindTimeChange" start="{{nowtime}}">{{pickertime ? pickertime : '请选择签到时间'}}</picker>
+    </view>
+    <button class='bt1' bind:tap='confirm'>提交保存</button>
+</form>

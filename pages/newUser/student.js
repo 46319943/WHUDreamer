@@ -12,9 +12,14 @@ Page({
     // 是否能够获取短信验证码
     codeAble:true,
   },
-
+  onLoad: function(){
+    let studentNum = globalData.account.studentNum;
+    this.setData({
+      studentNum
+    })
+  },
   formSubmit: function (e) {
-
+    console.log(globalData);
     // 获取formId用于发送模版信息
     let formId = e.detail.formId;
 
@@ -113,6 +118,13 @@ Page({
         }
       }
     })
+  },
+  special: function(e){
+    if(e.detail.value['4'] != '3' && e.detail.value.length > 4){
+      console.log(e.detail.value);
+      login.show('非本科生使用临时绑定功能');
+      setTimeout(() => { wx.navigateTo({url: '/pages/app/ticket/bind/bind'}) }, 1000);
+    }
   },
   // 用户点击自动获取手机号
   getPhone: function (e) {

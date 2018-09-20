@@ -1,0 +1,41 @@
+<view class='body'>
+<view class='box'  wx:for="{{activity}}">
+
+<view class='textbox' data-id='{{item.id}}' data-type='{{item.type}}' bind:tap="delete">
+<view class='infoup'>{{item.title}}</view>
+<view class='infocenter'>{{item.time}}</view>
+<view class='infobottom'>{{item.type ? '常代会签到' : '任务考勤'}}</view>
+</view>
+
+
+
+
+
+</view>
+
+<view class='add' bind:tap="plus" hidden="{{!hiddenmodalput}}">
+<image src='../../../images/plus.svg' class='plus'></image>
+</view>
+<!--
+<modal hidden="{{hiddenmodalput}}" title="请输入签到信息" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">  
+    <input type='text'placeholder="请输入签到标题" auto-focus bindchange="bindTextChange"/>
+    <picker mode="date" value="{{pickerdate}}" bindchange="bindDateChange" start="{{nowdate}}">{{pickerdate ? pickerdate : '请选择签到日期'}}</picker> 
+    <picker mode="time" value="{{pickertiem}}" bindchange="bindTimeChange" start="{{nowtime}}">{{pickertime ? pickertime : '请选择签到时间'}}</picker>
+</modal>
+
+<modal hidden="{{deletemodalput}}" title="请选择要进行的操作" confirm-text="取消" bindconfirm="cancel" no-cancel='{{true}}'>
+<button class="btn" bindtap="dosignin">
+    签到详情
+</button>
+<button class="btn" bindtap="dodelete">
+    删除
+</button>
+</modal>
+-->
+<action-sheet hidden="{{deletemodalput}}" bindchange="cancel">
+  <block wx:for-items="{{actionSheetItems}}" wx:key="{{txt}}">
+    <action-sheet-item bindtap="{{item.bindtap}}">{{item.txt}}</action-sheet-item>
+  </block>
+  <action-sheet-cancel>取消</action-sheet-cancel>
+</action-sheet>
+</view>

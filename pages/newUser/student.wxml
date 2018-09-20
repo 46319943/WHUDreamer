@@ -2,7 +2,7 @@
 <form bind:submit="formSubmit" report-submit="{{true}}">
     <view class="line">
         <view class="label">学号</view>
-        <input name='id' placeholder="教务系统帐号" type="number"/>
+        <input name='id' placeholder="教务系统帐号" type="number" bindinput='special' disabled="{{studentNum}}" value="{{studentNum ? studentNum : ''}}"/>
     </view>
     <view class="test"></view>
     <view class="line">
