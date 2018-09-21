@@ -1,13 +1,18 @@
-
 <form bind:submit="formSubmit" report-submit="{{true}}">
     <view class="line">
+        <view class="label">姓名</view>
+        <input name='name' placeholder="姓名" type="text"/>
+    </view>
+    <view class="line">
         <view class="label">学号</view>
-        <input name='id' placeholder="教务系统帐号" type="number" bindinput='special' disabled="{{studentNum}}" value="{{studentNum ? studentNum : ''}}"/>
+        <input name='id' placeholder="教务系统帐号" type="number" />
     </view>
     <view class="test"></view>
     <view class="line">
-        <view class="label">密码</view>
-        <input name='pass' placeholder="教务系统密码" password="{{true}}" />
+        <view class="label">学院</view>
+        <picker value="{{college}}" bindchange="bindStartCollegeChange" range="{{arr}}" mode='selector'>
+            <view class="picker">{{college? arr[college] : '请选择学院'}}</view>
+        </picker>
     </view>
     <view class="line">
         <view class="label">邮箱</view>
@@ -20,12 +25,11 @@
     </view>
     <view class="line" wx:if="{{!code}}">
         <view class="label" style='width: 220rpx'>验证码</view>
-        <input name='verify' placeholder="短信验证码" type="number" style='margin-left: 30rpx'/>
+        <input name='verify' placeholder="短信验证码" type="number" />
         
         <button class="getCode" bind:tap='getCode' disabled="{{!codeAble}}" >{{codeAble ? '获取验证码' : '稍后重试'}}</button>
         <!-- <image src="{{verify}}" bind:tap="verify"/> -->
     </view>
     <button class="getPhone" open-type="getPhoneNumber" bind:getphonenumber="getPhone">点击自动填写手机号</button>
-    <button form-type="submit" >{{submitting ? '正在提交' : '提交'}}</button>
+    <button form-type="{{userInfo ? 'submit' : ''}}" open-type="{{userInfo ? 'getUserInfo' : 'getUserInfo'}}" bindgetuerinfo='getUserInfo'>{{submitting ? '正在提交' : '提交'}}</button>
 </form>
-<image src='https://files.whusu.org/media/img/signup.png' class='img'></image>

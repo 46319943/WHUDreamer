@@ -11,26 +11,74 @@ Page({
     phoneForCode: null,
     // 是否能够获取短信验证码
     codeAble:true,
+    arr: [],
+
   },
-  onLoad: function(){
-    let studentNum = globalData.account.studentNum;
+  onLoad: function(options){
+    login.flush();
+    // 刷新用户信息
+    login.setAccount(this);
     this.setData({
-      studentNum
+      userInfo: globalData.userInfo
+    })
+    var arr = [];
+    var that = this;
+    ajax({
+      url: 'map/get/type/college',
+      method: 'GET',
+      success: res => {
+        if (res.data && res.data.errcode === 0) {
+          console.log(res);
+          for(let i in res.data.data){
+            arr.push(res.data.data[i].text);
+          }
+          that.setData({arr});
+        }
+      }
     })
   },
+  getUserInfo: function (e) {
+    if (e.detail.userInfo) {
+      // 设置全局用户信息
+      app.globalData.userInfo = e.detail.userInfo
+      // 设置全局加密信息
+      app.globalData.userInfo.encryptedData = e.detail.encryptedData;
+      app.globalData.userInfo.iv = e.detail.iv;
+
+      // 点击允许之后跳转页面
+      wx.navigateTo({
+        url: '../newUser/student'
+      });
+    } else {
+      // 用户拒绝微信授权
+      login.show('必须授权才能进行用户绑定！');
+    }
+
+  },
+
   formSubmit: function (e) {
-    console.log(globalData);
+    var that = this;
     // 获取formId用于发送模版信息
     let formId = e.detail.formId;
 
     let res = e.detail.value;
-
+    let name = res.name;
     let id = res.id;
     let pass = res.pass;
     let email = res.email;
     let phone = res.phone;
     let code = res.verify;
-    // 如果是自动获取的话，就获取data中的code
+    let stutype = id.slice(4,5);
+    console.log("学号类型");
+    console.log(stutype);
+    if (stutype === '3') {
+      login.show("本科生请使用绑定功能");
+      
+      wx.redirectTo({
+        url: '/pages/user/user'
+    });
+    }else {
+      // 如果是自动获取的话，就获取data中的code
     if (this.data.phone && this.data.code) {
       phone = this.data.phone;
       code = this.data.code;
@@ -40,8 +88,8 @@ Page({
       login.show('请填入13位学号');
       return;
     }
-    if(pass.length === 0){
-      login.show('请填写密码');
+    if(name.length === 0){
+      login.show('请填写姓名');
       return;
     }
     if(email.length === 0){
@@ -66,19 +114,19 @@ Page({
     this.setData({
       submitting: true,
     })
+    console.log("学院");
+    console.log(that.data.arr[that.data.college]);
     // 发送请求
     ajax({
-      url: 'user/info/add/bkjw',
+      url: 'user/info/temporary/add',
       data: {
+        name,
         phone,
         code,
-        email,
-        student_num: id,
-        password: pass,
+        college: that.data.arr[that.data.college],
+        studentNum: id,
         encryptedData: globalData.userInfo.encryptedData,
         iv: globalData.userInfo.iv,
-
-        formId,
       },
 
       success: res => {
@@ -87,8 +135,7 @@ Page({
         })
 
         if (res.data && res.data.errcode === 0) {
-          login.show('绑定成功');
-          // 绑定成功之后，重新获取用户信息。这一步是刷新权限
+          login.show('填写成功');
           ajax({
             url: 'auth/refresh',
             method: 'GET',
@@ -105,7 +152,7 @@ Page({
 
             }
           });
-
+          wx.navigateBack();
         }
         else if(res.data && res.data.errcode === 20011){
           login.show(res.data.tip);
@@ -118,13 +165,8 @@ Page({
         }
       }
     })
-  },
-  special: function(e){
-    if(e.detail.value['4'] != '3' && e.detail.value.length > 4){
-      console.log(e.detail.value);
-      login.show('非本科生使用临时绑定功能');
-      setTimeout(() => { wx.navigateTo({url: '/pages/app/ticket/bind/bind'}) }, 1000);
     }
+    
   },
   // 用户点击自动获取手机号
   getPhone: function (e) {
@@ -212,6 +254,12 @@ Page({
       phoneForCode: e.detail.value,
     });
   },
+  bindStartCollegeChange: function(e){
+    var that = this;
+    this.setData({
+      college: e.detail.value
+    })
+  }
 
 
 })

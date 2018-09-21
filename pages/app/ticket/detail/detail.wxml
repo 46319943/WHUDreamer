@@ -1,0 +1,5 @@
+<view class="body">
+    <view class="robbox" bindtap="rob">
+        <text class="text">抢</text>
+    </view>
+</view>

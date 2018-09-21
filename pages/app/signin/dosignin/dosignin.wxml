@@ -1,0 +1,40 @@
+
+<view class="scanbox" bind:tap="scanCode">
+<view class="scantext">点击扫码签到</view>
+<image class="code" src="../../../../images/scanner.png" />
+</view>
+<view wx:if="{{type == 1}}" class="tbsbox">
+<view class="tbbox head">
+<view class="tbitem">院系</view>
+<view class="tbitem">姓名</view>
+<view class="tbitem">签到时间</view>
+<view class="tbitem">签到状态</view>
+<view class="tbitem">备注</view>
+</view>
+<view wx:for="{{data.signinuserinfo}}" class="tbbox" data-college='{{index}}' bind:tap="vacate">
+<view class="tbitem">{{index}}</view>
+<view class="tbitem">{{item.name}}</view>
+<view class="tbitem">{{item.time}}</view>
+<view class="tbitem">{{item.latetime}}</view>
+<view class="tbitem">{{item.time == '***' ? '请假' : !item.duties ? '' : item.duties == 10 ? '' : '代签'}}</view>
+</view>
+</view>
+<view wx:if="{{type == 0}}" class="tbsbox">
+<view class="tbbox head">
+<view class="tbitem">姓名</view>
+<view class="tbitem">签到时间</view>
+<view class="tbitem">签到状态</view>
+</view>
+<view wx:for="{{data.signinuserinfo}}" class="tbbox">
+<view class="tbitem">{{item.name}}</view>
+<view class="tbitem">{{item.time}}</view>
+<view class="tbitem">{{item.latetime}}</view>
+</view>
+</view>
+<action-sheet hidden="{{deletemodalput}}" bindchange="cancel">
+  <block wx:for-items="{{actionSheetItems}}" wx:key="{{txt}}">
+    <action-sheet-item bindtap="{{item.bindtap}}">{{item.txt}}</action-sheet-item>
+  </block>
+  <action-sheet-cancel>取消</action-sheet-cancel>
+</action-sheet>
+

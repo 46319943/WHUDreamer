@@ -1,0 +1,57 @@
+/* pages/app/signin/dosignin/dosignin.wxss */
+image.code{
+    height: 70rpx;
+    width: 70rpx;
+    
+    
+  }
+.tbsbox{
+    width: 95%
+}
+.tbbox{
+    width: 100%;
+    height: 150rpx;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-bottom: solid 1rpx #CCCCCC;
+    border-top: solid 1rpx #CCCCCC;
+}
+
+.tbitem{
+    border-right: solid 1rpx #CCCCCC;
+    border-left: solid 1rpx #CCCCCC;
+    text-align: center;
+    height: 150rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10rpx;
+    padding-right: 10rpx;
+    flex-grow: 1
+}
+
+page{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column
+}
+
+.head{
+    font-weight: 700
+}
+
+.scanbox{
+    height: 100rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+
+.scantext{
+    width: 200rpx
+}

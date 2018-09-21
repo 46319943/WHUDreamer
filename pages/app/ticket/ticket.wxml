@@ -1,0 +1,14 @@
+<view class='body'>
+
+<view class='box'  wx:for="{{list}}">
+<view data-starttime='{{item.startTime}}' data-endtime='{{item.endTime}}' data-id='{{item.id}}' data-title='{{item.title}}' class="address-item-top" bind:tap="toast" >
+
+<view class='infocenter'>{{item.title}}</view>
+<view class='infobottom'>放出总票数：{{item.count}}张</view>
+
+
+</view>
+
+</view>
+
+</view>

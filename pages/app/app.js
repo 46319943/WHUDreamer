@@ -37,6 +37,7 @@ Page({
     name: '罗运',
     position: '珞珈创意工作室',
     apps: [
+      /** 
       {
         name: '加入校会',
         color: 'rgba(67, 207, 124, 1)',
@@ -72,7 +73,7 @@ Page({
         url: 'location/location',
         color: 'rgba(64, 174, 252, 1)',
         icon: '../../images/app-2.png'
-      },
+      },*/
       {
         name: '日志',
         color: 'rgba(64, 174, 252, 1)',
@@ -102,6 +103,18 @@ Page({
         icon: '../../images/app-8.png',
         url: 'domitory/domitory'
       },*/
+      {
+        name: '抢票',
+        color: '#33CC33',
+        icon: '../../images/app-9.png',
+        url: 'ticket/ticket'
+      },
+      {
+        name: '签到',
+        color: 'rgba(64, 174, 252, 1)',
+        icon: '../../images/sign.png',
+        url: 'signin/signin'
+      },
     ]
   },
 

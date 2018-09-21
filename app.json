@@ -28,7 +28,13 @@
     "pages/app/location/add/add",
     "pages/app/location/detail/detail",
     "pages/app/admit/admit",
-    "pages/join/complete/info/info"
+    "pages/join/complete/info/info",
+    "pages/app/ticket/ticket",
+    "pages/app/ticket/detail/detail",
+    "pages/app/ticket/bind/bind",
+    "pages/app/signin/signin",
+    "pages/app/signin/detail/detail",
+    "pages/app/signin/dosignin/dosignin"
   ],
   "window": {
     "navigationStyle": "default",
