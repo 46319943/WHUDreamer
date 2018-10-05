@@ -86,7 +86,7 @@ function ajax(config) {
     console.log('显示加载状态');
     // wx.showNavigationBarLoading();
     wx.showLoading({
-        title:'正在进行网络请求',
+        title:'正在网络请求',
     });
 }
 // 暴露ajax方法
