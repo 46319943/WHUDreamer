@@ -1,4 +1,3 @@
-// pages/app/signin/signin.js
 let app = getApp();
 let globalData = app.globalData;
 let handler = globalData.handler;

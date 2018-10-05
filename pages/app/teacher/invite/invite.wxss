@@ -1,0 +1,29 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+
+    padding: 0 5%;
+}
+.list{
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 5rpx;
+    box-shadow: 2rpx 2rpx 10rpx #aaa;
+    margin-bottom: 10rpx;
+
+    padding-left: 10rpx;
+}
+.item{
+    display: flex;
+}
+.key{
+    width: 30%;
+    text-align: left;
+}
+.value{
+    width: 70%;
+    text-align: left;
+    color: #999;
+}

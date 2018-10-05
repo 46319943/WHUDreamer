@@ -1,0 +1,41 @@
+<view class="main">
+    <block wx:for="{{list}}">
+        <view class="list" bind:tap="set" data-id='{{item.teacherdata.id}}'>
+            <view class="item">
+                <view class="key">姓名</view>
+                <view class="value">{{item.teacherdata.name}}</view>
+            </view>
+            <view class="item">
+                <view class="key">学院</view>
+                <view class="value">{{collegeList[item.teacherdata.college]}}</view>
+            </view>
+            <view class="item">
+                <view class="key">讲师类型</view>
+                <view class="value">{{item.teacherdata.type == 0 ? '专业讲师' : '学生讲师'}}</view>
+            </view>
+            <view class="item">
+                <view class="key">电话</view>
+                <view class="value">{{item.teacherdata.phone}}</view>
+            </view>
+            <view class="item">
+                <view class="key">授课内容</view>
+                <view class="value">{{item.teacherdata.content}}</view>
+            </view>
+            <view class="item">
+                <view class="key">授课次数</view>
+                <view class="value">{{item.teacherdata.num}}</view>
+            </view>
+        </view>
+    </block>
+</view>
+<!-- <view class="navigator">
+    <view class="item">
+        <navigator url="../apply/apply">讲师申请</navigator>
+    </view>
+    <view class="item">
+        <navigator url="../invite/invite?department={{department}}">讲师邀请</navigator>
+    </view>
+    <view class="item">
+        <navigator url="../assess/assess?department={{department}}">讲师评价</navigator>
+    </view>
+</view> -->

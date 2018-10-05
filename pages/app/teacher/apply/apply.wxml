@@ -1,0 +1,47 @@
+<form class="main" report-submit="true" bind:submit="submit">
+    <view class="line">
+        <view class="text">姓名</view>
+        <input type="text" name='name' placeholder="请输入姓名" />
+    </view>
+    <view class="line">
+        <view class="text">讲师类型</view>
+        <radio-group bindchange="radioChange">
+            <radio value="0" id="0" />
+            <label class="text" for="0">专业讲师</label>
+            <radio value="1" id="1"/>
+            <label class="text" for="1">学生讲师</label>
+        </radio-group>
+    </view>
+    <view class="line">
+        <view class="text">学院</view>
+        <picker bindchange="collegePickerChange" name='college' value="{{indexOfCollege}}" range="{{college}}" disabled='{{college === null}}'>
+            <view class="picker" style="color:{{indexOfCollege ? 'black' : '#808080'}};">
+                {{college ? (indexOfCollege ? college[indexOfCollege] : '请选择学院') : '正在加载'}}
+            </view>
+        </picker>
+    </view>
+    <view class="line">
+        <view class="text">手机号</view>
+        <input type="number" name='phone' maxlength="11" placeholder="请输入手机号" />
+    </view>
+    <view class="line">
+        <view class="text">授课内容</view>
+        <input type="text" name='content' placeholder="请输入授课内容" />
+    </view>
+    <view class="line">
+        <view class="text">授课材料</view>
+        <input type="text" name='materials' placeholder="请输入授课材料" />
+    </view>
+    <button form-type="submit">提交</button>
+</form>
+<view class="navigator" wx:if="{{department != 0}}">
+    <!-- <view class="item">
+        <navigator url="../apply/apply">讲师申请</navigator>
+    </view> -->
+    <view class="item">
+        <navigator url="../invite/invite?department={{department}}">讲师邀请</navigator>
+    </view>
+    <view class="item">
+        <navigator url="../assess/assess?department={{department}}">讲师评价</navigator>
+    </view>
+</view>

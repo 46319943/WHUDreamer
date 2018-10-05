@@ -1,0 +1,54 @@
+.main{
+    /* display: flex; */
+    flex-direction: column;
+    padding: 0 5%;
+}
+view{
+    text-align: left;
+}
+view.line{
+    font-size: 0;
+    margin-bottom: 20rpx;
+}
+input, view.text, label.text{
+    font-size: 30rpx;
+}
+input{
+    width: 70%;
+    text-align: left;
+}
+.line > .text{
+    width: 30%;
+    text-align: left;
+}
+.picker{
+    color: #aaa;
+}
+
+radio-group, picker{
+    width: 70%;
+    text-align: left;
+}
+radio-group > .text{
+    width: auto;
+}
+
+
+
+
+
+
+
+
+
+
+.navigator{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+}
+navigator{
+    text-align: center;
+    font-size: 60rpx;
+    color: #aaa;
+}

@@ -95,6 +95,12 @@ Page({
         color: 'rgba(64, 174, 252, 1)',
         icon: '../../images/app-7.png'
       },
+      {
+        name: '讲师库',
+        url: 'teacher/apply/apply',
+        color: 'rgba(64, 174, 252, 1)',
+        icon: '../../images/app-2.png'
+      },
 
       /** 
       {

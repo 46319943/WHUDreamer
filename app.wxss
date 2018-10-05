@@ -47,6 +47,7 @@ button{
   border: solid #CCCCCC 1rpx;
   border-radius: 0;
 }
+/* 去掉按钮边框 */
 button::after{
   border: none;
 }
@@ -65,4 +66,8 @@ button::after{
   line-height: 1.5;
   font-size: 24rpx;
   text-align: center;
+}
+
+radio-group, picker{
+  display: inline-block;
 }

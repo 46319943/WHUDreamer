@@ -34,7 +34,12 @@
     "pages/app/ticket/bind/bind",
     "pages/app/signin/signin",
     "pages/app/signin/detail/detail",
-    "pages/app/signin/dosignin/dosignin"
+    "pages/app/signin/dosignin/dosignin",
+    "pages/app/teacher/apply/apply",
+    "pages/app/teacher/assess/assess",
+    "pages/app/teacher/invite/invite",
+    "pages/app/teacher/invite/set/set",
+    "pages/app/teacher/assess/set/set"
   ],
   "window": {
     "navigationStyle": "default",

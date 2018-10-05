@@ -1,0 +1,19 @@
+<form class="main" report-submit="true" bind:submit="submit">
+    <view class="line">
+        <view class="text">日期</view>
+        <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+            <view class="picker">{{date ? date : '请选择日期'}}</view>
+        </picker>
+    </view>
+    <view class="line">
+        <view class="text">时间</view>
+        <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+            <view class="picker">{{time ? time : '请选择时间'}}</view>
+        </picker>
+    </view>
+    <view class="line">
+        <view class="text">地点</view>
+        <input type="text" name='position' placeholder="地点" />
+    </view>
+    <button form-type="submit">提交</button>
+</form>
