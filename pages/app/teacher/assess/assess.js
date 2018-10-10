@@ -24,8 +24,8 @@ Page({
     console.log(globalData.collegeList);
 
     ajax({
-      url:'redlecturer/getmyteacherlist',
-      data:{department},
+      url:'redlecturer/getteacherlist',
+      method:'get',
       success: res=>{
         if(res.data.errcode === 0){
           let data = res.data.data;

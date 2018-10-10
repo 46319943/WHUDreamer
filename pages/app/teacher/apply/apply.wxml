@@ -32,16 +32,17 @@
         <view class="text">授课材料</view>
         <input type="text" name='materials' placeholder="请输入授课材料" />
     </view>
-    <button form-type="submit">提交</button>
+    <button form-type="submit" class="bt1">提交</button>
 </form>
-<view class="navigator" wx:if="{{department != 0}}">
+<view class="navigator" wx:if="{{isadmin != 0}}">
     <!-- <view class="item">
         <navigator url="../apply/apply">讲师申请</navigator>
     </view> -->
-    <view class="item">
-        <navigator url="../invite/invite?department={{department}}">讲师邀请</navigator>
+    <view class="item" wx:if="{{isadmin == 2}}">
+        <navigator url="../invite/invite?department={{department}}" >讲师审核</navigator>
     </view>
-    <view class="item">
-        <navigator url="../assess/assess?department={{department}}">讲师评价</navigator>
+    
+    <view class="item" wx:if="{{isadmin == 1}}">
+        <navigator url="../assess/assess?department={{department}}" >讲师评价</navigator>
     </view>
 </view>

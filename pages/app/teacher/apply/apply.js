@@ -59,8 +59,9 @@ Page({
         if (res.data.errcode === 0) {
           let data = res.data;
           let department = data.department;
+          let isadmin = data.isadmin;
           // department = department === 0 ? false : true;
-          this.setData({ department });
+          this.setData({ department, isadmin });
           globalData.collegeList  = data.collegelist;
         }
       }

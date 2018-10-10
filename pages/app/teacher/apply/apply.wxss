@@ -9,6 +9,9 @@ view{
 view.line{
     font-size: 0;
     margin-bottom: 20rpx;
+    margin-top: 10rpx;
+    border-bottom: solid #c9bbbb 2rpx;
+    padding-bottom: 15rpx
 }
 input, view.text, label.text{
     font-size: 30rpx;
@@ -20,7 +23,10 @@ input{
 .line > .text{
     width: 30%;
     text-align: left;
+    height: 19rpx;
 }
+
+
 
 radio-group, picker{
     width: 70%;
@@ -28,26 +34,44 @@ radio-group, picker{
 }
 radio-group > .text{
     width: auto;
+    margin-right: 20rpx;
+    margin-left: 0
 }
-
-
-
-
-
-
-
-
-
 
 .navigator{
     position: absolute;
     bottom: 0;
     display: flex;
-
-    border-top: 1rpx solid #aaa;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100rpx;
+    box-shadow: 0 0 20rpx #888888;
+    
 }
 navigator{
     text-align: center;
-    font-size: 60rpx;
+    font-size: 40rpx;
     color: #aaa;
+    
 }
+
+.item {
+    width: 200rpx
+}
+
+.divi{
+    background-color: #c9bbbb;
+    width: 3rpx !important;
+    height: 70rpx;
+}
+
+
+.bt1 {
+    border: none;
+    border-radius: 10rpx;
+    background-color: #1aad19;
+    color: white;
+    margin-top: 10rpx;
+    height: 80rpx !important;
+    line-height: 80rpx !important
+  }

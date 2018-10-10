@@ -10,7 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    hiddenmodalput: true,
   },
 
   /**
@@ -24,7 +24,7 @@ Page({
     this.setData({collegeList});
 
     ajax({
-      url:'redlecturer/getteacherlist',
+      url:'redlecturer/getapplyteacherlist',
       method:'get',
       success: res=>{
         if(res.data.errcode === 0){
@@ -38,19 +38,44 @@ Page({
 
   invite: function(e){
     console.log(e);
-    let dataSet = e.target.dataset;
+    let id = e.currentTarget.dataset.id;
     // 解构赋值
-    let {id,type,department} = dataSet;
-
+    
+    this.setData({
+      hiddenmodalput: false,
+      id: id
+    })
     // if(department !== 0){
     //   login.show("已被其他部门邀请");
     //   return;
     // }
 
-    wx.navigateTo({
-      url:`set/set?id=${id}&type=${type}&department=${this.data.department}`,
-    });
+    //wx.navigateTo({
+      //url:`set/set?id=${id}&type=${type}&department=${this.data.department}`,
+    //});
     return;
+  },
+  cancel: function(){
+    this.setData({
+      hiddenmodalput: true
+    })
+  },
+  confirm: function(){
+    var that = this;
+    var id = this.data.id;
+    ajax({
+      url: `redlecturer/invite`,
+      data: {
+        id
+      },
+      success: res => {
+        if (res.data && res.data.errcode === 0) {
+          login.show('申请通过！');
+          that.onLoad;
+          setTimeout(() => { that.cancel() }, 1000);
+        }
+      }
+    })
   },
 
   /**

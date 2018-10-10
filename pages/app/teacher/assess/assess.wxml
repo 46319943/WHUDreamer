@@ -1,29 +1,25 @@
 <view class="main">
     <block wx:for="{{list}}">
-        <view class="list" bind:tap="set" data-id='{{item.teacherdata.id}}'>
+        <view class="list" bind:tap="set" data-id="{{item.id}}" data-type="{{item.type}}" data-department="{{item.department}}">
             <view class="item">
                 <view class="key">姓名</view>
-                <view class="value">{{item.teacherdata.name}}</view>
+                <view class="value">{{item.name}}</view>
             </view>
             <view class="item">
                 <view class="key">学院</view>
-                <view class="value">{{collegeList[item.teacherdata.college]}}</view>
+                <view class="value">{{collegeList[item.college]}}</view>
             </view>
             <view class="item">
                 <view class="key">讲师类型</view>
-                <view class="value">{{item.teacherdata.type == 0 ? '专业讲师' : '学生讲师'}}</view>
+                <view class="value">{{item.type == 0 ? '专业讲师' : '学生讲师'}}</view>
             </view>
             <view class="item">
                 <view class="key">电话</view>
-                <view class="value">{{item.teacherdata.phone}}</view>
+                <view class="value">{{item.phone}}</view>
             </view>
             <view class="item">
                 <view class="key">授课内容</view>
-                <view class="value">{{item.teacherdata.content}}</view>
-            </view>
-            <view class="item">
-                <view class="key">授课次数</view>
-                <view class="value">{{item.teacherdata.num}}</view>
+                <view class="value">{{item.content}}</view>
             </view>
         </view>
     </block>
