@@ -35,7 +35,7 @@ Page({
     })
   },
   set: function(e){
-    let id = e.target.dataset.id;
+    let id = e.currentTarget.dataset.id;
     wx.navigateTo({url:'set/set?id='+id});
   },
   /**

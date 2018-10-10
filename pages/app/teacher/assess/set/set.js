@@ -19,7 +19,6 @@ Page({
   onLoad: function (options) {
     let id = options.id;
     this.data.id = id;
-
   },
   submit: function (e) {
     let res = e.detail.value;
@@ -39,7 +38,7 @@ Page({
         }
       }
     }
-
+    res.id = this.data.id;
     ajax({
       url: 'redlecturer/evalute',
       data: res,
