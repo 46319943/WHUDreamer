@@ -17,12 +17,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
     let id = options.id;
-    this.data.id = id;
+    let department = options.department;
+    console.log(id);
+    this.setData({
+      id,department
+    });
 
   },
   submit: function (e) {
+    let rule = [8, 4, 4, 8, 8, 4, 4];
     let res = e.detail.value;
+    let i = 0;
     for (const key in res) {
       if (res.hasOwnProperty(key)) {
         let value = res[key];
@@ -32,14 +39,17 @@ Page({
         }
         if (key != 'comment') {
           value = parseInt(value);
-          if (value > 5 || value < 1) {
+          if (value > rule[i] || value < 1) {
             login.show('分数不在范围内');
             return;
           }
+          i++;
         }
       }
     }
-
+    res['teacherid'] = this.data.id;
+    res['department'] = this.data.department;
+    console.log(res);
     ajax({
       url: 'redlecturer/evalute',
       data: res,

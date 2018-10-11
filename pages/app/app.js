@@ -230,6 +230,17 @@ Page({
       },
     });
   },
+  authfresh: function(e){
+    ajax({
+      method: 'GET',
+      url: 'auth/refresh',
+      success: res => {
+        if (res.data && res.data.errcode === 0) {
+          login.show('权限刷新成功');
+        }
+      },
+    });
+  },
   click: function (e) {
     let url = e.currentTarget.dataset.url;
     if (url && url.indexOf('http') === 0) {
