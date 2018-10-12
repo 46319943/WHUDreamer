@@ -18,6 +18,20 @@
 <view class="tbitem">{{item.latetime}}</view>
 <view class="tbitem">{{item.time == '***' ? '请假' : !item.duties ? '' : item.duties == 10 ? '' : '代签'}}</view>
 </view>
+<view class="tbbox head">
+<view class="tbitem">部门</view>
+<view class="tbitem">姓名</view>
+<view class="tbitem">签到时间</view>
+<view class="tbitem">签到状态</view>
+<view class="tbitem">备注</view>
+</view>
+<view wx:for="{{data.signinuserinfo2}}" class="tbbox" data-department='{{index}}' bind:tap="vacate2">
+<view class="tbitem">{{index}}</view>
+<view class="tbitem">{{item.name}}</view>
+<view class="tbitem">{{item.time}}</view>
+<view class="tbitem">{{item.latetime}}</view>
+<view class="tbitem">{{item.time == '***' ? '请假' : !item.duties ? '' : (item.duties == 4 || item.duties == 11) ? '' : '代签'}}</view>
+</view>
 </view>
 <view wx:if="{{type == 0}}" class="tbsbox">
 <view class="tbbox head">
