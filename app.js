@@ -4,6 +4,7 @@ let login = require("./utils/login.js");
 let util = require("./utils/util.js");
 App({
   onLaunch: function () {
+    
     // 初始化，获取本地cookie
     handler.init();
     // 初始化，将app提供给login

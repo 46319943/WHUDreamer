@@ -39,7 +39,13 @@
     "pages/app/teacher/assess/assess",
     "pages/app/teacher/invite/invite",
     "pages/app/teacher/invite/set/set",
-    "pages/app/teacher/assess/set/set"
+    "pages/app/teacher/assess/set/set",
+    "pages/jinqiu/jiuqiu",
+    "pages/app/jinqiu/jinqiu",
+    "pages/app/jinqiu/help/help",
+    "pages/app/jinqiu/count/count",
+    "pages/app/jinqiu/ticket/ticket",
+    "pages/call/call"
   ],
   "window": {
     "navigationStyle": "default",

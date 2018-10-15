@@ -1,0 +1,7 @@
+<view class='info'>
+<view class='info1'>“{{name}}”期待您的助力</view>
+<view class="info2">点击下面的助力按钮帮助您的好友获取金秋门票快为您的好友打call吧！</view>
+<button class="btn" bindtap="call">
+    助力好友
+</button>
+</view>

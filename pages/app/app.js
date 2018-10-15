@@ -101,6 +101,12 @@ Page({
         color: 'rgba(64, 174, 252, 1)',
         icon: '../../images/app-2.png'
       },
+      {
+        name: '金秋抢票',
+        url: 'jinqiu/help/help',
+        color: 'rgba(64, 174, 252, 1)',
+        icon: '../../images/sign.png',
+      },
 
       /** 
       {
@@ -108,13 +114,13 @@ Page({
         color: 'rgba(64, 174, 252, 1)',
         icon: '../../images/app-8.png',
         url: 'domitory/domitory'
-      },*/
+      },
       {
         name: '抢票',
         color: '#33CC33',
         icon: '../../images/app-9.png',
         url: 'ticket/ticket'
-      },
+      },*/
       {
         name: '签到',
         color: 'rgba(64, 174, 252, 1)',
@@ -123,6 +129,7 @@ Page({
       },
     ]
   },
+  
 
   onShow: function (e) {
     login.flush();
@@ -216,7 +223,8 @@ Page({
     }
     wx.navigateTo({ url: `../pdf/pdf?num=${this.data.account.studentnum}&code=${new Date().getTime()}` });
   },
-  onLoad: function (e) {
+  onLoad: function (query) {
+    
     ajax({
       method: 'GET',
       url: 'base/banner/get/2',
