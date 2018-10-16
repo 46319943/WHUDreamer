@@ -6,7 +6,11 @@ page{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: black
+    background-image: url('https://whusu.oss-cn-shanghai.aliyuncs.com/dreamer/grab/Background.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #1e1a24;
 }
 
 .card{
@@ -16,7 +20,7 @@ page{
     border-radius: 10rpx;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -27,17 +31,37 @@ page{
     color: white
 }
 
-.btn{
+.btn1{
     width: 250rpx;
     height: 75rpx;
-    background-color: red;
+    background-color: red !important;
     border-radius: 100rpx;
-    color: white;
+    color: white !important;
     font-size: 29rpx;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 30rpx
+    margin-bottom: 90rpx
+}
+
+.btn2{
+    width: 250rpx;
+    height: 75rpx;
+    background-color: rgb(26, 219, 26) !important;
+    border-radius: 100rpx;
+    color: white !important;
+    font-size: 29rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 90rpx
+}
+
+.canvas{
+    width: 650rpx; 
+    height: 100%;
+    text-align: center;
+    font-size: 30rpx;
 }
 
 .info3{
@@ -57,7 +81,8 @@ page{
     font-size: 50rpx;
     color: black;
     margin-bottom: 10rpx;
-    font-weight: 700
+    font-weight: 700;
+    
 }
 
 .info1{
@@ -84,4 +109,10 @@ page{
 
 .text{
     font-size: 25rpx;
+}
+
+.img{
+    width: 100%;
+    justify-self: flex-start;
+    margin-top: 0
 }

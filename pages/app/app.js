@@ -101,14 +101,15 @@ Page({
         color: 'rgba(64, 174, 252, 1)',
         icon: '../../images/app-2.png'
       },
+
       {
         name: '金秋抢票',
-        url: 'jinqiu/help/help',
-        color: 'rgba(64, 174, 252, 1)',
-        icon: '../../images/sign.png',
+        url: 'jinqiu/jinqiu',
+        color: '#FFCC00',
+        icon: '../../images/app-9.png',
       },
 
-      /** 
+       /**
       {
         name: '查询宿舍',
         color: 'rgba(64, 174, 252, 1)',

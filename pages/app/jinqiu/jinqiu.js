@@ -17,9 +17,12 @@ Page({
       method: 'GET',
       success: res => {
         if (res.data && res.data.errcode === 0) {
-          if(res.data.count = 0) wx.navigateTo({url: 'help/help'});
-          else if(res.data.count > 0 && res.data.count < res.data.praise) wx.navigateTo({url: 'help/help'});
-          else if(res.data.count >= res.data.praise) wx.navigateTo({url: 'ticket/ticket'});
+          if(res.data.count == 0) wx.redirectTo({url: 'help/help'});
+          else  {
+            if(res.data.count > 0 && res.data.count < res.data.praise) wx.redirectTo({url: 'count/count'});
+            else if(res.data.count >= res.data.praise) wx.redirectTo({url: 'ticket/ticket'});
+          }
+          
         }else {
           login.show('获取失败，请检查网络设置');
           setTimeout(() => { wx.navigateBack() }, 1000);

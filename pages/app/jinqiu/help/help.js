@@ -52,19 +52,20 @@ Page({
     })
     wx.getSystemInfo({
       success: function(res){
-        width = res.screenWidth;
+        width = res.screenWidth - 40;
       }
     })
     var timer = setInterval(
       function(){
         if(that.data.backimg && that.data.coreimg && width){
-          let height = width * 1.3;
+          let height = width * 1.4;
           console.log('宽度'+width);
           console.log('长度'+height);
+          that.setData({width, height});
           that.setData({guide: ''})
-          ctx.drawImage(that.data.backimg, 0, 0, width-40, height);
+          ctx.drawImage(that.data.backimg, 0, 0, width, height);
           ctx.save();
-          ctx.drawImage(that.data.coreimg, width*0.155, height*0.305, 100, 100);
+          ctx.drawImage(that.data.coreimg, width*0.18752, height*0.31, width*0.25, width*0.25);
           ctx.draw();
           clearInterval(timer);
         }
@@ -75,14 +76,17 @@ Page({
     console.error(e.detail.errMsg)
   },
   save: function(e){
+    var that = this;
     console.log('开始保存照片');
     let tempFilePath = "";
     wx.canvasToTempFilePath({
       x: 0,
       y: 0,
-      width: 330,
-      height: 500,
+      width: that.data.width,
+      height: that.data.height,
       quality: 1,
+      destWidth: that.data.width,
+      destHeight: that.data.height,
       canvasId: "canvas",
       success: function (res) {
         console.log(res);

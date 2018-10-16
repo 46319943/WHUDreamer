@@ -6,7 +6,11 @@ page{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: black
+    background-image: url('https://whusu.oss-cn-shanghai.aliyuncs.com/dreamer/grab/Background.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #1e1a24;
 }
 
 .card{
@@ -29,7 +33,7 @@ page{
 
 .btn{
     width: 250rpx;
-    height: 75rpx;
+    height: 95rpx;
     background-color: blueviolet;
     border-radius: 100rpx;
     color: white;
@@ -37,7 +41,7 @@ page{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 30rpx
+    margin-bottom: 20rpx
 }
 
 .info3{
@@ -72,5 +76,6 @@ page{
     margin-bottom: 10rpx;
     text-align: center;
     font-size: 30rpx;
-    padding-top: 200rpx
+    padding-top: 200rpx;
+    line-height: 100%
 }

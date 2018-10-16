@@ -24,8 +24,6 @@ Page({
    * 否则，就要通过在这个页面中的按钮获取
    */
   onLoad: function (query) {
-    console.log("11111111");
-    console.log(decodeURIComponent(query.scene));
     /*
       现在的需求是这样的
       在app.js中会执行两个操作

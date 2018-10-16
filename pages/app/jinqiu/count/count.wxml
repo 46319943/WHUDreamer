@@ -1,4 +1,5 @@
 <view class="card">
+    <image src="{{data.other.imgurl}}" class="img"/>
     <view class="info2">{{name}}</view>
     <view class="info1">金秋艺术节 | {{data.title}}</view>
     <view class="info3">
@@ -6,8 +7,8 @@
         <view class="info"><view class="num">{{info.count}}</view><view class="text">助力个数</view></view>
         <view class="info"><view class="num">{{data.count}}</view><view class="text">总票数</view></view>
     </view>
-    <button class="btn" loading="{{loading}}" bind:tap="{{info.count >= info.praise ? 'ticket' : 'false'}}">
-        {{info.count >= info.praise ? '进入抢票' : '无权抢票'}}
+    <button class="{{info.count >= info.praise ? 'btn2' : 'btn1'}}" loading="{{loading}}" bind:tap="ticket" disabled="{{dis}}">
+        {{info.count >= info.praise ? '进入抢票' : '正在助力'}}
     </button>
     
 </view>

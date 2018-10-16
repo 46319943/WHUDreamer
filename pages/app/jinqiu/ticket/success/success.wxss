@@ -33,10 +33,12 @@ page{
 }
 
 .info1{
-    font-size: 50rpx
+    font-size: 50rpx;
+    font-weight: 600;
+    margin-bottom: 20rpx
 }
 .info2{
-    font-size: 25rpx
+    font-size: 35rpx
 }
 
 .zan{
