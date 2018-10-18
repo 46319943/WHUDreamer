@@ -3,6 +3,7 @@
     <view class="info1">金秋艺术节 | {{data.title}}</view>
     <view class="info2">分享至朋友圈并获得{{data.other.praise}}+助力</view>
     <view class="info3">即可参与今晚抽奖</view>
+    <view class="guide">建议截图</view>
     <button class="btn" loading="{{loading}}" bindtap="save">
         保存至手机
     </button>

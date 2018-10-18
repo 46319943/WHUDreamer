@@ -15,6 +15,9 @@ Page({
     console.log(globalData)
     var that = this;
     var width = 0;
+    var accesstoken = '';
+    var openid = '';
+    var url = 'https://1492644395495447.cn-shanghai.fc.aliyuncs.com/2016-08-15/proxy/dreamer_test_ide_one/php/';
     const ctx = wx.createCanvasContext('canvas');
     ajax({
       url: 'jinqiu/get/actioninfo',
@@ -22,6 +25,25 @@ Page({
       success: res => {
         if (res.data.errcode === 0) {
           that.setData({data: res.data.data})
+        } else{login.show(res.data.errmsg);}
+      },
+    })
+    ajax({
+      url: 'jinqiu/get/imdata',
+      method: 'GET',
+      success: res => {
+        if (res.data.errcode === 0) {
+          accesstoken = res.data.im.accesstoken;
+          openid = res.data.im.openid;
+          url = url+'?1='+accesstoken+'&2='+openid;
+          wx.downloadFile({
+            url,
+            success: function (sres) {
+              console.log(sres);
+              let coreimg = sres.tempFilePath;
+              that.setData({coreimg});
+            },fail:function(fres){}
+          })
         } else{login.show(res.data.errmsg);}
       },
     })
@@ -39,17 +61,13 @@ Page({
               that.setData({backimg});
             },fail:function(fres){}
           })
-          wx.downloadFile({
-            url: 'https://dreamer.api.whusu.org/jinqiu/get/appimg&sn='+globalData.account.studentNum,
-            success: function (sres) {
-              console.log(sres);
-              let coreimg = sres.tempFilePath;
-              that.setData({coreimg});
-            },fail:function(fres){}
-          })
+          
+          
         } else{login.show(res.data.errmsg);}
       },
     })
+    
+    
     wx.getSystemInfo({
       success: function(res){
         width = res.screenWidth - 40;
