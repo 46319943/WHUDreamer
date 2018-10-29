@@ -21,6 +21,10 @@
                 <view class="key">授课内容</view>
                 <view class="value">{{item.content}}</view>
             </view>
+            <view class="item">
+                <view class="key">授课材料</view>
+                <view class="value">{{item.materials}}</view>
+            </view>
         </view>
     </block>
 </view>

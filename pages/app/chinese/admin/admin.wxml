@@ -1,0 +1,45 @@
+<view class="page">
+    <view class="tabbar">
+        <view bind:tap="tab1">留学生数据</view>
+        <view bind:tap="tab2">志愿者数据</view>
+    </view>
+    <view class="box" wx:if="{{display}}" wx:for="{{studentslist}}" wx:key="*this" data-id="{{item.id}}" bind:tap="beforedelete1">
+        <view>姓名：{{item.name}}</view>
+        <view>国家/地区：{{item.country}}</view>
+        <view>性别：{{item.gender}}</view>
+        <view>学院：{{item.college}}</view>
+        <view>HSK：{{item.hsk}}</view>
+        <view>英文水平：{{item.el}}</view>
+        <view>手机：{{item.phone}}</view>
+        <view>微信：{{item.wechat}}</view>
+    </view>
+    <view class="box" wx:if="{{!display}}" wx:for="{{volunteerlist}}" wx:key="*this" data-id="{{item.id}}" bind:tap="beforedelete2">
+        <view>姓名：{{item.name}}</view>
+        <view>国家/地区：{{item.country}}</view>
+        <view>性别：{{item.gender}}</view>
+        <view>学院：{{item.college}}</view>
+        <view>英文水平：{{item.el}}</view>
+        <view>手机：{{item.phone}}</view>
+        <view>微信：{{item.wechat}}</view>
+    </view>
+    <view class="navibox">
+        <view class="navi" bind:tap="navi">
+            <image src="../../../../images/form_fill.png" />
+            <view>留学生信息</view>
+        </view>
+        <view class="navi" bind:tap="navi2">
+            <image src="../../../../images/heart.png" />
+            <view>志愿者信息</view>
+        </view>
+        <view class="navi"  wx:if="{{isadmin == '1'}}">
+            <image src="../../../../images/ChineseCornerAdmin.png" />
+            <view>查看数据</view>
+        </view>
+    </view>
+</view>
+<action-sheet hidden="{{deletemodalput}}" bindchange="cancel">
+  <block wx:for-items="{{actionSheetItems}}" wx:key="{{txt}}">
+    <action-sheet-item bindtap="{{item.bindtap}}">{{item.txt}}</action-sheet-item>
+  </block>
+  <action-sheet-cancel>取消</action-sheet-cancel>
+</action-sheet>

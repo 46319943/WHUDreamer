@@ -1,0 +1,88 @@
+
+@font-face {font-family: 'COCOGOOSE';src: url('//cdn.webfont.youziku.com/webfonts/nomal/124322/47031/5bcc1be9f629d9121843f8c8.gif?r=88496746299');src: url('//cdn.webfont.youziku.com/webfonts/nomal/124322/47031/5bcc1be9f629d9121843f8c8.gif?r=88496746299?#iefix') format('embedded-opentype'),url('//cdn.webfont.youziku.com/webfonts/nomal/124322/47031/5bcc1be9f629d9121843f8c8.png?r=88496746299') format('woff2'),url('//cdn.webfont.youziku.com/webfonts/nomal/124322/47031/5bcc1be9f629d9121843f8c8.bmp?r=88496746299') format('woff');font-weight: normal;font-style: normal;} 
+.page{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding-top: 20rpx;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    padding-bottom: 150rpx
+}
+.formbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: auto;
+    margin-top: 30rpx
+}
+.formbox>label{
+    width: auto;
+    height: auto;
+    text-align: left
+}
+.formbox>input{
+    border: none;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: left;
+    border-bottom: 1rpx solid #888888
+}
+.formbox>picker, .picker{
+    border: none;
+    width: 100%;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: left;
+    overflow: hidden;
+    border-bottom: 1rpx solid #888888
+}
+.navibox{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100rpx;
+    background-color: white;
+    box-shadow: 0rpx 1rpx 20rpx #777777;
+    z-index: 999;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-self: center
+}
+.navi{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+.navi>image{
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.head{
+    color: black;
+    font-size: 35rpx;
+    font-family:'COCOGOOSE';
+}
+
+.btn{
+    border: none;
+    background-color: #FF9900;
+    width: 80%;
+    height: 100rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50rpx;
+    box-shadow: 1rpx 1rpx 10rpx #996600;
+    color: white;
+    margin-top: 30rpx
+}

@@ -1,0 +1,57 @@
+page{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background-color: #1e1a24
+}
+
+
+.scanbox{
+    width: 80%;
+    height: 100rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    color: white
+}
+
+.scantext{
+    width: 140rpx;
+}
+
+image.code{
+    height: 70rpx;
+    width: 70rpx;
+}
+
+.infobox{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    width: 80%;
+    border-radius: 10rpx;
+    margin-top: 20rpx;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+    padding-left: 20rpx
+}
+
+.line{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center
+}
+
+.btn{
+    width: 80%;
+    background-color: #1e1a24;
+    height: 100rpx;
+    border-radius: 10rpx;
+    color: white
+}

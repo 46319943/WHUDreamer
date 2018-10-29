@@ -47,7 +47,11 @@
     "pages/app/jinqiu/ticket/ticket",
     "pages/call/call",
     "pages/app/jinqiu/ticket/success/success",
-    "pages/app/jinqiu/ticket/fail/fail"
+    "pages/app/jinqiu/ticket/fail/fail",
+    "pages/app/jinqiucheck/check",
+    "pages/app/chinese/chinese",
+    "pages/app/chinese/volunteer/volunteer",
+    "pages/app/chinese/admin/admin"
   ],
   "window": {
     "navigationStyle": "default",

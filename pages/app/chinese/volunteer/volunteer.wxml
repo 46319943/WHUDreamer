@@ -1,0 +1,65 @@
+
+<form class="page" bind:submit="submit">
+    <view class="head">Chinese Corner Volunteer Information</view>
+    <view class="formbox">
+        <label>国家/地区 Country/region</label>
+        <input placeholder="国家/地区 Country/region" name='country'/>
+    </view>
+    <view class="formbox">
+        <label>真实姓名 Full Name</label>
+        <input placeholder="真实姓名 Full Name" name='name'/>
+    </view>
+    <view class="formbox">
+        <!--
+        <label>性别 Gender</label>
+        <input placeholder="性别 Gender" name='gender'/>-->
+        <label>性别 Gender</label>
+        <picker value="{{gender}}" bindchange="bindGenderChange" range="{{genderlist}}" mode='selector'>
+            <view class="picker">{{gender ? genderlist[gender] : '性别 Gender'}}</view>
+        </picker>
+        <input value='{{genderlist[gender]}}' disabled="{{true}}" style='display: none' name='gender'/>
+    </view>
+    <view class="formbox">
+        <label>年级 Grade</label>
+        <input placeholder="年级 Grade" name='grade'/>
+    </view>
+    <view class="formbox">
+        <!--
+        <label>学院\专业 College\Degree</label>
+        <input placeholder="学院\专业 College\Degree" name='college'/>-->
+        <label>学院\专业 College\Degree</label>
+        <picker value="{{college}}" bindchange="bindCollegeChange" range="{{collegelist}}" mode='selector'>
+            <view class="picker">{{college ? collegelist[college] : '学院\专业 College\Degree'}}</view>
+        </picker>
+        <input value='{{collegelist[college]}}' disabled="{{true}}" style='display: none' name='college'/>
+    </view>
+    <view class="formbox">
+        <label>英语水平 English level</label>
+        <input placeholder="英语水平 English level" name='el'/>
+    </view>
+    <view class="formbox">
+        <label>手机 Phone number</label>
+        <input placeholder="手机 Phone number" name='phone'/>
+    </view>
+    <view class="formbox">
+        <label>微信 WeChat</label>
+        <input placeholder="微信 WeChat" name='wechat'/>
+    </view>
+    <button class="btn" form-type="submit">
+        提交 Submit
+    </button>
+    <view class="navibox">
+        <view class="navi" bind:tap="navi">
+            <image src="../../../../images/form_fill.png" />
+            <view>留学生信息</view>
+        </view>
+        <view class="navi">
+            <image src="../../../../images/heart.png" />
+            <view>志愿者信息</view>
+        </view>
+        <view class="navi" bind:tap="navi2" wx:if="{{isadmin == '1'}}">
+            <image src="../../../../images/ChineseCornerAdmin.png" />
+            <view>查看数据</view>
+        </view>
+    </view>
+</form>
