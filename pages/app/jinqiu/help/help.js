@@ -35,7 +35,7 @@ Page({
         if (res.data.errcode === 0) {
           accesstoken = res.data.im.accesstoken;
           openid = res.data.im.openid;
-          url = url+'?1='+accesstoken+'&2='+openid;
+          url = url+'?1='+accesstoken+'&2=olpAJ45OJ1Yn0OnpH2mQ-447y2oY';
           wx.downloadFile({
             url,
             success: function (sres) {
@@ -118,5 +118,44 @@ Page({
         });
       }
     });
+  },
+  run: function(e){
+    var that = this;
+    wx.login({
+      success: function(res){
+        if (res.code) {
+          ajax({
+            url: 'user/login',
+            data: {
+              code: res.code
+            },
+            success: res => {
+              if (res.data.errcode === 0) {
+                wx.getWeRunData({
+                  success: function(res){
+                    ajax({
+                      url: 'jinqiu/add/passuserforrun',
+                      data: {
+                        iv: res.iv,
+                        encryptedData: res.encryptedData
+                      },
+                      success: res => {
+                        if (res.data.errcode === 0) {
+                          login.show("上传成功，您以获得抢票资格");
+                        }else if (res.data.errcode === 50025) {
+                          login.show("没有达到步数要求，请再接再厉");
+                        }else{login.show(res.data.errmsg);}
+                      },
+                    })
+                  }
+                })
+              }else{login.show(res.data.errmsg);}
+            },
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      },
+    })
   }
 })

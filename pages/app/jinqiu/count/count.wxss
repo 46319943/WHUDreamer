@@ -31,6 +31,19 @@ page{
     color: white
 }
 
+.btn{
+    width: 250rpx;
+    height: 75rpx;
+    background-color: blueviolet;
+    border-radius: 100rpx;
+    color: white;
+    font-size: 29rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20rpx
+}
+
 .btn1{
     width: 250rpx;
     height: 75rpx;
@@ -41,7 +54,6 @@ page{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 90rpx
 }
 
 .btn2{
@@ -54,7 +66,6 @@ page{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 90rpx
 }
 
 .canvas{

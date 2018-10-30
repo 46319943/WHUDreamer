@@ -21,11 +21,23 @@
                 <view class="key">授课内容</view>
                 <view class="value">{{item.content}}</view>
             </view>
+            <view class="item">
+                <view class="key">授课材料</view>
+                <view class="value">{{item.materials}}</view>
+            </view>
         </view>
     </block>
 </view>
-<modal hidden="{{hiddenmodalput}}" title="确定要通过此申请吗" confirm-text="通过" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">  
-    
+<modal hidden="{{hiddenmodalput}}" title="请选择操作" confirm-text="取消" bindconfirm="cancel" no-cancel="{{true}}">  
+    <button class="btn1" bindtap="confirm">
+        通过
+    </button>
+    <button class="btn2" bindtap="delete">
+        删除
+    </button>
+    <button class="btn3" bindtap="copy">
+        复制授课材料到剪切板
+    </button>
 </modal>
 <!-- <view class="navigator">
     <view class="item">

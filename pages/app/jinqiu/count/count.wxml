@@ -10,6 +10,9 @@
     <button class="{{info.count >= info.praise ? 'btn2' : 'btn1'}}" loading="{{loading}}" bind:tap="ticket" disabled="{{dis}}">
         {{info.count >= info.praise ? '进入抢票' : '正在助力'}}
     </button>
+    <button class="btn" loading="{{loading}}" bindtap="run">
+        运动免助力
+    </button>
     
 </view>
 

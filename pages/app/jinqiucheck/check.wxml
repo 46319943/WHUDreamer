@@ -1,0 +1,13 @@
+<view class="scanbox" bind:tap="scanCode">
+<view class="scantext">点击扫码</view>
+<image class="code" src="../../../images/qrcode-scan.png" />
+</view>
+<view class="infobox" wx:if="{{ticket}}">
+<view class="line">姓名：{{name}}</view>
+<view class="line">学号：{{num}}</view>
+<view class="line">场次：{{info.title}}</view>
+<view class="line">区域：{{info.other.region}}</view>
+<button class="btn" bindtap="docheck">
+    兑换
+</button>
+</view>

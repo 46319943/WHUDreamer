@@ -32,7 +32,7 @@ page{
 }
 
 .btn{
-    width: 250rpx;
+    width: 300rpx;
     height: 95rpx;
     background-color: blueviolet;
     border-radius: 100rpx;
@@ -55,7 +55,7 @@ page{
 .guide{
     width: auto;
     text-align: center;
-    font-size: 20rpx;
+    font-size: 30rpx;
     color: grey;
     margin-bottom: 10rpx
 }

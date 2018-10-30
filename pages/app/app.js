@@ -103,10 +103,22 @@ Page({
       },
 
       {
+        name: '检票',
+        url: 'jinqiucheck/check',
+        color: '#663366',
+        icon: '../../images/app-9.png',
+      },
+      {
         name: '金秋抢票',
         url: 'jinqiu/jinqiu',
         color: '#FFCC00',
-        icon: '../../images/app-9.png',
+        icon: '../../images/jinqiucheck.png',
+      },
+      {
+        name: '汉语角',
+        url: 'chinese/chinese',
+        color: '#CC3333',
+        icon: '../../images/chinese_lion.png',
       },
 
        /**

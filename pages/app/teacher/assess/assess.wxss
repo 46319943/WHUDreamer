@@ -17,6 +17,7 @@
 }
 .item{
     display: flex;
+    word-break: break-all
 }
 .key{
     width: 30%;

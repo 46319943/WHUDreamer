@@ -23,6 +23,9 @@ Page({
     let collegeList = globalData.collegeList;
     this.setData({collegeList});
 
+    
+  },
+  onShow: function(){
     ajax({
       url:'redlecturer/getapplyteacherlist',
       method:'get',
@@ -71,59 +74,62 @@ Page({
       success: res => {
         if (res.data && res.data.errcode === 0) {
           login.show('申请通过！');
-          that.onLoad;
+          ajax({
+            url:'redlecturer/getapplyteacherlist',
+            method:'get',
+            success: res=>{
+              if(res.data.errcode === 0){
+                let list = res.data.data;
+                that.setData({list});
+      
+              }
+            }
+          })
           setTimeout(() => { that.cancel() }, 1000);
         }
       }
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  delete: function(e){
+    var that = this;
+    var id = this.data.id;
+    ajax({
+      url: `redlecturer/delete`,
+      data: {
+        id
+      },
+      success: res => {
+        if (res.data && res.data.errcode === 0) {
+          login.show('删除成功！');
+          ajax({
+            url:'redlecturer/getapplyteacherlist',
+            method:'get',
+            success: res=>{
+              if(res.data.errcode === 0){
+                let list = res.data.data;
+                that.setData({list});
+      
+              }
+            }
+          })
+          setTimeout(() => { that.cancel() }, 1000);
+        }
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  copy: function(e){
+    var that = this;
+    var id = this.data.id;
+    var list = this.data.list;
+    let materials = '';
+    list.forEach(element => {
+      if(element.id == id) materials = element.materials;
+    });
+    wx.setClipboardData({
+      data: materials,
+      success: function(){
+        login.show('复制成功')
+      }
+    })
   }
 })
