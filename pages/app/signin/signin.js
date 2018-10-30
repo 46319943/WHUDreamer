@@ -21,7 +21,7 @@ Page({
     type: 0,
     actionSheetItems:[
       {bindtap:'dosignin',txt:'签到详情'},
-      {bindtap:'dodelete',txt:'删除'}
+      {bindtap:'beforedelete',txt:'删除'}
      ],
   },
 
@@ -139,9 +139,24 @@ Page({
       type
     })
   },
+  beforedelete: function(e){
+    var that = this;
+    wx.showModal({  
+      title: '提示',  
+      content: '确定要删除吗',  
+      success: function(res) {  
+          if (res.confirm) {  
+            that.dodelete()
+          } else if (res.cancel) {  
+          
+          }  
+      }  
+  }) 
+  },
   dodelete: function(e){
     var that = this;
     let deleteid = this.data.deleteid;
+    
     ajax({
       url: `signin/deletesignin`,
       data: {

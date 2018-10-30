@@ -102,19 +102,26 @@ Page({
         icon: '../../images/app-2.png'
       },
 
-      /** 
+      {
+        name: '金秋抢票',
+        url: 'jinqiu/jinqiu',
+        color: '#FFCC00',
+        icon: '../../images/app-9.png',
+      },
+
+       /**
       {
         name: '查询宿舍',
         color: 'rgba(64, 174, 252, 1)',
         icon: '../../images/app-8.png',
         url: 'domitory/domitory'
-      },*/
+      },
       {
         name: '抢票',
         color: '#33CC33',
         icon: '../../images/app-9.png',
         url: 'ticket/ticket'
-      },
+      },*/
       {
         name: '签到',
         color: 'rgba(64, 174, 252, 1)',
@@ -123,6 +130,7 @@ Page({
       },
     ]
   },
+  
 
   onShow: function (e) {
     login.flush();
@@ -216,7 +224,8 @@ Page({
     }
     wx.navigateTo({ url: `../pdf/pdf?num=${this.data.account.studentnum}&code=${new Date().getTime()}` });
   },
-  onLoad: function (e) {
+  onLoad: function (query) {
+    
     ajax({
       method: 'GET',
       url: 'base/banner/get/2',
@@ -226,6 +235,17 @@ Page({
           this.setData({
             imageSwiper: list,
           });
+        }
+      },
+    });
+  },
+  authfresh: function(e){
+    ajax({
+      method: 'GET',
+      url: 'auth/refresh',
+      success: res => {
+        if (res.data && res.data.errcode === 0) {
+          login.show('权限刷新成功');
         }
       },
     });

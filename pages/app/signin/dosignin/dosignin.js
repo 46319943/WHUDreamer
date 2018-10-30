@@ -15,6 +15,8 @@ Page({
     actionSheetItems:[
       {bindtap:'dovacate',txt:'请假'}
      ],
+     college: null,
+     department: null
   },
 
   /**
@@ -72,7 +74,18 @@ Page({
   },
   vacate: function(e){
     let college = e.currentTarget.dataset.college;
+    let department = null;
     this.setData({
+      college,
+      department,
+      deletemodalput: false
+    });
+  },
+  vacate2: function(e){
+    let department = e.currentTarget.dataset.department;
+    let college = null;
+    this.setData({
+      department,
       college,
       deletemodalput: false
     });
@@ -80,12 +93,19 @@ Page({
 
   dovacate: function(){
     let college = this.data.college;
+    let department = this.data.department;
+    console.log('111111111111111111111');
+    console.log(department);
+    let url = '';
+    if(college) url = 'signin/vacate';
+    else url = 'signin/vacate2';
     let id = this.data.id;
     var that = this;
     ajax({
-      url: 'signin/vacate',
+      url,
       data: {
         college,
+        department,
         signinid: id
       },
       success: res => {
@@ -145,6 +165,25 @@ Page({
               }else{
                 res.data.data.signinuserinfo[i].time = '***';
                 res.data.data.signinuserinfo[i].latetime = '***'
+              }
+              
+            }
+            
+          }
+          for(let i in res.data.data.signinuserinfo2){
+            if(res.data.data.signinuserinfo2[i]){
+              if(res.data.data.signinuserinfo2[i].time != '0'){
+                var time = new Date(res.data.data.signinuserinfo2[i].time * 1000);
+                res.data.data.signinuserinfo2[i].time = time.getFullYear()+'年'+time.getMonth()+'月'+ time.getDate()+'日'+time.getHours()+':'+time.getMinutes()+':'+time.getSeconds();
+                if(res.data.data.signinuserinfo2[i].latetime > 0){
+                  var latetime = new Date(res.data.data.signinuserinfo2[i].latetime * 1000);
+                  res.data.data.signinuserinfo2[i].latetime = '迟到' + latetime.getHours() + '小时' + latetime.getMinutes() + '分钟' + latetime.getSeconds() + '秒'
+                }else{
+                  res.data.data.signinuserinfo2[i].latetime = '正常';
+                }
+              }else{
+                res.data.data.signinuserinfo2[i].time = '***';
+                res.data.data.signinuserinfo2[i].latetime = '***'
               }
               
             }

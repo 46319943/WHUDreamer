@@ -1,0 +1,15 @@
+<view class="card">
+<image src="{{data.other.imgurl}}" class="img"/>
+    <view class="info2">{{name}}</view>
+    <view class="info1">金秋艺术节 | {{data.title}}</view>
+    <view class="info3">
+        <view class="info"><view class="num">{{data.other.region}}</view><view class="text">区域</view></view>
+        <view class="info"><view class="num">{{start ? data.endTime : data.startTime}}</view><view class="text">{{start ? '结束时间' : '开始时间'}}</view></view>
+        <view class="info"><view class="num">{{data.count}}</view><view class="text">{{data.text}}</view></view>
+    </view>
+    <button class="btn" loading="{{loading}}" bind:tap="ticket" disabled="{{disable}}">
+        {{leftTime}}
+    </button>
+    
+</view>
+

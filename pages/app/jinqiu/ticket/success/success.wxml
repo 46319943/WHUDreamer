@@ -1,0 +1,6 @@
+<form class='info' bind:submit="call" report-submit="{{true}}">
+
+<view class="info1">{{text}}</view>
+<view class="info2">请在指定时间携带手机到兑换点兑换门票</view>
+
+</form>

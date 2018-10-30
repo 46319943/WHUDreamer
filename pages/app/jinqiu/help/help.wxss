@@ -1,0 +1,89 @@
+/* pages/app/jinqiu/help/help.wxss */
+page{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://whusu.oss-cn-shanghai.aliyuncs.com/dreamer/grab/Background.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #1e1a24;
+}
+
+.card{
+    width: 650rpx;
+    height: 1200rpx;
+    background-color: whitesmoke;
+    border-radius: 10rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.bottom{
+    position: absolute;
+    bottom: 20rpx;
+    text-decoration: underline;
+    color: white
+}
+
+.btn{
+    width: 250rpx;
+    height: 95rpx;
+    background-color: blueviolet;
+    border-radius: 100rpx;
+    color: white;
+    font-size: 29rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20rpx
+}
+
+.info3{
+    width: auto;
+    text-align: center;
+    font-size: 25rpx;
+    color: grey;
+    margin-bottom: 20rpx
+}
+
+.guide{
+    width: auto;
+    text-align: center;
+    font-size: 20rpx;
+    color: grey;
+    margin-bottom: 10rpx
+}
+
+.info2{
+    width: auto;
+    text-align: center;
+    font-size: 30rpx;
+    color: black;
+    margin-bottom: 10rpx;
+    font-weight: 700
+}
+
+.info1{
+    width: auto;
+    text-align: center;
+    font-size: 20rpx;
+    color: grey;
+    margin-bottom: 10rpx;
+    
+}
+
+.canvas{
+    width: 650rpx; 
+    height: 100%;
+    margin-bottom: 10rpx;
+    text-align: center;
+    font-size: 30rpx;
+    padding-top: 200rpx;
+    line-height: 100%
+}

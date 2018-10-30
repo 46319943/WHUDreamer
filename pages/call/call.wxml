@@ -1,0 +1,9 @@
+<form class='info' bind:submit="call" report-submit="{{true}}">
+<view class='info1'>“{{name}}”期待您的助力</view>
+<view class="info2">点击下面的助力按钮</view>
+<view class="info2">帮助您的好友获取金秋门票</view>
+<view class="info2">快为您的好友打call吧！</view>
+<button class="btn" open-type="getUserInfo" form-type="submit">
+    助力好友
+</button>
+</form>

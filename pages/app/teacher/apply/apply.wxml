@@ -41,8 +41,8 @@
     <view class="item" wx:if="{{isadmin == 2}}">
         <navigator url="../invite/invite?department={{department}}" >讲师审核</navigator>
     </view>
-    
-    <view class="item" wx:if="{{isadmin == 1}}">
-        <navigator url="../assess/assess?department={{department}}" >讲师评价</navigator>
+    <view class="divi" wx:if="{{isadmin == 2}}"></view>
+    <view class="item">
+        <navigator url="../assess/assess?department={{department}}" disabled="{{isadmin != 2}}">讲师评价</navigator>
     </view>
 </view>

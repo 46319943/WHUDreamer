@@ -43,3 +43,7 @@
     </button>
   </view>
 </view>
+<!--
+<button class="btn" bindtap="authfresh">
+  刷新权限
+</button>-->

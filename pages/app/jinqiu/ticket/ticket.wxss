@@ -1,0 +1,96 @@
+/* pages/app/jinqiu/help/help.wxss */
+page{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://whusu.oss-cn-shanghai.aliyuncs.com/dreamer/grab/Background.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #1e1a24;
+}
+
+.card{
+    width: 650rpx;
+    height: 1000rpx;
+    background-color: whitesmoke;
+    border-radius: 10rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottom{
+    position: absolute;
+    bottom: 20rpx;
+    text-decoration: underline;
+    color: white
+}
+
+.btn{
+    width: 290rpx;
+    height: 90rpx;
+    background-color: red !important;
+    border-radius: 100rpx;
+    color: white !important;
+    font-size: 29rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30rpx
+}
+
+.info3{
+    width: 500rpx;
+    font-size: 25rpx;
+    color: black;
+    margin-bottom: 30rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center
+}
+
+.info2{
+    width: auto;
+    text-align: center;
+    font-size: 50rpx;
+    color: black;
+    margin-bottom: 10rpx;
+    font-weight: 700
+}
+
+.info1{
+    width: auto;
+    text-align: center;
+    font-size: 30rpx;
+    color: black;
+    margin-bottom: 10rpx;
+    
+}
+
+.info{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+.num{
+    font-size: 30rpx;
+}
+
+.text{
+    font-size: 25rpx;
+}
+
+.img{
+    width: 100%;
+    
+}

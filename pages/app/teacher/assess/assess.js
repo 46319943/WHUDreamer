@@ -17,6 +17,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
     let department = options.department
     this.setData({department});
     this.setData({collegeList:globalData.collegeList});
@@ -36,7 +37,12 @@ Page({
   },
   set: function(e){
     let id = e.currentTarget.dataset.id;
+<<<<<<< HEAD
     wx.navigateTo({url:'set/set?id='+id});
+=======
+    let department = this.data.department;
+    wx.navigateTo({url:'set/set?id='+id+'&department='+department});
+>>>>>>> 8a679579fd82d5c43b7c8db5eeb8ce8230fc8ce1
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

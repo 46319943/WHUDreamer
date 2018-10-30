@@ -1,0 +1,46 @@
+page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #1e1a24;
+    background-image: url('https://whusu.oss-cn-shanghai.aliyuncs.com/dreamer/grab/Background.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+.info{
+    width: auto;
+    height: auto;
+    margin-bottom: 10rpx
+}
+
+.btn{
+    width: 350rpx;
+    height: 100rpx;
+    border-radius: 50rpx;
+    background-color: red;
+    color: white;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20rpx;
+    
+}
+
+.info1{
+    font-size: 50rpx
+}
+.info2{
+    font-size: 25rpx
+}
+
+.zan{
+    width: 50rpx;
+    height: 50rpx;
+
+}

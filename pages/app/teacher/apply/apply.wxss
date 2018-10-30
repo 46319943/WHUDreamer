@@ -46,6 +46,7 @@ radio-group > .text{
     align-items: center;
     height: 100rpx;
     box-shadow: 0 0 20rpx #888888;
+    width: 100%
     
 }
 navigator{

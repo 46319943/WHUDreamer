@@ -1,0 +1,6 @@
+<form class='info' bind:submit="call" report-submit="{{true}}">
+
+
+<view class="info2">很抱歉您没有抢到本次的门票</view>
+<view class="info2">请您继续努力哟！</view>
+</form>

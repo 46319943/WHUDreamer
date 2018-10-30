@@ -1,31 +1,31 @@
 <form class="main" report-submit="true" bind:submit="submit">
     <view class="line">
         <view class="text">主题内容</view>
-        <input type="number" name='score1' maxlength="1" placeholder="输入1-5分" />
+        <input type="number" name='score1' maxlength="1" placeholder="输入1-8分" />
     </view>
     <view class="line">
         <view class="text">辅助资料</view>
-        <input type="number" name='score2' maxlength="1" placeholder="输入1-5分" />
+        <input type="number" name='score2' maxlength="1" placeholder="输入1-4分" />
     </view>
     <view class="line">
         <view class="text">举例延伸</view>
-        <input type="number" name='score3' maxlength="1" placeholder="输入1-5分" />
+        <input type="number" name='score3' maxlength="1" placeholder="输入1-4分" />
     </view>
     <view class="line">
         <view class="text">师生互动</view>
-        <input type="number" name='score4' maxlength="1" placeholder="输入1-5分" />
+        <input type="number" name='score4' maxlength="1" placeholder="输入1-8分" />
     </view>
     <view class="line">
         <view class="text">学员情况</view>
-        <input type="number" name='score5' maxlength="1" placeholder="输入1-5分" />
+        <input type="number" name='score5' maxlength="1" placeholder="输入1-8分" />
     </view>
     <view class="line">
         <view class="text">表达清晰</view>
-        <input type="number" name='score6' maxlength="1" placeholder="输入1-5分" />
+        <input type="number" name='score6' maxlength="1" placeholder="输入1-4分" />
     </view>
     <view class="line">
         <view class="text">谈吐大方</view>
-        <input type="number" name='score7' maxlength="1" placeholder="输入1-5分" />
+        <input type="number" name='score7' maxlength="1" placeholder="输入1-4分" />
     </view>
     <view class="line">
         <view class="text">评价</view>
