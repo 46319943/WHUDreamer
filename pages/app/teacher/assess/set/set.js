@@ -19,16 +19,12 @@ Page({
   onLoad: function (options) {
     
     let id = options.id;
-<<<<<<< HEAD
-    this.data.id = id;
-=======
     let department = options.department;
     console.log(id);
     this.setData({
       id,department
     });
 
->>>>>>> 8a679579fd82d5c43b7c8db5eeb8ce8230fc8ce1
   },
   submit: function (e) {
     let rule = [8, 4, 4, 8, 8, 4, 4];
@@ -51,13 +47,9 @@ Page({
         }
       }
     }
-<<<<<<< HEAD
-    res.id = this.data.id;
-=======
     res['teacherid'] = this.data.id;
     res['department'] = this.data.department;
     console.log(res);
->>>>>>> 8a679579fd82d5c43b7c8db5eeb8ce8230fc8ce1
     ajax({
       url: 'redlecturer/evalute',
       data: res,
