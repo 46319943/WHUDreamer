@@ -1,0 +1,22 @@
+<image class="back"  src="{{backimg}}"/>
+<view class="body">
+    <button class="btn" bindtap="onTap1" style="background-color: #CC9999">
+        活动介绍（一）
+    </button>
+    <button class="btn" bindtap="onTap2" style="background-color: #CC9999">
+        活动介绍（二）
+    </button>
+    <button class="btn" bindtap="onTap3" style="background-color: #003366">
+        活动日程
+    </button>
+    <button class="btn" bindtap="onTap4" style="background-color: #FF9900">
+        活动报名
+    </button>
+    <button class="btn" bindtap="onTap5" style="background-color: #006633">
+        常见问题
+    </button>
+    <button class="btn" bindtap="onTap6" style="background-color: #663366">
+        配对结果查看
+    </button>
+</view>
+<image class="info" wx:if="{{show}}" src="{{info}}" bind:tap="cancel"/>

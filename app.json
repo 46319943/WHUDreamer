@@ -51,7 +51,15 @@
     "pages/app/jinqiucheck/check",
     "pages/app/chinese/chinese",
     "pages/app/chinese/volunteer/volunteer",
-    "pages/app/chinese/admin/admin"
+    "pages/app/chinese/admin/admin",
+    "pages/app/eca/questionnaire/questionnaire",
+    "pages/app/eca/face/face",
+    "pages/app/eca/success/success",
+    "pages/app/eca/motions/motions",
+    "pages/app/eca/habits/habits",
+    "pages/app/eca/index/index",
+    "pages/app/eca/picker/picker",
+    "pages/app/eca/result/result"
   ],
   "window": {
     "navigationStyle": "default",

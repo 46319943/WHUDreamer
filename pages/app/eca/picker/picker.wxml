@@ -1,0 +1,10 @@
+<view class="question">选择您想参与的组别类型</view>
+<picker mode="selector" range="{{range1}}" value="{{group}}" class="picker" bind:change="change1">{{group ? range1[group] : '请选择您想参与的组别类型'}}</picker>
+<view class="question">选择您的身高范围</view>
+<picker mode="selector" range="{{range2}}" value="{{height}}" class="picker" bind:change="change2">{{height ? range2[height]+'cm' : '请选择您的身高范围'}}</picker>
+<view class="question">是否允许调剂</view>
+<picker mode="selector" range="{{range3}}" value="{{despensing}}" class="picker" bind:change="change3">{{despensing ? range3[despensing] : '请选择是否允许调剂'}}</picker>
+<button class="btn" bindtap="next" disabled="{{unfinish}}">
+    提交
+</button>
+<image class="back"  src="{{backimg}}"/>

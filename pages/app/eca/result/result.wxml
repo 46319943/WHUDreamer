@@ -1,0 +1,3 @@
+<view class="question">{{tip}}</view>
+<view class="text">{{result}}</view>
+<image class="back"  src="{{backimg}}"/>

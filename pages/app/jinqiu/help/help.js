@@ -35,7 +35,7 @@ Page({
         if (res.data.errcode === 0) {
           accesstoken = res.data.im.accesstoken;
           openid = res.data.im.openid;
-          url = url+'?1='+accesstoken+'&2=olpAJ45OJ1Yn0OnpH2mQ-447y2oY';
+          url = url+'?1='+accesstoken+'&2='+openid;
           wx.downloadFile({
             url,
             success: function (sres) {
@@ -141,9 +141,10 @@ Page({
                       },
                       success: res => {
                         if (res.data.errcode === 0) {
-                          login.show("上传成功，您以获得抢票资格");
+                          login.show("上传成功，您已获得抢票资格");
+                          setTimeout(() => { wx.redirectTo({url: '../jinqiu'}) }, 1000);
                         }else if (res.data.errcode === 50025) {
-                          login.show("没有达到步数要求，请再接再厉");
+                          login.show(res.data.title);
                         }else{login.show(res.data.errmsg);}
                       },
                     })

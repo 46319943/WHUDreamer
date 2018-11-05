@@ -1,0 +1,16 @@
+<view class="question">请从下面三组中各选一个您觉得适合自己的词语</view>
+<view class="ansbox1">
+    <view class="{{ansstyle[0][index]}}" wx:for="{{motions['row1']}}" wx:key="index" bind:tap="ans" data-id="0" data-code="{{index}}">{{item}}</view>
+</view>
+<view class="ansbox2">
+    <view class="{{ansstyle[1][index]}}" wx:for="{{motions['row2']}}" wx:key="index" bind:tap="ans" data-id="1" data-code="{{index}}">{{item}}</view>
+</view>
+<view class="ansbox3">
+    <view class="{{ansstyle[2][index]}}" wx:for="{{motions['row3']}}" wx:key="index" bind:tap="ans" data-id="2" data-code="{{index}}">{{item}}</view>
+</view>
+<view class="navibox">
+    <button class="btn" bindtap="submit" disabled="{{submitbtn}}">
+        提交
+    </button>
+</view>
+<image class="back"  src="{{backimg}}"/>

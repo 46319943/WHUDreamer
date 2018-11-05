@@ -1,0 +1,5 @@
+<view class="question">恭喜你，报名成功！</view>
+<view class="text">工作人员正在努力为你配对，配对结果将以短信形式发送，敬请留意！</view>
+<view class="text">如有疑问欢迎加入武大学生会ECA枫珞情缘官方群：943139084，了解更多！</view>
+<image class="back"  src="{{backimg}}"/>
+

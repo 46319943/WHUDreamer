@@ -1,0 +1,92 @@
+@font-face {
+    font-family: 'youyuan';
+    src: url('https://whusu.oss-cn-shanghai.aliyuncs.com/dreamer/fonts/yueyuan.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+page{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    box-sizing: border-box;
+    padding-bottom: 50rpx
+}
+view.question{
+    width: 100%;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    color: #0fd189;
+    word-break: break-all;
+    font-family: 'youyuan';
+    margin-top: 20rpx;
+    font-size: 45rpx;
+    font-weight: 600;
+    text-align: left
+}
+view.ansbox{
+    width: 100%;
+    height: auto;
+    padding-left: 10rpx;
+    padding-right: 10rpx;
+    margin-top: 30rpx;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+    box-sizing: border-box;
+    background-color: transparent;
+    margin-bottom: 100rpx
+}
+view.ans{
+    width: 100%;
+    background-color: transparent;
+    padding-left: 10rpx;
+    padding-right: 10rpx;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+    font-family: 'youyuan';
+    font-size: 40rpx;
+    text-align: left;
+    box-sizing: border-box
+}
+view.ansed{
+    width: 100%;
+    background-color: #ddf3f1;
+    padding-left: 10rpx;
+    padding-right: 10rpx;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+    font-family: 'youyuan';
+    font-size: 40rpx;
+    text-align: left;
+    box-sizing: border-box
+}
+view.navibox{
+    position: fixed;
+    bottom: 0;left: 0;right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20rpx
+}
+.btn{
+    background-color: #67c6c2;
+    color: white;
+    width: 250rpx;
+    height: 70rpx;
+    border: none;
+    border-radius: 50rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.back{
+    position: fixed;
+    top: 0;left: 0;right: 0;bottom: 0;
+    z-index: -999;
+    width: 100%;
+    height: 100%;
+}
