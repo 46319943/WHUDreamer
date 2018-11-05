@@ -1,0 +1,11 @@
+<view class="question">请从下面的标签选择5种您的兴趣爱好</view>
+<view class="ansbox">
+    <view class="{{ansstyle[index]}}" wx:for="{{habits}}" wx:key="index" bind:tap="ans" data-code="{{index}}">{{item}}</view>
+</view>
+<view class="navibox">
+    <button class="btn" bindtap="submit" disabled="{{submitbtn}}">
+        提交
+    </button>
+</view>
+
+<image class="back"  src="{{backimg}}"/>

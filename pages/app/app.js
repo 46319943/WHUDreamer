@@ -120,6 +120,13 @@ Page({
         color: '#CC3333',
         icon: '../../images/chinese_lion.png',
       },
+      
+      {
+        name: '枫珞情缘',
+        url: 'eca/index/index',
+        color: '#f86913',
+        icon: '../../images/eca.png',
+      },
 
        /**
       {
@@ -145,6 +152,11 @@ Page({
   
 
   onShow: function (e) {
+    if(globalData.ScreenBrightness){
+      wx.setScreenBrightness({
+        value: globalData.ScreenBrightness
+      }) 
+    }
     login.flush();
     // 刷新用户信息
     login.setAccount(this);

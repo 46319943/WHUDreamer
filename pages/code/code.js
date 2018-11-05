@@ -64,7 +64,15 @@ Page({
     });
   },
   onLoad: function(e){
-
+    var that = this;
+    wx.getScreenBrightness({
+      success: function(res) {
+        globalData.ScreenBrightness = res.value;
+        wx.setScreenBrightness({
+          value: 1
+        })    
+      }
+    })
     wx.onUserCaptureScreen(
       () => {
         let pages = getCurrentPages();

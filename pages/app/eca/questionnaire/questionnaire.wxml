@@ -1,0 +1,16 @@
+<view class="question">{{questions[i]}}</view>
+<view class="ansbox">
+    <view class="{{ansstyle[0]}}" bind:tap="ans" data-code="0">A:  {{questions[100+i][0]}}</view>
+    <view class="{{ansstyle[1]}}" bind:tap="ans" data-code="1">B:  {{questions[100+i][1]}}</view>
+    <view class="{{ansstyle[2]}}" bind:tap="ans" data-code="2">C:  {{questions[100+i][2]}}</view>
+    <view class="{{ansstyle[3]}}" bind:tap="ans" data-code="3">D:  {{questions[100+i][3]}}</view>
+</view>
+<view class="navibox">
+    <button class="btn" bindtap="before" disabled="{{beforebtn}}">
+        上一题
+    </button>
+    <button class="btn" bindtap="next" disabled="{{nextbtn}}">
+        下一题
+    </button>
+</view>
+<image class="back"  src="{{backimg}}"/>

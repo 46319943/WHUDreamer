@@ -1,0 +1,12 @@
+<view class="question">请上传一张个人照片</view>
+<view class="face" bindtap="upload">
+    <image src="{{avater ? avater : default}}" />
+</view>
+<button class="btn" bindtap="{{but}}">
+    {{uploaded ? '下一步' : progress ? '正在上传'+progress :'上传图片'}}
+</button>
+<!--
+<button class="btn1" bindtap="">
+    活动详情
+</button>-->
+<image class="back"  src="{{backimg}}"/>
