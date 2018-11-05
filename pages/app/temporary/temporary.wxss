@@ -1,0 +1,49 @@
+page{
+    background-color: #eee;
+}
+.main{
+    margin: 20rpx auto;
+    width: 90%;
+    min-height: auto;
+    padding-bottom: 30rpx;
+    box-shadow: 0rpx 0rpx 6rpx 2rpx #888;
+    background-color: white;
+
+    border-radius: 10rpx;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.line{
+
+}
+.h1{
+    color: cornflowerblue;
+    font-size: 50rpx;
+}
+.h2{
+    color: chocolate;
+    font-weight: bold;
+    font-size: 35rpx;
+}
+.h3{
+    color: cornflowerblue;
+    font-size: 50rpx;
+}
+.h4{
+    color: chocolate;
+    font-weight: bold;
+    font-size: 40rpx;
+}
+
+.button{
+    color: white;
+    background-color: cornflowerblue;
+    border: none;
+    border-radius: 30rpx;
+    width: 40%;
+
+    margin-top: 30rpx;
+}

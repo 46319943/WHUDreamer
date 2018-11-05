@@ -201,6 +201,7 @@ function flush(that) {
 
 function formIdUpload(e){
     if(e && e.detail && e.detail.formId){
+        console.log('上傳formid');
         ajax({
             url:'user/formid/record',
             data:{
@@ -208,6 +209,9 @@ function formIdUpload(e){
             }
         })
 
+    }
+    else{
+        console.log('獲取formid失敗');
     }
 }
 module.exports = {

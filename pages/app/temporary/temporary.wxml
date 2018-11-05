@@ -1,0 +1,11 @@
+<view class="main">
+    <view class="heading">
+        <view class="line h1">2018</view>
+        <view class="line h2">资助育人文化艺术进校园系列活动</view>
+        <view class="line h3">之</view>
+        <view class="line h4">向经典电影致敬主题视听音乐会</view>
+    </view>
+    <form bind:submit="submit" report-submit="{{true}}">
+        <button class="button" form-type="submit">立即报名</button>
+    </form>
+</view>

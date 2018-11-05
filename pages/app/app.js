@@ -127,7 +127,12 @@ Page({
         color: '#f86913',
         icon: '../../images/eca.png',
       },
-
+      {
+        name: '音乐会',
+        url: 'temporary/temporary',
+        color: '#CC3333',
+        icon: '../../images/temporary.png',
+      },
        /**
       {
         name: '查询宿舍',
