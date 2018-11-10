@@ -1,0 +1,41 @@
+<view class="groupbox" wx:for="{{groups}}" wx:for-index="groupindex" wx:for-item="groupitem">
+    <view class="groupname">{{groupitem.name}}  需要{{groupitem.need}}票</view>
+    <view class="votebox shadow1" wx:for="{{teams[groupindex]}}" wx:for-index="teamindex" wx:for-item="teamitem">
+        <view class="title">{{teamitem.title}}</view>
+        <view class="author">{{teamitem.number}}票</view>
+        <scroll-view scroll-x="{{true}}" class="imgbox shadow1 item-{{groupindex}}-{{teamindex}}">
+            <image wx:if="{{teamitem.visible}}" wx:for="{{teamitem.url}}" wx:for-item="imgitem" src="{{imgitem}}@!sheyingxiao" data-url="{{imgitem}}@!sheyingbig" mode="aspectFit" bind:load="loadimg" data-id="{{teamitem.gid+teamitem.id}}" style="width: {{widths[teamitem.gid+teamitem.id]}}rpx" bind:tap="show" lazy-load="{{true}}"/>
+        </scroll-view>
+        <view class="btnbox">
+            <button class="{{btnstyle[teamitem.gid+'g'+teamitem.id]}}" bindtap="vote" data-id="{{teamitem.id}}" data-gid="{{teamitem.gid}}">
+                {{btnstyle[teamitem.gid+'g'+teamitem.id] == 'btn' ? '投票' : '已选中'}}
+            </button>
+            <button class="share" data-id="{{teamitem.id}}" data-gid="{{teamitem.gid}}" open-type="share">
+                <image src="../../../../images/share.png" />
+            </button>
+        </view>
+    </view>
+</view>
+<button class="subbtn" bindtap="sub" disabled="{{submit}}">
+    {{submit ? '暂未选择足够的队伍' : '提交'}}
+</button>
+<text class="guide">
+具体投票规则如下：
+专业摄影组：A组在8组作品中投4票，B组在12组作品中投5票；
+手机摄影组：在20组作品中投9票。
+设计组：A组在8组作品中投4票，B组作品在12组作品中投5票；
+每组必须投满才可以提交最后的投票结果。
+最终进行总票数的清洗工作，虚假票数会被删掉。</text>
+<text class="guide">
+【注意事项】
+1、投票前需绑定学号，每个微信号绑定一个学号，每天可投一次；
+2、若存在用虚假学号刷票行为，将直接被拉黑并取消资格；
+3、线上投票时间为：11月9日12:00 - 11月12日12:00
+4、具体分数会在QQ群公示
+      专业摄影组：935568384 
+      手机摄影组：541050692 
+      设计组：935569490</text>
+<view class="showbox" hidden="{{visible}}" bind:tap="cancel">
+<image  class="show" src="{{url}}" bind:tap="cancel" mode="widthFix" bind:load="loadover"/>
+<text class="showguide">{{showguide}}</text>
+</view>

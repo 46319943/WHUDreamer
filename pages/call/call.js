@@ -59,7 +59,7 @@ Page({
                         } else if(res.data.errcode === 50024){
                           login.show('助力失败');
                         }else if(res.data.errcode === 50026){
-                          login.show(res.date.title);
+                          login.show(res.data.title);
                         }else{login.show(res.data.errmsg);}
                       },
                     })

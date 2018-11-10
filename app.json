@@ -60,7 +60,8 @@
     "pages/app/eca/index/index",
     "pages/app/eca/picker/picker",
     "pages/app/eca/result/result",
-    "pages/app/temporary/temporary"
+    "pages/app/temporary/temporary",
+    "pages/app/vote/sheying/index"
   ],
   "window": {
     "navigationStyle": "default",

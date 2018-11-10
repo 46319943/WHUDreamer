@@ -1,0 +1,224 @@
+@font-face {
+    font-family: 'youyuan';
+    src: url('https://whusu.oss-cn-shanghai.aliyuncs.com/dreamer/fonts/yueyuan.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+page{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    box-sizing: border-box;
+    padding-left: 10rpx;
+    padding-right: 10rpx
+}
+
+view.groupbox{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    box-sizing: border-box;
+    margin-bottom: 100rpx
+}
+
+view.votebox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20rpx;
+    padding-bottom: 10rpx;
+    box-sizing: border-box
+}
+
+view.btnbox{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20rpx
+}
+
+scroll-view.imgbox{
+    max-width: 90%;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: scroll;
+    height: 300rpx !important;
+    white-space: nowrap;
+    padding-left: 20rpx;
+    padding-right: 20rpx
+}
+
+.shadow1{
+    position:relative;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3),0 0 40px rgba(0,0,0,0.1) inset;
+}
+.shadow1:after{
+    content:"";
+    position:absolute;
+    background:transparent;
+    top:50%;
+    bottom: 1px;
+    left: 10px;
+    right: 10px; 
+    z-index: -1;
+    box-shadow: 0 0 20px rgba(0,0,0,0.7); 
+    border-radius: 100px/10px;
+}
+
+.shadow2{
+    position:relative;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3),0 0 40px rgba(0,0,0,0.1) inset;
+}
+.shadow2:before,.shadow2:after{
+    content: "";
+    position:absolute; 
+    top:20px;bottom: 22px;  
+    background: transparent; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.7);  
+    z-index: -1; 
+    background: #fff; 
+}
+.shadow2:before{ 
+    left: 22px;  
+    right:12px; 
+    transform: skew(-12deg) rotate(-4deg); 
+}
+.shadow2:after{  
+    left: 12px;  
+    right:22px; 
+    transform: skew(12deg) rotate(4deg); 
+}
+
+view.title{
+    font-family: 'youyuan';
+    font-size: 30rpx;
+    font-weight: 600
+}
+
+view.author{
+    font-family: 'youyuan';
+    font-size: 20rpx;
+    color: #999999
+}
+
+view.groupname{
+    font-family: 'youyuan';
+    font-size: 35rpx;
+    font-weight: 600
+}
+
+text.guide{
+    font-family: 'youyuan';
+    font-size: 25rpx;
+    color: #cccccc;
+    padding-left: 10rpx;
+    padding-right: 10rpx
+}
+
+image{
+    height: 100%;
+}
+.share{
+    background-color: transparent;
+    color: white;
+    width: 70rpx;
+    height: 70rpx;
+    border: none;
+    border-radius: 35rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 0;
+    margin-right: 0
+}
+.share>image{
+    width: 50rpx;
+    height: 50rpx;
+    
+}
+.btn{
+    background-color: #67c6c2;
+    color: white;
+    width: 200rpx;
+    height: 70rpx;
+    border: none;
+    border-radius: 50rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 35%
+}
+.btn2{
+    background-color: #99CC99;
+    color: white;
+    width: 200rpx;
+    height: 70rpx;
+    border: none;
+    border-radius: 50rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 35%
+}
+.subbtn{
+    background-color: #99CC99;
+    color: white;
+    width: 400rpx;
+    height: 70rpx;
+    border: none;
+    border-radius: 50rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx
+}
+
+.showbox{
+    position: fixed;
+    z-index: 990;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    background: rgba(0, 0, 0, 0.5);
+}
+.show{
+    width: 100%;
+    z-index: 9999;
+    opacity: 1 !important;
+    float: left;
+
+}
+.showguide{
+    z-index: 998;
+    opacity: 1 !important;
+    font-family: 'youyuan';
+    font-size: 35rpx;
+    font-weight: 600;
+    color: white;
+    float: left;
+    position: absolute;
+    top: 500rpx
+}

@@ -128,12 +128,19 @@ Page({
         icon: '../../images/eca.png',
       },
       {
+        name: '摄影大赛',
+        url: 'vote/sheying/index',
+        color: '#99CCFF',
+        icon: '../../images/sheying.png',
+      },
+      /**
+      {
         name: '音乐会',
         url: 'temporary/temporary',
         color: '#CC3333',
         icon: '../../images/temporary.png',
       },
-       /**
+       
       {
         name: '查询宿舍',
         color: 'rgba(64, 174, 252, 1)',
@@ -254,7 +261,8 @@ Page({
     wx.navigateTo({ url: `../pdf/pdf?num=${this.data.account.studentnum}&code=${new Date().getTime()}` });
   },
   onLoad: function (query) {
-    
+    var type = query.type;
+    if(type == 2) wx.navigateTo({url: 'vote/sheying/index'});
     ajax({
       method: 'GET',
       url: 'base/banner/get/2',
