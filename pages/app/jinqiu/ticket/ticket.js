@@ -58,16 +58,19 @@ Page({
           } else{
             that.setData({disable: false, leftTime: "点击抢票", start: true})
           }
+          if(parseInt(res.data.data.surplus) == 0) that.setData({leftTime: "票已抢空", disable: true});
         } else{login.show(res.data.errmsg);}
       },
     })
   },
   ticket: function(e){
     var that = this;
+    that.setData({leftTime: "正在抢票", disable: true});
     wx.request({
       url: 'https://1492644395495447.cn-shanghai.fc.aliyuncs.com/2016-08-15/proxy/dreamer_test_ide_one/ticket/?sn='+globalData.account.studentNum+'&uid='+that.data.data.uid+'&id='+that.data.data.id,
       success: function(res){
         console.log(res)
+        that.setData({leftTime: "抢票", disable: false});
         if(res.data == 0) wx.redirectTo({url: 'success/success?type=1'});
         else if(res.data == 50002) login.show('您的已抢票数已达上限');
         else if(res.data == 50001) wx.redirectTo({url: 'fail/fail'});

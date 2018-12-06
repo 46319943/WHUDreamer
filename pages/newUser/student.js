@@ -120,7 +120,15 @@ Page({
     })
   },
   special: function(e){
-    if(e.detail.value['4'] != '3' && e.detail.value.length > 4){
+    console.log(e);
+    
+    if(e.detail.value[4] == '2' && e.detail.value.length > 4){
+      console.log(e.detail.value);
+      login.show('请使用研究生绑定系统');
+      setTimeout(() => { wx.navigateTo({url: '/pages/graduatestu/graduatestu'}) }, 1000);
+      return;
+    }
+    if(e.detail.value[4] != '3' && e.detail.value.length > 4){
       console.log(e.detail.value);
       login.show('非本科生使用临时绑定功能');
       setTimeout(() => { wx.navigateTo({url: '/pages/app/ticket/bind/bind'}) }, 1000);

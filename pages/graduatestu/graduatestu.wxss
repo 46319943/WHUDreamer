@@ -1,0 +1,133 @@
+/* pages/app/ticket/bind/bind.wxss */
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    width: 90%
+}
+
+input{
+    
+    height: 60rpx;
+    font-size: 30rpx;
+    line-height: 60rpx;
+    flex-grow: 1;
+    text-align: left;
+    width: 230rpx !important;
+    padding-left: 0 !important
+    
+}
+picker {
+    height: 60rpx;
+    font-size: 30rpx;
+    line-height: 60rpx;
+    
+    text-align: left
+}
+.line{
+    height: 90rpx;
+    border-bottom: 1rpx #CCCCCC solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center
+    
+}
+.label{
+    height: 60rpx;
+    width: 170rpx;
+    font-size: 32rpx;
+    line-height: 60rpx;
+    font-weight: 550;
+    text-align: left
+}
+.label1{
+    height: 70rpx;
+    width: 170rpx;
+    font-size: 32rpx;
+    line-height: 60rpx;
+    font-weight: 550;
+    text-align: left
+}
+
+
+
+input[disabled]{
+    color: #aaa;
+}
+
+button.getPhone{
+    display: inline-block;
+    
+    height: 100%;
+    flex-grow: 1;
+    
+}
+
+
+button.getCode{
+    display: flex;
+    font-size: 30rpx;
+    width: 60%;
+    height: 100%;
+    flex-grow: 1;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    border-left: 1rpx #CCCCCC solid
+    
+}
+
+/* image{
+    display: inline-block;
+    vertical-align: top;
+    height: 80rpx;
+    width: 35%;
+    position: relative;
+    top: -10rpx;
+} */
+
+button[form-type='submit']{
+    
+    margin: 20rpx auto;
+}
+
+
+
+button {
+  background-color: white;
+  color: green;
+  border: solid #CCCCCC 1rpx;
+  border-radius: 0
+        
+}
+button.getPhone{
+    background: white;
+    border: none;
+    color: #0066CC;
+    font-size: 25rpx;
+    border-radius: 0;
+    margin: 20rpx auto;
+    margin-right: 0
+
+    
+}
+button::after{ border: none; }
+page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center
+}
+
+.img {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.capt{
+    width: 200rpx
+}

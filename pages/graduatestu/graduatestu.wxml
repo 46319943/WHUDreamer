@@ -1,13 +1,11 @@
-
 <form bind:submit="formSubmit" report-submit="{{true}}">
     <view class="line">
         <view class="label">学号</view>
-        <input name='id' placeholder="教务系统帐号" type="number" bindinput='special' disabled="{{studentNum}}" value="{{studentNum ? studentNum : ''}}"/>
+        <input name='id' placeholder="教务系统帐号" type="number" />
     </view>
-    <view class="test"></view>
     <view class="line">
         <view class="label">密码</view>
-        <input name='pass' placeholder="教务系统密码" password="{{true}}" />
+        <input name='pass' placeholder="统一身份平台密码" password="{{true}}" />
     </view>
     <view class="line">
         <view class="label">邮箱</view>
@@ -20,12 +18,19 @@
     </view>
     <view class="line" wx:if="{{!code}}">
         <view class="label" style='width: 220rpx'>验证码</view>
-        <input name='verify' placeholder="短信验证码" type="number" style='margin-left: 30rpx'/>
+        <input name='verify' placeholder="短信验证码" type="number" />
         
         <button class="getCode" bind:tap='getCode' disabled="{{!codeAble}}" >{{codeAble ? '获取验证码' : '稍后重试'}}</button>
         <!-- <image src="{{verify}}" bind:tap="verify"/> -->
     </view>
+    <view class="line" wx:if="{{needCapt}}">
+        <view class="label1" style='width: 220rpx'>图形验证码</view>
+        <input name='capt' placeholder="图形验证码" type="text" />
+        
+        <image class="capt" src="{{capturl}}" mode="widthFix" bind:tap="changecapt"></image>
+        <!-- <image src="{{verify}}" bind:tap="verify"/> -->
+    </view>
     <button class="getPhone" open-type="getPhoneNumber" bind:getphonenumber="getPhone">点击自动填写手机号</button>
-    <button form-type="submit" >{{submitting ? '正在提交' : '提交'}}</button>
+    <button form-type="{{userInfo ? 'submit' : ''}}" open-type="{{userInfo ? 'getUserInfo' : 'getUserInfo'}}" bindgetuerinfo='getUserInfo'>{{submitting ? '正在提交' : '提交'}}</button>
 </form>
-<image src='https://whusu.oss-cn-shanghai.aliyuncs.com/media/img/signup.png' class='img'></image>
+<image src='https://whusu.oss-cn-shanghai.aliyuncs.com/media/img/signup_yj.png' class='img'></image>

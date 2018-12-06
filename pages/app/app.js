@@ -8,8 +8,6 @@
 
 
 
-
-
 let app = getApp();
 let globalData = app.globalData;
 let handler = globalData.handler;
@@ -45,6 +43,7 @@ Page({
         url: '../join/step-0/step-0',
         loginRequire: true,
         tapEvent: 'join',
+        display: false,
       },
       {
         name: '院系直推',
@@ -52,6 +51,7 @@ Page({
         icon: '../../images/app-5.png',
         url: 'approve/approve',
         loginRequire: true,
+        display: false,
       },
       {
         name: '报名查询',
@@ -59,6 +59,7 @@ Page({
         icon: '../../images/app-8.png',
         url: 'manager/manager',
         loginRequire: true,
+        display: false,
       },
       {
         name: '电子简历',
@@ -67,58 +68,43 @@ Page({
         url: `../pdf/pdf`,
         loginRequire: true,
         tapEvent: 'pdf',
+        display: false,
       },
       {
         name: '面试管理',
         url: 'location/location',
         color: 'rgba(64, 174, 252, 1)',
-        icon: '../../images/app-2.png'
+        icon: '../../images/app-2.png',
+        display: false,
       },*/
-      {
-        name: '日志',
-        color: 'rgba(64, 174, 252, 1)',
-        icon: '../../images/app-3.png'
-      },
-      {
-        name: '动态发布',
-        color: 'rgba(64, 174, 252, 1)',
-        icon: '../../images/app-4.png'
-      },
-
-      {
-        name: '订邮',
-        color: 'rgba(229, 79, 79, 1)',
-        icon: '../../images/app-6.png'
-      },
-      {
-        name: '文件中心',
-        color: 'rgba(64, 174, 252, 1)',
-        icon: '../../images/app-7.png'
-      },
       {
         name: '讲师库',
         url: 'teacher/apply/apply',
         color: 'rgba(64, 174, 252, 1)',
-        icon: '../../images/app-2.png'
+        icon: '../../images/app-2.png',
+        display: false,
       },
 
       {
         name: '检票',
         url: 'jinqiucheck/check',
         color: '#663366',
-        icon: '../../images/app-9.png',
+        icon: '../../images/scan.svg',
+        display: false,
       },
       {
-        name: '金秋抢票',
+        name: '活动抢票',
         url: 'jinqiu/jinqiu',
         color: '#FFCC00',
-        icon: '../../images/jinqiucheck.png',
+        icon: '../../images/ticket.svg',
+        display: false,
       },
       {
         name: '汉语角',
         url: 'chinese/chinese',
         color: '#CC3333',
         icon: '../../images/chinese_lion.png',
+        display: false,
       },
       
       {
@@ -126,39 +112,72 @@ Page({
         url: 'eca/index/index',
         color: '#f86913',
         icon: '../../images/eca.png',
+        display: false,
       },
+      {
+        name: '签到',
+        color: 'rgba(64, 174, 252, 1)',
+        icon: '../../images/sign.png',
+        url: 'signin/signin',
+        display: false,
+      },
+      {
+        name: '日志',
+        color: 'rgba(64, 174, 252, 1)',
+        icon: '../../images/app-3.png',
+        display: false,
+      },
+      {
+        name: '动态发布',
+        color: 'rgba(64, 174, 252, 1)',
+        icon: '../../images/app-4.png',
+        display: false,
+      },
+
+      {
+        name: '订邮',
+        color: 'rgba(229, 79, 79, 1)',
+        icon: '../../images/app-6.png',
+        display: false,
+      },
+      {
+        name: '文件中心',
+        color: 'rgba(64, 174, 252, 1)',
+        icon: '../../images/app-7.png',
+        display: false,
+      },
+      /**
       {
         name: '摄影大赛',
         url: 'vote/sheying/index',
         color: '#99CCFF',
         icon: '../../images/sheying.png',
+        display: false,
       },
-      /**
+      
       {
         name: '音乐会',
         url: 'temporary/temporary',
         color: '#CC3333',
         icon: '../../images/temporary.png',
+        display: false,
       },
        
       {
         name: '查询宿舍',
         color: 'rgba(64, 174, 252, 1)',
         icon: '../../images/app-8.png',
-        url: 'domitory/domitory'
+        url: 'domitory/domitory',
+        display: false,
       },
       {
         name: '抢票',
         color: '#33CC33',
         icon: '../../images/app-9.png',
-        url: 'ticket/ticket'
+        url: 'ticket/ticket',
+        display: false,
       },*/
-      {
-        name: '签到',
-        color: 'rgba(64, 174, 252, 1)',
-        icon: '../../images/sign.png',
-        url: 'signin/signin'
-      },
+      
     ]
   },
   
@@ -172,6 +191,11 @@ Page({
     login.flush();
     // 刷新用户信息
     login.setAccount(this);
+    let apps = this.data.apps;
+    for(let i in globalData.account.app){
+      apps[globalData.account.app[i]].display = true;
+    }
+    this.setData({apps});
   },
 
   /**
@@ -289,8 +313,12 @@ Page({
   },
   click: function (e) {
     let url = e.currentTarget.dataset.url;
-    if (url && url.indexOf('http') === 0) {
-      wx.navigateTo({ url: '../html/html?url=' + url });
+    //url = 'page://vote/sheying/index';
+    if (url && url.indexOf('http') === 0 && handler.cookie) {
+      wx.navigateTo({ url: '../html/html?url=' + url + "&phpsessid="+handler.cookie});
+    }
+    if (url && url.indexOf('page') === 0) {
+      wx.navigateTo({ url: url.split('page://')[1] });
     }
   }
 

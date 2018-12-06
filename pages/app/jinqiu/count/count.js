@@ -36,6 +36,30 @@ Page({
       },
     })
     ajax({
+      url: 'grab/get/msgid',
+      method: 'GET',
+      success: res => {
+        if (res.data.errcode === 0) {
+          that.setData({activityid: res.data.activity_id,shareimg: res.data.imgUrl, shareinfo: res.data.data})
+          console.log(that.data.shareinfo.member_count);
+          wx.updateShareMenu({
+            withShareTicket: true,
+            isUpdatableMessage: true,
+            activityId: that.data.activityid, // 活动 ID
+            templateInfo: {
+              parameterList: [{
+                name: 'member_count',
+                value: res.data.data.member_count
+              }, {
+                name: 'room_limit',
+                value: res.data.data.room_limit
+              }]
+            }
+          })
+        } else{login.show(res.data.errmsg);}
+      },
+    })
+    ajax({
       url: `jinqiu/get/callusercount`,
       method: 'GET',
       success: res => {
@@ -92,5 +116,22 @@ Page({
         }
       },
     })
+  },
+  onShareAppMessage: function(e){
+    var that = this;
+    return {
+      title: that.data.data.title + "门票即将开抢，点击加入助力~",
+      imageUrl:  that.data.shareimg ,
+      path: `pages/call/call?scene=`+that.data.shareinfo.openid, //点击分享的图片进到哪一个页面
+      success: function (res) {
+        // 转发成功
+        console.log("转发成功:" + JSON.stringify(res));
+        login.show('转发成功！');
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log("转发失败:" + JSON.stringify(res));
+      }
+    }
   }
 })

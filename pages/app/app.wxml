@@ -26,7 +26,7 @@
     <block wx:for='{{apps}}' wx:key="name">
       <!-- 这里如果写data-loginRequire会变成loginrequire   
     必须写data-login-require才是loginRequire -->
-      <form class='app' report-submit="{{true}}" bind:submit='{{item.tapEvent ? item.tapEvent : "tapEvent"}}' data-url='{{item.url}}' data-login-require='{{item.loginRequire}}' style='background:{{item.url ? "transparent" : "#aaa"}}; {{!item.url ? "display:none;" : ""}};'>
+      <form class='app' report-submit="{{true}}" bind:submit='{{item.tapEvent ? item.tapEvent : "tapEvent"}}' data-url='{{item.url}}' data-login-require='{{item.loginRequire}}' style='background:{{item.url ? "transparent" : "#aaa"}}; {{!item.url ? "display:none;" : ""}}; {{!item.display ? "display:none;" : ""}};'>
         <button form-type="submit">
           <view class='icon' style='background:{{item.color}};'>
             <image src='{{item.icon}}'></image>

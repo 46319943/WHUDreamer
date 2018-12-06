@@ -56,11 +56,14 @@ Page({
                       success: res => {
                         if (res.data.errcode === 0) {
                           login.show('助力成功');
+                          setTimeout(function(){wx.redirectTo({url: '../app/app'})} ,1000);
                         } else if(res.data.errcode === 50024){
                           login.show('助力失败');
+                          setTimeout(function(){wx.redirectTo({url: '../app/app'})} ,1000);
                         }else if(res.data.errcode === 50026){
                           login.show(res.data.title);
-                        }else{login.show(res.data.errmsg);}
+                          setTimeout(function(){wx.redirectTo({url: '../app/app'})} ,1000);
+                        }else{login.show(res.data.errmsg);setTimeout(function(){wx.redirectTo({url: '../app/app'})} ,1000);}
                       },
                     })
                   }

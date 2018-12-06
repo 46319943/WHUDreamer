@@ -15,8 +15,5 @@
     <button class="btn" bindtap="onTap5" style="background-color: #006633">
         常见问题
     </button>
-    <button class="btn" bindtap="onTap6" style="background-color: #663366">
-        配对结果查看
-    </button>
 </view>
 <image class="info" wx:if="{{show}}" src="{{info}}" bind:tap="cancel"/>

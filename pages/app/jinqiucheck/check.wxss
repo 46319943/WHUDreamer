@@ -15,16 +15,18 @@ page{
     justify-content: center;
     align-items: center;
     background-color: transparent;
-    color: white
+    color: white;
+    margin-top: 20rpx
 }
 
 .scantext{
-    width: 140rpx;
+    width: 190rpx;
+    font-size: 35rpx
 }
 
 image.code{
-    height: 70rpx;
-    width: 70rpx;
+    height: 100rpx;
+    width: 100rpx;
 }
 
 .infobox{

@@ -64,7 +64,7 @@ Page({
     })
   },
   onTap6: function(){
-    wx.redirectTo({url: '../result/result'})
+    wx.redirectTo({url: '../../../html/html?url=https://www.wjx.top/m/30621015.aspx'})
   },
   cancel: function(){
     this.setData({show: false})

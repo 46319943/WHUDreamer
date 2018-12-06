@@ -1,8 +1,8 @@
 <view class="card">
     <canvas class='canvas' canvas-id="canvas" binderror="canvasIdErrorCallback">{{guide}}</canvas>
-    <view class="info1">金秋艺术节 | {{data.title}}</view>
+    <view class="info1">{{data.title}}</view>
     <view class="info2">分享至朋友圈并获得{{data.other.praise}}+助力</view>
-    <view class="info3">即可参与今晚抽奖</view>
+    <view class="info3">即可参与今晚抢票</view>
     <view class="guide"  hidden="{{true}}">截图邀请朋友扫码助力</view>
     <button class="btn" loading="{{loading}}" bindtap="run">
         运动免助力

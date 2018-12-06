@@ -104,7 +104,6 @@ Page({
       login.show('请填写验证码');
       return;
     }
-
     let regex = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
     if(! (regex.test(email))){
       login.show('邮箱格式错误');

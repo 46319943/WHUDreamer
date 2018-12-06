@@ -25,6 +25,7 @@ Page({
       success: res => {
         if (res.data.errcode === 0) {
           that.setData({data: res.data.data})
+          if(!res.data.data.qrcode) url='https://whusu.oss-cn-shanghai.aliyuncs.com/media/img/%E9%80%8F%E6%98%8E.png';
         } else{login.show(res.data.errmsg);}
       },
     })
