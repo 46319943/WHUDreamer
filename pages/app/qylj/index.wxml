@@ -1,0 +1,24 @@
+<view class="headBox">
+    <view class="headLeft"><view style="font-weight: 600">总数</view><view style="color: #CC0033; font-size: 23px">{{count}}件</view><view style="color: #999999; font-size: 15px">当前查询条件下的总数</view></view>
+    <view class="headRight" bind:tap="search">查询条件</view>
+</view>
+<view class="giftList">
+    <view class="giftBox" wx:for="{{list}}" wx:for-item="item" bind:tap="info" data-giftid="{{item.giftId}}" data-code="{{item.code}}">
+        <view class="giftHeadBox"><view style="text-align: left; font-size: 18px;font-weight: 600">{{item.name}}·{{item.floor}}</view><view style="text-align: right; color: #999999; font-size: 15px">{{item.type}}</view></view>
+        <view class="giftInfoBox"><view>电话：{{item.phone}}</view><view>编号：{{item.code}}</view></view>
+    </view>
+</view>
+<view class="pageBox">
+    <button class="btn" bindtap="prev">
+        上一页
+    </button>
+    <view class="">{{page}}/{{maxpage}}</view>
+    <button class="btn" bindtap="next">
+        下一页
+    </button>
+</view>
+<view class="tabBox">
+    <view class="tab" style="color: #0099CC">礼物列表</view>
+    <view class="div"></view>
+    <view class="tab" style="border: none" bind:tap="task">配送任务</view>
+</view>

@@ -122,6 +122,20 @@ Page({
         display: false,
       },
       {
+        name: '情邮管理',
+        color: '#212d5e',
+        icon: '../../images/bags.svg',
+        url: 'qylj/index?page=1',
+        display: false,
+      },
+      {
+        name: '情邮珞珈',
+        color: '#212d5e',
+        icon: '../../images/gift.svg',
+        url: "../html/html?url=https://www.whusu.org/qylj/index.html",
+        display: false,
+      },
+      {
         name: '日志',
         color: 'rgba(64, 174, 252, 1)',
         icon: '../../images/app-3.png',
@@ -315,7 +329,7 @@ Page({
     let url = e.currentTarget.dataset.url;
     //url = 'page://vote/sheying/index';
     if (url && url.indexOf('http') === 0 && handler.cookie) {
-      wx.navigateTo({ url: '../html/html?url=' + url + "&phpsessid="+handler.cookie});
+      wx.navigateTo({ url: '../html/html?url=' + url});
     }
     if (url && url.indexOf('page') === 0) {
       wx.navigateTo({ url: url.split('page://')[1] });

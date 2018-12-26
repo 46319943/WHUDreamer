@@ -1,0 +1,23 @@
+<view class="list">
+    <view class="item">
+        <view class="label">揽收区域</view>
+        <picker mode="selector" range="{{baidianlist}}" range-key="text" bindchange="baidianchange">{{baidian ? baidianlist[baidian].text : "不限揽收区域"}}</picker>
+    </view>
+    <view class="item">
+        <view class="label">宿舍区域</view>
+        <picker mode="selector" range="{{sushelist}}" range-key="text" bindchange="sushechange">{{sushe ? sushelist[sushe].text : "不限宿舍区域"}}</picker>
+    </view>
+    <view class="item">
+        <view class="label">宿舍楼</view>
+        <picker mode="selector" range="{{xiangxilist}}" range-key="text" bindchange="xiangxichange" disabled="{{dis}}">{{xiangxi ? xiangxilist[xiangxi].text : "不限宿舍楼"}}</picker>
+    </view>
+    <view class="item2">
+        <view class="label">状态</view>
+        <view class="typeBox">
+            <view wx:for="{{typelist}}" wx:for-item="item" wx:for-index="key" data-key="{{key}}" class="{{typeclass[key]}}" bind:tap="select">{{item}}</view>
+        </view>
+    </view>
+    <button class="btn" bindtap="search">
+        查询
+    </button>
+</view>

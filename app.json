@@ -63,7 +63,12 @@
     "pages/app/temporary/temporary",
     "pages/app/vote/sheying/index",
     "pages/app/grab/index",
-    "pages/graduatestu/graduatestu"
+    "pages/graduatestu/graduatestu",
+    "pages/app/qylj/index",
+    "pages/app/qylj/search/search",
+    "pages/app/qylj/info/info",
+    "pages/app/qylj/change/change",
+    "pages/app/qylj/task/task"
   ],
   "window": {
     "navigationStyle": "default",

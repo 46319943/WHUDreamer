@@ -1,0 +1,41 @@
+<view class="list">
+    <view class="item">
+        <view class="label">礼物编号</view>
+        <input value="{{code}}" bind:change="codechange" disabled="{{true}}"></input>
+    </view>
+    <view class="item">
+        <view class="label">宿舍区域</view>
+        <picker mode="selector" range="{{sushelist}}" range-key="text" bindchange="sushechange" disabled="{{!edit}}">{{sushe ? sushelist[sushe].text : dormarea}}</picker>
+    </view>
+    <view class="item">
+        <view class="label">宿舍楼</view>
+        <picker mode="selector" range="{{xiangxilist}}" range-key="text" bindchange="xiangxichange" disabled="{{!edit}}">{{xiangxi ? xiangxilist[xiangxi].text : floor}}</picker>
+    </view>
+    <view class="item">
+        <view class="label">配送房间</view>
+        <input value="{{room}}" bind:change="roomchange" disabled="{{!edit}}"></input>
+    </view>
+    <view class="item">
+        <view class="label">发货人</view>
+        <input value="{{consignee_name}}" bind:change="cnamechange" disabled="{{true}}"></input>
+    </view>
+    <view class="item">
+        <view class="label" bind:tap="callcphone">发货人手机号</view>
+        <input value="{{consignee_mobile_phone_number}}" bind:change="cphonechange" disabled="{{true}}"></input>
+    </view>
+    <view class="item">
+        <view class="label">收件人</view>
+        <input value="{{name}}" bind:change="namechange" disabled="{{!edit}}"></input>
+    </view>
+    <view class="item">
+        <view class="label" bind:tap="callphone">收件人手机号</view>
+        <input value="{{phone}}" bind:change="phonechange" disabled="{{!edit}}"></input>
+    </view>
+    <view class="item">
+        <view class="label">状态</view>
+        <picker mode="selector" range="{{typelist}}" bindchange="typechange" disabled="{{!variable}}">{{typeliststd[type]}}</picker>
+    </view>
+    <button class="btn" bindtap="update">
+        更新信息
+    </button>
+</view>

@@ -1,0 +1,11 @@
+<view class="scan" bind:tap="scan">扫描揽收</view>
+<view class="divBox"></view>
+<input value="{{code}}" bind:change="codechange" type="number"></input>
+<button class="btn" bindtap="search">
+        搜索
+    </button>
+<view class="tabBox">
+    <view class="tab" style="border: none" bind:tap="list">礼物列表</view>
+    <view class="div"></view>
+    <view class="tab" style="color: #0099CC">配送任务</view>
+</view>
